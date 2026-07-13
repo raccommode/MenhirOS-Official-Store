@@ -1,0 +1,22 @@
+name: Validate official store
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  manifests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install check-jsonschema==0.33.3
+      - run: check-jsonschema --schemafile schemas/store.schema.json store.yaml
+      - run: find apps -name app.yaml -print0 | xargs -0 -n1 check-jsonschema --schemafile schemas/app.schema.json
+      - name: Verify manifest hashes
+        run: ./scripts/verify-hashes.sh
+      - name: Require detached signature
+        run: test -s store.yaml.sig
+

@@ -1,0 +1,55 @@
+schemaVersion: "1"
+id: vaultwarden
+name:
+  en: Vaultwarden
+  fr: Vaultwarden
+description:
+  en: A lightweight, community-compatible password vault server.
+  fr: Un serveur communautaire léger et compatible pour coffre de mots de passe.
+version: 1.36.0
+architectures: [amd64, arm64]
+containers:
+  - name: vaultwarden
+    image: vaultwarden/server:1.36.0@sha256:d626d04934cd1192ad8ced1adb975099fca78cec33ab467d2d3c923cde7f3b0c
+    environment:
+      DOMAIN: "${menhir:appUrl}"
+      SIGNUPS_ALLOWED: "false"
+      ADMIN_TOKEN: "${secret:admin-token}"
+    ports:
+      - container: 80
+        protocol: tcp
+        proxy: true
+    volumes:
+      - name: data
+        target: /data
+        type: app
+    healthcheck:
+      test: [CMD, /healthcheck.sh]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+resources:
+  memoryMinimum: 128M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets:
+  - name: admin-token
+    required: true
+    generate: true
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: consistent
+  paths: [/data]
+  preSnapshot: ["menhir container stop --timeout 30 vaultwarden"]
+  postSnapshot: ["menhir container start vaultwarden"]
+  restore: ["menhir container start vaultwarden"]
+migrations: []
+releaseNotes:
+  en: Initial Menhir integration for Vaultwarden 1.36.0.
+  fr: Intégration Menhir initiale de Vaultwarden 1.36.0.
+securityClassification: critical
+

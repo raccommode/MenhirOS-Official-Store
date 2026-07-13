@@ -1,0 +1,30 @@
+name: Sign official index
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.x"
+      - name: Verify manifest hashes
+        run: ./scripts/verify-hashes.sh
+      - name: Sign index
+        env:
+          MENHIR_STORE_SIGNING_KEY: ${{ secrets.MENHIR_STORE_SIGNING_KEY }}
+          GO111MODULE: "off"
+        run: go run scripts/sign-store.go
+      - name: Commit signature
+        run: |
+          git config user.name "menhir-store-bot"
+          git config user.email "menhir-store-bot@users.noreply.github.com"
+          git add store.yaml.sig
+          git diff --cached --quiet || git commit -m "chore: sign official store index"
+          git push

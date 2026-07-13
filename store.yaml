@@ -1,0 +1,21 @@
+schemaVersion: "1"
+id: menhir-official
+name:
+  en: Menhir Official Store
+  fr: Store officiel Menhir
+description:
+  en: Applications reviewed, tested, and signed by the Menhir OS project.
+  fr: Applications révisées, testées et signées par le projet Menhir OS.
+maintainers:
+  - name: Menhir OS
+    url: https://github.com/raccommode/MenhirOS
+apps:
+  - id: vaultwarden
+    path: apps/vaultwarden/app.yaml
+    sha256: 9187dd3adb9a3e865cd2322d36da5bb9a7006db0f0a1e49a3e24f2c965f72282
+  - id: jellyfin
+    path: apps/jellyfin/app.yaml
+    sha256: 9d31efdf3a6d946dcbd7c0a38fe50f67441259ed053b10046108309c5e8e2aae
+  - id: nextcloud
+    path: apps/nextcloud/app.yaml
+    sha256: 0c0eec37cc6e3ce231cc85a3b0969d0318e91b4957fa8d1401f900b10da50746

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://menhir.local/schemas/app-v1.json",
+  "title": "Menhir application manifest v1",
+  "type": "object",
+  "required": ["schemaVersion", "id", "name", "description", "version", "architectures", "containers", "resources", "secrets", "permissions", "backup", "migrations", "releaseNotes", "securityClassification"],
+  "properties": {
+    "schemaVersion": { "const": "1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "name": { "$ref": "#/$defs/i18n" },
+    "description": { "$ref": "#/$defs/i18n" },
+    "version": { "type": "string", "minLength": 1 },
+    "architectures": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["amd64", "arm64"] } },
+    "containers": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["name", "image"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "image": { "type": "string", "pattern": "^[^@ ]+@sha256:[a-f0-9]{64}$" },
+          "command": { "type": "array", "items": { "type": "string" } },
+          "environment": { "type": "object", "additionalProperties": { "type": "string" } },
+          "ports": { "type": "array", "items": { "$ref": "#/$defs/port" } },
+          "volumes": { "type": "array", "items": { "$ref": "#/$defs/volume" } },
+          "healthcheck": { "$ref": "#/$defs/healthcheck" }
+        }
+      }
+    },
+    "resources": { "type": "object", "required": ["memoryMinimum", "memoryRecommended", "cpuRecommended"], "properties": { "memoryMinimum": { "type": "string" }, "memoryRecommended": { "type": "string" }, "cpuRecommended": { "type": "number", "exclusiveMinimum": 0 } } },
+    "secrets": { "type": "array", "items": { "type": "object", "required": ["name", "required", "generate"], "properties": { "name": { "type": "string" }, "required": { "type": "boolean" }, "generate": { "type": "boolean" } } } },
+    "permissions": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "privileged": { "type": "boolean", "default": false },
+        "hostNetwork": { "type": "boolean", "default": false },
+        "capabilities": { "type": "array", "items": { "type": "string" } },
+        "devices": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "backup": {
+      "type": "object", "required": ["mode", "paths"],
+      "properties": {
+        "mode": { "enum": ["consistent", "crash-consistent"] },
+        "paths": { "type": "array", "items": { "type": "string", "pattern": "^/" } },
+        "preSnapshot": { "type": "array", "items": { "type": "string" } },
+        "postSnapshot": { "type": "array", "items": { "type": "string" } },
+        "restore": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "migrations": { "type": "array", "items": { "type": "object", "required": ["from", "backupRequired", "commands", "rollback"], "properties": { "from": { "type": "string" }, "backupRequired": { "type": "boolean" }, "commands": { "type": "array", "items": { "type": "string" } }, "rollback": { "type": "array", "items": { "type": "string" } } } } },
+    "releaseNotes": { "$ref": "#/$defs/i18n" },
+    "securityClassification": { "enum": ["standard", "sensitive", "critical"] }
+  },
+  "$defs": {
+    "i18n": { "type": "object", "required": ["en", "fr"], "properties": { "en": { "type": "string" }, "fr": { "type": "string" } }, "additionalProperties": { "type": "string" } },
+    "port": { "type": "object", "required": ["container", "protocol", "proxy"], "properties": { "container": { "type": "integer", "minimum": 1, "maximum": 65535 }, "protocol": { "enum": ["tcp", "udp"] }, "proxy": { "type": "boolean" } } },
+    "volume": { "type": "object", "required": ["name", "target", "type"], "properties": { "name": { "type": "string" }, "target": { "type": "string", "pattern": "^/" }, "type": { "enum": ["app", "share", "cache"] } } },
+    "healthcheck": { "type": "object", "required": ["test", "interval", "timeout", "retries"], "properties": { "test": { "type": "array", "items": { "type": "string" } }, "interval": { "type": "string" }, "timeout": { "type": "string" }, "retries": { "type": "integer", "minimum": 1 } } }
+  }
+}

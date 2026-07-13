@@ -1,0 +1,99 @@
+schemaVersion: "1"
+id: nextcloud
+name:
+  en: Nextcloud
+  fr: Nextcloud
+description:
+  en: Private file sync and collaboration backed by PostgreSQL and Redis.
+  fr: Synchronisation et collaboration privées avec PostgreSQL et Redis.
+version: 34.0.1
+architectures: [amd64, arm64]
+containers:
+  - name: nextcloud
+    image: nextcloud:34.0.1@sha256:6444fc5450302534e850b4d23c05b5f06c7b0d25bd5ece716452061454699c58
+    environment:
+      POSTGRES_HOST: database
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: "${secret:database-password}"
+      REDIS_HOST: redis
+      NEXTCLOUD_ADMIN_USER: "${secret:admin-user}"
+      NEXTCLOUD_ADMIN_PASSWORD: "${secret:admin-password}"
+    ports:
+      - container: 80
+        protocol: tcp
+        proxy: true
+    volumes:
+      - name: nextcloud
+        target: /var/www/html
+        type: app
+      - name: files
+        target: /var/www/html/data
+        type: share
+    healthcheck:
+      test: [CMD, curl, -f, http://localhost/status.php]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+  - name: database
+    image: postgres:18-alpine@sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d293595148e674e0a3181de15
+    environment:
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: "${secret:database-password}"
+    volumes:
+      - name: database
+        target: /var/lib/postgresql/data
+        type: app
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U nextcloud"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  - name: redis
+    image: redis:8-alpine@sha256:9d317178eceac8454a2284a9e6df2466b93c745529947f0cd42a0fa9609d7005
+    command: [redis-server, --appendonly, "yes"]
+    volumes:
+      - name: redis
+        target: /data
+        type: app
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 4G
+  cpuRecommended: 2
+secrets:
+  - name: database-password
+    required: true
+    generate: true
+  - name: admin-user
+    required: true
+    generate: false
+  - name: admin-password
+    required: true
+    generate: true
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: consistent
+  paths: [/var/www/html, /var/lib/postgresql/data, /data]
+  preSnapshot:
+    - "menhir exec nextcloud php occ maintenance:mode --on"
+    - "menhir exec database pg_dump -U nextcloud -Fc nextcloud -f /backup/nextcloud.dump"
+  postSnapshot: ["menhir exec nextcloud php occ maintenance:mode --off"]
+  restore:
+    - "menhir exec database pg_restore -U nextcloud -d nextcloud /backup/nextcloud.dump"
+    - "menhir exec nextcloud php occ maintenance:mode --off"
+migrations: []
+releaseNotes:
+  en: Initial Menhir integration for Nextcloud 34.0.1.
+  fr: Intégration Menhir initiale de Nextcloud 34.0.1.
+securityClassification: sensitive
+
