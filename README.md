@@ -20,5 +20,9 @@ ARM64.
 `store.yaml.sig` is a detached base64 Ed25519 signature. The private key exists
 only as a protected GitHub Actions secret; the corresponding public root is
 compiled into Menhir OS. Changing an app manifest requires updating its SHA-256
-in `store.yaml` and producing a new signature.
+in `store.yaml` and producing a new signature. The validation workflow verifies
+that signature against the same immutable public key embedded in Menhir OS; a
+non-empty but forged or stale signature is rejected.
 
+The workflow also resolves every pinned OCI digest and confirms that each image
+actually provides the AMD64 and ARM64 platforms declared by its application.

@@ -9,14 +9,19 @@ jobs:
   manifests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with: { python-version: "3.13" }
-      - run: pip install check-jsonschema==0.33.3
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with: { go-version: "1.24.x" }
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+      - run: pip install check-jsonschema==0.33.3 PyYAML==6.0.2
       - run: check-jsonschema --schemafile schemas/store.schema.json store.yaml
       - run: find apps -name app.yaml -print0 | xargs -0 -n1 check-jsonschema --schemafile schemas/app.schema.json
       - name: Verify manifest hashes
         run: ./scripts/verify-hashes.sh
-      - name: Require detached signature
-        run: test -s store.yaml.sig
-
+      - name: Verify OCI images and architectures
+        run: python scripts/verify-images.py
+      - name: Verify detached Ed25519 signature
+        env: { GO111MODULE: "off" }
+        run: go run scripts/verify-signature.go
