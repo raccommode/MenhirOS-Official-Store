@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: lychee
+name:
+  en: Lychee
+  fr: Lychee
+description:
+  en: lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.
+  fr: Application auto-hébergée de photos et galeries pour votre serveur Menhir.
+version: v7.7.1-ls57
+architectures:
+- amd64
+- arm64
+containers:
+- name: lychee
+  image: lscr.io/linuxserver/lychee:latest@sha256:983300b79ee5b946a2e0b539a76ad2317e5e8bc0b86d4bf10e166b8ac6bacb8f
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: pictures
+    target: /pictures
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Lychee v7.7.1-ls57.
+  fr: Intégration Menhir pour Lychee v7.7.1-ls57.
+securityClassification: standard

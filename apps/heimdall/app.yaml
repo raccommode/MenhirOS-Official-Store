@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: heimdall
+name:
+  en: Heimdall
+  fr: Heimdall
+description:
+  en: heimdall is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either…
+  fr: Application auto-hébergée de tableau de bord pour votre serveur Menhir.
+version: v2.8.1-ls357
+architectures:
+- amd64
+- arm64
+containers:
+- name: heimdall
+  image: lscr.io/linuxserver/heimdall:latest@sha256:97d0cdf2a70da1f276da96051f47926f68b880293b3e1bd3e4d209e11573fb93
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Heimdall v2.8.1-ls357.
+  fr: Intégration Menhir pour Heimdall v2.8.1-ls357.
+securityClassification: standard

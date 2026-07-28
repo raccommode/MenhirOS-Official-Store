@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: brave
+name:
+  en: Brave
+  fr: Brave
+description:
+  en: '[The Brave browser] is a fast, private and secure web browser for PC, Mac and mobile.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 1.92.144-ls117
+architectures:
+- amd64
+- arm64
+containers:
+- name: brave
+  image: lscr.io/linuxserver/brave:latest@sha256:db75e1b5c7f79a795d85883cd5caa753c9d8b8e9a17ce9c393a655bef79d3844
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Brave 1.92.144-ls117.
+  fr: Intégration Menhir pour Brave 1.92.144-ls117.
+securityClassification: standard

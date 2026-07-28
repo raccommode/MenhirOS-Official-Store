@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: sqlitebrowser
+name:
+  en: Sqlitebrowser
+  fr: Sqlitebrowser
+description:
+  en: '[DB Browser for SQLite] is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.'
+  fr: Application auto-hébergée de gestion de bases de données pour votre serveur Menhir.
+version: 3.13.1-r1-ls217
+architectures:
+- amd64
+- arm64
+containers:
+- name: sqlitebrowser
+  image: lscr.io/linuxserver/sqlitebrowser:latest@sha256:f644f58374c06af04b219677aa2316960aadcf3d9c015058e2c83f2ce68be8bf
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Sqlitebrowser 3.13.1-r1-ls217.
+  fr: Intégration Menhir pour Sqlitebrowser 3.13.1-r1-ls217.
+securityClassification: sensitive

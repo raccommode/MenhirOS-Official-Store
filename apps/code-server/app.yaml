@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: code-server
+name:
+  en: Code Server
+  fr: Code Server
+description:
+  en: code-server is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage…
+  fr: Application auto-hébergée de développement pour votre serveur Menhir.
+version: 4.130.0-ls353
+architectures:
+- amd64
+- arm64
+containers:
+- name: code-server
+  image: lscr.io/linuxserver/code-server:latest@sha256:691c8e0560a807a4affefbcf7e729716b372d1df7c57e18ed3a263044cf45908
+  ports:
+  - container: 8443
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Code Server 4.130.0-ls353.
+  fr: Intégration Menhir pour Code Server 4.130.0-ls353.
+securityClassification: standard

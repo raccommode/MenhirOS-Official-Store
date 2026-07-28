@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: qdirstat
+name:
+  en: QDirStat
+  fr: QDirStat
+description:
+  en: '[QDirStat] Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.'
+  fr: Application auto-hébergée de analyse du stockage pour votre serveur Menhir.
+version: 2.0-ls235
+architectures:
+- amd64
+- arm64
+containers:
+- name: qdirstat
+  image: lscr.io/linuxserver/qdirstat:latest@sha256:4e0603c1b044123c8281464bd9380875c9b8a7666351b8c08b7310b916fd378e
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for QDirStat 2.0-ls235.
+  fr: Intégration Menhir pour QDirStat 2.0-ls235.
+securityClassification: standard

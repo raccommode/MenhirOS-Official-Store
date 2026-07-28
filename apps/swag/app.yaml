@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: swag
+name:
+  en: SWAG
+  fr: SWAG
+description:
+  en: SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation and…
+  fr: Application auto-hébergée de publication de services web pour votre serveur Menhir.
+version: 5.7.0-ls474
+architectures:
+- amd64
+- arm64
+containers:
+- name: swag
+  image: lscr.io/linuxserver/swag:latest@sha256:c113b843295279693a14e85f6e4769347793dc4acdfd6cc4aa749f023911ec2b
+  ports:
+  - container: 443
+    protocol: tcp
+    proxy: true
+  - container: 80
+    protocol: tcp
+    proxy: false
+  - container: 443
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for SWAG 5.7.0-ls474.
+  fr: Intégration Menhir pour SWAG 5.7.0-ls474.
+securityClassification: standard

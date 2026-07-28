@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: babybuddy
+name:
+  en: Babybuddy
+  fr: Babybuddy
+description:
+  en: babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
+  fr: Application auto-hébergée de organisation familiale pour votre serveur Menhir.
+version: v2.9.2-ls242
+architectures:
+- amd64
+- arm64
+containers:
+- name: babybuddy
+  image: lscr.io/linuxserver/babybuddy:latest@sha256:5bc064abd3d44c72802eaffa09b9c1f4c5622332562cbfbf2d99ee0f5f33877f
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Babybuddy v2.9.2-ls242.
+  fr: Intégration Menhir pour Babybuddy v2.9.2-ls242.
+securityClassification: standard

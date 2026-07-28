@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: webcord
+name:
+  en: Webcord
+  fr: Webcord
+description:
+  en: '[WebCord] can be summarized as a pack of security and privacy hardenings, Discord features reimplementations, Electron / Chromium / Discord bugs workarounds, stylesheets, internal pages and wrapped https://discord.com page, designed to conform with ToS as…'
+  fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+version: v4.13.0-ls197
+architectures:
+- amd64
+- arm64
+containers:
+- name: webcord
+  image: lscr.io/linuxserver/webcord:latest@sha256:de20865a69187a350afcf3593bc6c806fc2c1de29490a4414f66f9134d240053
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Webcord v4.13.0-ls197.
+  fr: Intégration Menhir pour Webcord v4.13.0-ls197.
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: vivaldi
+name:
+  en: Vivaldi
+  fr: Vivaldi
+description:
+  en: '[Vivaldi] is a Norwegian freeware, cross-platform web browser with a built-in email client developed by Vivaldi Technologies.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 8.1.4087.58-1-ls62
+architectures:
+- amd64
+- arm64
+containers:
+- name: vivaldi
+  image: lscr.io/linuxserver/vivaldi:latest@sha256:a9d2d21500e10b6932b91f95f3102f379aaf0a4ad55b6bbf2f1577f8aafb22ac
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Vivaldi 8.1.4087.58-1-ls62.
+  fr: Intégration Menhir pour Vivaldi 8.1.4087.58-1-ls62.
+securityClassification: standard

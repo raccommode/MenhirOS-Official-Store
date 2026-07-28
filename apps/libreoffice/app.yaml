@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: libreoffice
+name:
+  en: LibreOffice
+  fr: LibreOffice
+description:
+  en: '[LibreOffice] is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice). Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.'
+  fr: Application auto-hébergée de bureautique et documents pour votre serveur Menhir.
+version: 25.8.7.3-r0-ls203
+architectures:
+- amd64
+- arm64
+containers:
+- name: libreoffice
+  image: lscr.io/linuxserver/libreoffice:latest@sha256:13782054f411e06405ecd8bccc65075af012979a88e0b91e9a7a5e7a3e704ba2
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for LibreOffice 25.8.7.3-r0-ls203.
+  fr: Intégration Menhir pour LibreOffice 25.8.7.3-r0-ls203.
+securityClassification: standard

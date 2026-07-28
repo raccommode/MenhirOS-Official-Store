@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: ferdium
+name:
+  en: Ferdium
+  fr: Ferdium
+description:
+  en: '[Ferdium] is a desktop app that helps you organize how you use your favourite apps by combining them into one application.'
+  fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+version: v7.1.2-ls152
+architectures:
+- amd64
+- arm64
+containers:
+- name: ferdium
+  image: lscr.io/linuxserver/ferdium:latest@sha256:56446a790b0de8cf5d2ec96bc7e58b2f41f9274361b8daae0e4d9a6b7971ff62
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Ferdium v7.1.2-ls152.
+  fr: Intégration Menhir pour Ferdium v7.1.2-ls152.
+securityClassification: standard

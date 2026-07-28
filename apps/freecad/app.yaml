@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: freecad
+name:
+  en: Freecad
+  fr: Freecad
+description:
+  en: '[FreeCAD] is a general-purpose parametric 3D computer-aided design (CAD) modeler and a building information modeling (BIM) software application with finite element method (FEM) support.'
+  fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+version: 1.1.3-ls145
+architectures:
+- amd64
+- arm64
+containers:
+- name: freecad
+  image: lscr.io/linuxserver/freecad:latest@sha256:5a1061d8b0d0ae1570caf73a96475a3b30715117cfd47765a2afe242270ede83
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Freecad 1.1.3-ls145.
+  fr: Intégration Menhir pour Freecad 1.1.3-ls145.
+securityClassification: standard

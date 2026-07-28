@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: blender
+name:
+  en: Blender
+  fr: Blender
+description:
+  en: '[Blender] is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. **This image does not…'
+  fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+version: 5.2.0-ls233
+architectures:
+- amd64
+- arm64
+containers:
+- name: blender
+  image: lscr.io/linuxserver/blender:latest@sha256:2f5be29fe2455c2a512b030838e8716352be804c8bfc25da0aa1b8b6b693962f
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Blender 5.2.0-ls233.
+  fr: Intégration Menhir pour Blender 5.2.0-ls233.
+securityClassification: standard

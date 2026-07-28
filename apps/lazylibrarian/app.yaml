@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: lazylibrarian
+name:
+  en: Lazylibrarian
+  fr: Lazylibrarian
+description:
+  en: lazylibrarian is a program to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info. This container is based on the DobyTang…
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: 9247b9f9-ls318
+architectures:
+- amd64
+- arm64
+containers:
+- name: lazylibrarian
+  image: lscr.io/linuxserver/lazylibrarian:latest@sha256:8e990e39ac98f2a327f8e007281c2c249e44f6b4adbf2a66cc4306979e5d4a85
+  ports:
+  - container: 5299
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+  - name: books
+    target: /books
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Lazylibrarian 9247b9f9-ls318.
+  fr: Intégration Menhir pour Lazylibrarian 9247b9f9-ls318.
+securityClassification: standard

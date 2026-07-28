@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: dokuwiki
+name:
+  en: DokuWiki
+  fr: DokuWiki
+description:
+  en: dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built…
+  fr: Application auto-hébergée de gestion de contenu pour votre serveur Menhir.
+version: 2026-07-14a-ls316
+architectures:
+- amd64
+- arm64
+containers:
+- name: dokuwiki
+  image: lscr.io/linuxserver/dokuwiki:latest@sha256:84908a81a71e87868e76230d37b1f36077b5dd4ccf3423f18767d55fa1c62bca
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for DokuWiki 2026-07-14a-ls316.
+  fr: Intégration Menhir pour DokuWiki 2026-07-14a-ls316.
+securityClassification: standard

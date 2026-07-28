@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: wireshark
+name:
+  en: Wireshark
+  fr: Wireshark
+description:
+  en: '[Wireshark] is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises,…'
+  fr: Application auto-hébergée de réseau pour votre serveur Menhir.
+version: 4.6.6-r0-ls319
+architectures:
+- amd64
+- arm64
+containers:
+- name: wireshark
+  image: lscr.io/linuxserver/wireshark:latest@sha256:bddddc101ddae81e2b86ea93af314308b0e01fe2603093ae0f23ad0c2559ba88
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Wireshark 4.6.6-r0-ls319.
+  fr: Intégration Menhir pour Wireshark 4.6.6-r0-ls319.
+securityClassification: standard

@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: sabnzbd
+name:
+  en: SABnzbd
+  fr: SABnzbd
+description:
+  en: sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero…
+  fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+version: 5.0.4-ls263
+architectures:
+- amd64
+- arm64
+containers:
+- name: sabnzbd
+  image: lscr.io/linuxserver/sabnzbd:latest@sha256:f12cb77b4e16d2d60fc8226e433daf69884e83874d90447c6ff1d57ef4247d6f
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: incomplete-downloads
+    target: /incomplete-downloads
+    type: share
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for SABnzbd 5.0.4-ls263.
+  fr: Intégration Menhir pour SABnzbd 5.0.4-ls263.
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: chromium
+name:
+  en: Chromium
+  fr: Chromium
+description:
+  en: '[Chromium] is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: bf9e0b4f-ls46
+architectures:
+- amd64
+- arm64
+containers:
+- name: chromium
+  image: lscr.io/linuxserver/chromium:latest@sha256:5b86c3d40c2fabb9037227597efa665984c29977514429e5ecf7a9895c80bf46
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Chromium bf9e0b4f-ls46.
+  fr: Intégration Menhir pour Chromium bf9e0b4f-ls46.
+securityClassification: standard

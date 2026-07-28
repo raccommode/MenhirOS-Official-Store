@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: changedetection-io
+name:
+  en: ChangeDetection.io
+  fr: ChangeDetection.io
+description:
+  en: changedetection.io provides free, open-source web page monitoring, notification and change detection.
+  fr: Application auto-hébergée de automatisation web pour votre serveur Menhir.
+version: 0.55.8-ls303
+architectures:
+- amd64
+- arm64
+containers:
+- name: changedetection-io
+  image: lscr.io/linuxserver/changedetection.io:latest@sha256:85a222f790f12f4dbcc3da18c37851836b16395854325c0afcf1eac5efe95d88
+  ports:
+  - container: 5000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for ChangeDetection.io 0.55.8-ls303.
+  fr: Intégration Menhir pour ChangeDetection.io 0.55.8-ls303.
+securityClassification: standard

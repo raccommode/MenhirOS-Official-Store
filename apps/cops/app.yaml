@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: cops
+name:
+  en: COPS
+  fr: COPS
+description:
+  en: cops by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server. COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to…
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: 4.5.2-ls2
+architectures:
+- amd64
+- arm64
+containers:
+- name: cops
+  image: lscr.io/linuxserver/cops:latest@sha256:e8479d89b9b800a2da8754c384ba94d9f788a8081f73cfde406906f11a40fee1
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: books
+    target: /books
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for COPS 4.5.2-ls2.
+  fr: Intégration Menhir pour COPS 4.5.2-ls2.
+securityClassification: standard

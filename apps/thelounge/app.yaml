@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: thelounge
+name:
+  en: The Lounge
+  fr: The Lounge
+description:
+  en: thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.
+  fr: Application auto-hébergée de communication IRC pour votre serveur Menhir.
+version: v4.5.2-ls228
+architectures:
+- amd64
+- arm64
+containers:
+- name: thelounge
+  image: lscr.io/linuxserver/thelounge:latest@sha256:7d024aeeccffe53793df7488c606720fcc9214e32c1514c141eb9e6466e7f50a
+  ports:
+  - container: 9000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for The Lounge v4.5.2-ls228.
+  fr: Intégration Menhir pour The Lounge v4.5.2-ls228.
+securityClassification: standard

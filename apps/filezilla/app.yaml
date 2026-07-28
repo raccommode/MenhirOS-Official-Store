@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: filezilla
+name:
+  en: Filezilla
+  fr: Filezilla
+description:
+  en: '[FIleZilla] Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface.'
+  fr: Application auto-hébergée de transfert de fichiers pour votre serveur Menhir.
+version: 3.69.6-1-ls30
+architectures:
+- amd64
+- arm64
+containers:
+- name: filezilla
+  image: lscr.io/linuxserver/filezilla:latest@sha256:06e5972c932e58d5815b5f6400feeaf6fdb54e585bc17dd71d0794c3062bb1ed
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Filezilla 3.69.6-1-ls30.
+  fr: Intégration Menhir pour Filezilla 3.69.6-1-ls30.
+securityClassification: standard

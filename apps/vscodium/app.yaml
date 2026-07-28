@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: vscodium
+name:
+  en: VSCodium
+  fr: VSCodium
+description:
+  en: '[VSCodium] is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.'
+  fr: Application auto-hébergée de développement pour votre serveur Menhir.
+version: 1.126.04524-ls282
+architectures:
+- amd64
+- arm64
+containers:
+- name: vscodium
+  image: lscr.io/linuxserver/vscodium:latest@sha256:8ea900e0c72af3f8c410f89446eb92252d5e19b6dd120d950b788cd214f6312d
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for VSCodium 1.126.04524-ls282.
+  fr: Intégration Menhir pour VSCodium 1.126.04524-ls282.
+securityClassification: standard

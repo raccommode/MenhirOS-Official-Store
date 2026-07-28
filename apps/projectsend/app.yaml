@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: projectsend
+name:
+  en: Projectsend
+  fr: Projectsend
+description:
+  en: projectsend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.
+  fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+version: r2029-ls279
+architectures:
+- amd64
+- arm64
+containers:
+- name: projectsend
+  image: lscr.io/linuxserver/projectsend:latest@sha256:871370e1c85bd8c756be3445733fbc26c17c5e8d73dc5bed728465ca838be458
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Projectsend r2029-ls279.
+  fr: Intégration Menhir pour Projectsend r2029-ls279.
+securityClassification: standard

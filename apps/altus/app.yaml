@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: altus
+name:
+  en: Altus
+  fr: Altus
+description:
+  en: '[Altus] is an Electron-based WhatsApp client with themes and multiple account support.'
+  fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+version: 5.8.1-ls147
+architectures:
+- amd64
+- arm64
+containers:
+- name: altus
+  image: lscr.io/linuxserver/altus:latest@sha256:eb0fc654bb1b631cabd765b1f75501a8a066a3380889e8c57d992c7336990634
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Altus 5.8.1-ls147.
+  fr: Intégration Menhir pour Altus 5.8.1-ls147.
+securityClassification: standard

@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: tautulli
+name:
+  en: Tautulli
+  fr: Tautulli
+description:
+  en: tautulli is a python based web application for monitoring, analytics and notifications for Plex Media Server.
+  fr: Application auto-hébergée de outils multimédias pour votre serveur Menhir.
+version: v2.17.2-ls237
+architectures:
+- amd64
+- arm64
+containers:
+- name: tautulli
+  image: lscr.io/linuxserver/tautulli:latest@sha256:ef7f4329e5029f83bc93a6fef9a06e67b97652573ce3d62402645ba0d933a0be
+  ports:
+  - container: 8181
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Tautulli v2.17.2-ls237.
+  fr: Intégration Menhir pour Tautulli v2.17.2-ls237.
+securityClassification: standard

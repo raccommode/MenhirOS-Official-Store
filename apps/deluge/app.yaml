@@ -1,0 +1,54 @@
+schemaVersion: '1'
+id: deluge
+name:
+  en: Deluge
+  fr: Deluge
+description:
+  en: deluge is a lightweight, Free Software, cross-platform BitTorrent client. * Full Encryption * WebUI * Plugin System * Much more...
+  fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+version: 2.2.0-ls381
+architectures:
+- amd64
+- arm64
+containers:
+- name: deluge
+  image: lscr.io/linuxserver/deluge:latest@sha256:33a939576f7ecfc1227db1a0cb2afce030ce983e620ec9d93c956e3700e21fe9
+  ports:
+  - container: 8112
+    protocol: tcp
+    proxy: true
+  - container: 6881
+    protocol: tcp
+    proxy: false
+  - container: 6881
+    protocol: udp
+    proxy: false
+  - container: 58846
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Deluge 2.2.0-ls381.
+  fr: Intégration Menhir pour Deluge 2.2.0-ls381.
+securityClassification: standard

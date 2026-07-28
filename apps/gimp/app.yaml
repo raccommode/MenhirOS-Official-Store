@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: gimp
+name:
+  en: Gimp
+  fr: Gimp
+description:
+  en: '[GIMP] is a free and open-source raster graphics editor used for image manipulation (retouching) and image editing, free-form drawing, transcoding between different image file formats, and more specialized tasks. It is extensible by means of plugins, and…'
+  fr: Application auto-hébergée de retouche d’images pour votre serveur Menhir.
+version: f294a300-ls141
+architectures:
+- amd64
+- arm64
+containers:
+- name: gimp
+  image: lscr.io/linuxserver/gimp:latest@sha256:41394c394bd1ed1975625715ccc4dfaedf399605af09f862288804011d09b205
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Gimp f294a300-ls141.
+  fr: Intégration Menhir pour Gimp f294a300-ls141.
+securityClassification: standard

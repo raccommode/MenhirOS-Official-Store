@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: helium
+name:
+  en: Helium
+  fr: Helium
+description:
+  en: '[Helium] is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 0.14.9.1-ls28
+architectures:
+- amd64
+- arm64
+containers:
+- name: helium
+  image: lscr.io/linuxserver/helium:latest@sha256:d72b235dc9ed7042d95a62e5fbba0cb13d0a7ad3a727b96e6c41f68c4655ed2a
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Helium 0.14.9.1-ls28.
+  fr: Intégration Menhir pour Helium 0.14.9.1-ls28.
+securityClassification: standard

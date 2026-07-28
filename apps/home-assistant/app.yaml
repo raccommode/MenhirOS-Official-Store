@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: home-assistant
+name:
+  en: Home Assistant
+  fr: Home Assistant
+description:
+  en: '[Home Assistant Core] - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server'
+  fr: Application auto-hébergée de domotique pour votre serveur Menhir.
+version: 2026.7.4-ls233
+architectures:
+- amd64
+- arm64
+containers:
+- name: home-assistant
+  image: lscr.io/linuxserver/homeassistant:latest@sha256:38f813d359e5bad2bbb2771fad06dbef779f29c05951d0de350c34b2094d7b7f
+  ports:
+  - container: 8123
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Home Assistant 2026.7.4-ls233.
+  fr: Intégration Menhir pour Home Assistant 2026.7.4-ls233.
+securityClassification: standard

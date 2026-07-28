@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: healthchecks
+name:
+  en: Healthchecks
+  fr: Healthchecks
+description:
+  en: healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.
+  fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+version: v4.3-ls355
+architectures:
+- amd64
+- arm64
+containers:
+- name: healthchecks
+  image: lscr.io/linuxserver/healthchecks:latest@sha256:7328e46d5bb7a0f8e9e1e73dd46fdc8bef605fb995bb8f8bdcf8a9e84aab5ac1
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  - container: 2525
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Healthchecks v4.3-ls355.
+  fr: Intégration Menhir pour Healthchecks v4.3-ls355.
+securityClassification: standard

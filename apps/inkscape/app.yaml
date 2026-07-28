@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: inkscape
+name:
+  en: Inkscape
+  fr: Inkscape
+description:
+  en: '[Inkscape] is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers.'
+  fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+version: 1.4.2-r8-ls94
+architectures:
+- amd64
+- arm64
+containers:
+- name: inkscape
+  image: lscr.io/linuxserver/inkscape:latest@sha256:4d651665d4e3471a8d59d970e9841d50369baf1c4daa6df206f31caf163c4b22
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Inkscape 1.4.2-r8-ls94.
+  fr: Intégration Menhir pour Inkscape 1.4.2-r8-ls94.
+securityClassification: standard

@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: calibre
+name:
+  en: Calibre
+  fr: Calibre
+description:
+  en: calibre is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both…
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: v9.11.0-ls413
+architectures:
+- amd64
+- arm64
+containers:
+- name: calibre
+  image: lscr.io/linuxserver/calibre:latest@sha256:150db5b3789125a31589a6d296c7419b61ad692e541ee1da78609d8bec9cd4c9
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  - container: 8181
+    protocol: tcp
+    proxy: false
+  - container: 8081
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Calibre v9.11.0-ls413.
+  fr: Intégration Menhir pour Calibre v9.11.0-ls413.
+securityClassification: standard

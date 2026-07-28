@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: mylar3
+name:
+  en: Mylar3
+  fr: Mylar3
+description:
+  en: mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: v0.10.0-ls263
+architectures:
+- amd64
+- arm64
+containers:
+- name: mylar3
+  image: lscr.io/linuxserver/mylar3:latest@sha256:4e105bb091e587bfa37d3d38b6e924695379e2b043e82037d33101396fa5eafc
+  ports:
+  - container: 8090
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: comics
+    target: /comics
+    type: share
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Mylar3 v0.10.0-ls263.
+  fr: Intégration Menhir pour Mylar3 v0.10.0-ls263.
+securityClassification: standard

@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: doublecommander
+name:
+  en: Doublecommander
+  fr: Doublecommander
+description:
+  en: '[Double Commander] is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features some new ideas.'
+  fr: Application auto-hébergée de administration de serveur pour votre serveur Menhir.
+version: 80a43c48-ls319
+architectures:
+- amd64
+- arm64
+containers:
+- name: doublecommander
+  image: lscr.io/linuxserver/doublecommander:latest@sha256:33708f9a2c9d4cc2b39638125707639b3baa005bdfc30bf5898b9eaa25c13510
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Doublecommander 80a43c48-ls319.
+  fr: Intégration Menhir pour Doublecommander 80a43c48-ls319.
+securityClassification: standard

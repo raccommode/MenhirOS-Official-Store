@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: rustdesk
+name:
+  en: Rustdesk
+  fr: Rustdesk
+description:
+  en: '[RustDesk] is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.'
+  fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+version: 1.4.9-ls118
+architectures:
+- amd64
+- arm64
+containers:
+- name: rustdesk
+  image: lscr.io/linuxserver/rustdesk:latest@sha256:9d8de69e687098b14cc434ff546106acccac17b1d20425e845bb891060eb9241
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Rustdesk 1.4.9-ls118.
+  fr: Intégration Menhir pour Rustdesk 1.4.9-ls118.
+securityClassification: standard

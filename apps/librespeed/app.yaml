@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: librespeed
+name:
+  en: LibreSpeed
+  fr: LibreSpeed
+description:
+  en: librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.
+  fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+version: v6.2.0-ls283
+architectures:
+- amd64
+- arm64
+containers:
+- name: librespeed
+  image: lscr.io/linuxserver/librespeed:latest@sha256:e236f2c4473bd85ee0f594e2d1762c4b1497dc48aa2cd7884b7da539d89f6729
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for LibreSpeed v6.2.0-ls283.
+  fr: Intégration Menhir pour LibreSpeed v6.2.0-ls283.
+securityClassification: standard

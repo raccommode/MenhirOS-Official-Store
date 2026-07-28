@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: mstream
+name:
+  en: mStream
+  fr: mStream
+description:
+  en: mstream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.
+  fr: Application auto-hébergée de diffusion multimédia pour votre serveur Menhir.
+version: v6.18.1-ls8
+architectures:
+- amd64
+- arm64
+containers:
+- name: mstream
+  image: lscr.io/linuxserver/mstream:latest@sha256:fda03fd8130d3f449df4bb1e3260eea7fb9c6f44a7630a6647902b883d47d8e4
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: music
+    target: /music
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for mStream v6.18.1-ls8.
+  fr: Intégration Menhir pour mStream v6.18.1-ls8.
+securityClassification: standard

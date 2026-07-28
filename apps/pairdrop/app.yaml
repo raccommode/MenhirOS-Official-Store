@@ -1,0 +1,37 @@
+schemaVersion: '1'
+id: pairdrop
+name:
+  en: Pairdrop
+  fr: Pairdrop
+description:
+  en: '[PairDrop] is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.'
+  fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+version: v1.11.2-ls142
+architectures:
+- amd64
+- arm64
+containers:
+- name: pairdrop
+  image: lscr.io/linuxserver/pairdrop:latest@sha256:db0b99532f262410d4ca932d61eec248e4b6756a05f1516546f4b7baa96f1594
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Menhir integration for Pairdrop v1.11.2-ls142.
+  fr: Intégration Menhir pour Pairdrop v1.11.2-ls142.
+securityClassification: standard

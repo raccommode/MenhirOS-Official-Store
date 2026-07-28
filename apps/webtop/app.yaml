@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: webtop
+name:
+  en: Webtop
+  fr: Webtop
+description:
+  en: webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.
+  fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+version: 48329e58-ls309
+architectures:
+- amd64
+- arm64
+containers:
+- name: webtop
+  image: lscr.io/linuxserver/webtop:latest@sha256:daf2cd3e1f7554078536f599d121a8982768537107cfcd296fbf4446da047991
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Webtop 48329e58-ls309.
+  fr: Intégration Menhir pour Webtop 48329e58-ls309.
+securityClassification: standard

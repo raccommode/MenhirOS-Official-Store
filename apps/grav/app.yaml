@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: grav
+name:
+  en: Grav
+  fr: Grav
+description:
+  en: grav is a Fast, Simple, and Flexible, file-based Web-platform.
+  fr: Application auto-hébergée de gestion de contenu pour votre serveur Menhir.
+version: 2.0.13-ls263
+architectures:
+- amd64
+- arm64
+containers:
+- name: grav
+  image: lscr.io/linuxserver/grav:latest@sha256:d3c9d735b20ab08510754990d8742cc31dfc9f3d749145dfb323ba52772ef655
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Grav 2.0.13-ls263.
+  fr: Intégration Menhir pour Grav 2.0.13-ls263.
+securityClassification: standard

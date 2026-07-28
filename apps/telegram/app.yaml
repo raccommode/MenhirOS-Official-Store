@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: telegram
+name:
+  en: Telegram
+  fr: Telegram
+description:
+  en: '[Telegram] is a cloud-based mobile and desktop messaging app.'
+  fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+version: 7.0.6-ls61
+architectures:
+- amd64
+- arm64
+containers:
+- name: telegram
+  image: lscr.io/linuxserver/telegram:latest@sha256:612a225079ccc82290bb93499fa0bc0c6a0069a4d49713cfc7e8927fa2a72bfc
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Telegram 7.0.6-ls61.
+  fr: Intégration Menhir pour Telegram 7.0.6-ls61.
+securityClassification: standard

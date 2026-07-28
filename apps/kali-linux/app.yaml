@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: kali-linux
+name:
+  en: Kali Linux
+  fr: Kali Linux
+description:
+  en: kali-linux - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.
+  fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+version: 8d3bb537-ls123
+architectures:
+- amd64
+- arm64
+containers:
+- name: kali-linux
+  image: lscr.io/linuxserver/kali-linux:latest@sha256:ce2b1c1c0f977b4550d694dc73c33ae571d8b61c8f1c117f114fdfd0cb58704b
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Kali Linux 8d3bb537-ls123.
+  fr: Intégration Menhir pour Kali Linux 8d3bb537-ls123.
+securityClassification: sensitive

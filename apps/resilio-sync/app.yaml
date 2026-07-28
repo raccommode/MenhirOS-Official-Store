@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: resilio-sync
+name:
+  en: Resilio Sync
+  fr: Resilio Sync
+description:
+  en: resilio-sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it…
+  fr: Application auto-hébergée de sauvegarde et synchronisation pour votre serveur Menhir.
+version: 3.1.2.1076-1-ls253
+architectures:
+- amd64
+- arm64
+containers:
+- name: resilio-sync
+  image: lscr.io/linuxserver/resilio-sync:latest@sha256:d18dc1a01d9000b0fe121d599019782146e05470440949a91e278a02803456b3
+  ports:
+  - container: 8888
+    protocol: tcp
+    proxy: true
+  - container: 55555
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+  - name: sync
+    target: /sync
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Resilio Sync 3.1.2.1076-1-ls253.
+  fr: Intégration Menhir pour Resilio Sync 3.1.2.1076-1-ls253.
+securityClassification: standard

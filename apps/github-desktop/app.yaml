@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: github-desktop
+name:
+  en: GitHub Desktop
+  fr: GitHub Desktop
+description:
+  en: '[Github Desktop] is an open source Electron-based GitHub app. It is written in TypeScript and uses React.'
+  fr: Application auto-hébergée de développement pour votre serveur Menhir.
+version: release-3.4.13-linux1-ls211
+architectures:
+- amd64
+- arm64
+containers:
+- name: github-desktop
+  image: lscr.io/linuxserver/github-desktop:latest@sha256:29b6ba4cbbc041a6fb2d182c514ac06d83d89b43579e95fd6a70f5d0c736153d
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for GitHub Desktop release-3.4.13-linux1-ls211.
+  fr: Intégration Menhir pour GitHub Desktop release-3.4.13-linux1-ls211.
+securityClassification: standard

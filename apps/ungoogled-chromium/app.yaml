@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: ungoogled-chromium
+name:
+  en: Ungoogled Chromium
+  fr: Ungoogled Chromium
+description:
+  en: '[Ungoogled Chromium] is Google Chromium, sans dependency on Google web services.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 150.0.7871.186-1-ls172
+architectures:
+- amd64
+- arm64
+containers:
+- name: ungoogled-chromium
+  image: lscr.io/linuxserver/ungoogled-chromium:latest@sha256:72a2b40cf8b0c5f90eceafc811c659f8900254b3680862ebbad0821bb202d344
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Ungoogled Chromium 150.0.7871.186-1-ls172.
+  fr: Intégration Menhir pour Ungoogled Chromium 150.0.7871.186-1-ls172.
+securityClassification: standard

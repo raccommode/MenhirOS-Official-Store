@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: speedtest-tracker
+name:
+  en: Speedtest Tracker
+  fr: Speedtest Tracker
+description:
+  en: speedtest-tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+  fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+version: v1.14.6-ls164
+architectures:
+- amd64
+- arm64
+containers:
+- name: speedtest-tracker
+  image: lscr.io/linuxserver/speedtest-tracker:latest@sha256:1647a57e0c125eac6c3a5256c499aa8f580fa7d27d0842376277cdf93e137018
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Speedtest Tracker v1.14.6-ls164.
+  fr: Intégration Menhir pour Speedtest Tracker v1.14.6-ls164.
+securityClassification: standard

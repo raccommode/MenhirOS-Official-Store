@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: boinc
+name:
+  en: BOINC
+  fr: BOINC
+description:
+  en: '[BOINC] is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized,…'
+  fr: Application auto-hébergée de calcul scientifique pour votre serveur Menhir.
+version: 8.2.8dfsg202512070716ubuntu24.04.1-ls128
+architectures:
+- amd64
+- arm64
+containers:
+- name: boinc
+  image: lscr.io/linuxserver/boinc:latest@sha256:3f8c8601ad12b83d809ec88f28fbff6026d6f18c62ccacc9397df31844f4b5fe
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  - container: 8181
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for BOINC 8.2.8dfsg202512070716ubuntu24.04.1-ls128.
+  fr: Intégration Menhir pour BOINC 8.2.8dfsg202512070716ubuntu24.04.1-ls128.
+securityClassification: standard

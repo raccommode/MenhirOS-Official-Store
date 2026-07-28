@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: retroarch
+name:
+  en: Retroarch
+  fr: Retroarch
+description:
+  en: '[RetroArch] is a frontend for emulators, game engines and media players. It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface.'
+  fr: Application auto-hébergée de jeux et émulation pour votre serveur Menhir.
+version: 1.22.2ppa1.1-1ubuntu24.04.1-ls81
+architectures:
+- amd64
+- arm64
+containers:
+- name: retroarch
+  image: lscr.io/linuxserver/retroarch:latest@sha256:007f4a1a6cec664110d1c2166368a48936372103a5009a714fe39a0bcf953a7c
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Retroarch 1.22.2ppa1.1-1ubuntu24.04.1-ls81.
+  fr: Intégration Menhir pour Retroarch 1.22.2ppa1.1-1ubuntu24.04.1-ls81.
+securityClassification: standard

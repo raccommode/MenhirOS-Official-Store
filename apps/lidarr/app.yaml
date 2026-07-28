@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: lidarr
+name:
+  en: Lidarr
+  fr: Lidarr
+description:
+  en: lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files…
+  fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+version: 3.1.0.4875-ls36
+architectures:
+- amd64
+- arm64
+containers:
+- name: lidarr
+  image: lscr.io/linuxserver/lidarr:latest@sha256:f60ee67694bc4a218efe0fb2dc0b0021d193ac5f15be2638d17ab4eeb6966946
+  ports:
+  - container: 8686
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: music
+    target: /music
+    type: share
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Lidarr 3.1.0.4875-ls36.
+  fr: Intégration Menhir pour Lidarr 3.1.0.4875-ls36.
+securityClassification: standard

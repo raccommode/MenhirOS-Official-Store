@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: smokeping
+name:
+  en: Smokeping
+  fr: Smokeping
+description:
+  en: smokeping keeps track of your network latency. For a full example of what this application is capable of visit UCDavis.
+  fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+version: 2.9.0-r0-ls178
+architectures:
+- amd64
+- arm64
+containers:
+- name: smokeping
+  image: lscr.io/linuxserver/smokeping:latest@sha256:dc8544b87ef10f205103aedfa14582ea5a564a93ef1a78d361542473b257bc32
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Smokeping 2.9.0-r0-ls178.
+  fr: Intégration Menhir pour Smokeping 2.9.0-r0-ls178.
+securityClassification: standard

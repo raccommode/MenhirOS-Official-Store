@@ -1,0 +1,57 @@
+schemaVersion: '1'
+id: syncthing
+name:
+  en: Syncthing
+  fr: Syncthing
+description:
+  en: syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the…
+  fr: Application auto-hébergée de sauvegarde et synchronisation pour votre serveur Menhir.
+version: v2.1.2-ls226
+architectures:
+- amd64
+- arm64
+containers:
+- name: syncthing
+  image: lscr.io/linuxserver/syncthing:latest@sha256:ae909bee7c41f516be03fd7de72317a44f4a043bcba76884de941b99407b6957
+  ports:
+  - container: 8384
+    protocol: tcp
+    proxy: true
+  - container: 22000
+    protocol: tcp
+    proxy: false
+  - container: 22000
+    protocol: udp
+    proxy: false
+  - container: 21027
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data1
+    target: /data1
+    type: share
+  - name: data2
+    target: /data2
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Syncthing v2.1.2-ls226.
+  fr: Intégration Menhir pour Syncthing v2.1.2-ls226.
+securityClassification: standard

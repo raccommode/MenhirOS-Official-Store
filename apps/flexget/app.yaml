@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: flexget
+name:
+  en: Flexget
+  fr: Flexget
+description:
+  en: flexget is a multipurpose automation tool for all of your media.
+  fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+version: v3.19.31-ls353
+architectures:
+- amd64
+- arm64
+containers:
+- name: flexget
+  image: lscr.io/linuxserver/flexget:latest@sha256:fcfbb0730967601ddd9df5853de4f861af65da602f98f369578c171c11847008
+  ports:
+  - container: 5050
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Flexget v3.19.31-ls353.
+  fr: Intégration Menhir pour Flexget v3.19.31-ls353.
+securityClassification: standard

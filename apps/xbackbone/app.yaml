@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: xbackbone
+name:
+  en: Xbackbone
+  fr: Xbackbone
+description:
+  en: xbackbone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a…
+  fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+version: 3.8.2-ls235
+architectures:
+- amd64
+- arm64
+containers:
+- name: xbackbone
+  image: lscr.io/linuxserver/xbackbone:latest@sha256:8d4d800b727f4d64a6127a727e7adb4a3349081c53defcf855fd5f00c3ae23c3
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Xbackbone 3.8.2-ls235.
+  fr: Intégration Menhir pour Xbackbone 3.8.2-ls235.
+securityClassification: standard

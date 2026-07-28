@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: duplicati
+name:
+  en: Duplicati
+  fr: Duplicati
+description:
+  en: duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft…
+  fr: Application auto-hébergée de sauvegarde et synchronisation pour votre serveur Menhir.
+version: v2.3.0.4_stable_2026-07-09-ls302
+architectures:
+- amd64
+- arm64
+containers:
+- name: duplicati
+  image: lscr.io/linuxserver/duplicati:latest@sha256:e8fb16dbc6251708b8fc5bee02c7e42b798dc1bb75679038e93b3354642be165
+  ports:
+  - container: 8200
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: backups
+    target: /backups
+    type: share
+  - name: source
+    target: /source
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Duplicati v2.3.0.4_stable_2026-07-09-ls302.
+  fr: Intégration Menhir pour Duplicati v2.3.0.4_stable_2026-07-09-ls302.
+securityClassification: standard

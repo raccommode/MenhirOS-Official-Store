@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: piper
+name:
+  en: Piper
+  fr: Piper
+description:
+  en: piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.
+  fr: Application auto-hébergée de intelligence artificielle pour votre serveur Menhir.
+version: 2.3.1-ls118
+architectures:
+- amd64
+- arm64
+containers:
+- name: piper
+  image: lscr.io/linuxserver/piper:latest@sha256:ed8ec66714795afb0ffa16d41b823322314e2405e1134f8b0f3fc2dca2872e6c
+  ports:
+  - container: 10200
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Piper 2.3.1-ls118.
+  fr: Intégration Menhir pour Piper 2.3.1-ls118.
+securityClassification: standard

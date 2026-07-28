@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: ombi
+name:
+  en: Ombi
+  fr: Ombi
+description:
+  en: ombi allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave…
+  fr: Application auto-hébergée de demandes de contenus multimédias pour votre serveur Menhir.
+version: v4.53.10-ls263
+architectures:
+- amd64
+- arm64
+containers:
+- name: ombi
+  image: lscr.io/linuxserver/ombi:latest@sha256:be76ec2c9376186b37354e5e2bbe62d6d7776d509aeb00223eb5024e36a8615c
+  ports:
+  - container: 3579
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Ombi v4.53.10-ls263.
+  fr: Intégration Menhir pour Ombi v4.53.10-ls263.
+securityClassification: standard

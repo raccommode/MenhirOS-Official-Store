@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: piwigo
+name:
+  en: Piwigo
+  fr: Piwigo
+description:
+  en: piwigo is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures.
+  fr: Application auto-hébergée de photos et galeries pour votre serveur Menhir.
+version: 16.4.0-ls351
+architectures:
+- amd64
+- arm64
+containers:
+- name: piwigo
+  image: lscr.io/linuxserver/piwigo:latest@sha256:1706f44c31daf23c1607dd2a6b6724d9fa55cf497da59c9220649335ced79215
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: gallery
+    target: /gallery
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Piwigo 16.4.0-ls351.
+  fr: Intégration Menhir pour Piwigo 16.4.0-ls351.
+securityClassification: standard

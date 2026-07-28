@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: keepassxc
+name:
+  en: KeePassXC
+  fr: KeePassXC
+description:
+  en: '[KeePassXC] is a free and open-source password manager. It started as a community fork of KeePassX (itself a cross-platform port of KeePass).'
+  fr: Application auto-hébergée de gestion de mots de passe pour votre serveur Menhir.
+version: 2.7.12-r1-ls122
+architectures:
+- amd64
+- arm64
+containers:
+- name: keepassxc
+  image: lscr.io/linuxserver/keepassxc:latest@sha256:3638365441baab123d0814c746747b31cf54f9bee3a97244e0dbf29aefcccef8
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for KeePassXC 2.7.12-r1-ls122.
+  fr: Intégration Menhir pour KeePassXC 2.7.12-r1-ls122.
+securityClassification: sensitive

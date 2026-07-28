@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: sonarr
+name:
+  en: Sonarr
+  fr: Sonarr
+description:
+  en: sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files…
+  fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+version: 4.0.19.2979-ls320
+architectures:
+- amd64
+- arm64
+containers:
+- name: sonarr
+  image: lscr.io/linuxserver/sonarr:latest@sha256:24acea2956a0ccb11f103877d9f4f8576600fb34bff34820ed749c2256dab89f
+  ports:
+  - container: 8989
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: tv
+    target: /tv
+    type: share
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Sonarr 4.0.19.2979-ls320.
+  fr: Intégration Menhir pour Sonarr 4.0.19.2979-ls320.
+securityClassification: standard

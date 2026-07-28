@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: bazarr
+name:
+  en: Bazarr
+  fr: Bazarr
+description:
+  en: bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.
+  fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+version: v1.6.0-ls356
+architectures:
+- amd64
+- arm64
+containers:
+- name: bazarr
+  image: lscr.io/linuxserver/bazarr:latest@sha256:ab401a0f361cfad328e444838b13d5b334b189d0f556fc91a3623eb581df36df
+  ports:
+  - container: 6767
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: movies
+    target: /movies
+    type: share
+  - name: tv
+    target: /tv
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Bazarr v1.6.0-ls356.
+  fr: Intégration Menhir pour Bazarr v1.6.0-ls356.
+securityClassification: standard

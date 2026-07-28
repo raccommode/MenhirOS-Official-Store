@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: adguardhome-sync
+name:
+  en: AdGuard Home Sync
+  fr: AdGuard Home Sync
+description:
+  en: adguardhome-sync is a tool to synchronize AdGuardHome config to replica instances.
+  fr: Application auto-hébergée de réseau pour votre serveur Menhir.
+version: v0.9.2-ls170
+architectures:
+- amd64
+- arm64
+containers:
+- name: adguardhome-sync
+  image: lscr.io/linuxserver/adguardhome-sync:latest@sha256:ec449e5ec8220d59c2fa0f8781ced69ae7f0373894db6c373cbc2ff713ca3523
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for AdGuard Home Sync v0.9.2-ls170.
+  fr: Intégration Menhir pour AdGuard Home Sync v0.9.2-ls170.
+securityClassification: standard

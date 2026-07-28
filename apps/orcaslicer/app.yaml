@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: orcaslicer
+name:
+  en: Orcaslicer
+  fr: Orcaslicer
+description:
+  en: '[Orca Slicer] is an open source slicer for FDM printers. OrcaSlicer is fork of Bambu Studio, it was previously known as BambuStudio-SoftFever, Bambu Studio is forked from PrusaSlicer by Prusa Research, which is from Slic3r by Alessandro Ranellucci and the…'
+  fr: Application auto-hébergée de impression 3D pour votre serveur Menhir.
+version: v2.4.2-ls31
+architectures:
+- amd64
+- arm64
+containers:
+- name: orcaslicer
+  image: lscr.io/linuxserver/orcaslicer:latest@sha256:954f3ebbd6b6458e720f080477e2303380dccec118371dfbb042b8040be1f31f
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Orcaslicer v2.4.2-ls31.
+  fr: Intégration Menhir pour Orcaslicer v2.4.2-ls31.
+securityClassification: standard

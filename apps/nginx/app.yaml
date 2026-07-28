@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: nginx
+name:
+  en: NGINX
+  fr: NGINX
+description:
+  en: nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
+  fr: Application auto-hébergée de publication de services web pour votre serveur Menhir.
+version: 1.30.4-r1-ls369
+architectures:
+- amd64
+- arm64
+containers:
+- name: nginx
+  image: lscr.io/linuxserver/nginx:latest@sha256:2823e0566ca11fec515684a18ffd71579b3342fbd82378fcfaa009b4fe374544
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for NGINX 1.30.4-r1-ls369.
+  fr: Intégration Menhir pour NGINX 1.30.4-r1-ls369.
+securityClassification: standard

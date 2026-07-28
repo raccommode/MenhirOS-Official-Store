@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: pwndrop
+name:
+  en: Pwndrop
+  fr: Pwndrop
+description:
+  en: pwndrop is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.
+  fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+version: 1.0.1-ls158
+architectures:
+- amd64
+- arm64
+containers:
+- name: pwndrop
+  image: lscr.io/linuxserver/pwndrop:latest@sha256:85100fb357af141225f7cf8a4c1acacbe8c83b0193505bb940e0a9dab2fabd65
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Pwndrop 1.0.1-ls158.
+  fr: Intégration Menhir pour Pwndrop 1.0.1-ls158.
+securityClassification: sensitive

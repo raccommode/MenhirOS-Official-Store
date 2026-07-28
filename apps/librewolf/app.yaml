@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: librewolf
+name:
+  en: Librewolf
+  fr: Librewolf
+description:
+  en: '[LibreWolf] is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM.'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 153.0-3-ls173
+architectures:
+- amd64
+- arm64
+containers:
+- name: librewolf
+  image: lscr.io/linuxserver/librewolf:latest@sha256:226261998b0fc8f26dd097b252c3090f355325e1348ec4e125e79c3f6ecae080
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Librewolf 153.0-3-ls173.
+  fr: Intégration Menhir pour Librewolf 153.0-3-ls173.
+securityClassification: standard

@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: qbittorrent
+name:
+  en: qBittorrent
+  fr: qBittorrent
+description:
+  en: The qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
+  fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+version: 5.2.3_v2.0.13-ls469
+architectures:
+- amd64
+- arm64
+containers:
+- name: qbittorrent
+  image: lscr.io/linuxserver/qbittorrent:latest@sha256:b024436f8ca665d16d9a997d26fd27fdf867ee5566ba09f32764e7b2976d3e02
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  - container: 6881
+    protocol: tcp
+    proxy: false
+  - container: 6881
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for qBittorrent 5.2.3_v2.0.13-ls469.
+  fr: Intégration Menhir pour qBittorrent 5.2.3_v2.0.13-ls469.
+securityClassification: standard

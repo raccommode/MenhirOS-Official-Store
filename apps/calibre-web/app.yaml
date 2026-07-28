@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: calibre-web
+name:
+  en: Calibre Web
+  fr: Calibre Web
+description:
+  en: calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself. This…
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: 0.6.26-ls392
+architectures:
+- amd64
+- arm64
+containers:
+- name: calibre-web
+  image: lscr.io/linuxserver/calibre-web:latest@sha256:a7277fd8884b3d77e8659a2d82b0974af9812d4c1f4040c98b910da21e764a36
+  ports:
+  - container: 8083
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: books
+    target: /books
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Calibre Web 0.6.26-ls392.
+  fr: Intégration Menhir pour Calibre Web 0.6.26-ls392.
+securityClassification: standard

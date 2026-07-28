@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: vscodium-web
+name:
+  en: VSCodium Web
+  fr: VSCodium Web
+description:
+  en: vscodium-web is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.
+  fr: Application auto-hébergée de développement pour votre serveur Menhir.
+version: 1.126.04524-ls32
+architectures:
+- amd64
+- arm64
+containers:
+- name: vscodium-web
+  image: lscr.io/linuxserver/vscodium-web:latest@sha256:4469ce9185b88ca242fe42f8ffca8ee15d2be3c16aa03257167c0cb6a129eff8
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for VSCodium Web 1.126.04524-ls32.
+  fr: Intégration Menhir pour VSCodium Web 1.126.04524-ls32.
+securityClassification: standard

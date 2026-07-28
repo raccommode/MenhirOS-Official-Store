@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: radarr
+name:
+  en: Radarr
+  fr: Radarr
+description:
+  en: radarr - A fork of Sonarr to work with movies à la Couchpotato.
+  fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+version: 6.3.0.10514-ls312
+architectures:
+- amd64
+- arm64
+containers:
+- name: radarr
+  image: lscr.io/linuxserver/radarr:latest@sha256:e35056574cdc695a9ee745aa1ecda9eab3842450bf4b7b8471b023790fa3861d
+  ports:
+  - container: 7878
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: movies
+    target: /movies
+    type: share
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Radarr 6.3.0.10514-ls312.
+  fr: Intégration Menhir pour Radarr 6.3.0.10514-ls312.
+securityClassification: standard

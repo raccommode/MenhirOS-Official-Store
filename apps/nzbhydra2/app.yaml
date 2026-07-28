@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: nzbhydra2
+name:
+  en: NZBHydra2
+  fr: NZBHydra2
+description:
+  en: nzbhydra2 is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application NZBHydra. It provides easy access to a number of raw and newznab based indexers.
+  fr: Application auto-hébergée de indexation de contenus pour votre serveur Menhir.
+version: v8.9.0-ls98
+architectures:
+- amd64
+- arm64
+containers:
+- name: nzbhydra2
+  image: lscr.io/linuxserver/nzbhydra2:latest@sha256:8a0aa74d18212cc422df646458f728fe7e618e2a102777cbb0ae55e74c697d09
+  ports:
+  - container: 5076
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for NZBHydra2 v8.9.0-ls98.
+  fr: Intégration Menhir pour NZBHydra2 v8.9.0-ls98.
+securityClassification: standard

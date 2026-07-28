@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: kicad
+name:
+  en: KiCad
+  fr: KiCad
+description:
+  en: '[KiCad] - A Cross Platform and Open Source Electronics Design Automation Suite.'
+  fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+version: 10.0.3-r0-ls140
+architectures:
+- amd64
+- arm64
+containers:
+- name: kicad
+  image: lscr.io/linuxserver/kicad:latest@sha256:d9daff48b42f0052de48d07b2138e9e8cb0e484a24e98f63a143d2971b2848f8
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for KiCad 10.0.3-r0-ls140.
+  fr: Intégration Menhir pour KiCad 10.0.3-r0-ls140.
+securityClassification: standard

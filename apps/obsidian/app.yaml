@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: obsidian
+name:
+  en: Obsidian
+  fr: Obsidian
+description:
+  en: '[Obsidian] is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow. You can also publish your notes online, access them offline, and sync them securely with…'
+  fr: Application auto-hébergée de gestion de contenu pour votre serveur Menhir.
+version: v1.12.7-ls140
+architectures:
+- amd64
+- arm64
+containers:
+- name: obsidian
+  image: lscr.io/linuxserver/obsidian:latest@sha256:2702b0b8ad57c0288201ce428ded643a44692abef5b9daf1a693d9f745b48fed
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Obsidian v1.12.7-ls140.
+  fr: Intégration Menhir pour Obsidian v1.12.7-ls140.
+securityClassification: standard

@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: medusa
+name:
+  en: Medusa
+  fr: Medusa
+description:
+  en: medusa is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.
+  fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+version: v1.0.25-ls280
+architectures:
+- amd64
+- arm64
+containers:
+- name: medusa
+  image: lscr.io/linuxserver/medusa:latest@sha256:ef998c87b7c885f4f0d71a114f05e76dca93ad23bd0764aafbd4f58e9e77ba09
+  ports:
+  - container: 8081
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+  - name: tv
+    target: /tv
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Medusa v1.0.25-ls280.
+  fr: Intégration Menhir pour Medusa v1.0.25-ls280.
+securityClassification: standard

@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: grocy
+name:
+  en: Grocy
+  fr: Grocy
+description:
+  en: grocy is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open…
+  fr: Application auto-hébergée de recettes et inventaire pour votre serveur Menhir.
+version: v4.6.0-ls334
+architectures:
+- amd64
+- arm64
+containers:
+- name: grocy
+  image: lscr.io/linuxserver/grocy:latest@sha256:35b2c85b1238f8249c9b349fb03619d1915917e61b2e4bff580729ec87397b4c
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Grocy v4.6.0-ls334.
+  fr: Intégration Menhir pour Grocy v4.6.0-ls334.
+securityClassification: standard

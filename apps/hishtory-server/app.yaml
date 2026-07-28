@@ -1,0 +1,37 @@
+schemaVersion: '1'
+id: hishtory-server
+name:
+  en: Hishtory Server
+  fr: Hishtory Server
+description:
+  en: '[hiSHtory] is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your…'
+  fr: Application auto-hébergée de administration de serveur pour votre serveur Menhir.
+version: v0.335-ls154
+architectures:
+- amd64
+- arm64
+containers:
+- name: hishtory-server
+  image: lscr.io/linuxserver/hishtory-server:latest@sha256:090b342e52b4d7d6300b7ee57dd85e3b3bdfe7bad9eaa087f6b41b9b424e1487
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Menhir integration for Hishtory Server v0.335-ls154.
+  fr: Intégration Menhir pour Hishtory Server v0.335-ls154.
+securityClassification: standard

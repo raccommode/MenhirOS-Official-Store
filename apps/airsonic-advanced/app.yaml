@@ -1,0 +1,54 @@
+schemaVersion: '1'
+id: airsonic-advanced
+name:
+  en: Airsonic Advanced
+  fr: Airsonic Advanced
+description:
+  en: airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one…
+  fr: Application auto-hébergée de diffusion multimédia pour votre serveur Menhir.
+version: 11.1.4-ls188
+architectures:
+- amd64
+- arm64
+containers:
+- name: airsonic-advanced
+  image: lscr.io/linuxserver/airsonic-advanced:latest@sha256:97606fbdc384e215dde7f1de2757e0c91be0e42d05ad6052837e7dc31883cdf6
+  ports:
+  - container: 4040
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: music
+    target: /music
+    type: share
+  - name: playlists
+    target: /playlists
+    type: share
+  - name: podcasts
+    target: /podcasts
+    type: share
+  - name: media
+    target: /media
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Airsonic Advanced 11.1.4-ls188.
+  fr: Intégration Menhir pour Airsonic Advanced 11.1.4-ls188.
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: vscode
+name:
+  en: Visual Studio Code
+  fr: Visual Studio Code
+description:
+  en: '[VS Code] is an integrated development environment developed by Microsoft. This container runs the full desktop application, for a web native version see Code Server.'
+  fr: Application auto-hébergée de développement pour votre serveur Menhir.
+version: 1.129.1-ls16
+architectures:
+- amd64
+- arm64
+containers:
+- name: vscode
+  image: lscr.io/linuxserver/vscode:latest@sha256:00925ddd9a2f65a653dfd5177be419d32e84b06d6e29cc76e968a43f6668eef9
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Visual Studio Code 1.129.1-ls16.
+  fr: Intégration Menhir pour Visual Studio Code 1.129.1-ls16.
+securityClassification: standard

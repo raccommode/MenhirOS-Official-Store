@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: emby
+name:
+  en: Emby
+  fr: Emby
+description:
+  en: emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.
+  fr: Application auto-hébergée de diffusion multimédia pour votre serveur Menhir.
+version: 4.9.5.0-ls289
+architectures:
+- amd64
+- arm64
+containers:
+- name: emby
+  image: lscr.io/linuxserver/emby:latest@sha256:92f20cde837906b37b0ddbe04d6b1f1f24d4e1e644989b117ddade703b13b1d4
+  ports:
+  - container: 8096
+    protocol: tcp
+    proxy: true
+  - container: 8920
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data-tvshows
+    target: /data/tvshows
+    type: share
+  - name: data-movies
+    target: /data/movies
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Emby 4.9.5.0-ls289.
+  fr: Intégration Menhir pour Emby 4.9.5.0-ls289.
+securityClassification: standard

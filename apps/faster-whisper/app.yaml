@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: faster-whisper
+name:
+  en: Faster Whisper
+  fr: Faster Whisper
+description:
+  en: faster-whisper is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.
+  fr: Application auto-hébergée de intelligence artificielle pour votre serveur Menhir.
+version: v3.5.0-ls153
+architectures:
+- amd64
+- arm64
+containers:
+- name: faster-whisper
+  image: lscr.io/linuxserver/faster-whisper:latest@sha256:a2f738a526a12514f9c61ba0f6e01391f54d78b30695afee29ea53a76b55a6fd
+  ports:
+  - container: 10300
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Faster Whisper v3.5.0-ls153.
+  fr: Intégration Menhir pour Faster Whisper v3.5.0-ls153.
+securityClassification: standard

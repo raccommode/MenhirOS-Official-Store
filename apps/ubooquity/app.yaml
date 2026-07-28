@@ -1,0 +1,54 @@
+schemaVersion: '1'
+id: ubooquity
+name:
+  en: Ubooquity
+  fr: Ubooquity
+description:
+  en: ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: 3.1.0-ls91
+architectures:
+- amd64
+- arm64
+containers:
+- name: ubooquity
+  image: lscr.io/linuxserver/ubooquity:latest@sha256:b4c6494d9d436a67077a035513098fd4f9a136c45a2cb2b654d100d9d94e3679
+  ports:
+  - container: 2202
+    protocol: tcp
+    proxy: true
+  - container: 2203
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: books
+    target: /books
+    type: share
+  - name: comics
+    target: /comics
+    type: share
+  - name: files
+    target: /files
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Ubooquity 3.1.0-ls91.
+  fr: Intégration Menhir pour Ubooquity 3.1.0-ls91.
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: firefox
+name:
+  en: Firefox
+  fr: Firefox
+description:
+  en: '[Firefox] Browser, also known as Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. Firefox uses the Gecko layout engine to render web pages, which…'
+  fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+version: 1153.0build1-1xtradeb1.2404.1-ls111
+architectures:
+- amd64
+- arm64
+containers:
+- name: firefox
+  image: lscr.io/linuxserver/firefox:latest@sha256:92f513ce9e4a09027ca513bbd2a396a0ed184a738f3f02fa9a688492b6dacc26
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 3001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Firefox 1153.0build1-1xtradeb1.2404.1-ls111.
+  fr: Intégration Menhir pour Firefox 1153.0build1-1xtradeb1.2404.1-ls111.
+securityClassification: standard

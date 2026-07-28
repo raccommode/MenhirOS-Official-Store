@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: manyfold
+name:
+  en: Manyfold
+  fr: Manyfold
+description:
+  en: manyfold is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.
+  fr: Application auto-hébergée de impression 3D pour votre serveur Menhir.
+version: v0.146.0-ls161
+architectures:
+- amd64
+- arm64
+containers:
+- name: manyfold
+  image: lscr.io/linuxserver/manyfold:latest@sha256:db92fc9be35bb67b4c660e0622882021da82548924d41f4c407e242fdacf0c1b
+  ports:
+  - container: 3214
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: libraries
+    target: /libraries
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Manyfold v0.146.0-ls161.
+  fr: Intégration Menhir pour Manyfold v0.146.0-ls161.
+securityClassification: standard

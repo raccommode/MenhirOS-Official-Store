@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: kavita
+name:
+  en: Kavita
+  fr: Kavita
+description:
+  en: kavita is a fast, feature rich, cross platform reading server. Built with a focus for being a full solution for all your reading needs. Setup your own server and share your reading collection with your friends and family!
+  fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+version: v0.9.0.2-ls117
+architectures:
+- amd64
+- arm64
+containers:
+- name: kavita
+  image: lscr.io/linuxserver/kavita:latest@sha256:ab90fff3a4e214a723274e1cbd32df6a205099e111d1c37f17d3d40341f8c065
+  ports:
+  - container: 5000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Kavita v0.9.0.2-ls117.
+  fr: Intégration Menhir pour Kavita v0.9.0.2-ls117.
+securityClassification: standard

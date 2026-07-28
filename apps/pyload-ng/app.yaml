@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: pyload-ng
+name:
+  en: Pyload Ng
+  fr: Pyload Ng
+description:
+  en: '[pyLoad] is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.'
+  fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+version: 0.5.0b3.dev101-ls246
+architectures:
+- amd64
+- arm64
+containers:
+- name: pyload-ng
+  image: lscr.io/linuxserver/pyload-ng:latest@sha256:1027d179918098b4b870b7886c44139a6dd40f8aa3f99f8e6c382d47c1ccc261
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  - container: 9666
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Menhir integration for Pyload Ng 0.5.0b3.dev101-ls246.
+  fr: Intégration Menhir pour Pyload Ng 0.5.0b3.dev101-ls246.
+securityClassification: standard
