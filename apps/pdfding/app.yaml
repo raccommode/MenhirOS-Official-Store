@@ -15,7 +15,7 @@ containers:
   image: mrmn/pdfding:v1.7.2@sha256:1c7f65f0cf72eea7714c5f892474d803fbcaefdf91b94b509b717542b7db37c7
   environment:
     HOST_NAME: '*'
-    SECRET_KEY: your_secret_key_here
+    SECRET_KEY: ${secret:SECRET_KEY}
     CSRF_COOKIE_SECURE: 'FALSE'
     SESSION_COOKIE_SECURE: 'FALSE'
     DEBUG: 'FALSE'
@@ -34,7 +34,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: SECRET_KEY
+  label:
+    en: Secret Key
+    fr: Secret Key
+  description:
+    en: Secret generated securely for pdfding.
+    fr: Secret généré de façon sécurisée pour pdfding.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

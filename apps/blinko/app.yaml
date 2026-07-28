@@ -16,7 +16,7 @@ containers:
   environment:
     POSTGRES_DB: postgres
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: JWD9bxUR7Um9PaGg7FQZ
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     TZ: Etc/UTC
   volumes:
   - name: postgres-data
@@ -39,8 +39,8 @@ containers:
     NODE_ENV: production
     NEXTAUTH_URL: http://localhost:1111
     NEXT_PUBLIC_BASE_URL: http://localhost:1111
-    NEXTAUTH_SECRET: 22PhaGVvvBTEC5E5G+U+5O1xqdmuzZKzjLeDMvdvB7I=
-    DATABASE_URL: postgresql://postgres:JWD9bxUR7Um9PaGg7FQZ@blinko-postgres:5432/postgres
+    NEXTAUTH_SECRET: ${secret:NEXTAUTH_SECRET}
+    DATABASE_URL: postgresql://postgres:${secret:POSTGRES_PASSWORD}@blinko-postgres:5432/postgres
   ports:
   - container: 1111
     protocol: tcp
@@ -53,7 +53,25 @@ resources:
   memoryMinimum: 768M
   memoryRecommended: 1536M
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for blinko.
+    fr: Secret généré de façon sécurisée pour blinko.
+  required: true
+  generate: true
+- name: NEXTAUTH_SECRET
+  label:
+    en: Nextauth Secret
+    fr: Nextauth Secret
+  description:
+    en: Secret generated securely for blinko.
+    fr: Secret généré de façon sécurisée pour blinko.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

@@ -16,12 +16,12 @@ containers:
   - --max_connections=1000
   - --character-set-server=utf8mb4
   - --collation-server=utf8mb4_unicode_ci
-  - --default-authentication-plugin=mysql_native_password
+  - --default-authentication-plugin=${secret:MYSQL_ROOT_PASSWORD}_native_password
   - --tls_version=TLSv1.2,TLSv1.3
   - --binlog_expire_logs_seconds=604800
   environment:
-    MYSQL_PASSWORD: infini_rag_flow
-    MYSQL_ROOT_PASSWORD: mysql
+    MYSQL_PASSWORD: ${secret:MYSQL_PASSWORD}
+    MYSQL_ROOT_PASSWORD: ${secret:MYSQL_ROOT_PASSWORD}
     TZ: Etc/UTC
   ports:
   - container: 3306
@@ -34,10 +34,10 @@ containers:
   healthcheck:
     test:
     - CMD
-    - mysqladmin
+    - ${secret:MYSQL_ROOT_PASSWORD}admin
     - ping
     - -uroot
-    - -pinfini_rag_flow
+    - -p${secret:MYSQL_PASSWORD}
     interval: 10s
     timeout: 10s
     retries: 10
@@ -47,7 +47,7 @@ containers:
     ES_HOST: ragflow-es01
     INFINITY_HOST: ragflow-infinity
     MINIO_HOST: ragflow-minio
-    MYSQL_HOST: ragflow-mysql
+    MYSQL_HOST: ragflow-${secret:MYSQL_ROOT_PASSWORD}
     OS_HOST: ragflow-opensearch01
     REDIS_HOST: ragflow-redis
     TZ: Etc/UTC
@@ -80,7 +80,7 @@ containers:
 - name: ragflow-es01
   image: elasticsearch:8.11.3@sha256:58a3a280935d830215802322e9a0373faaacdfd646477aa7e718939c2f29292a
   environment:
-    ELASTIC_PASSWORD: infini_rag_flow
+    ELASTIC_PASSWORD: ${secret:MYSQL_PASSWORD}
     TZ: Etc/UTC
   ports:
   - container: 9200
@@ -131,7 +131,7 @@ containers:
   - :9001
   - /data
   environment:
-    MINIO_ROOT_PASSWORD: infini_rag_flow
+    MINIO_ROOT_PASSWORD: ${secret:MYSQL_PASSWORD}
     MINIO_ROOT_USER: rag_flow
     TZ: Etc/UTC
   ports:
@@ -157,8 +157,8 @@ containers:
 - name: ragflow-opensearch01
   image: opensearchproject/opensearch:2.19.1@sha256:72fe2fc84be8295906b8efca020b46c58ed45c8da60cd9b8b49e1991e38e89a4
   environment:
-    OPENSEARCH_INITIAL_ADMIN_PASSWORD: infini_rag_flow_OS_01
-    OPENSEARCH_PASSWORD: infini_rag_flow_OS_01
+    OPENSEARCH_INITIAL_ADMIN_PASSWORD: ${secret:OPENSEARCH_INITIAL_ADMIN_PASSWORD}
+    OPENSEARCH_PASSWORD: ${secret:OPENSEARCH_INITIAL_ADMIN_PASSWORD}
     TZ: Etc/UTC
   ports:
   - container: 9201
@@ -180,7 +180,7 @@ containers:
   command:
   - redis-server
   - --requirepass
-  - infini_rag_flow
+  - ${secret:MYSQL_PASSWORD}
   - --maxmemory
   - 128mb
   - --maxmemory-policy
@@ -198,7 +198,7 @@ containers:
     - CMD
     - redis-cli
     - -a
-    - infini_rag_flow
+    - ${secret:MYSQL_PASSWORD}
     - ping
     interval: 5s
     timeout: 3s
@@ -229,7 +229,34 @@ resources:
   memoryMinimum: 16896M
   memoryRecommended: 33G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: MYSQL_PASSWORD
+  label:
+    en: Mysql Password
+    fr: Mysql Password
+  description:
+    en: Secret generated securely for ragflow.
+    fr: Secret généré de façon sécurisée pour ragflow.
+  required: true
+  generate: true
+- name: MYSQL_ROOT_PASSWORD
+  label:
+    en: Mysql Root Password
+    fr: Mysql Root Password
+  description:
+    en: Secret generated securely for ragflow.
+    fr: Secret généré de façon sécurisée pour ragflow.
+  required: true
+  generate: true
+- name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
+  label:
+    en: Opensearch Initial Admin Password
+    fr: Opensearch Initial Admin Password
+  description:
+    en: Secret generated securely for ragflow.
+    fr: Secret généré de façon sécurisée pour ragflow.
+  required: true
+  generate: true
 permissions:
   privileged: true
   hostNetwork: false

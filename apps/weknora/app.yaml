@@ -15,14 +15,14 @@ containers:
   image: redis:7.0-alpine@sha256:c9d92d840fd011c908f040592857c724ae6d877f2aba5c40ad963276507386b2
   command:
   - redis-server
-  - --requirepass redis123!@#
+  - --requirepass ${secret:REDIS_PASSWORD}
   - --appendonly
   - 'true'
 - name: weknora-postgres
   image: paradedb/paradedb:v0.18.9-pg17@sha256:7ba49d1b8bdc1460f50073c7d33b3306ddec0e9610b49e17a4d32e9a2c95c570
   environment:
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres123!@#
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: WeKnora
   volumes:
   - name: data
@@ -40,8 +40,8 @@ containers:
   environment:
     MAX_FILE_SIZE_MB: '50'
     MINIO_ENDPOINT: minio:9000
-    MINIO_ACCESS_KEY_ID: minioadmin
-    MINIO_SECRET_ACCESS_KEY: minioadmin
+    MINIO_ACCESS_KEY_ID: ${secret:MINIO_ACCESS_KEY_ID}
+    MINIO_SECRET_ACCESS_KEY: ${secret:MINIO_ACCESS_KEY_ID}
     MINIO_BUCKET_NAME: weknora
   healthcheck:
     test:
@@ -66,8 +66,8 @@ containers:
     QDRANT_API_KEY: ''
     QDRANT_USE_TLS: 'false'
     MINIO_ENDPOINT: minio:9000
-    MINIO_ACCESS_KEY_ID: minioadmin
-    MINIO_SECRET_ACCESS_KEY: minioadmin
+    MINIO_ACCESS_KEY_ID: ${secret:MINIO_ACCESS_KEY_ID}
+    MINIO_SECRET_ACCESS_KEY: ${secret:MINIO_ACCESS_KEY_ID}
     MINIO_BUCKET_NAME: weknora
     GIN_MODE: release
     DISABLE_REGISTRATION: 'false'
@@ -75,7 +75,7 @@ containers:
     DB_HOST: weknora-postgres
     DB_PORT: '5432'
     DB_USER: postgres
-    DB_PASSWORD: postgres123!@#
+    DB_PASSWORD: ${secret:POSTGRES_PASSWORD}
     DB_NAME: WeKnora
     TZ: Etc/UTC
     RETRIEVE_DRIVER: postgres
@@ -86,12 +86,12 @@ containers:
     OLLAMA_BASE_URL: http://host.docker.internal:11434
     STREAM_MANAGER_TYPE: redis
     REDIS_ADDR: weknora-redis:6379
-    REDIS_PASSWORD: redis123!@#
+    REDIS_PASSWORD: ${secret:REDIS_PASSWORD}
     REDIS_DB: '0'
     REDIS_PREFIX: '"stream:"'
     TENANT_AES_KEY: weknorarag-api-key-secret-secret
     CONCURRENCY_POOL_SIZE: '5'
-    JWT_SECRET: weknora-jwt-secret
+    JWT_SECRET: ${secret:JWT_SECRET}
     MAX_FILE_SIZE_MB: '50'
   volumes:
   - name: files
@@ -122,8 +122,8 @@ containers:
   - --console-address
   - :9001
   environment:
-    MINIO_ROOT_USER: minioadmin
-    MINIO_ROOT_PASSWORD: minioadmin
+    MINIO_ROOT_USER: ${secret:MINIO_ACCESS_KEY_ID}
+    MINIO_ROOT_PASSWORD: ${secret:MINIO_ACCESS_KEY_ID}
   ports:
   - container: 9000
     protocol: tcp
@@ -185,7 +185,43 @@ resources:
   memoryMinimum: 2560M
   memoryRecommended: 5G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for weknora.
+    fr: Secret généré de façon sécurisée pour weknora.
+  required: true
+  generate: true
+- name: MINIO_ACCESS_KEY_ID
+  label:
+    en: Minio Access Key Id
+    fr: Minio Access Key Id
+  description:
+    en: Secret generated securely for weknora.
+    fr: Secret généré de façon sécurisée pour weknora.
+  required: true
+  generate: true
+- name: REDIS_PASSWORD
+  label:
+    en: Redis Password
+    fr: Redis Password
+  description:
+    en: Secret generated securely for weknora.
+    fr: Secret généré de façon sécurisée pour weknora.
+  required: true
+  generate: true
+- name: JWT_SECRET
+  label:
+    en: Jwt Secret
+    fr: Jwt Secret
+  description:
+    en: Secret generated securely for weknora.
+    fr: Secret généré de façon sécurisée pour weknora.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

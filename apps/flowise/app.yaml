@@ -19,8 +19,8 @@ containers:
     SECRETKEY_PATH: /root/.flowise
     LOG_PATH: /root/.flowise/logs
     BLOB_STORAGE_PATH: /root/.flowise/storage
-    FLOWISE_USERNAME: casaos
-    FLOWISE_PASSWORD: casaos
+    FLOWISE_USERNAME: ${secret:FLOWISE_PASSWORD}
+    FLOWISE_PASSWORD: ${secret:FLOWISE_PASSWORD}
   ports:
   - container: 3025
     protocol: tcp
@@ -33,7 +33,16 @@ resources:
   memoryMinimum: 1G
   memoryRecommended: 2G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: FLOWISE_PASSWORD
+  label:
+    en: Flowise Password
+    fr: Flowise Password
+  description:
+    en: Secret generated securely for flowise.
+    fr: Secret généré de façon sécurisée pour flowise.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

@@ -19,7 +19,7 @@ containers:
   environment:
     HOME: /home/node
     TERM: xterm-256color
-    OPENCLAW_GATEWAY_TOKEN: casaos
+    OPENCLAW_GATEWAY_TOKEN: ${secret:OPENCLAW_GATEWAY_TOKEN}
   ports:
   - container: 18789
     protocol: tcp
@@ -35,7 +35,16 @@ resources:
   memoryMinimum: 1G
   memoryRecommended: 2G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: OPENCLAW_GATEWAY_TOKEN
+  label:
+    en: Openclaw Gateway Token
+    fr: Openclaw Gateway Token
+  description:
+    en: Secret generated securely for openclaw.
+    fr: Secret généré de façon sécurisée pour openclaw.
+  required: true
+  generate: true
 permissions:
   privileged: true
   hostNetwork: false

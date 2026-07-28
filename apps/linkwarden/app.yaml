@@ -15,7 +15,7 @@ containers:
   image: postgres:16-alpine@sha256:57c72fd2a128e416c7fcc499958864df5301e940bca0a56f58fddf30ffc07777
   environment:
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: abc123
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: linkwarden
     TZ: Etc/UTC
   volumes:
@@ -32,7 +32,7 @@ containers:
 - name: linkwarden-meilisearch
   image: getmeili/meilisearch:v1.12.8@sha256:c9fac23131cca4db95173d41cc50fd5639121ee381795528fdd7522d7978a7b8
   environment:
-    MEILI_MASTER_KEY: kZWvi7wFylRjEnOTnNrNucG3d7c892HlIBtN3Vr8M-0
+    MEILI_MASTER_KEY: ${secret:MEILI_MASTER_KEY}
     MEILI_ENV: production
   volumes:
   - name: meili-data
@@ -43,11 +43,11 @@ containers:
   environment:
     TZ: Etc/UTC
     NEXTAUTH_URL: http://localhost:3000/api/v1/auth
-    NEXTAUTH_SECRET: abc123
-    DATABASE_URL: postgresql://postgres:abc123@linkwarden-postgres:5432/linkwarden
+    NEXTAUTH_SECRET: ${secret:POSTGRES_PASSWORD}
+    DATABASE_URL: postgresql://postgres:${secret:POSTGRES_PASSWORD}@linkwarden-postgres:5432/linkwarden
     STORAGE_FOLDER: /data
     MEILI_HOST: http://linkwarden-meilisearch:7700
-    MEILI_MASTER_KEY: kZWvi7wFylRjEnOTnNrNucG3d7c892HlIBtN3Vr8M-0
+    MEILI_MASTER_KEY: ${secret:MEILI_MASTER_KEY}
     NEXT_PUBLIC_DISABLE_REGISTRATION: 'false'
     NEXT_PUBLIC_CREDENTIALS_ENABLED: 'true'
   ports:
@@ -62,7 +62,25 @@ resources:
   memoryMinimum: 1G
   memoryRecommended: 2G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for linkwarden.
+    fr: Secret généré de façon sécurisée pour linkwarden.
+  required: true
+  generate: true
+- name: MEILI_MASTER_KEY
+  label:
+    en: Meili Master Key
+    fr: Meili Master Key
+  description:
+    en: Secret generated securely for linkwarden.
+    fr: Secret généré de façon sécurisée pour linkwarden.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

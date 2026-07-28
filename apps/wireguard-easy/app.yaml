@@ -14,8 +14,8 @@ containers:
 - name: wg-easy
   image: ghcr.io/wg-easy/wg-easy:13@sha256:4c2c591498aa910ce86a90fa00c4714ffd78dd7556b1f488f226471b97346bc6
   environment:
-    PASSWORD: casaos
-    WG_HOST: casaos.local
+    PASSWORD: ${secret:PASSWORD}
+    WG_HOST: ${secret:PASSWORD}.local
     WG_PORT: '51820'
     WG_DEFAULT_DNS: 1.1.1.1
   ports:
@@ -33,7 +33,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: PASSWORD
+  label:
+    en: Password
+    fr: Password
+  description:
+    en: Secret generated securely for wireguard-easy.
+    fr: Secret généré de façon sécurisée pour wireguard-easy.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

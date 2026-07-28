@@ -15,7 +15,7 @@ containers:
   image: pihole/pihole:2026.05.0@sha256:70a9c11171ded2eee735d88c127996da209284a329d50f5ae59c06b861d401b3
   environment:
     TZ: Etc/UTC
-    FTLCONF_webserver_api_password: casaos
+    FTLCONF_webserver_api_password: ${secret:FTLCONF_webserver_api_password}
     FTLCONF_dns_listeningMode: all
   ports:
   - container: 80
@@ -38,7 +38,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: FTLCONF_webserver_api_password
+  label:
+    en: Ftlconf Webserver Api Password
+    fr: Ftlconf Webserver Api Password
+  description:
+    en: Secret generated securely for pi-hole.
+    fr: Secret généré de façon sécurisée pour pi-hole.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

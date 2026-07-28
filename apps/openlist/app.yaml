@@ -15,7 +15,7 @@ containers:
   image: openlistteam/openlist:v4.2.2@sha256:e518d69feb6a2ee7a0db7c4c9a5111e0ab155ec81b7654e39ca917f5678ce0f5
   environment:
     UMASK: '022'
-    OPENLIST_ADMIN_PASSWORD: casaos
+    OPENLIST_ADMIN_PASSWORD: ${secret:OPENLIST_ADMIN_PASSWORD}
   ports:
   - container: 5244
     protocol: tcp
@@ -28,7 +28,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: OPENLIST_ADMIN_PASSWORD
+  label:
+    en: Openlist Admin Password
+    fr: Openlist Admin Password
+  description:
+    en: Secret generated securely for openlist.
+    fr: Secret généré de façon sécurisée pour openlist.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

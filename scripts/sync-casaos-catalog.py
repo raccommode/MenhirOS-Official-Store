@@ -133,6 +133,22 @@ SECRET_VALUE_PATTERNS = (
     re.compile(r"xox[baprs]-[A-Za-z0-9-]{20,}"),
     re.compile(r"AKIA[A-Z0-9]{16}"),
 )
+SECRET_KEY_PATTERN = re.compile(
+    r"(?:^|_)(?:PASSWORD|PASSWD|SECRET|SECRETKEY|TOKEN|APIKEY|API_KEY|"
+    r"PRIVATE_KEY|ENCRYPTION_KEY|CREDENTIALS?|CREDS_KEY|MASTER_KEY|ACCESS_KEY|IV)(?:_|$)"
+)
+NON_SECRET_KEY_PATTERNS = (
+    re.compile(r"^ALLOW_"),
+    re.compile(r"(?:_PATH|_FILE|_URL|_URI|_EXPIRY|_EXPIRES|_TTL|_LENGTH|_ENABLED|_USERS|_RESET)$"),
+)
+USER_PROVIDED_SECRET_PATTERNS = (
+    re.compile(
+        r"^(?:OPENAI|ANTHROPIC|ASSISTANTS|GOOGLE|AWS|AZURE|GITHUB|GITLAB|"
+        r"SLACK|DISCORD|TELEGRAM|COHERE|GROQ|MISTRAL|TOGETHER|PERPLEXITY|"
+        r"HUGGINGFACE|HF|SMTP|OAUTH)_"
+    ),
+    re.compile(r"(?:^|_)(?:CLIENT_SECRET|BOT_TOKEN|WEBHOOK_SECRET)$"),
+)
 
 
 def expand_compose_value(
@@ -186,37 +202,105 @@ def protect_detected_secrets(
     app_id: str,
 ) -> None:
     protected_values: dict[str, str] = {}
+
+    def secret_token(
+        base_name: str,
+        *,
+        generate: bool,
+        required: bool,
+    ) -> str:
+        name = base_name
+        suffix = 2
+        while name in secrets and (
+            secrets[name].get("generate") != generate
+            or secrets[name].get("required") != required
+        ):
+            name = f"{base_name}_{suffix}"
+            suffix += 1
+        secrets[name] = {
+            "name": name,
+            "label": {
+                "en": base_name.replace("_", " ").title(),
+                "fr": base_name.replace("_", " ").title(),
+            },
+            "description": {
+                "en": (
+                    f"Secret generated securely for {app_id}."
+                    if generate
+                    else f"Credential supplied during installation of {app_id}."
+                ),
+                "fr": (
+                    f"Secret généré de façon sécurisée pour {app_id}."
+                    if generate
+                    else f"Identifiant fourni pendant l’installation de {app_id}."
+                ),
+            },
+            "required": required,
+            "generate": generate,
+        }
+        return "${secret:" + name + "}"
+
+    generated_groups: dict[str, list[str]] = {}
     for container in containers:
-        for key, value in (container.get("environment") or {}).items():
+        environment = container.get("environment") or {}
+        for key, value in list(environment.items()):
             if value.startswith("${secret:"):
                 continue
-            if not any(pattern.fullmatch(value) for pattern in SECRET_VALUE_PATTERNS):
+            upper_key = key.upper()
+            known_secret_value = any(
+                pattern.fullmatch(value) for pattern in SECRET_VALUE_PATTERNS
+            )
+            secret_key = SECRET_KEY_PATTERN.search(upper_key) is not None
+            if secret_key and any(
+                pattern.search(upper_key) for pattern in NON_SECRET_KEY_PATTERNS
+            ):
+                secret_key = False
+            if not secret_key and not known_secret_value:
                 continue
-            secret_name = key
-            suffix = 2
-            while secret_name in secrets and not secrets[secret_name].get("generate"):
-                secret_name = f"{key}_{suffix}"
-                suffix += 1
-            secrets[secret_name] = {
-                "name": secret_name,
-                "label": {
-                    "en": key.replace("_", " ").title(),
-                    "fr": key.replace("_", " ").title(),
-                },
-                "description": {
-                    "en": f"Secret generated securely for {app_id}.",
-                    "fr": f"Secret généré de façon sécurisée pour {app_id}.",
-                },
-                "required": True,
-                "generate": True,
-            }
-            protected_values[value] = "${secret:" + secret_name + "}"
+            if not value or "\n" in value or "\r" in value or "\x00" in value:
+                continue
+            user_provided = upper_key == "DEFAULT_ADMIN_PASSWORD" or any(
+                pattern.search(upper_key)
+                for pattern in USER_PROVIDED_SECRET_PATTERNS
+            )
+            if user_provided:
+                environment[key] = secret_token(
+                    key,
+                    generate=False,
+                    required=upper_key == "DEFAULT_ADMIN_PASSWORD",
+                )
+                continue
+            generated_groups.setdefault(value, []).append(key)
+
+    for value, keys in generated_groups.items():
+        protected_values[value] = secret_token(
+            keys[0],
+            generate=True,
+            required=True,
+        )
+
+    def replace_protected(value: str) -> str:
+        for protected, token in sorted(
+            protected_values.items(),
+            key=lambda item: len(item[0]),
+            reverse=True,
+        ):
+            value = value.replace(protected, token)
+        return value
+
     for container in containers:
         environment = container.get("environment") or {}
         for key, value in environment.items():
-            for protected, token in protected_values.items():
-                value = value.replace(protected, token)
-            environment[key] = value
+            environment[key] = replace_protected(value)
+        if container.get("command"):
+            container["command"] = [
+                replace_protected(value) for value in container["command"]
+            ]
+        healthcheck = container.get("healthcheck") or {}
+        if healthcheck.get("test"):
+            healthcheck["test"] = [
+                replace_protected(value) for value in healthcheck["test"]
+            ]
 
 
 def parse_port(value: object) -> tuple[int, str, str] | None:

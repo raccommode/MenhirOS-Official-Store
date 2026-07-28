@@ -38,7 +38,7 @@ containers:
   - effective_cache_size=4096MB
   environment:
     PGUSER: postgres
-    POSTGRES_PASSWORD: difyai123456
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: dify
     PGDATA: /var/lib/postgresql/data/pgdata
   volumes:
@@ -57,9 +57,9 @@ containers:
   command:
   - redis-server
   - --requirepass
-  - difyai123456
+  - ${secret:POSTGRES_PASSWORD}
   environment:
-    REDISCLI_AUTH: difyai123456
+    REDISCLI_AUTH: ${secret:POSTGRES_PASSWORD}
   volumes:
   - name: data
     target: /data
@@ -87,24 +87,24 @@ containers:
     FILES_ACCESS_TIMEOUT: '300'
     MIGRATION_ENABLED: 'true'
     DB_USERNAME: postgres
-    DB_PASSWORD: difyai123456
+    DB_PASSWORD: ${secret:POSTGRES_PASSWORD}
     DB_HOST: db
     DB_PORT: '5432'
     DB_DATABASE: dify
     REDIS_HOST: redis
     REDIS_PORT: '6379'
-    REDIS_PASSWORD: difyai123456
+    REDIS_PASSWORD: ${secret:POSTGRES_PASSWORD}
     REDIS_DB: '0'
-    CELERY_BROKER_URL: redis://:difyai123456@redis:6379/1
+    CELERY_BROKER_URL: redis://:${secret:POSTGRES_PASSWORD}@redis:6379/1
     WEB_API_CORS_ALLOW_ORIGINS: '*'
     CONSOLE_CORS_ALLOW_ORIGINS: '*'
     STORAGE_TYPE: local
     STORAGE_LOCAL_PATH: storage
     VECTOR_STORE: weaviate
     WEAVIATE_ENDPOINT: http://weaviate:8080
-    WEAVIATE_API_KEY: WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
+    WEAVIATE_API_KEY: ${secret:WEAVIATE_API_KEY}
     CODE_EXECUTION_ENDPOINT: http://sandbox:8194
-    CODE_EXECUTION_API_KEY: dify-sandbox
+    CODE_EXECUTION_API_KEY: ${secret:CODE_EXECUTION_API_KEY}
     CODE_MAX_NUMBER: '9223372036854775807'
     CODE_MIN_NUMBER: '-9223372036854775808'
     CODE_MAX_STRING_LENGTH: '80000'
@@ -126,21 +126,21 @@ containers:
     LOG_LEVEL: INFO
     SECRET_KEY: ${secret:SECRET_KEY}
     DB_USERNAME: postgres
-    DB_PASSWORD: difyai123456
+    DB_PASSWORD: ${secret:POSTGRES_PASSWORD}
     DB_HOST: db
     DB_PORT: '5432'
     DB_DATABASE: dify
     REDIS_HOST: redis
     REDIS_PORT: '6379'
-    REDIS_PASSWORD: difyai123456
+    REDIS_PASSWORD: ${secret:POSTGRES_PASSWORD}
     REDIS_DB: '0'
     REDIS_USE_SSL: 'false'
-    CELERY_BROKER_URL: redis://:difyai123456@redis:6379/1
+    CELERY_BROKER_URL: redis://:${secret:POSTGRES_PASSWORD}@redis:6379/1
     STORAGE_TYPE: local
     STORAGE_LOCAL_PATH: storage
     VECTOR_STORE: weaviate
     WEAVIATE_ENDPOINT: http://weaviate:8080
-    WEAVIATE_API_KEY: WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
+    WEAVIATE_API_KEY: ${secret:WEAVIATE_API_KEY}
   volumes:
   - name: storage
     target: /app/api/storage
@@ -159,7 +159,7 @@ containers:
     DEFAULT_VECTORIZER_MODULE: none
     CLUSTER_HOSTNAME: node1
     AUTHENTICATION_APIKEY_ENABLED: 'true'
-    AUTHENTICATION_APIKEY_ALLOWED_KEYS: WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
+    AUTHENTICATION_APIKEY_ALLOWED_KEYS: ${secret:WEAVIATE_API_KEY}
     AUTHENTICATION_APIKEY_USERS: hello@dify.ai
     AUTHORIZATION_ADMINLIST_ENABLED: 'true'
     AUTHORIZATION_ADMINLIST_USERS: hello@dify.ai
@@ -170,7 +170,7 @@ containers:
 - name: sandbox
   image: langgenius/dify-sandbox:0.2.11@sha256:9692656f31212a54f4f275e55d5b49f656357649aeed383e7397877d13854a2e
   environment:
-    API_KEY: dify-sandbox
+    API_KEY: ${secret:CODE_EXECUTION_API_KEY}
     GIN_MODE: release
     WORKER_TIMEOUT: '15'
     ENABLE_NETWORK: 'true'
@@ -208,10 +208,37 @@ resources:
   memoryRecommended: 4G
   cpuRecommended: 2
 secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for dify.
+    fr: Secret généré de façon sécurisée pour dify.
+  required: true
+  generate: true
 - name: SECRET_KEY
   label:
     en: Secret Key
     fr: Secret Key
+  description:
+    en: Secret generated securely for dify.
+    fr: Secret généré de façon sécurisée pour dify.
+  required: true
+  generate: true
+- name: WEAVIATE_API_KEY
+  label:
+    en: Weaviate Api Key
+    fr: Weaviate Api Key
+  description:
+    en: Secret generated securely for dify.
+    fr: Secret généré de façon sécurisée pour dify.
+  required: true
+  generate: true
+- name: CODE_EXECUTION_API_KEY
+  label:
+    en: Code Execution Api Key
+    fr: Code Execution Api Key
   description:
     en: Secret generated securely for dify.
     fr: Secret généré de façon sécurisée pour dify.

@@ -15,7 +15,7 @@ containers:
   image: postgres:15.2-alpine@sha256:d9c304353c031b21e9a7e33dc4781e272a9fa802a2ab9703fe4199d72ba1422c
   environment:
     POSTGRES_USER: ztnet
-    POSTGRES_PASSWORD: ztnetbl5hbv98wl89x9v
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: ztnet
   volumes:
   - name: postgres-data
@@ -28,10 +28,10 @@ containers:
     POSTGRES_HOST: ztnet-postgres
     POSTGRES_PORT: '5432'
     POSTGRES_USER: ztnet
-    POSTGRES_PASSWORD: ztnetbl5hbv98wl89x9v
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: ztnet
     NEXTAUTH_URL: http://0.0.0.0:3050
-    NEXTAUTH_SECRET: mn6vor005ncgnu9iuqxn8bg
+    NEXTAUTH_SECRET: ${secret:NEXTAUTH_SECRET}
     NEXTAUTH_URL_INTERNAL: http://ztnet:3000
   ports:
   - container: 3000
@@ -41,7 +41,25 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for ztnet.
+    fr: Secret généré de façon sécurisée pour ztnet.
+  required: true
+  generate: true
+- name: NEXTAUTH_SECRET
+  label:
+    en: Nextauth Secret
+    fr: Nextauth Secret
+  description:
+    en: Secret generated securely for ztnet.
+    fr: Secret généré de façon sécurisée pour ztnet.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

@@ -24,7 +24,7 @@ containers:
   environment:
     POSTGRES_DB: mydatabase
     POSTGRES_USER: myuser
-    POSTGRES_PASSWORD: mypassword
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
   volumes:
   - name: data
     target: /var/lib/postgresql/data
@@ -37,10 +37,10 @@ containers:
 - name: librechat-api
   image: ghcr.io/danny-avila/librechat-dev:latest@sha256:598c70f97a4987e5e5f2841fc3708c9c287544bd7b72176446e35dd9f02075e7
   environment:
-    ASSISTANTS_API_KEY: user_provided
-    OPENAI_API_KEY: user_provided
+    ASSISTANTS_API_KEY: ${secret:ASSISTANTS_API_KEY}
+    OPENAI_API_KEY: ${secret:OPENAI_API_KEY}
     GOOGLE_KEY: user_provided
-    ANTHROPIC_API_KEY: user_provided
+    ANTHROPIC_API_KEY: ${secret:ANTHROPIC_API_KEY}
     HOST: 0.0.0.0
     PORT: '3080'
     DOMAIN_CLIENT: http://0.0.0.0:3080
@@ -91,10 +91,10 @@ containers:
     ALLOW_UNVERIFIED_EMAIL_LOGIN: 'true'
     SESSION_EXPIRY: 1000 * 60 * 15
     REFRESH_TOKEN_EXPIRY: (1000 * 60 * 60 * 24) * 7
-    JWT_SECRET: 16f8c0ef4a5d391b26034086c628469d3f9f497f08163ab9b40137092f2909ef
-    JWT_REFRESH_SECRET: eaa5191f2914e30b9387fd84e254e4ba6fc51b4654968a9b0803b456a54b8418
-    CREDS_KEY: f34be427ebb29de8d88c107a71546019685ed8b241d8f2ed00c3df97ad2566f0
-    CREDS_IV: e2341419ec3dd3d19b13a1a87fafcbfb
+    JWT_SECRET: ${secret:JWT_SECRET}
+    JWT_REFRESH_SECRET: ${secret:JWT_REFRESH_SECRET}
+    CREDS_KEY: ${secret:CREDS_KEY}
+    CREDS_IV: ${secret:CREDS_IV}
     DEBUG_PLUGINS: 'true'
     DEBUG_OPENAI: 'false'
   ports:
@@ -116,7 +116,7 @@ containers:
   environment:
     MEILI_HOST: http://librechat-meilisearch:7700
     MEILI_NO_ANALYTICS: 'true'
-    MEILI_MASTER_KEY: DrhYf7zENyR6AlUCKmnz0eYASOQdl6zxH7s7MKFSfFCt
+    MEILI_MASTER_KEY: ${secret:MEILI_MASTER_KEY}
   volumes:
   - name: meili-data-v1-12
     target: /meili_data
@@ -125,7 +125,88 @@ resources:
   memoryMinimum: 3572M
   memoryRecommended: 7144M
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: ASSISTANTS_API_KEY
+  label:
+    en: Assistants Api Key
+    fr: Assistants Api Key
+  description:
+    en: Credential supplied during installation of librechat.
+    fr: Identifiant fourni pendant l’installation de librechat.
+  required: false
+  generate: false
+- name: OPENAI_API_KEY
+  label:
+    en: Openai Api Key
+    fr: Openai Api Key
+  description:
+    en: Credential supplied during installation of librechat.
+    fr: Identifiant fourni pendant l’installation de librechat.
+  required: false
+  generate: false
+- name: ANTHROPIC_API_KEY
+  label:
+    en: Anthropic Api Key
+    fr: Anthropic Api Key
+  description:
+    en: Credential supplied during installation of librechat.
+    fr: Identifiant fourni pendant l’installation de librechat.
+  required: false
+  generate: false
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
+- name: JWT_SECRET
+  label:
+    en: Jwt Secret
+    fr: Jwt Secret
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
+- name: JWT_REFRESH_SECRET
+  label:
+    en: Jwt Refresh Secret
+    fr: Jwt Refresh Secret
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
+- name: CREDS_KEY
+  label:
+    en: Creds Key
+    fr: Creds Key
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
+- name: CREDS_IV
+  label:
+    en: Creds Iv
+    fr: Creds Iv
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
+- name: MEILI_MASTER_KEY
+  label:
+    en: Meili Master Key
+    fr: Meili Master Key
+  description:
+    en: Secret generated securely for librechat.
+    fr: Secret généré de façon sécurisée pour librechat.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

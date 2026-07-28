@@ -15,7 +15,7 @@ containers:
   image: postgres:16@sha256:33f923b05f64ca54ac4401c01126a6b92afe839a0aa0a52bc5aeb5cc958e5f20
   environment:
     POSTGRES_USER: maybe_user
-    POSTGRES_PASSWORD: maybe_password
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: maybe_production
   volumes:
   - name: pgdata
@@ -46,9 +46,9 @@ containers:
   image: ghcr.io/maybe-finance/maybe:latest@sha256:c2d398bfc334db4d9862f268401dbb46f97848eaaaad8295d1221f2d99d631cc
   environment:
     POSTGRES_USER: maybe_user
-    POSTGRES_PASSWORD: maybe_password
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: maybe_production
-    SECRET_KEY_BASE: a7523c3d0ae56415046ad8abae168d71074a79534a7062258f8d1d51ac2f76d3c3bc86d86b6b0b307df30d9a6a90a2066a3fa9e67c5e6f374dbd7dd4e0778e13
+    SECRET_KEY_BASE: ${secret:SECRET_KEY_BASE}
     SELF_HOSTED: 'true'
     RAILS_FORCE_SSL: 'false'
     RAILS_ASSUME_SSL: 'false'
@@ -72,9 +72,9 @@ containers:
   - sidekiq
   environment:
     POSTGRES_USER: maybe_user
-    POSTGRES_PASSWORD: maybe_password
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
     POSTGRES_DB: maybe_production
-    SECRET_KEY_BASE: a7523c3d0ae56415046ad8abae168d71074a79534a7062258f8d1d51ac2f76d3c3bc86d86b6b0b307df30d9a6a90a2066a3fa9e67c5e6f374dbd7dd4e0778e13
+    SECRET_KEY_BASE: ${secret:SECRET_KEY_BASE}
     SELF_HOSTED: 'true'
     RAILS_FORCE_SSL: 'false'
     RAILS_ASSUME_SSL: 'false'
@@ -96,6 +96,24 @@ secrets:
     fr: Valeur facultative utilisée par maybe.
   required: false
   generate: false
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for maybe.
+    fr: Secret généré de façon sécurisée pour maybe.
+  required: true
+  generate: true
+- name: SECRET_KEY_BASE
+  label:
+    en: Secret Key Base
+    fr: Secret Key Base
+  description:
+    en: Secret generated securely for maybe.
+    fr: Secret généré de façon sécurisée pour maybe.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

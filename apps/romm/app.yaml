@@ -14,10 +14,10 @@ containers:
 - name: romm-db
   image: mariadb:11.8.2@sha256:2bcbaec92bd9d4f6591bc8103d3a8e6d0512ee2235506e47a2e129d190444405
   environment:
-    MARIADB_ROOT_PASSWORD: casaos
+    MARIADB_ROOT_PASSWORD: ${secret:MARIADB_ROOT_PASSWORD}
     MARIADB_DATABASE: romm
     MARIADB_USER: romm-user
-    MARIADB_PASSWORD: casaos
+    MARIADB_PASSWORD: ${secret:MARIADB_ROOT_PASSWORD}
   volumes:
   - name: mysql
     target: /var/lib/mysql
@@ -37,13 +37,13 @@ containers:
     DB_HOST: romm-db
     DB_NAME: romm
     DB_USER: romm-user
-    DB_PASSWD: casaos
-    ROMM_AUTH_SECRET_KEY: '""'
-    IGDB_CLIENT_ID: '""'
-    IGDB_CLIENT_SECRET: '""'
-    SCREENSCRAPER_USER: '""'
-    SCREENSCRAPER_PASSWORD: '""'
-    STEAMGRIDDB_API_KEY: '""'
+    DB_PASSWD: ${secret:MARIADB_ROOT_PASSWORD}
+    ROMM_AUTH_SECRET_KEY: ${secret:ROMM_AUTH_SECRET_KEY}
+    IGDB_CLIENT_ID: ${secret:ROMM_AUTH_SECRET_KEY}
+    IGDB_CLIENT_SECRET: ${secret:IGDB_CLIENT_SECRET}
+    SCREENSCRAPER_USER: ${secret:ROMM_AUTH_SECRET_KEY}
+    SCREENSCRAPER_PASSWORD: ${secret:ROMM_AUTH_SECRET_KEY}
+    STEAMGRIDDB_API_KEY: ${secret:ROMM_AUTH_SECRET_KEY}
   ports:
   - container: 8080
     protocol: tcp
@@ -68,7 +68,34 @@ resources:
   memoryMinimum: 512M
   memoryRecommended: 1G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: IGDB_CLIENT_SECRET
+  label:
+    en: Igdb Client Secret
+    fr: Igdb Client Secret
+  description:
+    en: Credential supplied during installation of romm.
+    fr: Identifiant fourni pendant l’installation de romm.
+  required: false
+  generate: false
+- name: MARIADB_ROOT_PASSWORD
+  label:
+    en: Mariadb Root Password
+    fr: Mariadb Root Password
+  description:
+    en: Secret generated securely for romm.
+    fr: Secret généré de façon sécurisée pour romm.
+  required: true
+  generate: true
+- name: ROMM_AUTH_SECRET_KEY
+  label:
+    en: Romm Auth Secret Key
+    fr: Romm Auth Secret Key
+  description:
+    en: Secret generated securely for romm.
+    fr: Secret généré de façon sécurisée pour romm.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

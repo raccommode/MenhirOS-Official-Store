@@ -18,7 +18,7 @@ containers:
     PGID: '1000'
     TZ: Etc/UTC
     SUBDOMAINS: subdomain1,subdomain2
-    TOKEN: token
+    TOKEN: ${secret:TOKEN}
     UPDATE_IP: ipv6
     LOG_FILE: 'false'
   volumes:
@@ -29,7 +29,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: TOKEN
+  label:
+    en: Token
+    fr: Token
+  description:
+    en: Secret generated securely for duckdns.
+    fr: Secret généré de façon sécurisée pour duckdns.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: true

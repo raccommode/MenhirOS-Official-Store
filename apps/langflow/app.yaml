@@ -13,9 +13,9 @@ containers:
 - name: langflow-postgres
   image: postgres:16@sha256:33f923b05f64ca54ac4401c01126a6b92afe839a0aa0a52bc5aeb5cc958e5f20
   environment:
-    POSTGRES_USER: langflow
-    POSTGRES_PASSWORD: langflow
-    POSTGRES_DB: langflow
+    POSTGRES_USER: ${secret:POSTGRES_PASSWORD}
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
+    POSTGRES_DB: ${secret:POSTGRES_PASSWORD}
   volumes:
   - name: postgres
     target: /var/lib/postgresql/data
@@ -23,8 +23,8 @@ containers:
 - name: langflow
   image: langflowai/langflow:1.9.3@sha256:59b00513151c224090e2d062ba94b2b5ba7f9f46922d2704bdf1090b59424d81
   environment:
-    LANGFLOW_DATABASE_URL: postgresql://langflow:langflow@langflow-postgres:5432/langflow
-    LANGFLOW_CONFIG_DIR: /app/langflow
+    LANGFLOW_DATABASE_URL: postgresql://${secret:POSTGRES_PASSWORD}:${secret:POSTGRES_PASSWORD}@${secret:POSTGRES_PASSWORD}-postgres:5432/${secret:POSTGRES_PASSWORD}
+    LANGFLOW_CONFIG_DIR: /app/${secret:POSTGRES_PASSWORD}
   ports:
   - container: 7860
     protocol: tcp
@@ -37,7 +37,16 @@ resources:
   memoryMinimum: 1G
   memoryRecommended: 2G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for langflow.
+    fr: Secret généré de façon sécurisée pour langflow.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

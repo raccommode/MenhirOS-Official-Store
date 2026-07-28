@@ -15,7 +15,7 @@ containers:
   image: etherpad/etherpad:3.1.0@sha256:7bae8bdb87559debbbb17a45eb72f8ae776af4088b1dba5620face5085f14b99
   environment:
     TITLE: Etherpad
-    ADMIN_PASSWORD: admin
+    ADMIN_PASSWORD: ${secret:ADMIN_PASSWORD}
     AUTHENTICATION_METHOD: apikey
     DB_TYPE: dirty
     DB_FILENAME: /opt/etherpad-lite/var/dirty.db
@@ -45,7 +45,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: ADMIN_PASSWORD
+  label:
+    en: Admin Password
+    fr: Admin Password
+  description:
+    en: Secret generated securely for etherpad.
+    fr: Secret généré de façon sécurisée pour etherpad.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

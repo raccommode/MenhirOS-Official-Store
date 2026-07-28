@@ -17,10 +17,10 @@ containers:
     PUID: '1000'
     PGID: '1000'
     TZ: Etc/UTC
-    MYSQL_ROOT_PASSWORD: casaos
-    MYSQL_DATABASE: casaos
-    MYSQL_USER: casaos
-    MYSQL_PASSWORD: casaos
+    MYSQL_ROOT_PASSWORD: ${secret:MYSQL_ROOT_PASSWORD}
+    MYSQL_DATABASE: ${secret:MYSQL_ROOT_PASSWORD}
+    MYSQL_USER: ${secret:MYSQL_ROOT_PASSWORD}
+    MYSQL_PASSWORD: ${secret:MYSQL_ROOT_PASSWORD}
     REMOTE_SQL: ''
   ports:
   - container: 3306
@@ -34,7 +34,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: MYSQL_ROOT_PASSWORD
+  label:
+    en: Mysql Root Password
+    fr: Mysql Root Password
+  description:
+    en: Secret generated securely for mariadb.
+    fr: Secret généré de façon sécurisée pour mariadb.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

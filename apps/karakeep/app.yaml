@@ -18,8 +18,8 @@ containers:
     BROWSER_WEB_URL: http://karakeep-chrome:9222
     DATA_DIR: /data
     NEXTAUTH_URL: http://localhost:14592
-    NEXTAUTH_SECRET: change_this_to_a_long_random_string
-    MEILI_MASTER_KEY: change_this_to_a_long_random_string
+    NEXTAUTH_SECRET: ${secret:NEXTAUTH_SECRET}
+    MEILI_MASTER_KEY: ${secret:NEXTAUTH_SECRET}
     OPENAI_API_KEY: ''
   ports:
   - container: 3000
@@ -41,7 +41,7 @@ containers:
 - name: karakeep-meilisearch
   image: getmeili/meilisearch:v1.41.0@sha256:860fa4baed04ae1c235de870edab0c8006227546dea1bbb6411fbfc5e27cf1db
   environment:
-    MEILI_MASTER_KEY: change_this_to_a_long_random_string
+    MEILI_MASTER_KEY: ${secret:NEXTAUTH_SECRET}
     MEILI_NO_ANALYTICS: 'true'
   volumes:
   - name: meilisearch
@@ -51,7 +51,16 @@ resources:
   memoryMinimum: 1280M
   memoryRecommended: 2560M
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: NEXTAUTH_SECRET
+  label:
+    en: Nextauth Secret
+    fr: Nextauth Secret
+  description:
+    en: Secret generated securely for karakeep.
+    fr: Secret généré de façon sécurisée pour karakeep.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

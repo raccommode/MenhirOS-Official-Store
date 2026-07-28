@@ -14,7 +14,7 @@ containers:
 - name: firefly
   image: uusec/firefly:latest@sha256:6d32aa84560ba81786d708b7c67b2f20c8321caf1bb164156335ccd1765c87d4
   environment:
-    FIREFLY_PASSWORD: firefly
+    FIREFLY_PASSWORD: ${secret:FIREFLY_PASSWORD}
   volumes:
   - name: conf
     target: /firefly/conf
@@ -23,7 +23,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: FIREFLY_PASSWORD
+  label:
+    en: Firefly Password
+    fr: Firefly Password
+  description:
+    en: Secret generated securely for firefly.
+    fr: Secret généré de façon sécurisée pour firefly.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: true

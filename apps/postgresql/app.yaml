@@ -17,9 +17,9 @@ containers:
     PUID: '1000'
     PGID: '1000'
     TZ: Etc/UTC
-    POSTGRES_USER: casaos
-    POSTGRES_PASSWORD: casaos
-    POSTGRES_DB: casaos
+    POSTGRES_USER: ${secret:POSTGRES_PASSWORD}
+    POSTGRES_PASSWORD: ${secret:POSTGRES_PASSWORD}
+    POSTGRES_DB: ${secret:POSTGRES_PASSWORD}
   ports:
   - container: 5432
     protocol: tcp
@@ -32,7 +32,16 @@ resources:
   memoryMinimum: 2G
   memoryRecommended: 4G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: POSTGRES_PASSWORD
+  label:
+    en: Postgres Password
+    fr: Postgres Password
+  description:
+    en: Secret generated securely for postgresql.
+    fr: Secret généré de façon sécurisée pour postgresql.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

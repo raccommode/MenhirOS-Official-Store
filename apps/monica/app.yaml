@@ -14,10 +14,10 @@ containers:
 - name: monica-db
   image: mariadb:11.8.2@sha256:2bcbaec92bd9d4f6591bc8103d3a8e6d0512ee2235506e47a2e129d190444405
   environment:
-    MARIADB_RANDOM_ROOT_PASSWORD: 'true'
+    MARIADB_RANDOM_ROOT_PASSWORD: ${secret:MARIADB_RANDOM_ROOT_PASSWORD}
     MARIADB_DATABASE: monica
     MARIADB_USER: monicauser
-    MARIADB_PASSWORD: monicasecret
+    MARIADB_PASSWORD: ${secret:MARIADB_PASSWORD}
   volumes:
   - name: mysql
     target: /var/lib/mysql
@@ -28,7 +28,7 @@ containers:
     APP_KEY: ChangeMeBy32KeyLengthOrGenerated
     DB_HOST: monica-db
     DB_USERNAME: monicauser
-    DB_PASSWORD: monicasecret
+    DB_PASSWORD: ${secret:MARIADB_PASSWORD}
   ports:
   - container: 80
     protocol: tcp
@@ -41,7 +41,25 @@ resources:
   memoryMinimum: 512M
   memoryRecommended: 1G
   cpuRecommended: 2
-secrets: []
+secrets:
+- name: MARIADB_RANDOM_ROOT_PASSWORD
+  label:
+    en: Mariadb Random Root Password
+    fr: Mariadb Random Root Password
+  description:
+    en: Secret generated securely for monica.
+    fr: Secret généré de façon sécurisée pour monica.
+  required: true
+  generate: true
+- name: MARIADB_PASSWORD
+  label:
+    en: Mariadb Password
+    fr: Mariadb Password
+  description:
+    en: Secret generated securely for monica.
+    fr: Secret généré de façon sécurisée pour monica.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

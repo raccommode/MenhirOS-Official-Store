@@ -17,7 +17,7 @@ containers:
     SERVER_PORT: '8443'
     USER_NAME: mc
     USER_UID: '1000'
-    USER_PASSWORD: root
+    USER_PASSWORD: ${secret:USER_PASSWORD}
   ports:
   - container: 8443
     protocol: tcp
@@ -26,7 +26,16 @@ resources:
   memoryMinimum: 256M
   memoryRecommended: 512M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: USER_PASSWORD
+  label:
+    en: User Password
+    fr: User Password
+  description:
+    en: Secret generated securely for mineos.
+    fr: Secret généré de façon sécurisée pour mineos.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

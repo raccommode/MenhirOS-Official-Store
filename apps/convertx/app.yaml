@@ -14,7 +14,7 @@ containers:
 - name: convertx
   image: c4illin/convertx:v0.17.0@sha256:e1f85be04bbaf8a55ead9261194c3ae0fa0957d303ea537127154860b2552afd
   environment:
-    JWT_SECRET: aLongAndSecretStringUsedToSignTheJSONWebToken1234
+    JWT_SECRET: ${secret:JWT_SECRET}
     HTTP_ALLOWED: 'true'
   ports:
   - container: 3000
@@ -28,7 +28,16 @@ resources:
   memoryMinimum: 500M
   memoryRecommended: 1000M
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: JWT_SECRET
+  label:
+    en: Jwt Secret
+    fr: Jwt Secret
+  description:
+    en: Secret generated securely for convertx.
+    fr: Secret généré de façon sécurisée pour convertx.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false

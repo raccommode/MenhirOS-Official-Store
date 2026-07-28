@@ -14,7 +14,7 @@ containers:
 - name: photoprism
   image: photoprism/photoprism:260523@sha256:ee3d15cf76f80c2fb4a28c336a63173b0c671ed7a3dd9ec0ed6231b7defa8876
   environment:
-    PHOTOPRISM_ADMIN_PASSWORD: casaos
+    PHOTOPRISM_ADMIN_PASSWORD: ${secret:PHOTOPRISM_ADMIN_PASSWORD}
     PHOTOPRISM_UPLOAD_NSFW: 'true'
     TZ: Etc/UTC
   ports:
@@ -32,7 +32,16 @@ resources:
   memoryMinimum: 512M
   memoryRecommended: 1G
   cpuRecommended: 1
-secrets: []
+secrets:
+- name: PHOTOPRISM_ADMIN_PASSWORD
+  label:
+    en: Photoprism Admin Password
+    fr: Photoprism Admin Password
+  description:
+    en: Secret generated securely for photoprism.
+    fr: Secret généré de façon sécurisée pour photoprism.
+  required: true
+  generate: true
 permissions:
   privileged: false
   hostNetwork: false
