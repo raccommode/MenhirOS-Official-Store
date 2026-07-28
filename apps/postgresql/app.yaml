@@ -6,6 +6,7 @@ name:
 description:
   en: PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance. PostgreSQL is a highly stable database backed by more than 20 years of development by the open-source community. PostgreSQL is used as a primary database for many web applications as well as mobile and analytics applications.
   fr: PostgreSQL est un puissant système de gestion de bases de données relationnelles open source qui bénéficie de plus de 35 ans de développement actif, lui conférant une solide réputation en termes de fiabilité, de robustesse des fonctionnalités et de performances. PostgreSQL est une base de données hautement stable, développée depuis plus de 20 ans par la communauté open source. PostgreSQL est utilisé comme base de données principale dans de nombreuses applications web, ainsi que dans des applications mobiles et…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/PostgreSQL/icon.svg
 version: 17.4.0
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: Hugo is a high-speed static site generation platform written in Go, optimized for speed and designed for flexibility. Advanced templating system and fast asset pipelines render a complete website in seconds, ideal for creating documentation sites, landing pages, and various project websites. Core features include optimized speed and a flexible framework. Concurrency in Go enables rapid rendering, supporting image processing (convert, resize, crop, rotate, adjust colors, apply filters, overlay text/images, extract…
   fr: Hugo est une plateforme de génération de sites statiques haute vitesse écrite en Go, optimisée pour la vitesse et conçue pour la flexibilité. Le système de templates avancé et les pipelines d'assets rapides rendent un site web complet en quelques secondes, idéal pour créer des sites de documentation, des pages d'atterrissage et divers sites web de projets. Les fonctionnalités principales incluent une vitesse optimisée et un framework flexible. La concurrence en Go permet un rendu rapide, supportant le traitement…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Hugo/icon.svg
 version: 0.161.1
 architectures:
 - amd64

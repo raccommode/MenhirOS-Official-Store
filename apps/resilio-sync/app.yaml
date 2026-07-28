@@ -6,6 +6,7 @@ name:
 description:
   en: resilio-sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it…
   fr: Application auto-hébergée de sauvegarde et synchronisation pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Resilio-sync/icon.svg
 version: 3.1.2.1076-1-ls253
 architectures:
 - amd64

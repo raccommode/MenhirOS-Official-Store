@@ -6,6 +6,7 @@ name:
 description:
   en: adguardhome-sync is a tool to synchronize AdGuardHome config to replica instances.
   fr: Application auto-hébergée de réseau pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/adguardhomesync-icon.png
 version: v0.9.2-ls170
 architectures:
 - amd64

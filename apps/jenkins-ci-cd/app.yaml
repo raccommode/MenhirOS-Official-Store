@@ -6,6 +6,7 @@ name:
 description:
   en: A server for creating pipelines for Jenkins continuous integration and delivery.
   fr: Un serveur pour créer des pipelines pour l'intégration et la livraison continues de Jenkins.
+icon: https://icon.casaos.io/main/all/jenkins.png
 version: 2.569.0
 architectures:
 - amd64

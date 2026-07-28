@@ -6,6 +6,7 @@ name:
 description:
   en: Dify is an open-source large language model (LLM) application development platform. It combines the concepts of Backend-as-a-Service and LLMOps to enable developers to quickly build production-grade generative AI applications. Even non-technical personnel can participate in the definition and data operations of AI applications.
   fr: Application Dify auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Dify/icon.svg
 version: 0.15.8
 architectures:
 - amd64

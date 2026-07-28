@@ -6,6 +6,7 @@ name:
 description:
   en: nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
   fr: Application auto-hébergée de publication de services web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png
 version: 1.30.4-r1-ls369
 architectures:
 - amd64

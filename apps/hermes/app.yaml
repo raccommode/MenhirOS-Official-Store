@@ -6,6 +6,7 @@ name:
 description:
   en: 'Hermes Agent is a self-improving AI agent from Nous Research, designed to be a long-running collaborator rather than a one-off chatbot. Its built-in learning loop combines persistent memory, cross-session recall, and reusable skills so it can keep context and improve recurring workflows over time. With a unified gateway, rich toolsets, and a browser-based dashboard, Hermes fits research, automation, cross-platform communication, and ongoing operational work. Main Features: - Built-in learning loop with persistent…'
   fr: Hermes Agent est un agent IA auto-améliorant de Nous Research, conçu comme un collaborateur durable plutôt qu'un simple chatbot ponctuel. Sa boucle d'apprentissage intégrée combine mémoire persistante, recherche intersessions et compétences réutilisables afin de conserver le contexte et d'améliorer les flux de travail récurrents au fil du temps. Avec une passerelle unifiée, de riches jeux d'outils et un tableau de bord accessible depuis le navigateur, Hermes convient bien à la recherche, à l'automatisation, à la…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Hermes/icon.svg
 version: 0.16.0
 architectures:
 - amd64

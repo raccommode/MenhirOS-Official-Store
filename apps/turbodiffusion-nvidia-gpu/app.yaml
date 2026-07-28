@@ -6,6 +6,7 @@ name:
 description:
   en: 'TurboDiffusion is an accelerated text-to-video generation framework based on the Latent Consistency Model (LCM). It leverages various TurboWan2 models to rapidly generate high-quality videos from text descriptions. The framework supports both image and video generation and provides optimized checkpoints for different GPU configurations. Key Features: - Ultra-fast video and image generation - Intuitive Gradio WebUI - Optimized for different GPU configurations - Quantized and unquantized checkpoints - Flexible…'
   fr: 'TurboDiffusion est un framework accéléré de génération texte-à-vidéo basé sur le Latent Consistency Model (LCM). Il utilise divers modèles TurboWan2 pour générer rapidement des vidéos de haute qualité à partir de descriptions textuelles. Le framework prend en charge la génération d’images et de vidéos et fournit des checkpoints optimisés pour différentes configurations GPU. Fonctionnalités principales : - Génération ultra-rapide de vidéos et d’images - Gradio WebUI intuitive - Optimisé pour différentes…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/TurboDiffusion_Nvidia/icon.png
 version: 2026.03.12
 architectures:
 - amd64

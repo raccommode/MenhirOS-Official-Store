@@ -6,6 +6,7 @@ name:
 description:
   en: '[Vivaldi] is a Norwegian freeware, cross-platform web browser with a built-in email client developed by Vivaldi Technologies.'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vivaldi-logo.png
 version: 8.1.4087.58-1-ls62
 architectures:
 - amd64

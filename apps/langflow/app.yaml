@@ -6,6 +6,7 @@ name:
 description:
   en: 'Langflow is a powerful, open-source UI designed specifically for building and debugging multi-agent and Retrieval-Augmented Generation (RAG) applications. It provides a visual, drag-and-drop interface that simplifies the process of creating complex AI workflows. The system consists of two main components: - Langflow : The main application providing a visual interface for building AI workflows - PostgreSQL : A robust database system for storing application data and configurations Key Features: - Visual,…'
   fr: 'Langflow est une interface utilisateur open-source puissante, conçue spécifiquement pour créer et déboguer des applications multi-agents et de génération augmentée par récupération (RAG). Elle fournit une interface visuelle glisser-déposer qui simplifie le processus de création de flux de travail d''IA complexes. Le système se compose de deux composants principaux : - Langflow : L''application principale fournissant une interface visuelle pour créer des flux de travail d''IA - PostgreSQL : Un système de base de…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/LangFlow/icon.svg
 version: 1.9.3
 architectures:
 - amd64

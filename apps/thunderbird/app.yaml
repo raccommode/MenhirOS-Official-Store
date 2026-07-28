@@ -6,6 +6,7 @@ name:
 description:
   en: '[Thunderbird] is a free and open-source personal information manager primarily used as an e-mail client with a calendar and contactbook, as well as an RSS feed reader, chat client, and news client.'
   fr: Application auto-hébergée de courrier électronique pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/thunderbird-logo.png
 version: 1140.12.1build1-0ubuntu0.24.04.1mt1-ls44
 architectures:
 - amd64

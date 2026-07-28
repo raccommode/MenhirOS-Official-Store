@@ -6,6 +6,7 @@ name:
 description:
   en: Gitea is a painless self-hosted all-in-one software development service, it includes Git hosting, code review, team collaboration, package registry and CI/CD. It is similar to GitHub, Bitbucket and GitLab. - Code Hosting Gitea supports creating and managing repositories, browsing commit history and code files, reviewing and merging code submissions, managing collaborators, handling branches, and more. It also supports many common Git features such as tags, Cherry-pick, hooks, integrated collaboration tools, and…
   fr: Gitea est une solution d'hébergement de code légère gérée par la communauté écrite en Go.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gitea/icon.svg
 version: 1.26.2
 architectures:
 - amd64

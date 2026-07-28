@@ -6,6 +6,7 @@ name:
 description:
   en: smokeping keeps track of your network latency. For a full example of what this application is capable of visit UCDavis.
   fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Smokeping/icon.svg
 version: 2.9.0-r0-ls178
 architectures:
 - amd64

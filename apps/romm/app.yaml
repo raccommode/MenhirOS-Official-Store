@@ -6,6 +6,7 @@ name:
 description:
   en: RomM is a self-hosted game collection management app designed for emulator enthusiasts, offering a convenient way to scan, enrich, browse, and play games. Its responsive Web interface allows users to manage collections via any modern browser, supporting over 400 platforms, ideal for retro gaming fans building personal game libraries. The app's core features include robust library management and seamless gameplay. It fetches metadata from IGDB, Screenscraper, and MobyGames, and custom artwork from SteamGridDB,…
   fr: RomM est une application de gestion de collections de jeux auto-hébergée conçue pour les passionnés d'émulateurs, offrant un moyen pratique de scanner, enrichir, parcourir et jouer à des jeux. Son interface Web réactive permet aux utilisateurs de gérer leurs collections via n'importe quel navigateur moderne, prenant en charge plus de 400 plateformes, idéale pour les amateurs de jeux rétro souhaitant constituer leur propre bibliothèque. Les principales fonctionnalités de l'application incluent une gestion robuste…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/RomM/icon.svg
 version: 4.8.1
 architectures:
 - amd64

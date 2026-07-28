@@ -6,6 +6,7 @@ name:
 description:
   en: Readarr is a ebook collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new books from your favorite authors and will interface with clients and indexers to grab, sort, and rename them.
   fr: Readarr est un gestionnaire de collection de livres électroniques pour les utilisateurs de Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour obtenir de nouveaux livres de vos auteurs préférés et interagira avec des clients et des indexeurs pour les obtenir, les trier et les renommer.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Readarr/icon.svg
 version: 0.3.10-develop
 architectures:
 - amd64

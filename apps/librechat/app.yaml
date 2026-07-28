@@ -6,6 +6,7 @@ name:
 description:
   en: 'LibreChat is a full-featured, open-source AI chat interface that allows users to interact with multiple AI models through a unified platform. It supports various AI providers and offers advanced features like conversation management, plugin support, and customizable interfaces. Key Features: - Support for multiple AI models and providers - Conversation history and management - Plugin system for extended functionality - Customizable themes and interfaces - User authentication and management - API integrations for…'
   fr: 'LibreChat est une interface de chat IA complète et open-source qui permet aux utilisateurs d''interagir avec plusieurs modèles d''IA à travers une plateforme unifiée. Elle prend en charge divers fournisseurs d''IA et offre des fonctionnalités avancées comme la gestion des conversations, le support des plugins et les interfaces personnalisables. Fonctionnalités Clés : - Support pour plusieurs modèles et fournisseurs d''IA - Historique et gestion des conversations - Système de plugins pour une fonctionnalité étendue -…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/LibreChat/icon.svg
 version: 0.8.7-rc1
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: PocketBase is an open-source backend solution that combines a real-time database, authentication, file storage, and an admin dashboard into a single, portable executable.
   fr: Application PocketBase auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/PocketBase/icon.svg
 version: 0.26.6
 architectures:
 - amd64

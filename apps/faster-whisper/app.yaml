@@ -6,6 +6,7 @@ name:
 description:
   en: faster-whisper is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.
   fr: Application auto-hébergée de intelligence artificielle pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/openai.svg
 version: v3.5.0-ls153
 architectures:
 - amd64

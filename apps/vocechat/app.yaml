@@ -6,6 +6,7 @@ name:
 description:
   en: VoceChat is a secure chat software designed for independent deployment, offering a flexible solution for seamless communication. It combines instant messaging with channel-based group chats, allowing you to engage in one-on-one conversations or create themed channels for group discussions. VoceChat supports a variety of message formats, including text, images, files, emojis, and rich text (Markdown), making your communication vibrant and expressive. Once deployed, it can be accessed via a WebAPP or mobile APP,…
   fr: VoceChat est un logiciel de chat sécurisé conçu pour un déploiement indépendant, offrant une solution flexible pour une communication fluide. Il combine la messagerie instantanée avec des discussions de groupe basées sur des canaux, permettant des conversations individuelles ou la création de canaux thématiques pour des discussions de groupe. VoceChat prend en charge une variété de formats de messages, y compris le texte, les images, les fichiers, les emojis et le texte enrichi (Markdown), rendant votre…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/VoceChat/icon.svg
 version: 0.5.17
 architectures:
 - amd64

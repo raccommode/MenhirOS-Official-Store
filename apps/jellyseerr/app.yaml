@@ -6,6 +6,7 @@ name:
 description:
   en: Jellyseerr is a self-hosted media request and management tool designed to streamline media library request and discovery processes, offering an intuitive Web interface, ideal for home media server users and small teams. It seamlessly integrates with existing media services, enabling efficient management of movies, shows, and mixed content libraries. The tool's core features include a customizable request system and broad media server integration. It allows users to request movies or individual show seasons…
   fr: Jellyseerr est un outil de demande et de gestion de médias auto-hébergé conçu pour rationaliser les processus de demande et de découverte de bibliothèque multimédia, offrant une interface Web intuitive, idéale pour les utilisateurs de serveurs multimédias domestiques et les petites équipes. Il s'intègre parfaitement aux services multimédias existants, permettant une gestion efficace des films, des émissions et des bibliothèques de contenu mixte. Les fonctionnalités principales de l'outil incluent un système de…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Jellyseerr/icon.svg
 version: 2.7.3
 architectures:
 - amd64

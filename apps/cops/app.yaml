@@ -6,6 +6,7 @@ name:
 description:
   en: cops by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server. COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to…
   fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png
 version: 4.5.2-ls2
 architectures:
 - amd64

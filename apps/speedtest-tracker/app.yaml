@@ -6,6 +6,7 @@ name:
 description:
   en: speedtest-tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
   fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/speedtest-tracker-logo.png
 version: v1.14.6-ls164
 architectures:
 - amd64

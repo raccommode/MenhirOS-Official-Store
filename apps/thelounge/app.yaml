@@ -6,6 +6,7 @@ name:
 description:
   en: thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.
   fr: Application auto-hébergée de communication IRC pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/the-lounge.svg
 version: v4.5.2-ls228
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: deluge is a lightweight, Free Software, cross-platform BitTorrent client. * Full Encryption * WebUI * Plugin System * Much more...
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Deluge/icon.svg
 version: 2.2.0-ls381
 architectures:
 - amd64

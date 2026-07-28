@@ -6,6 +6,7 @@ name:
 description:
   en: A modern self-hosted networking app built on WireGuard®, providing secure, encrypted connections between devices regardless of their location. Its zero-configuration networking eliminates the need for complex firewall rules, port forwarding, or network administration, making it ideal for businesses and individuals creating efficient, secure network environments. The app's core features include seamless device connectivity and robust security. It uses WireGuard® for end-to-end encryption, ensuring traffic cannot…
   fr: Une application de réseau auto-hébergée moderne construite sur WireGuard®, fournissant des connexions sécurisées et chiffrées entre appareils indépendamment de leur emplacement. Son réseau à configuration zéro élimine le besoin de règles de pare-feu complexes, de redirection de ports ou d'administration réseau, la rendant idéale pour les entreprises et les particuliers créant des environnements réseau efficaces et sécurisés. Les fonctionnalités principales de l'application incluent une connectivité d'appareils…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Tailscale/icon.svg
 version: 1.98.3
 architectures:
 - amd64

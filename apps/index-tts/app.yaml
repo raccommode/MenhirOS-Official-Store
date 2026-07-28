@@ -6,6 +6,7 @@ name:
 description:
   en: IndexTTS2 is an advanced zero-shot text-to-speech model that innovatively achieves complete decoupling of emotional expression and speaker identity. The model supports precise speech duration control and multimodal emotion control, capable of maintaining the target timbre while accurately reproducing the specified emotional intonation. The model employs a three-stage training paradigm and introduces GPT latent representations, ensuring excellent speech clarity and stability even under high emotional expression.…
   fr: IndexTTS2 est un modèle avancé de synthèse vocale zéro-shot qui réalise de manière innovante un découplage complet entre l'expression émotionnelle et l'identité du locuteur. Le modèle prend en charge un contrôle précis de la durée de la parole et un contrôle émotionnel multimodal, capable de maintenir le timbre cible tout en reproduisant avec précision l'intonation émotionnelle spécifiée. Le modèle emploie un paradigme d'entraînement en trois étapes et introduit des représentations latentes GPT, garantissant une…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Index-TTS/icon.svg
 version: 2.0.0
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: A privacy-first, open-source platform for knowledge management and collaboration.
   fr: Application Logseq auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Logseq/icon.svg
 version: 0.10.10
 architectures:
 - amd64

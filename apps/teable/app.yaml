@@ -6,6 +6,7 @@ name:
 description:
   en: 'Teable is a new generation open-source database platform. It provides an intuitive spreadsheet-like experience, while being powered by a high-performance Postgres database underneath, combining ease of use with powerful data processing capabilities. Key Features: - High Performance : Built on the Postgres core, it effortlessly handles millions of records with extremely fast response times. - Modern Interface : Offers multiple views including grid, kanban, gallery, and forms, with a clean and user-friendly design.…'
   fr: 'Teable est une plateforme de base de données open source de nouvelle génération. Elle offre une expérience intuitive de type tableur, tout en étant propulsée en arrière-plan par une base de données Postgres haute performance, combinant simplicité d’utilisation et puissantes capacités de traitement des données. Fonctionnalités principales : - Haute performance : Basée sur le cœur Postgres, elle gère facilement des millions de lignes avec des temps de réponse extrêmement rapides. - Interface moderne : Propose…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Teable/icon.svg
 version: 0.0.1
 architectures:
 - amd64

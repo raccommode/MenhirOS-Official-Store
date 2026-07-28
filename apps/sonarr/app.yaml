@@ -6,6 +6,7 @@ name:
 description:
   en: sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files…
   fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Sonarr/icon.svg
 version: 4.0.19.2979-ls320
 architectures:
 - amd64

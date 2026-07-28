@@ -6,6 +6,7 @@ name:
 description:
   en: radarr - A fork of Sonarr to work with movies à la Couchpotato.
   fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Radarr/icon.svg
 version: 6.3.0.10514-ls312
 architectures:
 - amd64

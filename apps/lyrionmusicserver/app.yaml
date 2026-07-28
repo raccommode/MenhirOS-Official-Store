@@ -6,6 +6,7 @@ name:
 description:
   en: Lyrion Music Server is a self-hosted music management app designed to control a variety of audio playback devices, supporting streaming of local music collections, internet radio, and multiple streaming services (with or without subscriptions). Its intuitive Web interface enables users to access and control music effortlessly via any browser, ideal for music enthusiasts creating personalized audio experiences. The app's core features include versatile music streaming and extensive customization. Users can…
   fr: Lyrion Music Server est une application de gestion musicale auto-hébergée conçue pour contrôler une variété d'appareils de lecture audio, prenant en charge le streaming de collections musicales locales, la radio internet et plusieurs services de streaming (avec ou sans abonnements). Son interface Web intuitive permet aux utilisateurs d'accéder et de contrôler la musique sans effort via n'importe quel navigateur, idéal pour les passionnés de musique créant des expériences audio personnalisées. Les fonctionnalités…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/LyrionMusicServer/icon.svg
 version: 9.1.1
 architectures:
 - amd64

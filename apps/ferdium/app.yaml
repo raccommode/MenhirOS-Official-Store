@@ -6,6 +6,7 @@ name:
 description:
   en: '[Ferdium] is a desktop app that helps you organize how you use your favourite apps by combining them into one application.'
   fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ferdium-logo.png
 version: v7.1.2-ls152
 architectures:
 - amd64

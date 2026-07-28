@@ -6,6 +6,7 @@ name:
 description:
   en: 'Pingvin-Share is a self-hosted file sharing application compatible with Nextcloud apps, offering a modern and intuitive web interface. It enables users to securely store, organize, and share files without relying on external cloud services. The application supports multiple authentication methods and provides features such as share links, user accounts, and a responsive interface. Key features: - Modern, responsive web interface - User accounts with a permission system - Secure share links for files -…'
   fr: Pingvin-Share est une application de partage de fichiers auto-hébergée compatible avec les applications Nextcloud, offrant une interface web moderne et intuitive. Elle permet aux utilisateurs de stocker, d’organiser et de partager des fichiers en toute sécurité sans dépendre de services cloud externes. L’application prend en charge plusieurs méthodes d’authentification et propose des fonctionnalités telles que des liens de partage, des comptes utilisateurs et une interface responsive. Fonctionnalités principales…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Pingvin-Share/icon.svg
 version: 1.13.0
 architectures:
 - amd64

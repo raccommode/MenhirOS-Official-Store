@@ -6,6 +6,7 @@ name:
 description:
   en: Self-hosted Playit Agent application ready to install on Menhir OS.
   fr: Application Playit Agent auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/playit-agent/icon.svg
 version: 1.0.10
 architectures:
 - amd64

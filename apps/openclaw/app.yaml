@@ -6,6 +6,7 @@ name:
 description:
   en: OpenClaw is an open-source personal AI assistant designed to extend the capabilities of large language models (LLMs) into intelligent agents that actively execute tasks, interact across multiple platforms, and operate continuously. It supports 24/7 operation on the user's own device or server and provides intelligent automation services through common communication tools. OpenClaw connects AI to existing chat channels (such as WhatsApp, Telegram, Discord, etc.) via a locally running "gateway + agent"…
   fr: OpenClaw est un assistant personnel d'IA open-source conçu pour étendre les capacités des grands modèles linguistiques (LLM) en agents intelligents qui exécutent activement des tâches, interagissent sur plusieurs plateformes et fonctionnent en continu. Il prend en charge un fonctionnement 24h/24 et 7j/7 sur l'appareil ou le serveur de l'utilisateur et fournit des services d'automatisation intelligents via des outils de communication courants. OpenClaw connecte l'IA aux canaux de discussion existants (tels que…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/OpenClaw/icon.svg
 version: 2026.5.7
 architectures:
 - amd64

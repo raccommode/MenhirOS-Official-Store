@@ -6,6 +6,7 @@ name:
 description:
   en: Etherpad is a real-time collaborative document editor where multiple people can edit the same pad simultaneously, with every change synchronized instantly and colour-coded per author. Self-hosted, open source, and fully under your control, it is perfect for meeting notes, brainstorming, shared writing, and lightweight knowledge capture. It ships with a built-in admin panel, a plugin ecosystem of 250+ add-ons, native DOCX/PDF/Markdown import & export, and multi-architecture container support (amd64 + arm64). Main…
   fr: Etherpad est un éditeur de documents collaboratif en temps réel où plusieurs personnes peuvent modifier le même pad simultanément, avec chaque changement synchronisé instantanément et codé par couleur selon l'auteur. Auto-hébergé, open source et entièrement sous votre contrôle, il est idéal pour les comptes rendus de réunion, le brainstorming, l'écriture partagée et la capture légère de connaissances. Il comprend un panneau d'administration intégré, un écosystème de plus de 250 extensions, l'import et l'export…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Etherpad/icon.svg
 version: 3.1.0
 architectures:
 - amd64

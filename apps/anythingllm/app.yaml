@@ -6,6 +6,7 @@ name:
 description:
   en: AnythingLLM is the easiest to use, all-in-one AI application that can do RAG, AI Agents, and much more with no code or infrastructure headaches.
   fr: Application AnythingLLM auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/AnythingLLM/icon.svg
 version: 1.14.2
 architectures:
 - amd64

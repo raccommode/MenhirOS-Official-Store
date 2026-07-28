@@ -6,6 +6,7 @@ name:
 description:
   en: '[Chrome] is the official web browser from Google, built to be fast, secure, and customizable.'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
 version: 150.0.7871.186-1-ls110
 architectures:
 - amd64

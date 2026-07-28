@@ -6,6 +6,7 @@ name:
 description:
   en: ESPHome is a system to control your microcontrollers by simple yet powerful configuration files and control them remotely through Home Automation systems.
   fr: Application ESPHome auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ESPHome/icon.svg
 version: 2026.5.1
 architectures:
 - amd64

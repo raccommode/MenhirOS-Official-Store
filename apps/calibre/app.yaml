@@ -6,6 +6,7 @@ name:
 description:
   en: calibre is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both…
   fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png
 version: v9.11.0-ls413
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: Private file sync and collaboration backed by PostgreSQL and Redis.
   fr: Synchronisation et collaboration privées avec PostgreSQL et Redis.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Nextcloud/icon.svg
 version: 34.0.1
 architectures:
 - amd64

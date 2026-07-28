@@ -6,6 +6,7 @@ name:
 description:
   en: Flowise is a generative AI development platform for building AI agents and LLM workflows. An intuitive interface with a visual editor simplifies complex workflow design, ideal for developers creating diverse AI applications, from chatbots to data processing pipelines. Core features include visual orchestration and data integration. Support for various models, custom code, and branching, looping, and routing logic enables complex workflow creation. Connection to over 100 data sources, vector databases, and memory…
   fr: Flowise est une plateforme de développement IA générative pour construire des agents IA et des flux de travail LLM. Une interface intuitive avec un éditeur visuel simplifie la conception de flux de travail complexes, idéale pour les développeurs créant diverses applications IA, des chatbots aux pipelines de traitement de données. Les fonctionnalités principales incluent l'orchestration visuelle et l'intégration de données. Le support de divers modèles, code personnalisé et logique de branchement, bouclage et…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/FlowiseAi/icon.svg
 version: 3.1.2
 architectures:
 - amd64

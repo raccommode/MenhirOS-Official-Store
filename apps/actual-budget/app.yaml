@@ -6,6 +6,7 @@ name:
 description:
   en: Actual Budget is a fast, privacy-focused finance management app using local-first envelope budgeting, ensuring full control over data. Its intuitive interface supports offline use, with multi-device sync and optional end-to-end encryption, delivering a secure, efficient financial management experience, ideal for users seeking clear financial oversight. The app's core features include envelope budgeting based on real income, rapid transaction handling, and intuitive financial reporting. It helps users track…
   fr: Actual Budget est une application de gestion financière rapide et axée sur la confidentialité utilisant la budgétisation par enveloppes locale-first, garantissant un contrôle total sur les données. Son interface intuitive prend en charge l'utilisation hors ligne, avec synchronisation multi-appareils et chiffrement de bout en bout optionnel, offrant une expérience de gestion financière sécurisée et efficace, idéale pour les utilisateurs recherchant une supervision financière claire. Les fonctionnalités principales…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ActualBudget/icon.svg
 version: 26.5.2
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: '[Blender] is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. **This image does not…'
   fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/blender-logo.png
 version: 5.2.0-ls233
 architectures:
 - amd64

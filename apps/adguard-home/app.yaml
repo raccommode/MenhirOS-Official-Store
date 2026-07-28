@@ -6,6 +6,7 @@ name:
 description:
   en: Difference from Traditional Ad Blockers. Unlike traditional ad-blocking plugins that work only on individual devices, AdGuard Home offers a network-wide solution. By setting it up, you can block ads and trackers across all your home devices without needing to install any additional software on each device. This means comprehensive protection with minimal effort. How AdGuard Home Works and How to Use It. AdGuard Home functions as a DNS server that reroutes tracking domains to a "black hole," effectively preventing…
   fr: AdGuard Home est un logiciel réseau pour bloquer les publicités et le suivi. Une fois configuré, il couvrira tous vos appareils domestiques et vous n'aurez pas besoin de logiciel client pour cela. En savoir plus sur notre référentiel officiel Github.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/AdGuardHome/icon.svg
 version: 0.107.76
 architectures:
 - amd64

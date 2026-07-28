@@ -6,6 +6,7 @@ name:
 description:
   en: syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the…
   fr: Application auto-hébergée de sauvegarde et synchronisation pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Syncthing/icon.svg
 version: v2.1.2-ls226
 architectures:
 - amd64

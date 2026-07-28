@@ -6,6 +6,7 @@ name:
 description:
   en: kavita is a fast, feature rich, cross platform reading server. Built with a focus for being a full solution for all your reading needs. Setup your own server and share your reading collection with your friends and family!
   fr: Application auto-hébergée de bibliothèque numérique pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Kavita/icon.svg
 version: v0.9.0.2-ls117
 architectures:
 - amd64

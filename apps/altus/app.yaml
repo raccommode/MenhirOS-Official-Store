@@ -6,6 +6,7 @@ name:
 description:
   en: '[Altus] is an Electron-based WhatsApp client with themes and multiple account support.'
   fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png
 version: 5.8.1-ls147
 architectures:
 - amd64

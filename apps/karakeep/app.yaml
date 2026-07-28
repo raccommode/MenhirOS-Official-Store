@@ -6,6 +6,7 @@ name:
 description:
   en: 'Karakeep is an open-source, self-hosted bookmark manager for links, notes, images, PDFs, and highlights, built to keep everything you want to save in one place. It automatically fetches titles, descriptions, and previews, then helps you organize your library with AI tagging, full-text search, lists, and rule-based automation. With browser extensions, mobile apps, RSS ingestion, and page archiving, Karakeep works well as both a read-later tool and a durable personal content archive. Main Features: - Save links,…'
   fr: Karakeep est un gestionnaire de favoris open-source et auto-hébergé pour les liens, notes, images, PDF et surlignages, conçu pour réunir en un seul endroit tout ce que vous voulez conserver. Il récupère automatiquement les titres, descriptions et aperçus, puis vous aide à organiser votre bibliothèque avec le marquage par IA, la recherche plein texte, les listes et l'automatisation basée sur des règles. Avec des extensions de navigateur, des applications mobiles, l'ingestion RSS et l'archivage complet des pages,…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Karakeep/icon.svg
 version: 0.32.0
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: vscodium-web is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.
   fr: Application auto-hébergée de développement pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png
 version: 1.126.04524-ls32
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: Handbrake is a Docker-based application for video transcoding and compression, offering powerful and flexible multimedia processing across multiple platforms.
   fr: Handbrake est une application basée sur Docker pour la transcodification et la compression vidéo, offrant une puissante et flexible gestion multimédia sur plusieurs plateformes.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Handbrake/icon.svg
 version: 26.3.3
 architectures:
 - amd64

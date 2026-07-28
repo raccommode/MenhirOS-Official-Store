@@ -6,6 +6,7 @@ name:
 description:
   en: '[Firefox] Browser, also known as Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. Firefox uses the Gecko layout engine to render web pages, which…'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/firefox-logo.png
 version: 1153.0build1-1xtradeb1.2404.1-ls111
 architectures:
 - amd64

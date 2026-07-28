@@ -6,6 +6,7 @@ name:
 description:
   en: motionEye is a web-based frontend for motion. Check out the wiki for more details. Changelog is available on the releases page. https://github.com/motioneye-project/motioneye
   fr: Application Motioneye auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Motioneye/icon.svg
 version: 0.44.0
 architectures:
 - amd64

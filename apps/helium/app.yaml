@@ -6,6 +6,7 @@ name:
 description:
   en: '[Helium] is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png
 version: 0.14.9.1-ls28
 architectures:
 - amd64

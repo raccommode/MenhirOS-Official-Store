@@ -6,6 +6,7 @@ name:
 description:
   en: nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Nzbget/icon.svg
 version: v26.2-ls255
 architectures:
 - amd64

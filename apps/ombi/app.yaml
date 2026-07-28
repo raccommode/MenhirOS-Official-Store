@@ -6,6 +6,7 @@ name:
 description:
   en: ombi allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave…
   fr: Application auto-hébergée de demandes de contenus multimédias pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Ombi/icon.svg
 version: v4.53.10-ls263
 architectures:
 - amd64

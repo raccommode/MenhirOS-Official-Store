@@ -6,6 +6,7 @@ name:
 description:
   en: '[Ungoogled Chromium] is Google Chromium, sans dependency on Google web services.'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ungoogled-chromium-logo.png
 version: 150.0.7871.186-1-ls172
 architectures:
 - amd64

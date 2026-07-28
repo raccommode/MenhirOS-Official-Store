@@ -6,6 +6,7 @@ name:
 description:
   en: '[LibreOffice] is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice). Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.'
   fr: Application auto-hébergée de bureautique et documents pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/libreoffice-logo.png
 version: 25.8.7.3-r0-ls203
 architectures:
 - amd64

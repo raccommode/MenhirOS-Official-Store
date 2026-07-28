@@ -6,6 +6,7 @@ name:
 description:
   en: '[KeePassXC] is a free and open-source password manager. It started as a community fork of KeePassX (itself a cross-platform port of KeePass).'
   fr: Application auto-hébergée de gestion de mots de passe pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/keepassxc-logo.png
 version: 2.7.12-r1-ls122
 architectures:
 - amd64

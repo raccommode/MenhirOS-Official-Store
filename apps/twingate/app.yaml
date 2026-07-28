@@ -6,6 +6,7 @@ name:
 description:
   en: It's a connector for Twingate".
   fr: Application Twingate auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Twingate/icon.svg
 version: 1.0.0
 architectures:
 - amd64

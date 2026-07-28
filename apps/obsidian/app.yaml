@@ -6,6 +6,7 @@ name:
 description:
   en: '[Obsidian] is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow. You can also publish your notes online, access them offline, and sync them securely with…'
   fr: Application auto-hébergée de gestion de contenu pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Obsidian/icon.svg
 version: v1.12.7-ls140
 architectures:
 - amd64

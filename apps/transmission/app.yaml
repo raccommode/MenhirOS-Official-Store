@@ -6,6 +6,7 @@ name:
 description:
   en: 'transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories,…'
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Transmission/icon.svg
 version: 4.1.3-r0-ls355
 architectures:
 - amd64

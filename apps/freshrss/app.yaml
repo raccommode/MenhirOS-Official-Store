@@ -6,6 +6,7 @@ name:
 description:
   en: freshrss is a free, self-hostable aggregator for rss feeds.
   fr: Application auto-hébergée de lecture de flux RSS pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/FreshRSS/icon.svg
 version: 1.29.1-ls315
 architectures:
 - amd64

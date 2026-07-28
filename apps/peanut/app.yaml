@@ -6,6 +6,7 @@ name:
 description:
   en: 'PeaNUT is a web-based UPS monitoring system specifically designed for monitoring Uninterruptible Power Supplies (UPS). It provides a user-friendly interface for monitoring UPS status, battery life, and power outage notifications to ensure your systems are always protected. Key Features: - Real-time UPS status monitoring and control - Battery life and charge level monitoring - Automatic power outage notifications via email/webhook - Historical data logging and reporting - Support for various UPS manufacturers and…'
   fr: 'PeaNUT est un système de surveillance UPS basé sur le web, spécifiquement conçu pour surveiller les Alimentations Sans Interruption (ASI/UPS). Il fournit une interface conviviale pour surveiller le statut UPS, la durée de vie de la batterie et les notifications de coupure de courant pour garantir que vos systèmes sont toujours protégés. Fonctionnalités Clés: - Surveillance et contrôle du statut UPS en temps réel - Surveillance de la durée de vie de la batterie et du niveau de charge - Notifications automatiques…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Peanut/icon.svg
 version: 6.0.0
 architectures:
 - amd64

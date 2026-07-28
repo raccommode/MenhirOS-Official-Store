@@ -6,6 +6,7 @@ name:
 description:
   en: healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.
   fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png
 version: v4.3-ls355
 architectures:
 - amd64

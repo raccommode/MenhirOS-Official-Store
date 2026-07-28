@@ -6,6 +6,7 @@ name:
 description:
   en: 'oPodSync is a podcast synchronization service that allows users to sync their podcast subscriptions and listening progress across multiple devices. It provides a server-side solution for managing podcast data and ensures that users can seamlessly switch between their devices. Key Features: - Sync podcast subscriptions - Track listening progress across devices - Web-based management interface - Support for multiple podcast clients - Centralized data storage - Easy setup and configuration Learn More: - oPodSync…'
   fr: 'oPodSync est un service de synchronisation de podcasts qui permet aux utilisateurs de synchroniser leurs abonnements aux podcasts et leur progression d''écoute sur plusieurs appareils. Il fournit une solution côté serveur pour gérer les données des podcasts et garantit que les utilisateurs peuvent passer sans problème d''un appareil à l''autre. Fonctionnalités Clés: - Synchroniser les abonnements aux podcasts - Suivre la progression d''écoute sur plusieurs appareils - Interface de gestion basée sur le web - Support…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/oPodSync/icon.svg
 version: 0.0.1
 architectures:
 - amd64

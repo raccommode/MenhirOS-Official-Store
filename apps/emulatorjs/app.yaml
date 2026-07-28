@@ -6,6 +6,7 @@ name:
 description:
   en: EmulatorJS is a Docker-based emulator application that can simulate various operating systems and device environments within containers for development, testing, and learning purposes.
   fr: EmulatorJS est une application d'émulation basée sur Docker qui peut simuler divers systèmes d'exploitation et environnements de périphériques dans des conteneurs à des fins de développement, de test et d'apprentissage.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/EmulatorJS/icon.svg
 version: 1.9.2
 architectures:
 - amd64

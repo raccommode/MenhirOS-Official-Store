@@ -6,6 +6,7 @@ name:
 description:
   en: 'DeepSeek OCR is a powerful open-source OCR (Optical Character Recognition) tool based on the advanced DeepSeek-AI model. It enables accurate text extraction from images and document scans via a user-friendly web interface and API. Supports various image formats and offers configurations for image size, cropping, and upload limits. Additionally, DeepSeek OCR features four core recognition modes: Plain OCR for raw text extraction, Describe for intelligent image content descriptions, Find for keyword localization…'
   fr: 'DeepSeek OCR est un outil OCR (Reconnaissance Optique de Caractères) open source puissant basé sur le modèle avancé DeepSeek-AI. Il permet l''extraction précise de texte à partir d''images et de scans de documents via une interface web conviviale et une API. Prend en charge divers formats d''images et offre des configurations pour la taille d''image, le recadrage et les limites de téléversement. De plus, DeepSeek OCR propose quatre modes de reconnaissance principaux : Plain OCR pour l''extraction de texte brut,…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DeepSeek-OCR_Nvidia/icon.svg
 version: 2.2.0
 architectures:
 - amd64

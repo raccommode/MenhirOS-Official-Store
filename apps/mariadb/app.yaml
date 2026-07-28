@@ -6,6 +6,7 @@ name:
 description:
   en: MariaDB Server is one of the most popular open source relational databases. It’s made by the original developers of MySQL and guaranteed to stay open source. It is part of most cloud offerings and the default in most Linux distributions. It is built upon the values of performance, stability, and openness, and MariaDB Foundation ensures contributions will be accepted on technical merit. Recent new functionality includes advanced clustering with Galera Cluster 4, compatibility features with Oracle Database and…
   fr: MariaDB Server est l'une des bases de données relationnelles open source les plus populaires. Il est développé par les développeurs originaux de MySQL et est garanti d'être open source. Il fait partie de la plupart des offres cloud et est la solution par défaut dans la plupart des distributions Linux. Il repose sur les valeurs de performance, de stabilité et d'ouverture, et la Fondation MariaDB garantit que les contributions seront acceptées sur des critères techniques. Les fonctionnalités récentes incluent le…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/MariaDB/icon.svg
 version: 11.4.8
 architectures:
 - amd64

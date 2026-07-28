@@ -6,6 +6,7 @@ name:
 description:
   en: '[pyLoad] is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.'
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/PyLoad/icon.svg
 version: 0.5.0b3.dev101-ls246
 architectures:
 - amd64

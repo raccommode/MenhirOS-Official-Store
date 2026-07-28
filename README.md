@@ -48,3 +48,10 @@ Clone `https://github.com/IceWhaleTech/CasaOS-AppStore`, then run
 repository root. The converter imports every official application, preserves
 already reviewed Menhir manifests, resolves supported platforms, pins every
 container image by digest, and updates the SHA-256 references in `store.yaml`.
+
+## Refreshing application icons
+
+Run `python scripts/sync-app-icons.py /path/to/CasaOS-AppStore` to refresh the
+HTTPS icon associated with every application from the reviewed LinuxServer.io
+and CasaOS metadata. The script fails if any catalog entry has no icon and
+updates every changed manifest hash in `store.yaml`.

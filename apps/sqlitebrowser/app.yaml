@@ -6,6 +6,7 @@ name:
 description:
   en: '[DB Browser for SQLite] is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.'
   fr: Application auto-hébergée de gestion de bases de données pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sqlitebrowser-banner.png
 version: 3.13.1-r1-ls217
 architectures:
 - amd64

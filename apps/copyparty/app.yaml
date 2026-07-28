@@ -6,6 +6,7 @@ name:
 description:
   en: CopyParty is a fast, privacy-focused file sharing server using a local-first, single-file architecture, ensuring full control over data without cloud dependencies. Its intuitive interface supports offline use, with cross-platform compatibility and multi-protocol access, delivering a secure, efficient file management experience, ideal for users seeking direct data ownership and a lightweight solution. The app's core features include accelerated resumable uploads (via the up2k protocol), ensuring reliable large…
   fr: CopyParty est un serveur de partage de fichiers rapide et axé sur la confidentialité, utilisant une architecture « local-first » à fichier unique, garantissant un contrôle total sur les données sans dépendances cloud. Son interface intuitive prend en charge l'utilisation hors ligne, avec une compatibilité multiplateforme et un accès multi-protocole, offrant une expérience de gestion de fichiers sécurisée et efficace, idéale pour les utilisateurs recherchant une propriété directe des données et une solution…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/CopyParty/icon.svg
 version: 1.20.13
 architectures:
 - amd64

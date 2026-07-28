@@ -6,6 +6,7 @@ name:
 description:
   en: Alist transforms how you manage and access your files at home, whether on your TV, phone, or any other device. Unlike traditional cloud storage, Alist offers a unified experience across multiple platforms, making it a breeze to keep your media and documents at your fingertips. With features like easy installation, support for multiple storage providers (local, Aliyundrive, Onedrive, Google Drive), WebDAV support, dark mode, protected routes with password authentication, file previews for videos, audio, office…
   fr: Alist transforme la manière dont vous gérez et accédez à vos fichiers à la maison, que ce soit sur votre télévision, votre téléphone ou tout autre appareil. Contrairement au stockage cloud traditionnel, Alist offre une expérience unifiée sur plusieurs plateformes, rendant l'accès à vos médias et documents extrêmement simple. Avec des fonctionnalités telles qu'une installation facile, la prise en charge de plusieurs fournisseurs de stockage (local, Aliyundrive, Onedrive, Google Drive), le support WebDAV, le mode…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Alist/icon.svg
 version: 3.40.0
 architectures:
 - amd64

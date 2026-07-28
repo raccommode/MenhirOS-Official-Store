@@ -6,6 +6,7 @@ name:
 description:
   en: A complete Bitcoin full node using the official Bitcoin Core image. It independently downloads and validates the blockchain and participates in the peer-to-peer Bitcoin network.
   fr: Un nœud Bitcoin complet basé sur l’image officielle Bitcoin Core. Il télécharge et valide la blockchain de façon indépendante et participe au réseau pair-à-pair Bitcoin.
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/bitcoin.svg
 version: '31.0'
 architectures:
 - amd64

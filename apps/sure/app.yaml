@@ -6,6 +6,7 @@ name:
 description:
   en: 'Sure is a personal finance management application designed to help you track your expenses, income, and investments in one place. With an intuitive interface and powerful features, Sure makes it easy to understand your financial situation and make informed decisions about your money. Key Features: - Expense Tracking : Easily log and categorize your expenses - Income Management : Track multiple income sources - Investment Monitoring : Keep an eye on your investments and their performance - Budget Planning : Create…'
   fr: 'Sure est une application de gestion financière personnelle conçue pour vous aider à suivre vos dépenses, revenus et investissements en un seul endroit. Avec une interface intuitive et des fonctionnalités puissantes, Sure facilite la compréhension de votre situation financière et la prise de décisions éclairées concernant votre argent. Fonctionnalités Clés : - Suivi des Dépenses : Enregistrez et catégorisez facilement vos dépenses - Gestion des Revenus : Suivez plusieurs sources de revenus - Surveillance des…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Sure/icon.svg
 version: 0.6.5-hotfix.1
 architectures:
 - amd64

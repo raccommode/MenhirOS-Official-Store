@@ -6,6 +6,7 @@ name:
 description:
   en: kali-linux - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.
   fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
 version: 8d3bb537-ls123
 architectures:
 - amd64

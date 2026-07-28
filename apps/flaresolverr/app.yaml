@@ -6,6 +6,7 @@ name:
 description:
   en: Self-hosted FlareSolverr application ready to install on Menhir OS.
   fr: Application FlareSolverr auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/FlareSolverr/icon.svg
 version: 3.4.6
 architectures:
 - amd64

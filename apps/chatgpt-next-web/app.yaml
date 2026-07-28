@@ -6,6 +6,7 @@ name:
 description:
   en: An intelligent chat application based on ChatGPT, supports fast deployment, Markdown, beautiful UI, fluid response, privacy and security, and allows customization of preset roles for quick creation, sharing, and debugging of personalized conversations.
   fr: Application ChatGPT Next Web auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ChatGPT-Next-Web/icon.svg
 version: 2.16.1
 architectures:
 - amd64

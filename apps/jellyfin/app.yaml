@@ -6,6 +6,7 @@ name:
 description:
   en: Free media system for organizing and streaming your library.
   fr: Système multimédia libre pour organiser et diffuser votre bibliothèque.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Jellyfin/icon.svg
 version: 10.11.11
 architectures:
 - amd64

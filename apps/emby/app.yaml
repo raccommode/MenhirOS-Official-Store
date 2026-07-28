@@ -6,6 +6,7 @@ name:
 description:
   en: emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.
   fr: Application auto-hébergée de diffusion multimédia pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Emby/icon.svg
 version: 4.9.5.0-ls289
 architectures:
 - amd64

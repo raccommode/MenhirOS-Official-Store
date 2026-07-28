@@ -6,6 +6,7 @@ name:
 description:
   en: Alist-Sync is a storage synchronization tool based on the Web interface. It can achieve data synchronization and mutual backup among multiple network disks, and also has practical functions such as multi-task management, scheduled synchronization and difference handling.
   fr: Application Alist-Sync auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Alist-Sync/icon.svg
 version: 1.1.5
 architectures:
 - amd64

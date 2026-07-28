@@ -6,6 +6,7 @@ name:
 description:
   en: 'PsiTransfer is a simple, self-hosted open-source file sharing service that allows you to share files securely and easily without registration. Key Features: - No Registration Required: Share files instantly without creating an account. - Privacy and Control: All files are stored on your own server, giving you complete control over your data. - Password Protection: Protect shared files with a password for enhanced security. - Upload Expiry: Set uploaded files to automatically expire after a specific time to save…'
   fr: 'PsiTransfer est un service simple de partage de fichiers open source auto-hébergé qui vous permet de partager des fichiers de manière sécurisée et facile sans inscription. Fonctionnalités principales : - Aucune inscription requise : Partagez des fichiers instantanément sans créer de compte. - Confidentialité et contrôle : Tous les fichiers sont stockés sur votre propre serveur, vous donnant un contrôle total sur vos données. - Protection par mot de passe : Protégez les fichiers partagés avec un mot de passe pour…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/PsiTransfer/icon.png
 version: 2.4.1
 architectures:
 - amd64

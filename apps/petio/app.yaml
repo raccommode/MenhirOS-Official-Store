@@ -6,6 +6,7 @@ name:
 description:
   en: Petio is a third party companion app available to Plex server owners to allow their users to request, review and discover content. The app is built to appear instantly familiar and intuitive to even the most tech-agnostic users. Petio will help you manage requests from your users, connect to other third party apps such as Sonarr and Radarr, notify users when content is available and track request progress. Petio also allows users to discover media both on and off your server, quickly and easily find related…
   fr: Petio est une application compagnon tierce disponible pour les propriétaires de serveurs Plex afin de permettre à leurs utilisateurs de demander, de revoir et de découvrir du contenu. L'application est conçue pour être instantanément familière et intuitive, même pour les utilisateurs les moins technophiles. Petio vous aidera à gérer les demandes de vos utilisateurs, à vous connecter à d'autres applications tierces telles que Sonarr et Radarr, à notifier les utilisateurs lorsque du contenu est disponible et à…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Petio/icon.svg
 version: 0.5.5
 architectures:
 - amd64

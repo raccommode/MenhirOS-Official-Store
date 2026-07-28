@@ -6,6 +6,7 @@ name:
 description:
   en: changedetection.io provides free, open-source web page monitoring, notification and change detection.
   fr: Application auto-hébergée de automatisation web pour votre serveur Menhir.
+icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/changedetection-icon.png
 version: 0.55.8-ls303
 architectures:
 - amd64

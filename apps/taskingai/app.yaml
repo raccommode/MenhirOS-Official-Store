@@ -6,6 +6,7 @@ name:
 description:
   en: The developer-friendly cloud platform for building and running LLM agents for AI-native applications.
   fr: Application TaskingAI auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/TaskingAI/icon.svg
 version: 0.3.0
 architectures:
 - amd64

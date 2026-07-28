@@ -6,6 +6,7 @@ name:
 description:
   en: TriliumNext Notes is a cross-platform hierarchical note-taking tool focused on building large personal knowledge bases, offering robust organization and editing capabilities. Its intuitive interface and versatile features make it ideal for scholars, developers, and note-taking enthusiasts managing complex knowledge. The tool's core features include hierarchical note organization and rich editing. Users can arrange notes in an arbitrarily deep tree structure, with single notes clonable to multiple locations. It…
   fr: TriliumNext Notes est un outil de prise de notes hiérarchique multiplateforme axé sur la construction de grandes bases de connaissances personnelles, offrant des capacités robustes d'organisation et d'édition. Son interface intuitive et ses fonctionnalités polyvalentes le rendent idéal pour les universitaires, les développeurs et les passionnés de prise de notes gérant des connaissances complexes. Les fonctionnalités principales de l'outil incluent l'organisation hiérarchique des notes et l'édition riche. Les…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Trilium/icon.svg
 version: 0.103.0
 architectures:
 - amd64

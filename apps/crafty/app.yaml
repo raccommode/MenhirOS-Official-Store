@@ -6,6 +6,7 @@ name:
 description:
   en: Crafty is an open source Minecraft control panel built using Tornado and AdminLTE, featuring server scheduling, a interactive console and the ability to run almost any type of Minecraft server
   fr: Application Crafty auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Crafty/icon.svg
 version: 4.10.4
 architectures:
 - amd64

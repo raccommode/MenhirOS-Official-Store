@@ -6,6 +6,7 @@ name:
 description:
   en: grocy is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open…
   fr: Application auto-hébergée de recettes et inventaire pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grocy-logo.png
 version: v4.6.0-ls334
 architectures:
 - amd64

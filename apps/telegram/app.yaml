@@ -6,6 +6,7 @@ name:
 description:
   en: '[Telegram] is a cloud-based mobile and desktop messaging app.'
   fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/telegram-logo.png
 version: 7.0.6-ls61
 architectures:
 - amd64

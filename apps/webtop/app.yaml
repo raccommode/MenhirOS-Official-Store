@@ -6,6 +6,7 @@ name:
 description:
   en: webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.
   fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
 version: 48329e58-ls309
 architectures:
 - amd64

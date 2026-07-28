@@ -6,6 +6,7 @@ name:
 description:
   en: diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.
   fr: Application auto-hébergée de analyse du stockage pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png
 version: v2.3.5-ls241
 architectures:
 - amd64

@@ -837,6 +837,9 @@ def app_manifest(
     description_fr = neutralize_visible_catalog_branding(description_fr)
     release_en = neutralize_visible_catalog_branding(release_en)
     release_fr = neutralize_visible_catalog_branding(release_fr)
+    icon = scalar(meta.get("icon")).replace("http://", "https://", 1)
+    if not icon.startswith("https://"):
+        raise RuntimeError(f"{path}: application icon must use HTTPS")
 
     all_volumes = [volume for container in containers for volume in container.get("volumes") or []]
     backup_paths = sorted(
@@ -868,6 +871,7 @@ def app_manifest(
         "id": app_id,
         "name": {"en": name, "fr": name},
         "description": {"en": description_en, "fr": description_fr},
+        "icon": icon,
         "version": scalar(meta.get("version") or "latest"),
         "architectures": sorted(application_architectures),
         "containers": containers,

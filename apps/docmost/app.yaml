@@ -6,6 +6,7 @@ name:
 description:
   en: Docmost is a self-hosted collaborative wiki and documentation tool designed for real-time collaboration, allowing multiple users to edit the same page simultaneously without conflicts. Its intuitive interface is ideal for teams managing knowledge bases, project documentation, or wikis, offering an efficient knowledge creation and sharing experience. The tool's core features include real-time collaborative editing and space organization. It supports multiple users editing pages in real time for seamless…
   fr: Docmost est un outil de wiki et de documentation collaboratif auto-hébergé conçu pour la collaboration en temps réel, permettant à plusieurs utilisateurs de modifier la même page simultanément sans conflits. Son interface intuitive est idéale pour les équipes gérant des bases de connaissances, de la documentation de projet ou des wikis, offrant une expérience efficace de création et de partage de connaissances. Les fonctionnalités principales de l'outil incluent l'édition collaborative en temps réel et…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Docmost/icon.svg
 version: 0.90.0
 architectures:
 - amd64

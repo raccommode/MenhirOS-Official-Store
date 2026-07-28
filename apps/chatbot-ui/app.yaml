@@ -6,6 +6,7 @@ name:
 description:
   en: Chatbot UI is an open source chat UI for AI models.
   fr: Chatbot UI est une interface de chat open source pour les modèles d'IA.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ChatbotUI/icon.jpg
 version: 0.0.1
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: grav is a Fast, Simple, and Flexible, file-based Web-platform.
   fr: Application auto-hébergée de gestion de contenu pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png
 version: 2.0.13-ls263
 architectures:
 - amd64

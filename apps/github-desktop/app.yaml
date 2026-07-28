@@ -6,6 +6,7 @@ name:
 description:
   en: '[Github Desktop] is an open source Electron-based GitHub app. It is written in TypeScript and uses React.'
   fr: Application auto-hébergée de développement pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png
 version: release-3.4.13-linux1-ls211
 architectures:
 - amd64

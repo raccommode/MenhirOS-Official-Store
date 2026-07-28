@@ -6,6 +6,7 @@ name:
 description:
   en: Komga is a self-hosted app designed for managing comics, manga, magazines, and e-books (supporting CBZ, CBR, PDF, and EPUB formats), offering a secure and convenient solution for personal media libraries. Its responsive Web interface enables users to access and manage content effortlessly via any browser, without complex local installations, ideal for comic and e-book enthusiasts. The app's core features include versatile content organization and diverse reading options. Users can arrange their library with…
   fr: Komga est une application auto-hébergée conçue pour gérer des bandes dessinées, des mangas, des magazines et des livres électroniques (prise en charge des formats CBZ, CBR, PDF et EPUB), offrant une solution sécurisée et pratique pour les bibliothèques multimédias personnelles. Son interface Web réactive permet aux utilisateurs d'accéder et de gérer facilement le contenu via n'importe quel navigateur, sans installation locale complexe, idéale pour les amateurs de bandes dessinées et d'e-books. Les fonctionnalités…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Komga/icon.svg
 version: 1.24.4
 architectures:
 - amd64

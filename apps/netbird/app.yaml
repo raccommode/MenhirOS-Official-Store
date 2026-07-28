@@ -6,6 +6,7 @@ name:
 description:
   en: NetBird combines a WireGuard®-based overlay network with Zero Trust Network Access, providing a unified open source platform for reliable and secure connectivity. - Secure Remote Access – Enable least privilege network access in a few clicks - Zero-Config Deployment – Replace legacy VPNs with a peer-to-peer WireGuard®-based network - Seamless SSO with MFA – Secure your network access with session-based SSO & MFA - Dynamic Posture Checks – Grant access only to devices meeting your security rules - Centralized…
   fr: Application NetBird auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/NetBird/icon.svg
 version: 0.62.3
 architectures:
 - amd64

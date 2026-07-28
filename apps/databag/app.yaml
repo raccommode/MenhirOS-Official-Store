@@ -6,6 +6,7 @@ name:
 description:
   en: Databag is a federated chat app for self-hosting that focuses on user privacy and security; the service includes clients for iOS, Android, and browser.
   fr: Application Databag auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Databag/icon.svg
 version: 0.1.18
 architectures:
 - amd64

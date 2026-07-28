@@ -6,6 +6,7 @@ name:
 description:
   en: flexget is a multipurpose automation tool for all of your media.
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png
 version: v3.19.31-ls353
 architectures:
 - amd64

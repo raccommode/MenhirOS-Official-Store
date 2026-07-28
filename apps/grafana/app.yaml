@@ -6,6 +6,7 @@ name:
 description:
   en: 'Grafana open source is open source visualization and analytics software.Visualizations: Fast and flexible client side graphs with a multitude of options. Panel plugins offer many different ways to visualize metrics and logs. Dynamic Dashboards: Create dynamic & reusable dashboards with template variables that appear as dropdowns at the top of the dashboard. Explore Metrics: Explore your data through ad-hoc queries and dynamic drilldown. Split view and compare different time ranges, queries and data sources side…'
   fr: 'Grafana Open Source est un logiciel de visualisation et d''analyse open source. Visualisations: Graphiques rapides et flexibles côté client avec une variété d''options. Les plugins de panneau offrent de nombreuses façons différentes de visualiser des métriques et des journaux. Tableaux de bord dynamiques: Créez des tableaux de bord dynamiques et réutilisables avec des variables de modèle qui s''affichent comme des listes déroulantes en haut du tableau de bord. Explorer des métriques: Explorez vos données avec des…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Grafana/icon.svg
 version: 13.0.1-security-01
 architectures:
 - amd64

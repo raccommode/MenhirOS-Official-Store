@@ -6,6 +6,7 @@ name:
 description:
   en: babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
   fr: Application auto-hébergée de organisation familiale pour votre serveur Menhir.
+icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png
 version: v2.9.2-ls242
 architectures:
 - amd64

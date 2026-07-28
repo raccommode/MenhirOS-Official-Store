@@ -6,6 +6,7 @@ name:
 description:
   en: 'SickChill is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic: automatic torrent/nzb searching, downloading, and processing at the qualities you want.'
   fr: 'SickChill est un gestionnaire de bibliothèque vidéo automatique pour les émissions de télévision. Il surveille les nouvelles épisodes de vos émissions préférées, et lorsque elles sont publiées, il fait sa magie: recherche automatique de torrents / nzbs, téléchargement et traitement dans les qualités que vous souhaitez.'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Sickchill/icon.svg
 version: 2023.6.27
 architectures:
 - amd64

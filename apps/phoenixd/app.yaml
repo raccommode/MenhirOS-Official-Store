@@ -6,6 +6,7 @@ name:
 description:
   en: Self-custodial Phoenix Lightning node by ACINQ. It provides a lightweight HTTP API for receiving and sending Bitcoin over Lightning without operating a separate Bitcoin Core node.
   fr: Nœud Lightning Phoenix auto-dépositaire développé par ACINQ. Il fournit une API HTTP légère pour recevoir et envoyer des bitcoins sur Lightning sans exploiter un nœud Bitcoin Core séparé.
+icon: https://api.iconify.design/mdi:lightning-bolt.svg?color=%23f5a623
 version: 0.9.0
 architectures:
 - amd64

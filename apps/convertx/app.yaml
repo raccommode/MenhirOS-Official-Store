@@ -6,6 +6,7 @@ name:
 description:
   en: ConvertX is a self-hosted file conversion service that allows users to convert files between different formats through an intuitive web interface. It supports a wide range of file types including documents, images, videos, and audio files, making it a comprehensive solution for all your file conversion needs. The service is designed with simplicity and ease of use in mind. Users can simply upload their files, select the desired output format, and let ConvertX handle the conversion process. The web interface…
   fr: ConvertX est un service de conversion de fichiers auto-hébergé qui permet aux utilisateurs de convertir des fichiers entre différents formats via une interface web intuitive. Il prend en charge une large gamme de types de fichiers, y compris les documents, les images, les vidéos et les fichiers audio, en faisant une solution complète pour tous vos besoins de conversion de fichiers. Le service est conçu en pensant à la simplicité et à la facilité d'utilisation. Les utilisateurs peuvent simplement télécharger leurs…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ConvertX/icon.svg
 version: 0.17.0
 architectures:
 - amd64

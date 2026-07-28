@@ -6,6 +6,7 @@ name:
 description:
   en: '[QDirStat] Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.'
   fr: Application auto-hébergée de analyse du stockage pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png
 version: 2.0-ls235
 architectures:
 - amd64

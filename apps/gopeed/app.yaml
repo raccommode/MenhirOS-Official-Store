@@ -6,6 +6,7 @@ name:
 description:
   en: Gopeed is a modern high-speed download tool supporting HTTP, BitTorrent, and Magnet protocols, offering a beautiful interface and powerful functionality. Its lightweight design and multi-platform support make it ideal for efficient file downloading across various devices. The tool's core features include high-speed downloading and an elegant interface. It leverages Golang coroutines for concurrent downloading, supporting HTTP, HTTPS, BitTorrent, and Magnet protocols for fast, stable performance. The interface…
   fr: Gopeed est un outil de téléchargement moderne haute vitesse prenant en charge les protocoles HTTP, BitTorrent et Magnet, offrant une interface élégante et des fonctionnalités puissantes. Sa conception légère et son support multiplateforme le rendent idéal pour le téléchargement efficace de fichiers sur divers appareils. Les fonctionnalités principales de l'outil incluent le téléchargement haute vitesse et une interface élégante. Il exploite les coroutines Golang pour le téléchargement concurrent, prenant en…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gopeed/icon.svg
 version: 1.9.3
 architectures:
 - amd64

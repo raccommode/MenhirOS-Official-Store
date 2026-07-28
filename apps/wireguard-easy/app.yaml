@@ -6,6 +6,7 @@ name:
 description:
   en: You have found the easiest way to install & manage WireGuard on any Linux host!
   fr: Vous avez trouvé le moyen le plus simple d'installer et de gérer WireGuard sur n'importe quel hôte Linux !
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/WireGuardEasy/icon.svg
 version: 13.0.0
 architectures:
 - amd64

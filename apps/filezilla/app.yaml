@@ -6,6 +6,7 @@ name:
 description:
   en: '[FIleZilla] Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface.'
   fr: Application auto-hébergée de transfert de fichiers pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/filezilla-logo.png
 version: 3.69.6-1-ls30
 architectures:
 - amd64

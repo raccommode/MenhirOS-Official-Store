@@ -6,6 +6,7 @@ name:
 description:
   en: Monica is a self-hosted personal relationship management tool that helps users document and organize interactions with family and friends via an intuitive Web interface, creating a personalized contact database. It is ideal for users balancing work and life, ensuring key personal connections are never missed. The tool's core features include comprehensive contact management and smart reminders. It supports creating detailed contact profiles, logging personal details, relationships (e.g., family, friends), and how…
   fr: Monica est un outil de gestion des relations personnelles auto-hébergé qui aide les utilisateurs à documenter et organiser les interactions avec la famille et les amis via une interface Web intuitive, créant une base de données de contacts personnalisée. Il est idéal pour les utilisateurs qui équilibrent travail et vie privée, garantissant que les connexions personnelles importantes ne soient jamais manquées. Les fonctionnalités principales de l'outil incluent une gestion complète des contacts et des rappels…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Monica/icon.svg
 version: 4.1.2
 architectures:
 - amd64

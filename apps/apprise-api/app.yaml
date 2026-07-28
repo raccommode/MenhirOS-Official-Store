@@ -6,6 +6,7 @@ name:
 description:
   en: apprise-api Takes advantage of Apprise through your network with a user-friendly API. * Send notifications to more than 100 services. * An incredibly lightweight gateway to Apprise. * A production ready micro-service at your disposal. * A Simple Website to…
   fr: Application auto-hébergée de surveillance et diagnostic pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png
 version: v1.5.1-ls252
 architectures:
 - amd64

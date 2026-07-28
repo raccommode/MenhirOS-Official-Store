@@ -6,6 +6,7 @@ name:
 description:
   en: Threadfin is a M3U proxy server for Plex, Emby, Jellyfin and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats.
   fr: Application Threadfin auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Threadfin/icon.svg
 version: 1.2.37
 architectures:
 - amd64

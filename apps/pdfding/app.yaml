@@ -6,6 +6,7 @@ name:
 description:
   en: PdfDing is a selfhosted PDF manager, viewer and editor offering a seamless user experience on multiple devices. It's designed to be minimal, fast, and easy to set up using Docker. With features like seamless browser-based PDF viewing that remembers your current position, multi-level tagging, starring and archiving functionalities, PDF editing with comments, highlighting and drawings, clean intuitive UI with dark mode, SSO support via OIDC, PDF sharing with external audience, markdown notes, and progress bars…
   fr: PdfDing est un gestionnaire, visualiseur et éditeur PDF auto-hébergé offrant une expérience utilisateur transparente sur plusieurs appareils. Il est conçu pour être minimal, rapide et facile à configurer avec Docker. Avec des fonctionnalités comme la visualisation PDF basée sur navigateur qui se souvient de votre position actuelle, le marquage multi-niveaux, les fonctionnalités de favoris et d'archivage, l'édition PDF avec commentaires, surlignage et dessins, une interface utilisateur propre et intuitive avec…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/PdfDing/icon.svg
 version: 1.7.2
 architectures:
 - amd64

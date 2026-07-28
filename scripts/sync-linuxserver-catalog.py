@@ -16,6 +16,13 @@ import yaml
 
 
 API_URL = "https://api.linuxserver.io/api/v1/images?include_config=true"
+ICON_OVERRIDES = {
+    "faster-whisper": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/openai.svg",
+    "foldingathome": "https://api.iconify.design/mdi:molecule.svg?color=%238b5cf6",
+    "projectsend": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/projectsend.svg",
+    "thelounge": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/the-lounge.svg",
+    "xbackbone": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/xbackbone.svg",
+}
 APP_IDS = [
     "radarr",
     "prowlarr",
@@ -337,6 +344,9 @@ def security_classification(item: dict) -> str:
 def app_manifest(item: dict, digest: str) -> dict:
     image_name = item["name"]
     app_id = manifest_id(image_name)
+    icon = str(ICON_OVERRIDES.get(app_id) or item.get("project_logo") or "").replace("http://", "https://", 1)
+    if not icon.startswith("https://"):
+        raise RuntimeError(f"{image_name} has no HTTPS application icon")
     volumes = parse_volumes(item)
     container = {
         "name": app_id,
@@ -355,6 +365,7 @@ def app_manifest(item: dict, digest: str) -> dict:
             "en": clean_description(item.get("description") or f"Self-hosted {name} application."),
             "fr": french_description(item),
         },
+        "icon": icon,
         "version": str(item.get("version") or "latest"),
         "architectures": ["amd64", "arm64"],
         "containers": [container],

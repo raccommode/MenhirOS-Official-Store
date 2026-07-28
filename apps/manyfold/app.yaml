@@ -6,6 +6,7 @@ name:
 description:
   en: manyfold is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.
   fr: Application auto-hébergée de impression 3D pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png
 version: v0.146.0-ls161
 architectures:
 - amd64

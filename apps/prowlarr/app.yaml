@@ -6,6 +6,7 @@ name:
 description:
   en: prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr…
   fr: Application auto-hébergée de indexation de contenus pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Prowlarr/icon.svg
 version: 2.5.2.5491-ls155
 architectures:
 - amd64

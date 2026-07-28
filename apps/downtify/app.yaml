@@ -6,6 +6,7 @@ name:
 description:
   en: With Downtify you can download Spotify musics containing album art, track names, album title and other metadata about the songs. Just copy the Spotify link, whether it's a single song, an album, etc. As soon as your downloads are complete you will be notified!
   fr: Application Downtify auto-hébergée prête à installer sur Menhir OS.
+icon: https://raw.githubusercontent.com/henriquesebastiao/downtify/refs/heads/main/assets/casaos-icon.png
 version: 2.7.0
 architectures:
 - amd64

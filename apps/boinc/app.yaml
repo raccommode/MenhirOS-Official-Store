@@ -6,6 +6,7 @@ name:
 description:
   en: '[BOINC] is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized,…'
   fr: Application auto-hébergée de calcul scientifique pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg
 version: 8.2.8dfsg202512070716ubuntu24.04.1-ls128
 architectures:
 - amd64

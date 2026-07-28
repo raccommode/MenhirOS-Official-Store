@@ -6,6 +6,7 @@ name:
 description:
   en: Self-hosted Real-Debrid Torrent Client application ready to install on Menhir OS.
   fr: Application Real-Debrid Torrent Client auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/RDTClient/icon.svg
 version: 2.0.136
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: WeKnora is a deep document understanding and semantic retrieval framework based on Large Language Models (LLM), specifically designed for document scenarios with complex structures and heterogeneous content. It adopts a modular architecture, integrating key technologies such as multimodal preprocessing, semantic vector indexing, intelligent retrieval, and large model inference. Based on the Retrieval-Augmented Generation (RAG) paradigm, it achieves context-aware, high-quality Q&A capabilities. WeKnora can deeply…
   fr: WeKnora est un cadre de compréhension approfondie de documents et de récupération sémantique basé sur les Grands Modèles de Langage (LLM), spécifiquement conçu pour les scénarios de documents avec des structures complexes et un contenu hétérogène. Il adopte une architecture modulaire, intégrant des technologies clés telles que le prétraitement multimodal, l'indexation vectorielle sémantique, la récupération intelligente et l'inférence de grands modèles. Basé sur le paradigme de Génération Augmentée par…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/WeKnora/icon.svg
 version: 0.2.14
 architectures:
 - amd64

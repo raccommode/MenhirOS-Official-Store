@@ -6,6 +6,7 @@ name:
 description:
   en: 'OpenHands is an open-source AI-powered coding assistant that provides developers with intelligent code completion, generation, and debugging capabilities. It runs in a sandboxed environment to ensure security and isolation while allowing access to various development tools and resources. Key Features: - AI-powered code completion and generation - Interactive debugging and error resolution - Support for multiple programming languages - Secure sandboxed execution environment - Customizable runtime configurations -…'
   fr: 'OpenHands est un assistant de codage open source alimenté par l''IA qui fournit aux développeurs des capacités intelligentes de complétion, de génération et de débogage de code. Il s''exécute dans un environnement de bac à sable pour assurer la sécurité et l''isolement tout en permettant l''accès à divers outils et ressources de développement. Fonctionnalités clés : - Complétion et génération de code alimentées par l''IA - Débogage interactif et résolution d''erreurs - Prise en charge de plusieurs langages de…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/OpenHands/icon.svg
 version: 0.59.0
 architectures:
 - amd64

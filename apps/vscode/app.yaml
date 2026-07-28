@@ -6,6 +6,7 @@ name:
 description:
   en: '[VS Code] is an integrated development environment developed by Microsoft. This container runs the full desktop application, for a web native version see Code Server.'
   fr: Application auto-hébergée de développement pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscode-logo.png
 version: 1.129.1-ls16
 architectures:
 - amd64

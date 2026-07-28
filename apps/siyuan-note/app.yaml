@@ -6,6 +6,7 @@ name:
 description:
   en: Experience Seamless Knowledge Management with SiYuan. SiYuan redefines knowledge management by seamlessly integrating with your home TV, mobile devices, and other platforms. Unlike traditional knowledge systems, SiYuan offers a cohesive and flexible environment that adapts to your lifestyle, allowing you to access and organize information effortlessly across all your devices. Whether you are a creator or a regular consumer, SiYuan's innovative approach ensures your knowledge is always at your fingertips. Powerful…
   fr: Application SiYuan Note auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Siyuan-Note/icon.svg
 version: 3.6.5
 architectures:
 - amd64

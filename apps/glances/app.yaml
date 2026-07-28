@@ -6,6 +6,7 @@ name:
 description:
   en: Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.
   fr: Application Glances auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Glances/icon.svg
 version: 4.5.4
 architectures:
 - amd64

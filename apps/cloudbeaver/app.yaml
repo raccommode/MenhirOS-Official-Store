@@ -6,6 +6,7 @@ name:
 description:
   en: CloudBeaver is a web-based database GUI tool which provides rich web interface. You can use it to manage PostgreSQL, MySQL, MariaDB, SQL Server, Oracle, DB2, Firebird, H2, Trino.
   fr: Application CloudBeaver auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/CloudBeaver/icon.svg
 version: 26.0.5
 architectures:
 - amd64

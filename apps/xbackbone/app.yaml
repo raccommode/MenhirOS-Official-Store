@@ -6,6 +6,7 @@ name:
 description:
   en: xbackbone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a…
   fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/xbackbone.svg
 version: 3.8.2-ls235
 architectures:
 - amd64

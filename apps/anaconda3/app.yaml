@@ -6,6 +6,7 @@ name:
 description:
   en: Your machine learning Env work with Jupyter Lab
   fr: Application Anaconda3 auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Anaconda3/icon.svg
 version: 2024.10-1
 architectures:
 - amd64

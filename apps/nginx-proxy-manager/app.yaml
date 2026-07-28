@@ -6,6 +6,7 @@ name:
 description:
   en: Nginx Proxy Manager is a simple, powerful tool to help you host multiple websites on a single server.
   fr: Nginx Proxy Manager est un outil simple et puissant pour vous aider à héberger plusieurs sites Web sur un seul serveur.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/NginxProxyManager/icon.svg
 version: 2.13.5
 architectures:
 - amd64

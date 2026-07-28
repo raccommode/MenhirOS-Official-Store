@@ -6,6 +6,7 @@ name:
 description:
   en: bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.
   fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Bazarr/icon.svg
 version: v1.6.0-ls356
 architectures:
 - amd64

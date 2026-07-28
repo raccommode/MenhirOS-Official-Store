@@ -6,6 +6,7 @@ name:
 description:
   en: FileDrop is a self-hosted file sharing service that allows you to easily share files with family, friends, or colleagues. It's been designed to be easy to use and light on resources.
   fr: FileDrop est un service de partage de fichiers qui vous permet de partager facilement des fichiers avec votre famille, vos amis ou vos collègues. Il a été conçu pour être facile à utiliser et peu gourmand en ressources.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Filedrop/icon.svg
 version: 1.0.1
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: Netdata is a real-time performance and health monitoring solution that helps you visualize and understand the behavior of your systems.
   fr: Application Netdata auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Netdata/icon.svg
 version: 2.10.3
 architectures:
 - amd64

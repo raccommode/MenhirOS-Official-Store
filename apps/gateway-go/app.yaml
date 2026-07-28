@@ -6,6 +6,7 @@ name:
 description:
   en: A fast reverse proxy to help you expose a local server behind a NAT or firewall to your client, remote access all your Menhir OS/Menhir OS apps. Use OpenIoTHub to scan the following QR code add a gateway,then add host,add Menhir OS/Menhir OS host's web page port,finally, enjoy remote control
   fr: Application gateway-go auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Gateway-go/icon.svg
 version: 2.0.12
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: '[Chromium] is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.'
   fr: Application auto-hébergée de navigation web pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png
 version: bf9e0b4f-ls46
 architectures:
 - amd64

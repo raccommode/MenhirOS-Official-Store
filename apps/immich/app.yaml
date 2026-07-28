@@ -6,6 +6,7 @@ name:
 description:
   en: 'Immich: Revolutionizing Your Home Media Experience Immich is here to transform the way you manage and enjoy your media files across your home TV, smartphones, and other devices. Unlike traditional photo albums or mainstream cloud services, immich offers a seamless and modern platform for organizing, sharing, and accessing your photos and videos. Imagine effortlessly backing up your precious moments from your mobile devices and viewing them instantly on your TV or sharing them with family members—immich makes it…'
   fr: 'Immich : Révolutionnez votre expérience multimédia à domicile Immich est là pour transformer la façon dont vous gérez et profitez de vos fichiers multimédias sur votre télévision, smartphones et autres appareils. Contrairement aux albums photo traditionnels ou aux services cloud grand public, immich offre une plateforme moderne et fluide pour organiser, partager et accéder à vos photos et vidéos. Imaginez sauvegarder sans effort vos précieux moments depuis vos appareils mobiles et les visualiser instantanément…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Immich/icon.svg
 version: 2.7.2
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: '[KiCad] - A Cross Platform and Open Source Electronics Design Automation Suite.'
   fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kicad-logo.png
 version: 10.0.3-r0-ls140
 architectures:
 - amd64

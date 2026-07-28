@@ -6,6 +6,7 @@ name:
 description:
   en: 'RagFlow is an open-source RAG (Retrieval-Augmented Generation) engine based on deep document understanding. It enables users to build their own private ChatGPT by leveraging the power of large language models and deep document parsing capabilities. RagFlow supports various document formats including PDF, Word, Markdown, and more, allowing users to create intelligent question-answering systems based on their own documents. Key Features: - Deep document understanding with advanced parsing capabilities - Support for…'
   fr: RagFlow est un moteur RAG (Retrieval-Augmented Generation) open source basé sur la compréhension approfondie de documents. Il permet aux utilisateurs de construire leur propre ChatGPT privé en exploitant la puissance des grands modèles de langage et des capacités d'analyse approfondie de documents. RagFlow prend en charge divers formats de documents, notamment PDF, Word, Markdown, etc., permettant aux utilisateurs de créer des systèmes de questions-réponses intelligents basés sur leurs propres documents.…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/RagFlow/icon.svg
 version: 0.21.1
 architectures:
 - amd64

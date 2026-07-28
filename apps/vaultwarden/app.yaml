@@ -6,6 +6,7 @@ name:
 description:
   en: A lightweight, community-compatible password vault server.
   fr: Un serveur communautaire léger et compatible pour coffre de mots de passe.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Vaultwarden/icon.svg
 version: 1.36.0
 architectures:
 - amd64

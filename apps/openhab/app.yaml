@@ -6,6 +6,7 @@ name:
 description:
   en: The open Home Automation Bus (openHAB, pronounced ˈəʊpənˈhæb) is an open source, technology agnostic home automation platform which runs as the center of your smart home! Its ability to integrate a multitude of other devices and systems. openHAB includes other home automation systems, (smart) devices and other technologies into a single solution. To provide a uniform user interface and a common approach to automation rules across the entire system, regardless of the number of manufacturers and sub-systems…
   fr: Le bus d'automatisation domestique open (openHAB, prononcé ˈəʊpənˈhæb) est une plate-forme d'automatisation domestique open source et technologie agnostique qui fonctionne comme le centre de votre maison intelligente. Sa capacité à intégrer une multitude d'autres appareils et systèmes. openHAB inclut d'autres systèmes d'automatisation domestique, (intelligents) appareils et autres technologies dans une seule solution. Pour fournir une interface utilisateur uniforme et une approche commune aux règles…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/OpenHAB/icon.svg
 version: 5.1.4
 architectures:
 - amd64

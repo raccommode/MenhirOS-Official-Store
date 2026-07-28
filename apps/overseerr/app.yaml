@@ -6,6 +6,7 @@ name:
 description:
   en: Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex!
   fr: Overseerr est une application logicielle gratuite et open source pour la gestion des demandes de votre bibliothèque multimédia. Il s'intègre à vos services existants, tels que Sonarr, Radarr et Plex !
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Overseerr/icon.svg
 version: 1.35.0
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: Program to keep DNS A and/or AAAA records updated for multiple DNS providers
   fr: Application ddns-updater auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DDNS-Updater/icon.svg
 version: 2.10.0
 architectures:
 - amd64

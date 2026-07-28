@@ -6,6 +6,7 @@ name:
 description:
   en: Audiobookshelf is a self-hosted media server designed for managing and streaming audiobooks, podcasts, and e-books, offering a secure and flexible solution for personal media libraries. Its lightweight architecture and intuitive Web interface (available as a Progressive Web App, PWA) enable seamless access from any browser, while beta Android and iOS apps support offline listening, catering to privacy-focused media enthusiasts. The app supports on-the-fly streaming of all audio formats and provides robust…
   fr: Audiobookshelf est un serveur multimédia auto-hébergé conçu pour la gestion et le streaming de livres audio, de podcasts et de livres électroniques, offrant une solution sécurisée et flexible pour les bibliothèques multimédias personnelles. Son architecture légère et son interface Web intuitive (disponible en tant qu'application Web progressive, PWA) permettent un accès fluide depuis n'importe quel navigateur, tandis que les applications Android et iOS en version bêta prennent en charge l'écoute hors ligne,…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Audiobookshelf/icon.svg
 version: 2.35.0
 architectures:
 - amd64

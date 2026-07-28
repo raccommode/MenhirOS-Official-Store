@@ -6,6 +6,7 @@ name:
 description:
   en: '[Remmina] is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens. Remmina supports multiple network protocols, in an…'
   fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png
 version: 1.4.40dfsg-2ubuntu1-ls222
 architectures:
 - amd64

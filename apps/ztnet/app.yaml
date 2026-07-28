@@ -6,6 +6,7 @@ name:
 description:
   en: ZTNET is a powerful ZeroTier network management tool that simplifies network configuration and management through an intuitive Web interface, ideal for teams and individual users. Its modern design and rich features provide an efficient solution for building secure, scalable virtual networks. The tool centers on an intuitive Web interface and organization with multi-user support. Developed in TypeScript, it acts as an intermediary between users and the ZeroTier Controller API, enabling collaborative network…
   fr: ZTNET est un puissant outil de gestion de réseau ZeroTier qui simplifie la configuration et la gestion de réseau grâce à une interface Web intuitive, idéal pour les équipes et les utilisateurs individuels. Son design moderne et ses fonctionnalités riches fournissent une solution efficace pour construire des réseaux virtuels sécurisés et évolutifs. L'outil se centre sur une interface Web intuitive et une organisation avec support multi-utilisateur. Développé en TypeScript, il agit comme un intermédiaire entre les…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Ztnet/icon.svg
 version: 0.7.18
 architectures:
 - amd64

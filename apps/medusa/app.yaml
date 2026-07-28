@@ -6,6 +6,7 @@ name:
 description:
   en: medusa is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.
   fr: Application auto-hébergée de gestion de médias pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Medusa/icon.svg
 version: v1.0.25-ls280
 architectures:
 - amd64

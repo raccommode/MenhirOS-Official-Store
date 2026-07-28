@@ -6,6 +6,7 @@ name:
 description:
   en: pwndrop is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.
   fr: Application auto-hébergée de partage de fichiers pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/pwndrop-logo-512.png
 version: 1.0.1-ls158
 architectures:
 - amd64

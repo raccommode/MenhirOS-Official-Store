@@ -6,6 +6,7 @@ name:
 description:
   en: '[RustDesk] is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.'
   fr: Application auto-hébergée de bureau à distance pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rustdesk-logo.png
 version: 1.4.9-ls118
 architectures:
 - amd64

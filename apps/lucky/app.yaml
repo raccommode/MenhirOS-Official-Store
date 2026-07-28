@@ -6,6 +6,7 @@ name:
 description:
   en: A powerful tool for port forwarding, reverse proxy, dynamic DNS, wake-on-LAN, IPv4 NAT traversal, webdav services, task scheduling, and automatic certificate management.
   fr: Application Lucky auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Lucky/icon.svg
 version: 2.27.2
 architectures:
 - amd64

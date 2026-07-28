@@ -6,6 +6,7 @@ name:
 description:
   en: A GTK Broadway web UI for libvirt and virt-manager, to run virtual machines using QEMU/KVM.
   fr: Une interface web GTK Broadway pour libvirt et virt-manager, pour exécuter des machines virtuelles utilisant QEMU/KVM.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/VirtualMachineManager/icon.svg
 version: 0.0.1
 architectures:
 - amd64

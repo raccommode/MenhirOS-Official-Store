@@ -6,6 +6,7 @@ name:
 description:
   en: Wallabag is a web page saving app that allows users to save articles for offline reading, extracting content for a distraction-free experience. Its intuitive Web interface enables saving articles with a click, ensuring users can read them at their convenience. The app's core features include convenient web page saving, optimized reading, and flexible content organization. It extracts only the article's content, removing pop-ups and ads, and displays it in a clean, comfortable view. Users can organize saved…
   fr: Wallabag est une application de sauvegarde de pages web qui permet aux utilisateurs de sauvegarder des articles pour une lecture hors ligne, en extrayant le contenu pour une expérience sans distraction. Son interface web intuitive permet de sauvegarder des articles d'un clic, garantissant aux utilisateurs de pouvoir les lire à leur convenance. Les fonctionnalités principales de l'application incluent la sauvegarde pratique de pages web, la lecture optimisée et l'organisation flexible du contenu. Elle extrait…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Wallabag/icon.svg
 version: 2.6.14
 architectures:
 - amd64

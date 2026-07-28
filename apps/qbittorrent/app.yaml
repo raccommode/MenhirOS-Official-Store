@@ -6,6 +6,7 @@ name:
 description:
   en: The qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
   fr: Application auto-hébergée de gestion des téléchargements pour votre serveur Menhir.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/qBittorrent/icon.svg
 version: 5.2.3_v2.0.13-ls469
 architectures:
 - amd64

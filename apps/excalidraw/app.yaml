@@ -6,6 +6,7 @@ name:
 description:
   en: Excalidraw is a virtual hand-drawn style whiteboard platform supporting infinite canvas and end-to-end encrypted collaboration. An intuitive interface offers a hand-drawn experience, ideal for brainstorming, design sketches, or educational scenarios, meeting diverse creative needs. Core features include an infinite canvas whiteboard and end-to-end encrypted collaboration. Hand-drawn style with shape library support allows creating rich graphics, enhanced by image insertion capabilities. Dark mode improves user…
   fr: Excalidraw est une plateforme tableau blanc virtuel de style dessiné à la main supportant canevas infini et collaboration chiffrée de bout en bout. Une interface intuitive offre une expérience dessinée à la main, idéale pour brainstorming, croquis de design ou scénarios éducatifs, répondant à divers besoins créatifs. Les fonctionnalités principales incluent tableau blanc canevas infini et collaboration chiffrée de bout en bout. Style dessiné à la main avec support bibliothèque de formes permet créer graphiques…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Excalidraw/icon.svg
 version: 0.18.1
 architectures:
 - amd64

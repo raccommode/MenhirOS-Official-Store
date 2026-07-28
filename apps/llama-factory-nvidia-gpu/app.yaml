@@ -6,6 +6,7 @@ name:
 description:
   en: 'LLaMA Factory is a comprehensive framework for fine-tuning Large Language Models (LLMs) with support for over 100 models. It provides a user-friendly web interface and powerful training methods including LoRA, QLoRA, and full-parameter training. Key Features: - Support for 100+ LLMs including LLaMA, Mistral, Qwen, and more - Multiple fine-tuning methods (LoRA, QLoRA, Full, Freeze) - Intuitive Web UI for easy model management - Built-in API server for model inference - Multi-GPU training support - Quantization and…'
   fr: 'LLaMA Factory est un framework complet pour l''ajustement fin des grands modèles de langage (LLMs) avec prise en charge de plus de 100 modèles. Il fournit une interface web conviviale et des méthodes d''entraînement puissantes, notamment LoRA, QLoRA et l''entraînement complet des paramètres. Fonctionnalités Principales: - Support de 100+ LLMs incluant LLaMA, Mistral, Qwen et plus - Multiples méthodes de fine-tuning (LoRA, QLoRA, Full, Freeze) - Interface Web intuitive pour une gestion facile des modèles - Serveur…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/LLaMA-Factory_Nvidia/icon.svg
 version: 0.9.4
 architectures:
 - amd64

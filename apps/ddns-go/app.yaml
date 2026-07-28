@@ -6,6 +6,7 @@ name:
 description:
   en: A simple and easy-to-use DDNS tool. Automatically updates domain name resolution to your public IP (supports Alibaba Cloud, Tencent Cloud, Dnspod, Cloudflare, Callback, Huawei Cloud, Baidu Cloud, Porkbun, GoDaddy, and Google Domain). Deploy DDNS-go on Zima, and you can bind the public IP of your Zima device to your domain name. This way, you can access your Zima device via the domain name while you are away.
   fr: Application ddns-go auto-hébergée prête à installer sur Menhir OS.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Ddns-go/icon.svg
 version: 6.17.1
 architectures:
 - amd64

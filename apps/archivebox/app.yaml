@@ -6,6 +6,7 @@ name:
 description:
   en: 'ArchiveBox is a powerful, self-hosted internet archiving solution that allows you to create your own personal archive of web pages, PDFs, videos, and more. It functions as a personal internet archive, saving content in multiple formats for long-term preservation. The system consists of multiple components: - ArchiveBox : The main application providing the web interface and archiving capabilities - Sonic : A fast search backend for full-text search across archived content - ArchiveBox Scheduler : A background…'
   fr: 'ArchiveBox est une puissante solution d''archivage Internet auto-hébergée qui vous permet de créer votre propre archive personnelle de pages Web, de PDF, de vidéos et plus encore. Elle fonctionne comme une archive Internet personnelle, sauvegardant le contenu dans plusieurs formats pour une préservation à long terme. Le système se compose de plusieurs composants : - ArchiveBox : L''application principale fournissant l''interface Web et les capacités d''archivage - Sonic : Un backend de recherche rapide pour la…'
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/ArchiveBox/icon.svg
 version: 0.7.4
 architectures:
 - amd64

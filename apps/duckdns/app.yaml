@@ -6,6 +6,7 @@ name:
 description:
   en: duckdns is a DDNS (Dynamic DNS) application that dynamically binds IP addresses to domain names, supporting both IPv4 and IPv6.
   fr: duckdns est une application DDNS (DNS dynamique) qui lie dynamiquement des adresses IP à des noms de domaine, prenant en charge IPv4 et IPv6.
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/DuckDNS/icon.svg
 version: 0.0.1
 architectures:
 - amd64

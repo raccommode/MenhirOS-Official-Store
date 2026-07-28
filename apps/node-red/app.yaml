@@ -6,6 +6,7 @@ name:
 description:
   en: Node-RED is a flow-based low-code development platform that enables creating automation tasks and applications by connecting various nodes. A browser-based editor, simple to use, makes it ideal for users in home automation, industrial control, or other fields to quickly build data processing flows. Core features include a low-code flow editor and robust data handling. Built on Node.js with an event-driven, non-blocking model, the platform supports real-time data collection, transformation, and visualization. A…
   fr: Node-RED est une plateforme de développement low-code basée sur les flux qui permet de créer des tâches d'automatisation et des applications en connectant divers nœuds. Un éditeur basé sur navigateur, simple à utiliser, le rend idéal pour les utilisateurs dans l'automatisation domestique, le contrôle industriel ou d'autres domaines pour construire rapidement des flux de traitement de données. Les fonctionnalités principales incluent un éditeur de flux low-code et une gestion robuste des données. Construit sur…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Node-RED/icon.svg
 version: 4.1.10
 architectures:
 - amd64

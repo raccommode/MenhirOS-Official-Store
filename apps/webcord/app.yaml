@@ -6,6 +6,7 @@ name:
 description:
   en: '[WebCord] can be summarized as a pack of security and privacy hardenings, Discord features reimplementations, Electron / Chromium / Discord bugs workarounds, stylesheets, internal pages and wrapped https://discord.com page, designed to conform with ToS as…'
   fr: Application auto-hébergée de communication et messagerie pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webcord-icon.png
 version: v4.13.0-ls197
 architectures:
 - amd64

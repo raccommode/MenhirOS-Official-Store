@@ -6,6 +6,7 @@ name:
 description:
   en: Beaver Habit Tracker is a self-hosted habit tracking tool designed for users who want to effortlessly monitor daily behaviors without the stress of goal-setting. Its intuitive Web interface offers a pressure-free tracking experience, ideal for those focused on behavior observation and personal growth. The tool's core features include goal-free habit tracking and a minimalist interface. It allows users to log multiple habits easily, without focusing on streaks or targets, and provides simple visualizations to…
   fr: Beaver Habit Tracker est un outil de suivi d'habitudes auto-hébergé conçu pour les utilisateurs qui souhaitent surveiller sans effort les comportements quotidiens sans le stress de la fixation d'objectifs. Son interface Web intuitive offre une expérience de suivi sans pression, idéale pour ceux qui se concentrent sur l'observation du comportement et la croissance personnelle. Les caractéristiques principales de l'outil incluent le suivi d'habitudes sans objectifs et une interface minimaliste. Il permet aux…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/BeaverHabitTracker/icon.svg
 version: 0.9.1
 architectures:
 - amd64

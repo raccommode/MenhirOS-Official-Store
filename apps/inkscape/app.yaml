@@ -6,6 +6,7 @@ name:
 description:
   en: '[Inkscape] is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers.'
   fr: Application auto-hébergée de création et modélisation 3D pour votre serveur Menhir.
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/inkscape-logo.png
 version: 1.4.2-r8-ls94
 architectures:
 - amd64

@@ -6,6 +6,7 @@ name:
 description:
   en: WebDAV is a web-based protocol that allows you to share and manage files over the internet, providing a collaborative environment for file editing and versioning.
   fr: WebDAV est un protocole basé sur le web qui vous permet de partager et de gérer des fichiers sur Internet, offrant un environnement collaboratif pour l'édition et le contrôle de version des fichiers.
+icon: https://icon.casaos.io/main/all/webdav.png
 version: 0.0.1
 architectures:
 - amd64

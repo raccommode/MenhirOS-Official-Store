@@ -6,6 +6,7 @@ name:
 description:
   en: Linkwarden is an open-source self-hosted bookmark and web archive manager designed to help users collect, organize, and preserve important online content in one place. In addition to traditional bookmarking capabilities, it provides full webpage backup so valuable information remains safely accessible over time. Built around long-term content preservation, Linkwarden can automatically capture webpage screenshots, PDFs, and full HTML files to help prevent link rot. It also includes reading mode, annotations, local…
   fr: Linkwarden est une plateforme open source auto-hébergée de gestion de favoris et d’archivage web, conçue pour aider les utilisateurs à collecter, organiser et conserver durablement les contenus importants du Web. Au-delà des fonctions classiques de favoris, elle permet de sauvegarder intégralement les pages afin de garder les informations précieuses accessibles dans le temps. Axé sur la préservation à long terme du contenu, Linkwarden peut capturer automatiquement des captures d’écran de pages, des PDF et des…
+icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/Linkwarden/icon.svg
 version: 2.14.1
 architectures:
 - amd64
