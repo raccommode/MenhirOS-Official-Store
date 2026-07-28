@@ -61,6 +61,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v10.10.6 includes bug fixes for Jellyfin Server. - The release fixes Apple silicon crashes by bumping the .NET framework version to 8.0.13. - Fixes include subnet checks, image encoding concurrency, SchedulesDirect image prefetching, Live TV guide backdrops, and websocket state locking.
-  fr: '- v10.10.6 inclut des corrections de bugs pour Jellyfin Server. - Cette version corrige les plantages sur Apple silicon en mettant à jour le framework .NET vers 8.0.13. - Les correctifs couvrent les vérifications de sous-réseau, la concurrence d''encodage d''image, le préchargement d''images SchedulesDirect, les arrière-plans du guide Live TV et le verrouillage d''état websocket.'
+  en: v10.10.6 includes bug fixes for Jellyfin Server. - The release fixes Apple silicon crashes by bumping the .NET framework version to 8.0.13. - Fixes include subnet checks, image encoding concurrency, SchedulesDirect image prefetching, Live TV guide backdrops, and websocket state locking.
+  fr: v10.10.6 inclut des corrections de bugs pour Jellyfin Server. - Cette version corrige les plantages sur Apple silicon en mettant à jour le framework .NET vers 8.0.13. - Les correctifs couvrent les vérifications de sous-réseau, la concurrence d'encodage d'image, le préchargement d'images SchedulesDirect, les arrière-plans du guide Live TV et le verrouillage d'état websocket.
 securityClassification: critical

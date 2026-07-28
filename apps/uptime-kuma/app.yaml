@@ -37,6 +37,6 @@ backup:
   - /app/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.
-  fr: '- 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.'
+  en: 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.
+  fr: 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.
 securityClassification: standard

@@ -45,6 +45,6 @@ backup:
   - /data/db
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - MongoDB 8.2.2 is the database image version used by this app entry. - MongoDB publishes database release notes outside GitHub Releases, so this Docker tag is kept as image metadata.
-  fr: '- MongoDB 8.2.2 est la version de l''image de base de donnees utilisee par cette entree d''application. - MongoDB publie les release notes de la base de donnees hors de GitHub Releases; ce tag Docker est donc conserve comme metadonnee d''image.'
+  en: MongoDB 8.2.2 is the database image version used by this app entry. - MongoDB publishes database release notes outside GitHub Releases, so this Docker tag is kept as image metadata.
+  fr: MongoDB 8.2.2 est la version de l'image de base de donnees utilisee par cette entree d'application. - MongoDB publie les release notes de la base de donnees hors de GitHub Releases; ce tag Docker est donc conserve comme metadonnee d'image.
 securityClassification: standard

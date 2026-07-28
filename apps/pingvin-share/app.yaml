@@ -43,6 +43,6 @@ backup:
   - /opt/app/frontend/public/img
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Latest upstream release v1.13.0 adds support for using Redis cache instead of memory cache. - The backend can now define the path to the config file.
-  fr: '- La derniere release upstream v1.13.0 ajoute la prise en charge du cache Redis a la place du cache memoire. - Le backend peut maintenant definir le chemin du config file.'
+  en: Latest upstream release v1.13.0 adds support for using Redis cache instead of memory cache. - The backend can now define the path to the config file.
+  fr: La derniere release upstream v1.13.0 ajoute la prise en charge du cache Redis a la place du cache memoire. - Le backend peut maintenant definir le chemin du config file.
 securityClassification: standard

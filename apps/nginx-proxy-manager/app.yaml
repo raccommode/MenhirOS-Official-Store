@@ -47,6 +47,6 @@ backup:
   - /etc/letsencrypt
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.13.5 adds Vietnamese and Italian locales, with Dutch added and Polish, Russian, Slovak, and Chinese translations updated. - Fixes include web crashes when viewing Custom Certificates and translation text spacing issues. - Upgrade notifications, mobile UI/UX improvements, certbot-azure-dns updates, and refreshed OpenResty, Certbot, and s6-overlay components are included.
-  fr: '- v2.13.5 ajoute Vietnamese et Italian locales, ajoute Dutch et met a jour Polish, Russian, Slovak et Chinese translations. - Les web crashes lors de l''affichage de Custom Certificates et les translation text spacing issues ont ete corriges. - Inclut upgrade notifications, des ameliorations mobile UI/UX, des mises a jour certbot-azure-dns et des composants OpenResty, Certbot et s6-overlay rafraichis.'
+  en: v2.13.5 adds Vietnamese and Italian locales, with Dutch added and Polish, Russian, Slovak, and Chinese translations updated. - Fixes include web crashes when viewing Custom Certificates and translation text spacing issues. - Upgrade notifications, mobile UI/UX improvements, certbot-azure-dns updates, and refreshed OpenResty, Certbot, and s6-overlay components are included.
+  fr: v2.13.5 ajoute Vietnamese et Italian locales, ajoute Dutch et met a jour Polish, Russian, Slovak et Chinese translations. - Les web crashes lors de l'affichage de Custom Certificates et les translation text spacing issues ont ete corriges. - Inclut upgrade notifications, des ameliorations mobile UI/UX, des mises a jour certbot-azure-dns et des composants OpenResty, Certbot et s6-overlay rafraichis.
 securityClassification: standard

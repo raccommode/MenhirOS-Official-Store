@@ -43,6 +43,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 2.31.3 adds the --trusted-origins CLI option and TRUSTED ORIGINS environment variable. - The option is used to configure allowed domains when Portainer is behind a reverse proxy and avoids Origin invalid errors. - The release documents known limitations for Podman support.
-  fr: '- 2.31.3 ajoute --trusted-origins CLI option et TRUSTED ORIGINS environment variable. - Cette option configure les domains autorises lorsque Portainer est derriere un reverse proxy et evite les Origin invalid errors. - Cette version documente les limitations connues de Podman support.'
+  en: 2.31.3 adds the --trusted-origins CLI option and TRUSTED ORIGINS environment variable. - The option is used to configure allowed domains when Portainer is behind a reverse proxy and avoids Origin invalid errors. - The release documents known limitations for Podman support.
+  fr: 2.31.3 ajoute --trusted-origins CLI option et TRUSTED ORIGINS environment variable. - Cette option configure les domains autorises lorsque Portainer est derriere un reverse proxy et evite les Origin invalid errors. - Cette version documente les limitations connues de Podman support.
 securityClassification: standard

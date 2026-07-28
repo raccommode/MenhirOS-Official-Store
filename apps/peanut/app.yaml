@@ -39,6 +39,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.
-  fr: '- v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.'
+  en: v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.
+  fr: v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.
 securityClassification: standard

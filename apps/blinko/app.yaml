@@ -84,6 +84,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Blinko 1.8.7 adds MiniMax as a first-class LLM provider. - It fixes upload filename sanitization, tag filter reset behavior, and Turkish translations. - The release also streamlines search state and URL updates, adds file upload tests, removes CircleCI config, and refreshes localization content.
-  fr: '- Blinko 1.8.7 ajoute MiniMax comme LLM provider de premier niveau. - Le nettoyage des noms de fichiers uploades, le comportement de reinitialisation tag filter et les traductions turques ont ete corriges. - Cette version simplifie aussi l''etat de recherche et les mises a jour d''URL, ajoute des tests d''upload de fichiers, supprime la configuration CircleCI et rafraichit le contenu de localisation.'
+  en: Blinko 1.8.7 adds MiniMax as a first-class LLM provider. - It fixes upload filename sanitization, tag filter reset behavior, and Turkish translations. - The release also streamlines search state and URL updates, adds file upload tests, removes CircleCI config, and refreshes localization content.
+  fr: Blinko 1.8.7 ajoute MiniMax comme LLM provider de premier niveau. - Le nettoyage des noms de fichiers uploades, le comportement de reinitialisation tag filter et les traductions turques ont ete corriges. - Cette version simplifie aussi l'etat de recherche et les mises a jour d'URL, ajoute des tests d'upload de fichiers, supprime la configuration CircleCI et rafraichit le contenu de localisation.
 securityClassification: standard

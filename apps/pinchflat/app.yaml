@@ -43,6 +43,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Latest upstream release v2025.9.26 includes an important note referencing upstream issue 800. - Dockerfiles now include Deno.
-  fr: '- La derniere release upstream v2025.9.26 inclut une note importante renvoyant a l''issue upstream 800. - Les Dockerfiles incluent maintenant Deno.'
+  en: Latest upstream release v2025.9.26 includes an important note referencing upstream issue 800. - Dockerfiles now include Deno.
+  fr: La derniere release upstream v2025.9.26 inclut une note importante renvoyant a l'issue upstream 800. - Les Dockerfiles incluent maintenant Deno.
 securityClassification: standard

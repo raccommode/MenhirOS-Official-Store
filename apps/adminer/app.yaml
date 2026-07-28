@@ -5,7 +5,7 @@ name:
   fr: Adminer
 description:
   en: Adminer (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Conversely to phpMyAdmin, it consist of a single file ready to deploy to the target server. Adminer is available for MySQL, PostgreSQL, SQLite, MS SQL, Oracle, Firebird, SimpleDB, Elasticsearch and MongoDB.
-  fr: Application Adminer auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Adminer auto-hébergée prête à installer sur Menhir OS.
 version: 5.4.2
 architectures:
 - amd64
@@ -32,6 +32,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v5.4.2 avoids a denial-of-service issue in the version check. - It improves JSON display, generated values, exports, database support, and plugins.
-  fr: '- v5.4.2 avoids a denial-of-service issue in the version check. - It improves JSON display, generated values, exports, database support, and plugins.'
+  en: v5.4.2 avoids a denial-of-service issue in the version check. - It improves JSON display, generated values, exports, database support, and plugins.
+  fr: v5.4.2 avoids a denial-of-service issue in the version check. - It improves JSON display, generated values, exports, database support, and plugins.
 securityClassification: standard

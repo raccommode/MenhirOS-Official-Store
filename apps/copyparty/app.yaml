@@ -40,6 +40,6 @@ backup:
   - /w
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v1.20.13 adds .hidden support for cosmetic directory-listing filtering. - Thumbnail pregeneration and dotfile visibility in shares were added. - Fixes include thumbnails on older OSes without JXL support, new-version alert permissions, mkdir blocking, nohtml/noscript behavior on the web root, and share dotfile handling.
-  fr: '- v1.20.13 ajoute la prise en charge de .hidden pour le filtrage cosmétique des listes de répertoires. - La prégénération des miniatures et la visibilité des fichiers dotfile dans les partages ont été ajoutées. - Les correctifs couvrent les miniatures sur les anciens systèmes sans prise en charge JXL, les permissions d''alerte de nouvelle version, le blocage de mkdir, le comportement nohtml/noscript à la racine Web et la gestion des dotfiles dans les partages.'
+  en: v1.20.13 adds .hidden support for cosmetic directory-listing filtering. - Thumbnail pregeneration and dotfile visibility in shares were added. - Fixes include thumbnails on older OSes without JXL support, new-version alert permissions, mkdir blocking, nohtml/noscript behavior on the web root, and share dotfile handling.
+  fr: v1.20.13 ajoute la prise en charge de .hidden pour le filtrage cosmétique des listes de répertoires. - La prégénération des miniatures et la visibilité des fichiers dotfile dans les partages ont été ajoutées. - Les correctifs couvrent les miniatures sur les anciens systèmes sans prise en charge JXL, les permissions d'alerte de nouvelle version, le blocage de mkdir, le comportement nohtml/noscript à la racine Web et la gestion des dotfiles dans les partages.
 securityClassification: standard

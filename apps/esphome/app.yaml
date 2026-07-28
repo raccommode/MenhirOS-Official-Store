@@ -5,7 +5,7 @@ name:
   fr: ESPHome
 description:
   en: ESPHome is a system to control your microcontrollers by simple yet powerful configuration files and control them remotely through Home Automation systems.
-  fr: Application ESPHome auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application ESPHome auto-hébergée prête à installer sur Menhir OS.
 version: 2026.5.1
 architectures:
 - amd64
@@ -40,6 +40,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.
-  fr: '- 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.'
+  en: 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.
+  fr: 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.
 securityClassification: critical

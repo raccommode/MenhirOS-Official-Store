@@ -39,6 +39,6 @@ backup:
   - /2fauth
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v6.1.3 fixes the Try my luck feature being grayed out. - It also fixes minor UI glitches.
-  fr: '- v6.1.3 fixes the Try my luck feature being grayed out. - It also fixes minor UI glitches.'
+  en: v6.1.3 fixes the Try my luck feature being grayed out. - It also fixes minor UI glitches.
+  fr: v6.1.3 fixes the Try my luck feature being grayed out. - It also fixes minor UI glitches.
 securityClassification: standard

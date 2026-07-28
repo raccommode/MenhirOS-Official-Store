@@ -5,7 +5,7 @@ name:
   fr: Downtify
 description:
   en: With Downtify you can download Spotify musics containing album art, track names, album title and other metadata about the songs. Just copy the Spotify link, whether it's a single song, an album, etc. As soon as your downloads are complete you will be notified!
-  fr: Application Downtify auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Downtify auto-hébergée prête à installer sur Menhir OS.
 version: 2.7.0
 architectures:
 - amd64
@@ -44,6 +44,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.7.0 adds configurable parallel downloads. - It adds weekly and monthly playlist synchronization intervals. - Dependency maintenance updates are included.
-  fr: '- v2.7.0 adds configurable parallel downloads. - It adds weekly and monthly playlist synchronization intervals. - Dependency maintenance updates are included.'
+  en: v2.7.0 adds configurable parallel downloads. - It adds weekly and monthly playlist synchronization intervals. - Dependency maintenance updates are included.
+  fr: v2.7.0 adds configurable parallel downloads. - It adds weekly and monthly playlist synchronization intervals. - Dependency maintenance updates are included.
 securityClassification: standard

@@ -37,6 +37,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.
-  fr: '- v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.'
+  en: v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.
+  fr: v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.
 securityClassification: sensitive

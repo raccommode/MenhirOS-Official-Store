@@ -42,6 +42,6 @@ backup:
   - /app/.user
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.
-  fr: '- v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.'
+  en: v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.
+  fr: v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.
 securityClassification: standard

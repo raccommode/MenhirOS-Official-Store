@@ -4,8 +4,8 @@ name:
   en: Playit Agent
   fr: Playit Agent
 description:
-  en: Self-hosted Playit Agent application from the official CasaOS catalog.
-  fr: Application Playit Agent auto-hébergée issue du catalogue officiel CasaOS.
+  en: Self-hosted Playit Agent application ready to install on Menhir OS.
+  fr: Application Playit Agent auto-hébergée prête à installer sur Menhir OS.
 version: 1.0.10
 architectures:
 - amd64
@@ -28,6 +28,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog at revision e717df5e312d.
-  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+  en: Manifest synchronized with verified upstream metadata at revision e717df5e312d.
+  fr: Manifeste synchronisé avec les métadonnées amont vérifiées à la révision e717df5e312d.
 securityClassification: standard

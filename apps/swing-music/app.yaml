@@ -39,6 +39,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.
-  fr: '- v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.'
+  en: v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.
+  fr: v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.
 securityClassification: standard

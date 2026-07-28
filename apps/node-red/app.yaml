@@ -37,6 +37,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Node-RED 4.1.10 is a maintenance release. - It fixes module name validation for uninstall and tgz install operations. - It also ensures project files stay inside the project root path.
-  fr: '- Node-RED 4.1.10 is a maintenance release. - It fixes module name validation for uninstall and tgz install operations. - It also ensures project files stay inside the project root path.'
+  en: Node-RED 4.1.10 is a maintenance release. - It fixes module name validation for uninstall and tgz install operations. - It also ensures project files stay inside the project root path.
+  fr: Node-RED 4.1.10 is a maintenance release. - It fixes module name validation for uninstall and tgz install operations. - It also ensures project files stay inside the project root path.
 securityClassification: critical

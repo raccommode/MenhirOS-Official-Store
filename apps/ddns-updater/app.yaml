@@ -5,7 +5,7 @@ name:
   fr: ddns-updater
 description:
   en: Program to keep DNS A and/or AAAA records updated for multiple DNS providers
-  fr: Application ddns-updater auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application ddns-updater auto-hébergée prête à installer sur Menhir OS.
 version: 2.10.0
 architectures:
 - amd64
@@ -57,6 +57,6 @@ backup:
   - /updater/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.10.0 adds provider support for Scaleway, IPv64, Vercel, Hetzner Cloud, and Spaceship. - It fixes DNS resolution hangs, Route53 wildcard updates, Ionos URL paths, DonDominio key naming, deSEC IP-version updates, and Njalla paths. - Documentation and dependency updates are included.
-  fr: '- v2.10.0 adds provider support for Scaleway, IPv64, Vercel, Hetzner Cloud, and Spaceship. - It fixes DNS resolution hangs, Route53 wildcard updates, Ionos URL paths, DonDominio key naming, deSEC IP-version updates, and Njalla paths. - Documentation and dependency updates are included.'
+  en: v2.10.0 adds provider support for Scaleway, IPv64, Vercel, Hetzner Cloud, and Spaceship. - It fixes DNS resolution hangs, Route53 wildcard updates, Ionos URL paths, DonDominio key naming, deSEC IP-version updates, and Njalla paths. - Documentation and dependency updates are included.
+  fr: v2.10.0 adds provider support for Scaleway, IPv64, Vercel, Hetzner Cloud, and Spaceship. - It fixes DNS resolution hangs, Route53 wildcard updates, Ionos URL paths, DonDominio key naming, deSEC IP-version updates, and Njalla paths. - Documentation and dependency updates are included.
 securityClassification: standard

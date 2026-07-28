@@ -37,6 +37,6 @@ backup:
   - /root/.ollama
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.9.5 updates the macOS and Windows applications. - Ollama can now be exposed on the network, and the model storage directory can be changed. - The macOS app is now native with a smaller footprint and faster startup, and fixes include CLI installation and notarization issues.
-  fr: '- v0.9.5 met a jour les macOS et Windows applications. - Ollama peut maintenant etre expose sur le reseau et le model storage directory peut etre modifie. - La macOS app est maintenant native, plus legere et demarre plus vite; les problemes CLI installation et notarization issues sont corriges.'
+  en: v0.9.5 updates the macOS and Windows applications. - Ollama can now be exposed on the network, and the model storage directory can be changed. - The macOS app is now native with a smaller footprint and faster startup, and fixes include CLI installation and notarization issues.
+  fr: v0.9.5 met a jour les macOS et Windows applications. - Ollama peut maintenant etre expose sur le reseau et le model storage directory peut etre modifie. - La macOS app est maintenant native, plus legere et demarre plus vite; les problemes CLI installation et notarization issues sont corriges.
 securityClassification: standard

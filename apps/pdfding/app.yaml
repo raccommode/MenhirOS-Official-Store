@@ -56,6 +56,6 @@ backup:
   - /home/nonroot/pdfding/media
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.
-  fr: '- v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.'
+  en: v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.
+  fr: v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.
 securityClassification: standard

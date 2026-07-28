@@ -274,6 +274,6 @@ backup:
   - /var/lib/mysql
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.21.1 experimentally adds PDF document parsing with MinerU. - Dataset and personal center UI/UX were improved. - The Infinity document engine was upgraded to v0.6.1, and video parsing was fixed.
-  fr: '- v0.21.1 ajoute expérimentalement l''analyse de documents PDF avec MinerU. - L''UI/UX des jeux de données et du centre personnel a été améliorée. - Le moteur documentaire Infinity a été mis à niveau vers v0.6.1, et l''analyse vidéo a été corrigée.'
+  en: v0.21.1 experimentally adds PDF document parsing with MinerU. - Dataset and personal center UI/UX were improved. - The Infinity document engine was upgraded to v0.6.1, and video parsing was fixed.
+  fr: v0.21.1 ajoute expérimentalement l'analyse de documents PDF avec MinerU. - L'UI/UX des jeux de données et du centre personnel a été améliorée. - Le moteur documentaire Infinity a été mis à niveau vers v0.6.1, et l'analyse vidéo a été corrigée.
 securityClassification: critical

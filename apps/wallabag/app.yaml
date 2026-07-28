@@ -51,6 +51,6 @@ backup:
   - /var/www/wallabag/web/assets/images
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 2.6.14 adds an annotations filter to the entries API endpoint. - Fixes include deprecations, the Docker base image, reading-time computation for short entries, storing many URLs through the API, and dependency updates. - The wallabag/wallabag:2.6.14 Docker image tag was published on 2025-10-07.
-  fr: '- 2.6.14 adds an annotations filter to the entries API endpoint. - Fixes include deprecations, the Docker base image, reading-time computation for short entries, storing many URLs through the API, and dependency updates. - The wallabag/wallabag:2.6.14 Docker image tag was published on 2025-10-07.'
+  en: 2.6.14 adds an annotations filter to the entries API endpoint. - Fixes include deprecations, the Docker base image, reading-time computation for short entries, storing many URLs through the API, and dependency updates. - The wallabag/wallabag:2.6.14 Docker image tag was published on 2025-10-07.
+  fr: 2.6.14 adds an annotations filter to the entries API endpoint. - Fixes include deprecations, the Docker base image, reading-time computation for short entries, storing many URLs through the API, and dependency updates. - The wallabag/wallabag:2.6.14 Docker image tag was published on 2025-10-07.
 securityClassification: standard

@@ -54,6 +54,6 @@ backup:
   - /root/.flowise
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.
-  fr: '- flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.'
+  en: flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.
+  fr: flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.
 securityClassification: standard

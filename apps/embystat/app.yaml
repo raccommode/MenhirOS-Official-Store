@@ -41,6 +41,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - The configured EmbyStat 0.2.0 image does not map to a non-prerelease GitHub Release entry in mregni/EmbyStat. - Keep release notes bound to this image tag until upstream publishes a matching stable changelog.
-  fr: '- L''image EmbyStat 0.2.0 configuree ne correspond a aucune release GitHub non preversion dans mregni/EmbyStat. - Les releaseNotes restent liees a ce tag d''image jusqu''a ce qu''un changelog stable correspondant soit publie en amont.'
+  en: The configured EmbyStat 0.2.0 image does not map to a non-prerelease GitHub Release entry in mregni/EmbyStat. - Keep release notes bound to this image tag until upstream publishes a matching stable changelog.
+  fr: L'image EmbyStat 0.2.0 configuree ne correspond a aucune release GitHub non preversion dans mregni/EmbyStat. - Les releaseNotes restent liees a ce tag d'image jusqu'a ce qu'un changelog stable correspondant soit publie en amont.
 securityClassification: standard

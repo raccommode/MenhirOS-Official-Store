@@ -80,6 +80,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.7.2 fixes the default helmet.json file handling. - Machine-learning containers were fixed for some older CPUs by downgrading numpy. - External library import batch sizing was corrected.
-  fr: '- v2.7.2 corrige la gestion du fichier helmet.json par defaut. - Les machine-learning containers ont ete corriges pour certains anciens CPU en retrogradant numpy. - External library import batch sizing a ete corrige.'
+  en: v2.7.2 fixes the default helmet.json file handling. - Machine-learning containers were fixed for some older CPUs by downgrading numpy. - External library import batch sizing was corrected.
+  fr: v2.7.2 corrige la gestion du fichier helmet.json par defaut. - Les machine-learning containers ont ete corriges pour certains anciens CPU en retrogradant numpy. - External library import batch sizing a ete corrige.
 securityClassification: standard

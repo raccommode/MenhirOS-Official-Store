@@ -5,7 +5,7 @@ name:
   fr: PocketBase
 description:
   en: PocketBase is an open-source backend solution that combines a real-time database, authentication, file storage, and an admin dashboard into a single, portable executable.
-  fr: Application PocketBase auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application PocketBase auto-hébergée prête à installer sur Menhir OS.
 version: 0.26.6
 architectures:
 - amd64
@@ -36,6 +36,6 @@ backup:
   - /pb_data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - PocketBase v0.26.6 allows OIDC email verified values to be int or boolean strings for non-standard providers such as AWS Cognito. - It also updates modernc.org/sqlite to 1.36.3.
-  fr: '- PocketBase v0.26.6 allows OIDC email verified values to be int or boolean strings for non-standard providers such as AWS Cognito. - It also updates modernc.org/sqlite to 1.36.3.'
+  en: PocketBase v0.26.6 allows OIDC email verified values to be int or boolean strings for non-standard providers such as AWS Cognito. - It also updates modernc.org/sqlite to 1.36.3.
+  fr: PocketBase v0.26.6 allows OIDC email verified values to be int or boolean strings for non-standard providers such as AWS Cognito. - It also updates modernc.org/sqlite to 1.36.3.
 securityClassification: standard

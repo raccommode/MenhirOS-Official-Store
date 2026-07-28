@@ -112,6 +112,6 @@ backup:
   - /var/lib/mysql
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.
-  fr: '- 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.'
+  en: 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.
+  fr: 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.
 securityClassification: standard

@@ -53,6 +53,6 @@ backup:
   - /photoprism/storage
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.
-  fr: '- PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.'
+  en: PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.
+  fr: PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.
 securityClassification: standard

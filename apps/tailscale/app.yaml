@@ -37,6 +37,6 @@ backup:
   - /var/lib/tailscale
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.
-  fr: '- Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.'
+  en: Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.
+  fr: Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.
 securityClassification: critical

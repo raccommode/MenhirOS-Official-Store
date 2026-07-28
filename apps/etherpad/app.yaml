@@ -66,6 +66,6 @@ backup:
   - /opt/etherpad-lite/var
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Etherpad v3.1.0 adds Tier 4 autonomous self-updates with maintenance windows, preflight checks, and email notifications for failures and rollbacks. - It also introduces real SMTP delivery for updater mail and includes API, export, and HTTP security hardening plus localisation updates.
-  fr: '- Etherpad v3.1.0 ajoute des auto-mises à jour autonomes de niveau 4 avec fenêtres de maintenance, vérifications préalables et notifications par e-mail en cas d''échec ou de rollback. - Il introduit aussi l''envoi SMTP réel pour les e-mails de l''outil de mise à jour et inclut un renforcement de la sécurité des API, des exports et de HTTP ainsi que des mises à jour de localisation.'
+  en: Etherpad v3.1.0 adds Tier 4 autonomous self-updates with maintenance windows, preflight checks, and email notifications for failures and rollbacks. - It also introduces real SMTP delivery for updater mail and includes API, export, and HTTP security hardening plus localisation updates.
+  fr: Etherpad v3.1.0 ajoute des auto-mises à jour autonomes de niveau 4 avec fenêtres de maintenance, vérifications préalables et notifications par e-mail en cas d'échec ou de rollback. - Il introduit aussi l'envoi SMTP réel pour les e-mails de l'outil de mise à jour et inclut un renforcement de la sécurité des API, des exports et de HTTP ainsi que des mises à jour de localisation.
 securityClassification: standard

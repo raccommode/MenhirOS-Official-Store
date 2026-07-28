@@ -44,6 +44,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.
-  fr: '- v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.'
+  en: v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.
+  fr: v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.
 securityClassification: standard

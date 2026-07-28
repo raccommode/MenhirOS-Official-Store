@@ -40,6 +40,6 @@ backup:
   - /app/storage
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.
-  fr: '- v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.'
+  en: v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.
+  fr: v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.
 securityClassification: standard

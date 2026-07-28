@@ -38,6 +38,6 @@ backup:
   - /home/vocechat-server/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - VoceChat image v0.5.17 is available on Docker Hub for amd64. - The Privoce/vocechat-server-rust GitHub repository still only exposes tags through v0.3.20, so this update is based on the published Docker image tag.
-  fr: '- VoceChat image v0.5.17 is available on Docker Hub for amd64. - The Privoce/vocechat-server-rust GitHub repository still only exposes tags through v0.3.20, so this update is based on the published Docker image tag.'
+  en: VoceChat image v0.5.17 is available on Docker Hub for amd64. - The Privoce/vocechat-server-rust GitHub repository still only exposes tags through v0.3.20, so this update is based on the published Docker image tag.
+  fr: VoceChat image v0.5.17 is available on Docker Hub for amd64. - The Privoce/vocechat-server-rust GitHub repository still only exposes tags through v0.3.20, so this update is based on the published Docker image tag.
 securityClassification: standard

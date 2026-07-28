@@ -56,6 +56,6 @@ backup:
   - /etc/wireguard
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v13.0.0 introduces the new h3 framework. - It adds UI CHART TYPE and includes bug fixes.
-  fr: '- v13.0.0 introduit le nouveau framework h3. - Cette version ajoute UI CHART TYPE et inclut des correctifs.'
+  en: v13.0.0 introduces the new h3 framework. - It adds UI CHART TYPE and includes bug fixes.
+  fr: v13.0.0 introduit le nouveau framework h3. - Cette version ajoute UI CHART TYPE et inclut des correctifs.
 securityClassification: critical

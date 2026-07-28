@@ -52,6 +52,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Metadata release 1.9.2 adds logos and videos for 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn, and Wonderswan. - This entry remains tied to the configured LinuxServer image tag.
-  fr: '- Metadata release 1.9.2 ajoute des logos et des vidéos pour 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn et Wonderswan. - Cette entrée reste liée au tag d''image LinuxServer configuré.'
+  en: Metadata release 1.9.2 adds logos and videos for 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn, and Wonderswan. - This entry remains tied to the configured LinuxServer image tag.
+  fr: Metadata release 1.9.2 ajoute des logos et des vidéos pour 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn et Wonderswan. - Cette entrée reste liée au tag d'image LinuxServer configuré.
 securityClassification: critical

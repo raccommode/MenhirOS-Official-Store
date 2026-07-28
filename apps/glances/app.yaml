@@ -5,7 +5,7 @@ name:
   fr: Glances
 description:
   en: Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.
-  fr: Application Glances auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Glances auto-hébergée prête à installer sur Menhir OS.
 version: 4.5.4
 architectures:
 - amd64
@@ -37,6 +37,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.
-  fr: '- v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.'
+  en: v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.
+  fr: v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.
 securityClassification: standard

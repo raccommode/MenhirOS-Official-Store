@@ -49,6 +49,6 @@ backup:
   - /opt/openlist/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.
-  fr: '- v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.'
+  en: v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.
+  fr: v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.
 securityClassification: standard

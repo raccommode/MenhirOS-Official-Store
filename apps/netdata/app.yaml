@@ -5,7 +5,7 @@ name:
   fr: Netdata
 description:
   en: Netdata is a real-time performance and health monitoring solution that helps you visualize and understand the behavior of your systems.
-  fr: Application Netdata auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Netdata auto-hébergée prête à installer sur Menhir OS.
 version: 2.10.3
 architectures:
 - amd64
@@ -46,6 +46,6 @@ backup:
   - /var/lib/netdata
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.
-  fr: '- v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.'
+  en: v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.
+  fr: v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.
 securityClassification: critical

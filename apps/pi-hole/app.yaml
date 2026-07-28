@@ -60,6 +60,6 @@ backup:
   - /etc/pihole
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.
-  fr: '- Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.'
+  en: Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.
+  fr: Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.
 securityClassification: critical

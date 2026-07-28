@@ -43,6 +43,6 @@ backup:
   - /opt/workspace_base
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - 0.59.0 adds support for the Lemonade Provider. - Repository search, mounted-volume file ownership, prompt box resizing, and multiple UI issues were fixed.
-  fr: '- 0.59.0 ajoute la prise en charge du Lemonade Provider. - La recherche de dépôts, la propriété des fichiers des volumes montés, le redimensionnement de la zone de prompt et plusieurs problèmes d''interface ont été corrigés.'
+  en: 0.59.0 adds support for the Lemonade Provider. - Repository search, mounted-volume file ownership, prompt box resizing, and multiple UI issues were fixed.
+  fr: 0.59.0 ajoute la prise en charge du Lemonade Provider. - La recherche de dépôts, la propriété des fichiers des volumes montés, le redimensionnement de la zone de prompt et plusieurs problèmes d'interface ont été corrigés.
 securityClassification: standard

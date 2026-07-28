@@ -5,7 +5,7 @@ name:
   fr: Unifi Network Application
 description:
   en: Only mandatory ports are enabled by default, to extend functionality consider exposing 1900:1900/udp, 8843:8843, 8880:8880, 6789:6789, 5514:5514/udp. Other ports specifications here. Because the network application runs inside Docker by default it uses an IP address not accessible by other devices. So, for it to adopt other devices, it is required to use port 8080 and change the inform IP address. To do so, go in settings and search for the Inform Host option, there select override and set the address to that of…
-  fr: Application Unifi Network Application auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Unifi Network Application auto-hébergée prête à installer sur Menhir OS.
 version: 10.4.57-ls133
 architectures:
 - amd64
@@ -70,6 +70,6 @@ backup:
   - /data/db
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog at revision e717df5e312d.
-  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+  en: Manifest synchronized with verified upstream metadata at revision e717df5e312d.
+  fr: Manifeste synchronisé avec les métadonnées amont vérifiées à la révision e717df5e312d.
 securityClassification: standard

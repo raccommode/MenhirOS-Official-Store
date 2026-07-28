@@ -37,6 +37,6 @@ backup:
   - /root/.ollama
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Ollama 0.24.0 adds Codex App support through the ollama launch codex-app command. - The release includes built-in browser and review-mode support for the Codex App workflow. - It also reworks the MLX sampler for improved generation quality on Apple Silicon.
-  fr: '- Ollama 0.24.0 adds Codex App support through the ollama launch codex-app command. - The release includes built-in browser and review-mode support for the Codex App workflow. - It also reworks the MLX sampler for improved generation quality on Apple Silicon.'
+  en: Ollama 0.24.0 adds Codex App support through the ollama launch codex-app command. - The release includes built-in browser and review-mode support for the Codex App workflow. - It also reworks the MLX sampler for improved generation quality on Apple Silicon.
+  fr: Ollama 0.24.0 adds Codex App support through the ollama launch codex-app command. - The release includes built-in browser and review-mode support for the Codex App workflow. - It also reworks the MLX sampler for improved generation quality on Apple Silicon.
 securityClassification: standard

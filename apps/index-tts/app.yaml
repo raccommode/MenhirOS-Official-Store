@@ -31,6 +31,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - IndexTTS 2.0 tracks the upstream IndexTTS2 release. - IndexTTS2 adds controllable and uncontrollable precise speech duration generation for autoregressive TTS. - It adds expressive emotion control through multiple input modalities while keeping zero-shot timbre reproduction.
-  fr: '- IndexTTS 2.0 suit la release upstream IndexTTS2. - IndexTTS2 ajoute une generation precise de duree vocale, controlable et non controlable, pour le TTS autoregressif. - Il ajoute un controle emotionnel expressif via plusieurs modalites d''entree tout en conservant la reproduction zero-shot du timbre.'
+  en: IndexTTS 2.0 tracks the upstream IndexTTS2 release. - IndexTTS2 adds controllable and uncontrollable precise speech duration generation for autoregressive TTS. - It adds expressive emotion control through multiple input modalities while keeping zero-shot timbre reproduction.
+  fr: IndexTTS 2.0 suit la release upstream IndexTTS2. - IndexTTS2 ajoute une generation precise de duree vocale, controlable et non controlable, pour le TTS autoregressif. - Il ajoute un controle emotionnel expressif via plusieurs modalites d'entree tout en conservant la reproduction zero-shot du timbre.
 securityClassification: standard

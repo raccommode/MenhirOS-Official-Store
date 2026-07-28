@@ -45,6 +45,6 @@ backup:
   - /data/db
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - MongoDB 4.4.22 is a production release with fixes since 4.4.21 and is recommended for MongoDB 4.4 users. - Fixes include incremental backup handling where modified blocks could be omitted.
-  fr: '- MongoDB 4.4.22 est une version de production avec des correctifs depuis 4.4.21 et elle est recommandee aux utilisateurs de MongoDB 4.4. - Les correctifs incluent le traitement des sauvegardes incrementales, ou des blocs modifies pouvaient etre omis.'
+  en: MongoDB 4.4.22 is a production release with fixes since 4.4.21 and is recommended for MongoDB 4.4 users. - Fixes include incremental backup handling where modified blocks could be omitted.
+  fr: MongoDB 4.4.22 est une version de production avec des correctifs depuis 4.4.21 et elle est recommandee aux utilisateurs de MongoDB 4.4. - Les correctifs incluent le traitement des sauvegardes incrementales, ou des blocs modifies pouvaient etre omis.
 securityClassification: standard

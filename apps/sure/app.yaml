@@ -131,6 +131,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.6.5-hotfix.1 fixes mobile drag and re-order behavior. - Simplefin liabilities recording was fixed.
-  fr: '- v0.6.5-hotfix.1 corrige mobile drag et re-order behavior. - Simplefin liabilities recording a ete corrige.'
+  en: v0.6.5-hotfix.1 fixes mobile drag and re-order behavior. - Simplefin liabilities recording was fixed.
+  fr: v0.6.5-hotfix.1 corrige mobile drag et re-order behavior. - Simplefin liabilities recording a ete corrige.
 securityClassification: sensitive

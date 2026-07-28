@@ -43,6 +43,6 @@ backup:
   - /project
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.161.1 honors Retry-After headers in resources.GetRemote retries. - It adds AllowChildProcess to security.node.permissions and restricts the default http.urls @ deny rule to userinfo. - The ghcr.io/gohugoio/hugo:v0.161.1 Docker image tag was verified on GHCR.
-  fr: '- v0.161.1 honors Retry-After headers in resources.GetRemote retries. - It adds AllowChildProcess to security.node.permissions and restricts the default http.urls @ deny rule to userinfo. - The ghcr.io/gohugoio/hugo:v0.161.1 Docker image tag was verified on GHCR.'
+  en: v0.161.1 honors Retry-After headers in resources.GetRemote retries. - It adds AllowChildProcess to security.node.permissions and restricts the default http.urls @ deny rule to userinfo. - The ghcr.io/gohugoio/hugo:v0.161.1 Docker image tag was verified on GHCR.
+  fr: v0.161.1 honors Retry-After headers in resources.GetRemote retries. - It adds AllowChildProcess to security.node.permissions and restricts the default http.urls @ deny rule to userinfo. - The ghcr.io/gohugoio/hugo:v0.161.1 Docker image tag was verified on GHCR.
 securityClassification: standard

@@ -43,6 +43,6 @@ backup:
   - /watch
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.
-  fr: '- v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.'
+  en: v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.
+  fr: v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.
 securityClassification: critical

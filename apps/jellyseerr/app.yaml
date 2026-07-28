@@ -40,6 +40,6 @@ backup:
   - /app/config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Jellyseerr v2.7.3 fixes API docs and makes the UserSettings username field nullable. - It updates the Plex Watchlist URL, handles invalid blacklist keywords gracefully, and refreshes media state before MEDIA AVAILABLE notifications. - It also fixes 4K media delete handling and initializes image proxies after proxy setup.
-  fr: '- Jellyseerr v2.7.3 corrige API docs et rend le champ UserSettings username nullable. - L''URL Plex Watchlist est mise a jour, les blacklist keywords invalides sont gerees proprement et media state est rafraichi avant MEDIA AVAILABLE notifications. - La gestion 4K media delete est aussi corrigee et image proxies est initialise apres proxy setup.'
+  en: Jellyseerr v2.7.3 fixes API docs and makes the UserSettings username field nullable. - It updates the Plex Watchlist URL, handles invalid blacklist keywords gracefully, and refreshes media state before MEDIA AVAILABLE notifications. - It also fixes 4K media delete handling and initializes image proxies after proxy setup.
+  fr: Jellyseerr v2.7.3 corrige API docs et rend le champ UserSettings username nullable. - L'URL Plex Watchlist est mise a jour, les blacklist keywords invalides sont gerees proprement et media state est rafraichi avant MEDIA AVAILABLE notifications. - La gestion 4K media delete est aussi corrigee et image proxies est initialise apres proxy setup.
 securityClassification: standard

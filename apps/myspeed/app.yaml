@@ -5,7 +5,7 @@ name:
   fr: MySpeed
 description:
   en: MySpeed is a speed test analysis software that stores the speed of your internet for up to 30 days. This can also be useful if you want to know when your network might have drops or if you want to check if your internet matches the booked values from your contract.
-  fr: Application MySpeed auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application MySpeed auto-hébergée prête à installer sur Menhir OS.
 version: 1.0.9
 architectures:
 - amd64
@@ -37,6 +37,6 @@ backup:
   - /myspeed/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Added storage management. - Added LibreSpeed and Cloudflare Speed support. - Added Prometheus endpoint and notification-related improvements.
-  fr: '- Storage management a ete ajoute. - La prise en charge LibreSpeed et Cloudflare Speed a ete ajoutee. - Prometheus endpoint et des ameliorations liees aux notifications ont ete ajoutes.'
+  en: Added storage management. - Added LibreSpeed and Cloudflare Speed support. - Added Prometheus endpoint and notification-related improvements.
+  fr: Storage management a ete ajoute. - La prise en charge LibreSpeed et Cloudflare Speed a ete ajoutee. - Prometheus endpoint et des ameliorations liees aux notifications ont ete ajoutes.
 securityClassification: standard

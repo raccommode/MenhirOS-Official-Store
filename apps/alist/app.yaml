@@ -37,6 +37,6 @@ backup:
   - /opt/alist/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v3.40.0 adds cryptographic random string generation for security and OAuth state generation/verification for SSO. - Fixes include Baidu Netdisk timestamps, local file owner preservation, closing closed channels, PikPak captcha sign errors, and OIDC compatibility mode.
-  fr: '- v3.40.0 ajoute la generation de chaines aleatoires cryptographiques pour la securite et la generation/verification OAuth state pour le SSO. - Les correctifs couvrent les horodatages Baidu Netdisk, la conservation du owner des fichiers locaux, la fermeture de channels deja fermes, les erreurs PikPak captcha sign et OIDC compatibility mode.'
+  en: v3.40.0 adds cryptographic random string generation for security and OAuth state generation/verification for SSO. - Fixes include Baidu Netdisk timestamps, local file owner preservation, closing closed channels, PikPak captcha sign errors, and OIDC compatibility mode.
+  fr: v3.40.0 ajoute la generation de chaines aleatoires cryptographiques pour la securite et la generation/verification OAuth state pour le SSO. - Les correctifs couvrent les horodatages Baidu Netdisk, la conservation du owner des fichiers locaux, la fermeture de channels deja fermes, les erreurs PikPak captcha sign et OIDC compatibility mode.
 securityClassification: standard

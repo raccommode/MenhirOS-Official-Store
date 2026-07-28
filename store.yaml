@@ -12,13 +12,13 @@ maintainers:
 apps:
 - id: vaultwarden
   path: apps/vaultwarden/app.yaml
-  sha256: 9187dd3adb9a3e865cd2322d36da5bb9a7006db0f0a1e49a3e24f2c965f72282
+  sha256: de87e9479da89591302bb1abb0fa6e2a86e367115bf84185fee1b4e98b9fe168
 - id: jellyfin
   path: apps/jellyfin/app.yaml
-  sha256: 9d31efdf3a6d946dcbd7c0a38fe50f67441259ed053b10046108309c5e8e2aae
+  sha256: a9dcb7bf972944a005b75c1bbdbfb37e8ee61f7c7df336d371f0a9951b299c0a
 - id: nextcloud
   path: apps/nextcloud/app.yaml
-  sha256: 0c0eec37cc6e3ce231cc85a3b0969d0318e91b4957fa8d1401f900b10da50746
+  sha256: 219da61950f3efd01534fa0983322f0be278887c81c57bb2493a49e2bd56cc7c
 - id: radarr
   path: apps/radarr/app.yaml
   sha256: 7cf49e4a8437d50831fa4731b2afc23ed7c93e8e9905b9e5873a5fe561b7ee39
@@ -327,406 +327,406 @@ apps:
   sha256: e451cf4a4f8e13e38e9cdecf5fea748eca232c8e380ad49e8953d8f77300c049
 - id: 2fauth
   path: apps/2fauth/app.yaml
-  sha256: f92d87bd0b2eaf412d042f8ab33d572266355f15caf0ee8022bf0645b5513c55
+  sha256: afa631ba57b3203820dfe684c0dcd758692f6cc625ccc2de50318ab93c755fae
 - id: actual-budget
   path: apps/actual-budget/app.yaml
-  sha256: 2809aac58e0aa72d6258fc1c3a9762a0851400b93f3f03fe3771cc30b32608d8
+  sha256: 930ee3486dd8f3f4f329eb87ec7bf80a0c20f2904101b5eb90818179f9759066
 - id: adguard-home
   path: apps/adguard-home/app.yaml
-  sha256: c7a44a5cf2d77e9e70ed4c65f7dfb4a60ccdab2ce2a2ce1b6dbaa2c08c5b01a2
+  sha256: 0be6c76f38edc55b83cf4d1607d56997e659f57fb9af0eabcee1c718fd041978
 - id: adminer
   path: apps/adminer/app.yaml
-  sha256: c8773c9366778cb752b2bae56cd52e633c3f2ed2e342971c728ac13d91c2ae69
+  sha256: 4f43dd0ff36a04a8ed68f5486619243c0c153db0c05fe60b9aa8ab31e0b08593
 - id: alby-hub
   path: apps/alby-hub/app.yaml
-  sha256: eef50319641bf4b2e0200fd4f9cc8d31f4e2a6125db687cb0197fed17fb6b9e0
+  sha256: fc5ec1e8239abc5732da98e44d99b9cb339365e49f8ee451a3fd260faaae47f3
 - id: alist
   path: apps/alist/app.yaml
-  sha256: c3b81bb90e4013c2d3bf05051cc8109f2c05c638f25b9d085b2b920e89acc1df
+  sha256: 318b557894eb9843fe6f2cb386003da00f63f21289e31fcad5966df8ab194b42
 - id: alist-sync
   path: apps/alist-sync/app.yaml
-  sha256: a0e6757cce304d856156f973db2e27ebf0f85cc61d166a3331310c317e5f4743
+  sha256: e01a5aa00baebfe0fdb428515d970109238a43955d541bee6cbb8cf67f9ba33a
 - id: anaconda3
   path: apps/anaconda3/app.yaml
-  sha256: 5f1b51cbb8d698837acb86d80972d8bf76a8fd328e56806f71515c9f504c1e03
+  sha256: 61efee439ca8356d332057105a2fee105dc4ca80afe9afaa83904945abbe9011
 - id: anythingllm
   path: apps/anythingllm/app.yaml
-  sha256: 08516c9d255bdaaaec8d716e052270ce3c027d79e9be3b21a5f33022a5b976a3
+  sha256: a4a9ae9a3821e31586500dc3d2bef00170f8dac1391eca8d57ffa04d008fcb0d
 - id: archivebox
   path: apps/archivebox/app.yaml
-  sha256: f45e4776c6634d22f2f814e08dd3150fe075d1f94b356c5d9480fbbf5c946678
+  sha256: a46454d8360b540cfe16ae546b35fb6f8d7983c9fb317c91ce671194bd65d0f7
 - id: audiobookshelf
   path: apps/audiobookshelf/app.yaml
-  sha256: d959c7146a8fe9383a42f7bdfa13fc8e619f1a21f746a47c2725fbbf10f4b1c9
+  sha256: 8449f90274d454099d084eec9af724f15ecba7dfa97b3c68e8515654aec3fde2
 - id: autobrr
   path: apps/autobrr/app.yaml
-  sha256: fe11e954ef65ecddce85fae833e6dcefffb74bbd4436280f0194c93d6087af0c
+  sha256: fe61e874c4a69a35bf2c7c8787606ae39a1cf7e38eecb294024db56480381a18
 - id: beaverhabittracker
   path: apps/beaverhabittracker/app.yaml
-  sha256: 53bf9bf526dac4c372ee234e234df3d6f60851d48480561138bbd590db48b78f
+  sha256: cdd70e604bbe04cde5fd05527df5ea1f6ceabc8c29607982b65e2f7ac3cebb8b
 - id: blinko
   path: apps/blinko/app.yaml
-  sha256: e5df07e5f61af26359ba053876d4cbe549ce0aa899b2fc602f85758927cf9060
+  sha256: 3b9e57b0cc33e00068f1833953dc51b3eaabab34d741a26ead03e7df360b67be
 - id: chatbot-ui
   path: apps/chatbot-ui/app.yaml
-  sha256: c480f42b592c76bebc047dd5ea35d6cbc81efa5e7e4ab19c389015c410cfd1e6
+  sha256: 1cec7c1f5c846768684cd275f34d8a6243f4f9ba4133be1cc1298cc2bae34d5b
 - id: chatgpt-next-web
   path: apps/chatgpt-next-web/app.yaml
-  sha256: a95deed1ebabc44aa591a7885328b60caee92e6436a46e74bf28258ffeba498d
+  sha256: 86003e0055931932bd3f2c85bfbe0ad13994ef84491f6def88019352d5e8d379
 - id: cloudbeaver
   path: apps/cloudbeaver/app.yaml
-  sha256: 1abb6b90441c6ead392428a8b2876b5e6acdafa68eecb8f5447ea812648919d0
+  sha256: 1039f2a47f509a3fef1e8f9bdc25f8e164a3b3dd8943963ed6b20fd20f5aa01e
 - id: cloudflared
   path: apps/cloudflared/app.yaml
-  sha256: 326d8dd3f884b64db3e99c42c7d9dd614e1c3d4821515a1a8cefe2dda568b0f2
+  sha256: 353318bb8a49154d2026a0483b885591f12813a813b03b6641bfca126a113bd3
 - id: convertx
   path: apps/convertx/app.yaml
-  sha256: 29e2492d479871892632eaced3f55bf0e0700416c633c8db7a2729f32795b837
+  sha256: 30e785fe7f8dfb13a95e69bf18e6eae660ef6bf1a49f1d0dc27eb4e183c4cd0f
 - id: copyparty
   path: apps/copyparty/app.yaml
-  sha256: fa3be15812cf968c168047d173c1d3046f93a742d8fdaf183c67cc4ecee2d1f9
+  sha256: 7e3e7af4f2d927fffcb358079c6a773d17334c9bcb90af67952b4c64dc5caa53
 - id: crafty
   path: apps/crafty/app.yaml
-  sha256: 1982f4daf4ce658818004e23482a857021b307bee97b8707bc502442808294af
+  sha256: 167d00b597e70be7786715a22a3bef169f6deff3c70b96ac34aa582568f9e424
 - id: databag
   path: apps/databag/app.yaml
-  sha256: 16d9d423b8a15c3665805ccd139b83cc94cab646517b8e4152e8ce34e31f7d26
+  sha256: ac55f38075eade2997ff11bd8cc4a656d7de18d32fa500258a28e1751ef71015
 - id: ddns-go
   path: apps/ddns-go/app.yaml
-  sha256: 1b7520df64d765da0aa7e13ddc7b1d7bcb5a26058023ff4d7f56b24e9ea79cca
+  sha256: 6e587533627990c0c0b59e994abe5f6446d7cab8c88807d4a9ed3d8415bfc015
 - id: ddns-updater
   path: apps/ddns-updater/app.yaml
-  sha256: 7ee92ed6588c9c3b7d451020b861b2edd2097eeb834b170a676d17ff566c24de
+  sha256: ae65e189569bddd39fe37db996a52cad639462604f20111c03fef0b0c552b5ab
 - id: deepseek-ocr-nvidia-gpu
   path: apps/deepseek-ocr-nvidia-gpu/app.yaml
-  sha256: b2cbf044ed93dd9e90e0dc97c8f01254d784de280d7758a316506151d322daf1
+  sha256: 96c1aa3696c63e24ce7f7a7130b178ea67b9c973f63b4b5f93329ce6afa0c1db
 - id: dify
   path: apps/dify/app.yaml
-  sha256: 1f1491125ce175ec8c73efad937de1bfe6fa930741afcef5c4117d13aa8edfb0
+  sha256: f836e57be1fb84b73fa44a2e1892a59db97b03640ed96b919fc015331392780f
 - id: docmost
   path: apps/docmost/app.yaml
-  sha256: ee51f39380f2e811a42fe852bf610b1f90a2ba9bdd9f4a2331e3e60be3857656
+  sha256: 5f8e76f9a2f1fa112aa33ee76c50b9dbefd5058b941fbf7d26a67a21bcc8eee1
 - id: downtify
   path: apps/downtify/app.yaml
-  sha256: 25409261dcf03e06f941761780d349a01958f84373ed23a1641cd8fe33460e9d
+  sha256: 3511c9d0adad1e2c09c67c2494c35d79bf67a4ea31c2093dbac83c9c8e8613d9
 - id: duckdns
   path: apps/duckdns/app.yaml
-  sha256: b91977248c48e948890b8c52e71eaed105bb9e7754eb7b25e15c6cea1a770210
+  sha256: 5827524080115e0c0b5533631def80d92ada1052f49fdda2081968451a14a886
 - id: emby-nvidia-gpu
   path: apps/emby-nvidia-gpu/app.yaml
-  sha256: 92eb74b96266738d0094be480b9ac398f51652fe36006bc9d6981171a6055b39
+  sha256: 9131327209d58edd68ab45581fc252bee81727d65589b3af9219ff33a350f765
 - id: embystat
   path: apps/embystat/app.yaml
-  sha256: 1fa258eefe542f9476e80bdc06e24d90c0e628cc0f24d67965010844a087c0c6
+  sha256: 085064fc999602d22107666c2ef2d3bb8a4bd60823fdd9dc4a2bfdf5262fdad0
 - id: emulatorjs
   path: apps/emulatorjs/app.yaml
-  sha256: 0f2664286a3e7a6d85823824ac58ae6beb0248cf738ef764fca0eb27722f4cd5
+  sha256: 25e32f0b38661679d361a763f02f26d99524b2a12426092ec8fa54c263945acd
 - id: esphome
   path: apps/esphome/app.yaml
-  sha256: 4241b685bf3a12299d726c00abf42081c8d48ecce67d767e1acc9c4556ebb0a0
+  sha256: c42cef288c3b271daa7e9827f0007858a383432443b650dff5d25a2d92e5a71e
 - id: etherpad
   path: apps/etherpad/app.yaml
-  sha256: 1aa2ef30f5730fff392a622376aa792ff4ab636297767feba03894fe15d2d2c9
+  sha256: a82420e50b525e079079b85f4abfe4f15c1366466d2ca68cc994e7915b139225
 - id: excalidraw
   path: apps/excalidraw/app.yaml
-  sha256: 4bfa0b067c8bb44bb4fa9b1301f45504e47b2922595ae3c5fad845195b2e3336
+  sha256: fd420ed6101ed6ccbb8ccef2b9d15e9b6b33f4d6f4e843511504611e0566808c
 - id: filedrop
   path: apps/filedrop/app.yaml
-  sha256: 565829e2a8453b73ca34e0e6f5117a886a67c460d4421a7df35000a61fc3a495
+  sha256: d7152e43e75129ee22ff57386db604876dbdf33a9f9d7d743a86d133e9a0a545
 - id: fileflows
   path: apps/fileflows/app.yaml
-  sha256: 35b098dcaeeaa1fc0af8e50e6927a99527620a087444e28881e4be29e6e80132
+  sha256: 3b2bb1afcca11f093121124399f0d38d136977ea059a5e5b442905f436e3c461
 - id: firefly
   path: apps/firefly/app.yaml
-  sha256: 5ed0073066c506f819432a43e77a757a7db088d5ddd1b0194b9cc34d24c14fd6
+  sha256: 8d447923ab9435d2dfefdd37127c325ebdd9821ce47cc70602406fd0cc23a7bc
 - id: flaresolverr
   path: apps/flaresolverr/app.yaml
-  sha256: eb41a76aeccacf39876cad6c0a982a8a4d169647ac240531aebeed8df89a138d
+  sha256: 563801cc12e7fcdfdf04ef9191d1d487a497b363002fe13c5b9420637a6e84ee
 - id: flowise
   path: apps/flowise/app.yaml
-  sha256: 96a44070da2136daabfd666dcca22a268a9e260e9071ea2238e20ab8a985a9d6
+  sha256: afbbb1e08fc8ebb9bc0998fd91378481b8af6c29cdc36250841a18cdc7764a0d
 - id: gateway-go
   path: apps/gateway-go/app.yaml
-  sha256: f49ebe365b49fff4e4ef8ee75682abad1a173fd23ffd063f1115febbafda520a
+  sha256: d7a0250684f5d87959fa22e24db0bc85c4ad62c1bf1df2f96bdb43baf5f63be3
 - id: gitea
   path: apps/gitea/app.yaml
-  sha256: 8947a72325e484210c0149fc764c8f89f97e2cf95f13fd5e7fae10a6a39d8fc5
+  sha256: 0bef5a49f8e392eb7d79f4513e4f34cdd72ad4d9e5a2b9aca36954887005490d
 - id: glances
   path: apps/glances/app.yaml
-  sha256: 922e22a66ec2d475864b243e659c63711b43b59e2c1d292a1b8d720f58f904ed
+  sha256: 048d3e8d8e5c36317091e51df0629bb62ba3a227ac75b3484515dd432a1c8ec2
 - id: gopeed
   path: apps/gopeed/app.yaml
-  sha256: 6655d36ff15c0096e324662347868a57a9a59c9fe8efee54f0b3c1222c76b06a
+  sha256: 2dab85091e309a19ed869a9e0b041b105d21b036e25be043e2f65f62c0bd5ae1
 - id: grafana
   path: apps/grafana/app.yaml
-  sha256: c5e90319b671bbff78b4ec1dcdbb8b45c09c940c8d542b45471cc5e5e31ff41c
+  sha256: c46dee49c74258f3b0cb15f31c05fc8db9d3cb3f1b2dc75478ede6b6d66267a7
 - id: handbrake
   path: apps/handbrake/app.yaml
-  sha256: 81129bbeee1e34a6898b35b4a5768c80268aa75c5e5dd2644f8b5207d6550c6f
+  sha256: bc4d426c427651e1e6f276fc430000ec5ba2771ef95b4a5b4acb6cef9f274c3f
 - id: hermes
   path: apps/hermes/app.yaml
-  sha256: a8af2222f94413a42d76274e12c5cc94dc9f73feab03356075c64d7d5df8041a
+  sha256: 19fa11dcc3e1543c697d14bcd4940a27cebeeb267e40c608ff941ed34c1643a7
 - id: holoplay
   path: apps/holoplay/app.yaml
-  sha256: 4fcb04a4c5cf0b2b96b64ad9d6ae7044f24cacf8b6f491e9c34e6a0362b911a7
+  sha256: 439d4e671be7870f5502e297bf1477a5554c5873ac56ab067e32230bd65b1961
 - id: homebridge
   path: apps/homebridge/app.yaml
-  sha256: 4dc674ec946ebb33249e31b9e0e878d49201c195a73599f62a150a006436b758
+  sha256: 497baac8a0f0ce1bd316dc5ee509cbafda4f410be56f2f6a8ebb5fcfd1bbe8ad
 - id: hugo
   path: apps/hugo/app.yaml
-  sha256: 4b50efc3846990e353237b8dea5d02d159af08a3d2881db91c6912525a08b7e3
+  sha256: 731fc4f96008443674b7aea88a79044c306f6e7220fe87d5ce42871abbddc605
 - id: immich
   path: apps/immich/app.yaml
-  sha256: 432d4d180cfb6dc4e1a2fa1679a0d5a43e0bb8ab689c7c80782a6d70dfe869d9
+  sha256: 870971982b50b403148a4046523b7066cf54288bc62f1d1c86738efd1528f318
 - id: index-tts
   path: apps/index-tts/app.yaml
-  sha256: 018abda709d10fef1689fe0a1326099ea9b18659b6a18459d57fc4bd2dd5f034
+  sha256: 4699d69cc3df7c4bd63c82dee6524031935745a4587598cc1455da7a432067dc
 - id: index-tts-nvidia-gpu
   path: apps/index-tts-nvidia-gpu/app.yaml
-  sha256: 7614a700f3ca87941e04ca8aad195b33421ac5dbbeacf538f247691b1354f437
+  sha256: a843ab125b342cce258fbcf77011ad9d109c0df77d0376c68145bbcc9c62125f
 - id: jdownloader2
   path: apps/jdownloader2/app.yaml
-  sha256: cfe2caa21d0e6ccd64ce3ee2016a8f5a957e26e098a4d220ba9f5cdaae72111f
+  sha256: eea33d67af770ea028111e5a26c3d01b85eb0addb0c4c47f394f76dff535a5a4
 - id: jellyfin-nvidia-gpu
   path: apps/jellyfin-nvidia-gpu/app.yaml
-  sha256: 80bb5e51f0cdea59886fca2135db57590a504528325ee72700abfb96ddafceaf
+  sha256: f99aad243b84093d81ae6cf4aa9b94d29c93f5faf2ec0a41c127b26feb3a6c9f
 - id: jellyseerr
   path: apps/jellyseerr/app.yaml
-  sha256: 7f92d37fb814a9f121a26a7b669e90a100e71d227b73c8a25152e4d9b37fcd35
+  sha256: 2af95db086643e5568f405a4cedbd59c3fe2b0845038def233dce86de39753b6
 - id: jenkins-ci-cd
   path: apps/jenkins-ci-cd/app.yaml
-  sha256: d81f578e69095ea1581ace0f0ac78433e7389f1a8703c74fcf53faba246f6b4c
+  sha256: d4a6adb11a4e6e4902d94b9bb715b2c928ee04cc6b8e1486dfa5d0aefdaee44e
 - id: karakeep
   path: apps/karakeep/app.yaml
-  sha256: 82b9ac8749b7255088c774ee9443b0410bcf561c04d987343454a34b34eab2ac
+  sha256: 11f3a1717f50c57b884956416e5da72ff3d6d724244abffa03f249863b9e8e07
 - id: komga
   path: apps/komga/app.yaml
-  sha256: da089fe2bb63d64a7d0188972fd698eeb9dbbb9a039a011f3de93b46358fe3fc
+  sha256: f28229589b85e50f33719c4266df9cd151c576e2a3bcae3051ebcc23671ff50f
 - id: label-studio
   path: apps/label-studio/app.yaml
-  sha256: be1599a7bea11eefc7479b54abb90342f194227882b6a1369522352b82b35131
+  sha256: bae22d823af24b049d71271ec8e1ff9bf863b3f3fa0757ce81f4b9004a75861a
 - id: langflow
   path: apps/langflow/app.yaml
-  sha256: 5907db9d5a7d6d7244f88763f420ce00c89fce41019c477a0fb91ab9d4e8bdaf
+  sha256: 486457818affd12fe2721e9679c102fb8c1d07134f1bd041a2666b9e37c90712
 - id: librechat
   path: apps/librechat/app.yaml
-  sha256: d20cc8b817a51cd7d3b3576db697bec6ec51f997616ce324ce56caa32658875a
+  sha256: 775c7574122387e8e11bfab1351f208903a20827099f07d0499ef1137d1013a1
 - id: linkwarden
   path: apps/linkwarden/app.yaml
-  sha256: 21a00bd320db1a03dff8f5646e00b7cbd9bb127a9a9b785afdb3430035bf01f4
+  sha256: fc19938cdb699d3835257dfe88e704fde33e0c102e08af1a264b269e0d9944eb
 - id: llama-factory-nvidia-gpu
   path: apps/llama-factory-nvidia-gpu/app.yaml
-  sha256: 5776d3c3f567353db895794d74b746fcf8a969856bf09270d1d885a589e65062
+  sha256: 65b6640251d9e80bc1d778b54be25686c4031f304d043bb7c4f915d129ce5df1
 - id: logseq
   path: apps/logseq/app.yaml
-  sha256: fa89d247e83e626d3e8929480f98bb20140eeea46df3b2afe0b311f0d6e61135
+  sha256: 0d8525a4477cb400d780f70550cb96379ad998584afe70db0ddbdbf5681ef115
 - id: lucky
   path: apps/lucky/app.yaml
-  sha256: 6644773f58fc807b3d0acc1c6f73359780673c19aff9e160efd97c97a2079c67
+  sha256: 5b05ece2303563d70302042f134bd91b73d1e64b4078895525f67717ed9f969c
 - id: lyrionmusicserver
   path: apps/lyrionmusicserver/app.yaml
-  sha256: 5ca11003cb1a3119d3ee421326ba90b59ee10d1cc8926937a3f083799a03ec47
+  sha256: 06765b53d3846be77f35c82093df4ac9a255e57a32ac1436e9d3d3851a38a0e6
 - id: mariadb
   path: apps/mariadb/app.yaml
-  sha256: 221b841f0dd8bde51ca1fbc67d8612aaad5d3dc31239ec569b66e66f3a8a35a6
+  sha256: b3e32b8530720b397d8c6dd00fa47c17858a041b42ac279c26e806341397433d
 - id: maybe
   path: apps/maybe/app.yaml
-  sha256: e028a1d19810781eb13fa273748f28dd661081f0295c8ea6e710ed844b65aec8
+  sha256: 10797088dc4ad08416f99ef30939236c58d9f979720b52278bf045db4c8e2c37
 - id: memos
   path: apps/memos/app.yaml
-  sha256: f27a7cd94af24f72a8c528267296cd3dc482881ffc3c0711a9ca405d9cd1e672
+  sha256: 7ef257a4da4df8fd6f31f9d990fcb2a6fe32ea70f561701667c0776ef3a6ffa5
 - id: mineos
   path: apps/mineos/app.yaml
-  sha256: 82a8f7df23260eeb7d09beef1e32af19b5cbc04b55ad9216a9e672c5700d4c09
+  sha256: c872040b7e458654261a6cb767860e268e11016dc8fe63d81543cb88aff1eeba
 - id: mongodb
   path: apps/mongodb/app.yaml
-  sha256: 93f3b9432aac4617618236126bdb1ef922cdf0653c16ae401f8e1ed6da6c7061
+  sha256: 4d073da3a710e167adef5864ae987b92af8f9bc81edcba8c19bd2fe7de567bc2
 - id: mongodb-4
   path: apps/mongodb-4/app.yaml
-  sha256: 1d28f43b78005702efcf016376b126d1d6384243bf0e873ab37e5b17548bef84
+  sha256: e1b6794476013a1084ed326e34984e2b6cd134748f76973a9e6f670722dc9190
 - id: monica
   path: apps/monica/app.yaml
-  sha256: 847d120414f5909160f6afe7259925d7f7f7d6677a456509f39c1a62bccd059a
+  sha256: 8d6dbbb41241554065f4876ee07bd6a0704e2fd2f80a72e2814e84cc84c1dc36
 - id: motioneye
   path: apps/motioneye/app.yaml
-  sha256: b250f28b2ab01197298c3f2849d5f0b77e947dc267ae33ff0552bd8407477841
+  sha256: cbd98b15845c0e9dc257acc1ca639b50f49aecd1c18324106499fe0e4935139c
 - id: myspeed
   path: apps/myspeed/app.yaml
-  sha256: d7972019b1642af8cab95b701d6d60ce29a11cb3d2669b6a1f2c8c3b65e0eb8b
+  sha256: 5ff464c9c095e70a3e211584d55b4470d85f3deb5ec26a1b61eca2d221edd5ab
 - id: n8n
   path: apps/n8n/app.yaml
-  sha256: 08e2267621d316b6aa656fd48355846f30628b38e330d64fbd9e0e221b4abcbf
+  sha256: 5cdccbb29b44463ddc4081510d88ad3b3715543e4c44fa5c7bc1562d37c44157
 - id: navidrome
   path: apps/navidrome/app.yaml
-  sha256: 6e88ceaf52d360a18bf0b323fa164edc6e318211b3e3097a02b60f7ea8dc4d9c
+  sha256: af6307ffcdaf215897b9a13185e03adcea7940fa65619c4560ac8f1e1ddc56b7
 - id: netbird
   path: apps/netbird/app.yaml
-  sha256: 0207c38537c599319b8cf8cd4dad7b0a1bba38383a142cd4914ae216ac472043
+  sha256: 38b5f55a578a4586aec6b2950c6b5a13d182477254f75a6bbd767a04cdf50fed
 - id: netdata
   path: apps/netdata/app.yaml
-  sha256: 37b2f72328e5c62a690f1e2c31791bb1882124a2ef70fdd8d635e027c3c03cbe
+  sha256: f5ce3804e26cad88f373942f052653ad8ba7c125d5977a66b54618f4779f9054
 - id: nginx-proxy-manager
   path: apps/nginx-proxy-manager/app.yaml
-  sha256: 6ad5f3bb6e6a5f874ae1cf9cfb1695a6a86e787e0e68c8d4445f65c1b24b6024
+  sha256: 8274e69613d55e6154bcda41f4c6a3ff4ae94d0790cf3e74dff2095b48fa9ad1
 - id: node-red
   path: apps/node-red/app.yaml
-  sha256: aeaea50cb9a982bbd92b5ba270a0327174b8f9bebdbf3db21ee4452a70dec5a7
+  sha256: f6ad5b0eb29c9008f3cd1887df01ef54834a7c0247a320065647f5152fee9c39
 - id: ollama
   path: apps/ollama/app.yaml
-  sha256: 470d4c8b2bf2959b8de1a3b2624a072046ac5be114d84f071bb1b6959a37253f
+  sha256: 8b6740d698ea0affe25b848a3b321c6448ffc385ced4ec4e919c739340ba9d23
 - id: ollama-nvidia-gpu
   path: apps/ollama-nvidia-gpu/app.yaml
-  sha256: 4f833e5111a09dd7eff429f645a6d3e48991bfcbadd6a404cff108f81a43a46f
+  sha256: f826eb0911ad6c2611186f37e3702a5afac1d4c49ea35dbf2e6a092d7e79ec8e
 - id: open-webui
   path: apps/open-webui/app.yaml
-  sha256: 3d9bf64818ccb4588d3d53acecbcd1ca4268a2c44a98f9c44f0d443cc76fb51d
+  sha256: dea52e66b4f3ad26e28967c1377b00b24fc04b48303b082917b08546a055be96
 - id: openclaw
   path: apps/openclaw/app.yaml
-  sha256: 649307283758e404634aa24d478a1b7e2960bf4d2870af66e2e194f0f9333281
+  sha256: 9758b9e33a9a2bfff5c4a8dec43eb78693a920676bc1e45e4d08c9defe4e7294
 - id: openhab
   path: apps/openhab/app.yaml
-  sha256: 1e12c9b9025601db84bd3b5cb5c43868fe3a8b8db3015e3a76aa691f6f610113
+  sha256: 35b8f8347f0e5e5aee3d431ae8925644a691d168113dda105b6c1192742482db
 - id: openhands
   path: apps/openhands/app.yaml
-  sha256: 0027a23ebe234b575dac04c071f6c4416be2fbcdc9f6b51e1775d65e3503678c
+  sha256: b790177d366ecfd6a3fcb028095b689e9584b0b07a3dd2c396e883da05aa3002
 - id: openlist
   path: apps/openlist/app.yaml
-  sha256: 4dc208685349c0cc7f385dfe84bece4327ec5dc0fafd9597010fd97bc3922964
+  sha256: 53e479cf66a9e38b07c7da1ffe037e91e8d32af07dc425d611d4125e84e056e0
 - id: openspeedtest
   path: apps/openspeedtest/app.yaml
-  sha256: 2e774c36c8f5d9e4d17a5f28360078fac49ae5b597bce985d971de10a459779e
+  sha256: 463e90f466ddadd5164ab2b3a81ab58a02c9765fef3ccb96ade796d426f94043
 - id: opodsync
   path: apps/opodsync/app.yaml
-  sha256: d26647a1c06df035b6253c0ee2fe2241491bf23a2a4e1d85f0348fa6b7d1c3f1
+  sha256: 05d6f69c3a8124fa50c14f365e94d704f2e09847af9de7f70bd7424ed7a9fa72
 - id: overseerr
   path: apps/overseerr/app.yaml
-  sha256: b3adb196f679c586aa75bc479336240848f59960f435b3e688d81c9e0e031683
+  sha256: 65580b51b9a3b1cf0ec2107561d51fa7112d535a97ccb12bacf5f23148090a0a
 - id: pdfding
   path: apps/pdfding/app.yaml
-  sha256: 90fac9f808fc6b19c5b9f864eb44a99e778878c7b39e6cd34f501da00d9ddfc9
+  sha256: 6a4f1ce71c31c86baeac6496f952f3a0e195d77e70544ff8d5d25f038e558d53
 - id: peanut
   path: apps/peanut/app.yaml
-  sha256: a84f346432aa8e52389005e7d7672ba201d14e59f9334d058e34fabcd231cbed
+  sha256: 2b00f2393555810772a9536e4ffcfe07d86757d7b1acf0da945b1721e5b9cc86
 - id: petio
   path: apps/petio/app.yaml
-  sha256: f3575ed13368d67e0b0f22c9a70d5d7c1957582b3910bbb67ac2e7b56152af9d
+  sha256: 8689fa2e830d846df8022b1d8bd2775ff12be9d42131ecf84678557fbcc5fb5d
 - id: photoprism
   path: apps/photoprism/app.yaml
-  sha256: 74f48be3bce9e8bcb4f339aafd2310911623e58272e028a827724fdc0c5b8898
+  sha256: 50b29bf77ed6fd68cd13b211df1b8fb04d6ad55b40c1706b29ccb4610ac4c0ae
 - id: pi-hole
   path: apps/pi-hole/app.yaml
-  sha256: 9bbf56d6343d21fa5500305f9a694976b667dcadc9b89ae3a7fa30a5a74f3114
+  sha256: 5f52e30cd5fc2e612e420d5658d89bb2ce55577839e869f3d3683e01ef600126
 - id: pinchflat
   path: apps/pinchflat/app.yaml
-  sha256: 0250835cb85992f68acf4972b09fb2eb7d5de2c4277430f785b26db0d452083a
+  sha256: 8fa859684d0cc54d1436059a27afbd6b8809e77a01ac7e9601d98d8ab7716348
 - id: pingvin-share
   path: apps/pingvin-share/app.yaml
-  sha256: ed2a55fbbc7ebb213df1e0eb45c768bb382426e4c50934a16e8787cd8661c635
+  sha256: 29d0f9d4cc7d5e73a8b71a5dd6e38033681caa451243f4a3a79b834c80a007bc
 - id: playit-agent
   path: apps/playit-agent/app.yaml
-  sha256: ffdbdd092ce032d959621e2430e73cb51cab5eb6dd0d3dca83efb2d0fd096d2a
+  sha256: 203aecbe1d93839b532a6496a3a4f31dcd8968fecbfe7685e4601d044a0fa53b
 - id: plex
   path: apps/plex/app.yaml
-  sha256: 57763e7be2becb2b8c7cd883100597fe7741efab847116f087fe26e22579ffa6
+  sha256: 51a6d23593a3ba5f9849aca70fe4d25391e75ea96f2eafd67502a88416811a0a
 - id: plex-nvidia-gpu
   path: apps/plex-nvidia-gpu/app.yaml
-  sha256: 20677421e3d4a6be1a1ce682971df9d5527f9b56924c4792a15933cac0014086
+  sha256: fbd9310b5a733621c4a273de0d99a08d860bc8d46be77ff1305fb6d90e6d482f
 - id: pocketbase
   path: apps/pocketbase/app.yaml
-  sha256: 3b1f5b66950daee62303eda767e285916078d9f2ecd2deb77021b44edc0784be
+  sha256: ba98e3acecec510c41b1420e6a49150becbba64a85030ee70be6edd65cdc94c5
 - id: portainer
   path: apps/portainer/app.yaml
-  sha256: dac6012bd8371eaa409ddc103dd477ab29c4959b46a7b68fdf517cf1740f3ac0
+  sha256: 0712e8f79c73af749fe0dce92a5e363c9d0871f7e20cdef27cd5e8f8e9db0407
 - id: postgresql
   path: apps/postgresql/app.yaml
-  sha256: 3649c42d88e38663d38bdd1a5d47a4225ee0166ec48acaccf18495f16a3631cc
+  sha256: 50e23a7f2db31b1fe7f5f789545b7ab3a461b92ad77506536832866a1706f180
 - id: psitransfer
   path: apps/psitransfer/app.yaml
-  sha256: f3c2611810415ecf066a305daf882cb69341963986fe0e4ba237346c91d0904a
+  sha256: 114f05c9300bee2bd5b812b3c594c538cc7d8e5789d8e043e27e593fc6446d41
 - id: ragflow
   path: apps/ragflow/app.yaml
-  sha256: 31620811e1ddd3198d6180e9d74262dd716dfaafe683cf0eb09b666fa652c732
+  sha256: 6c6e5140f2fc227fa082994eafe21a41b056784ad0e4c42d5a4b200fd397815b
 - id: readarr
   path: apps/readarr/app.yaml
-  sha256: a370baf320f98c18be81444991a640fcf7f6a846b4a5f50cab98f3db8868122b
+  sha256: 154210246ab8e8c5474d77938f0c4a5b7410e01caeec1a54fe89ab8c3efd376e
 - id: real-debrid-torrent-client
   path: apps/real-debrid-torrent-client/app.yaml
-  sha256: 627d7d7b3383c1a64fea3992f921248f03b0e5324020ae1b2564bf1c126b81cc
+  sha256: 964968df2c8474f3b769e288a3fee5179ced7c9bdc960b03a3e2a861402db760
 - id: romm
   path: apps/romm/app.yaml
-  sha256: 2827f06357d4123e154c2383f28738376af037a9938e8ee5f75141aea88cdb78
+  sha256: 83676bb52a5caf1c77e2ed6d022e50dde3016630da42c09daf639c416a540513
 - id: sickchill
   path: apps/sickchill/app.yaml
-  sha256: ec52e0ef36f609816905ac1633b2dba5ddb2e081d58e61f8852318829786eb85
+  sha256: 1db48d246707c55e2f0aeec7c89eaeb734ce5a4e3a60e556007b04970548e69d
 - id: siyuan-note
   path: apps/siyuan-note/app.yaml
-  sha256: fe787c22dfd2a28a44b57f23f7a8038d4874f5198ff3c3b658a105b6e1cf66b5
+  sha256: eccc49df321a6fa421c4a6b958d61c937a25bbef0076644273c72ace073c351f
 - id: snapdrop
   path: apps/snapdrop/app.yaml
-  sha256: 52a84d1ab33261ffc282eb3298bae655ac2b8c01338f5c77c3ab6ad6030d3409
+  sha256: 81416b2fa0cec67ee3dfbf0a57a05f6a3c3f30a88b5b46cdde24af3f1e0e6fbe
 - id: stable-diffusion
   path: apps/stable-diffusion/app.yaml
-  sha256: 5983c156779c8741948ef02aa425e0390b1583341e727cd4a5ed0ebb8d964ead
+  sha256: 552d3bbcc0dacd17b4a1d7666e6fea5c1e8d8ae4b676f6bda9fafc6f6f537bc0
 - id: stremio
   path: apps/stremio/app.yaml
-  sha256: f1c3fdc3ff80273df6df5e9db2611e85af5fcc9f8007f44420facb0a57f6fffe
+  sha256: 805013a862287c1c99d68fca08a32bf068ad98f1312edf2a18288daa86b6d934
 - id: sure
   path: apps/sure/app.yaml
-  sha256: 52f53df913ce92b204599d4fe6a4b2301123d26cc42170bc937fb21d345288cc
+  sha256: 02e4044fbec96227f602935e8a9183a1430340d906db116b8c1cbf2c3c13a2b3
 - id: swing-music
   path: apps/swing-music/app.yaml
-  sha256: 5a10738516218ad573db039aa069ee311bc7d9893c1125ec6f964dd987596004
+  sha256: 537204403c77e3721ab053cc51069fad4b0c36638177604d18427dd964281ca1
 - id: tailscale
   path: apps/tailscale/app.yaml
-  sha256: 700bbc9eb91f7f3334a6d48f6adaaae25e1269d911031b07f557671791f1226d
+  sha256: d072fee4056574f5b0965f7bbc8318c31c9dc22563330557bc4f92b60f34b358
 - id: taskingai
   path: apps/taskingai/app.yaml
-  sha256: 806147d73221f6c74b5539e02edab0ad2c86ee7c40171fe017f735aeda985c54
+  sha256: e800d853a76df2f8a0d1e8268ec8541bb4f85f1f7608b47b2f48b2a6dde493b4
 - id: teable
   path: apps/teable/app.yaml
-  sha256: 2c73b31d5c38703247bd32e4ad90aa52db0f175388e7a9d7fd33ce717a67afe7
+  sha256: 397c902e06277c31b97c28583c49c6cff6dd94c72bc5fb611cf3e6372bb87d6c
 - id: threadfin
   path: apps/threadfin/app.yaml
-  sha256: 527ed06d18388fc4f511f4fbff5790a30fad8b8ffa28ce894daa21741a07e123
+  sha256: f26a672bbe7aaa9a835f8c9089e6abeaad6350d8bbaab4146a4d25bab4063dee
 - id: trilium
   path: apps/trilium/app.yaml
-  sha256: eede20c64110ce788125f1032c4ab6f4ee3e94d2cc068bb540d7a4728fc9bdeb
+  sha256: 03fa38282cf54c0a0c62a6beeff614e2101f3eb055d4f6f3dcd51c5c08a4711e
 - id: turbodiffusion-nvidia-gpu
   path: apps/turbodiffusion-nvidia-gpu/app.yaml
-  sha256: 5a5bdae7ec90433387f027f63bde23b2a0908d7c2f1b5e41c387821d04059a1a
+  sha256: 929b8047b80b192750603a9d353e9d2dc4b3a8054ef1f6790f3b7989313ac437
 - id: twingate
   path: apps/twingate/app.yaml
-  sha256: 9837027cb8c7bc085df83f53bad49c29c2589980943ff093cdbfa0e46dab367b
+  sha256: 65ab2bb45d2803fa957d7e85541691f7f5810a9f3a22f924e5c65f96b92bd729
 - id: unifi-controller-legacy
   path: apps/unifi-controller-legacy/app.yaml
-  sha256: 810615500ff68661d27031a7b8afaf8a399617d90ec7da9176d6acc912c00810
+  sha256: 88ba17a8d6a7d8c40bcedca513a88d8a2b61b3bf273503e01e0b59f34741c6b7
 - id: unifi-network-application
   path: apps/unifi-network-application/app.yaml
-  sha256: 117ee6e6ff20141e9783952e2c93d32767851d916d1e108690e4d0c8f063f1e7
+  sha256: 8e48fd6ed4548c715f730c3f9a1e5d414f11fbf995a7e98a7b8307f24d4ee761
 - id: uptime-kuma
   path: apps/uptime-kuma/app.yaml
-  sha256: 0ac1237c356a38f162cc08a8120553ec080de67233160316c80a27205990934f
+  sha256: 075d3378a1ec0beddbc927c577a27a277005495bdfbf5e42beb4cc34644c9ee3
 - id: v2raya
   path: apps/v2raya/app.yaml
-  sha256: 8ae4581d8d89ce3608aa46948f9054e8bc0fb02d3940fa6e19da5fbd8395bcc0
+  sha256: d7ed2045feecaf5975c362d7e1a3ba49fcf5da6e1770bd1e9ad733dc7451571d
 - id: virtual-machine-manager
   path: apps/virtual-machine-manager/app.yaml
-  sha256: 1dcaa64b3ee1ed5b2c6db9077d36652785151d8757b8ddfdd66d6dd230c58d48
+  sha256: c0bd24011c8e006beb04af5df8f5699f8aece7d7fd9719297b1ef1d81295f793
 - id: vocechat
   path: apps/vocechat/app.yaml
-  sha256: d5fea115f8adc894448b00ad0998d68c81288b6d1e9bd4368324df9ef2147c41
+  sha256: 6068edc6987c3a7cf6dfc7776b1cb26ac10531cb89842be3d0cc67af5a5beee6
 - id: wallabag
   path: apps/wallabag/app.yaml
-  sha256: e69d7f9c02aa1335658ea18e6e6504142824b2c895953c10200e168ea7ce7594
+  sha256: 929a5f668ccf31fbe57d19db419f13446034e763d5b30fd39d04730da4b846ef
 - id: webdav
   path: apps/webdav/app.yaml
-  sha256: 8f3f2e265eafe69b443aba9174e37a80f4cf23085d4493133b8df16a96174516
+  sha256: 5e6c899d405f5fc49c362d98cd3f006f791b1ec957ce1ddab10d4f7a074eedad
 - id: weknora
   path: apps/weknora/app.yaml
-  sha256: 2033384061650835c1a4624b33dd23da54353096d3d742434694e471df557040
+  sha256: 4f5a88ec4c1d34ce8b2b83a370b0d9860c0f71f3c7d180abab312b5f3f2cc2e9
 - id: wireguard-easy
   path: apps/wireguard-easy/app.yaml
-  sha256: ee28dfd4e5fac141e47efa0f80f20b27aa4b01776372d94dc7c63f9ff9b935f7
+  sha256: fb5ec628f34471a3671f1df1ab4fbca4963a1be6e2e1a64bce1e9dc8bb3bfe9b
 - id: ztnet
   path: apps/ztnet/app.yaml
-  sha256: b14be84dff191e5aa1037108651dea168b0860acefd20b3ac0d870c97070c38a
+  sha256: ac536282da2a6a497d3e3aa69b9d1d983bc82feaad53780bf12f038d39751867

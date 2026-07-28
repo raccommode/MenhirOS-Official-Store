@@ -5,7 +5,7 @@ name:
   fr: NetBird
 description:
   en: NetBird combines a WireGuard®-based overlay network with Zero Trust Network Access, providing a unified open source platform for reliable and secure connectivity. - Secure Remote Access – Enable least privilege network access in a few clicks - Zero-Config Deployment – Replace legacy VPNs with a peer-to-peer WireGuard®-based network - Seamless SSO with MFA – Secure your network access with session-based SSO & MFA - Dynamic Posture Checks – Grant access only to devices meeting your security rules - Centralized…
-  fr: Application NetBird auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application NetBird auto-hébergée prête à installer sur Menhir OS.
 version: 0.62.3
 architectures:
 - amd64
@@ -42,6 +42,6 @@ backup:
   - /var/lib/netbird
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.62.3 adds management-side config compatibility checks. - The official changelog points to the full v0.62.2...v0.62.3 comparison.
-  fr: '- v0.62.3 ajoute des vérifications de compatibilité de configuration côté management. - Le changelog officiel renvoie à la comparaison complète v0.62.2...v0.62.3.'
+  en: v0.62.3 adds management-side config compatibility checks. - The official changelog points to the full v0.62.2...v0.62.3 comparison.
+  fr: v0.62.3 ajoute des vérifications de compatibilité de configuration côté management. - Le changelog officiel renvoie à la comparaison complète v0.62.2...v0.62.3.
 securityClassification: critical

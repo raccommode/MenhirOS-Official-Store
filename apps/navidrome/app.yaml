@@ -5,7 +5,7 @@ name:
   fr: Navidrome
 description:
   en: Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your music collection from any browser or mobile device. It's like your personal Spotify!
-  fr: Application Navidrome auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Navidrome auto-hébergée prête à installer sur Menhir OS.
 version: 0.61.2
 architectures:
 - amd64
@@ -46,6 +46,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.
-  fr: '- v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.'
+  en: v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.
+  fr: v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.
 securityClassification: standard

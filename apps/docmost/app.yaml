@@ -78,6 +78,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.90.0 adds page labels, synced blocks, indents, table sorting, backlinks, Azure Storage Blobs support, and accessibility fixes. - It includes fixes for editor toolbar preference, page permissions, PDF uploads, macOS Ctrl-K behavior, and table width preservation. - Enterprise additions include templates, PDF import, and SCIM provisioning.
-  fr: '- v0.90.0 adds page labels, synced blocks, indents, table sorting, backlinks, Azure Storage Blobs support, and accessibility fixes. - It includes fixes for editor toolbar preference, page permissions, PDF uploads, macOS Ctrl-K behavior, and table width preservation. - Enterprise additions include templates, PDF import, and SCIM provisioning.'
+  en: v0.90.0 adds page labels, synced blocks, indents, table sorting, backlinks, Azure Storage Blobs support, and accessibility fixes. - It includes fixes for editor toolbar preference, page permissions, PDF uploads, macOS Ctrl-K behavior, and table width preservation. - Enterprise additions include templates, PDF import, and SCIM provisioning.
+  fr: v0.90.0 adds page labels, synced blocks, indents, table sorting, backlinks, Azure Storage Blobs support, and accessibility fixes. - It includes fixes for editor toolbar preference, page permissions, PDF uploads, macOS Ctrl-K behavior, and table width preservation. - Enterprise additions include templates, PDF import, and SCIM provisioning.
 securityClassification: standard

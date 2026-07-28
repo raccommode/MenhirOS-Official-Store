@@ -53,6 +53,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - PostgreSQL 17.4 fixes libpq quoting behavior after CVE-2025-1094 so length-limited strings are handled correctly. - The release also fixes a pg createsubscriber memory leak and a Meson build-system header detection issue.
-  fr: '- PostgreSQL 17.4 corrige le comportement de citation de libpq apres CVE-2025-1094 afin que les chaines limitees en longueur soient traitees correctement. - Cette version corrige aussi une fuite memoire dans pg createsubscriber et un probleme de detection d''en-tetes dans le systeme de build Meson.'
+  en: PostgreSQL 17.4 fixes libpq quoting behavior after CVE-2025-1094 so length-limited strings are handled correctly. - The release also fixes a pg createsubscriber memory leak and a Meson build-system header detection issue.
+  fr: PostgreSQL 17.4 corrige le comportement de citation de libpq apres CVE-2025-1094 afin que les chaines limitees en longueur soient traitees correctement. - Cette version corrige aussi une fuite memoire dans pg createsubscriber et un probleme de detection d'en-tetes dans le systeme de build Meson.
 securityClassification: standard

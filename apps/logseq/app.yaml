@@ -5,7 +5,7 @@ name:
   fr: Logseq
 description:
   en: A privacy-first, open-source platform for knowledge management and collaboration.
-  fr: Application Logseq auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Logseq auto-hébergée prête à installer sur Menhir OS.
 version: 0.10.10
 architectures:
 - amd64
@@ -45,6 +45,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Logseq tag v0.10.10 exists in the upstream GitHub repository, but no GitHub Release object was published for this tag. - The date is taken from the tag commit timestamp; pin a release with a published changelog before adding version-specific release notes.
-  fr: '- Le tag Logseq v0.10.10 existe dans le dépôt GitHub amont, mais aucun objet GitHub Release n''a été publié pour ce tag. - La date provient de l''horodatage du commit du tag ; avant d''ajouter des notes propres à cette version, il faut épingler une version avec changelog publié.'
+  en: Logseq tag v0.10.10 exists in the upstream GitHub repository, but no GitHub Release object was published for this tag. - The date is taken from the tag commit timestamp; pin a release with a published changelog before adding version-specific release notes.
+  fr: Le tag Logseq v0.10.10 existe dans le dépôt GitHub amont, mais aucun objet GitHub Release n'a été publié pour ce tag. - La date provient de l'horodatage du commit du tag ; avant d'ajouter des notes propres à cette version, il faut épingler une version avec changelog publié.
 securityClassification: critical

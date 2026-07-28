@@ -37,6 +37,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.
-  fr: '- The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.'
+  en: The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.
+  fr: The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.
 securityClassification: critical

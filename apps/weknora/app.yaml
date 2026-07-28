@@ -236,6 +236,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.2.14 prioritizes environment variables over Git tags for version detection. - Completion URL host extraction now handles both v1 and non-v1 endpoints. - Parser chunk index logging was fixed, Ollama retest icon alignment was improved, and pg search migration files were added.
-  fr: '- v0.2.14 donne la priorite aux environment variables plutot qu''aux Git tags pour version detection. - Completion URL host extraction gere maintenant les endpoints v1 et non-v1. - Parser chunk index logging a ete corrige, Ollama retest icon alignment a ete ameliore et pg search migration files ont ete ajoutes.'
+  en: v0.2.14 prioritizes environment variables over Git tags for version detection. - Completion URL host extraction now handles both v1 and non-v1 endpoints. - Parser chunk index logging was fixed, Ollama retest icon alignment was improved, and pg search migration files were added.
+  fr: v0.2.14 donne la priorite aux environment variables plutot qu'aux Git tags pour version detection. - Completion URL host extraction gere maintenant les endpoints v1 et non-v1. - Parser chunk index logging a ete corrige, Ollama retest icon alignment a ete ameliore et pg search migration files ont ete ajoutes.
 securityClassification: standard

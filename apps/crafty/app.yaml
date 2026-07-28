@@ -5,7 +5,7 @@ name:
   fr: Crafty
 description:
   en: Crafty is an open source Minecraft control panel built using Tornado and AdminLTE, featuring server scheduling, a interactive console and the ability to run almost any type of Minecraft server
-  fr: Application Crafty auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Crafty auto-hébergée prête à installer sur Menhir OS.
 version: 4.10.4
 architectures:
 - amd64
@@ -61,6 +61,6 @@ backup:
   - /crafty/servers
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.
-  fr: '- v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.'
+  en: v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.
+  fr: v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.
 securityClassification: standard

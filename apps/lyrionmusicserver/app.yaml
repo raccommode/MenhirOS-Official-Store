@@ -55,6 +55,6 @@ backup:
   - /playlist
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing CasaOS app configuration.
-  fr: '- The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing CasaOS app configuration.'
+  en: The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing Menhir OS app configuration.
+  fr: The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing Menhir OS app configuration.
 securityClassification: standard

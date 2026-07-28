@@ -49,6 +49,6 @@ backup:
   - /app/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.17.0 adds VCF to CSV conversion and a multi-select bulk job deletion UI. - It adds markitdown-based conversion support. - Fixes include WMA input handling, timezone display in history, and Docker support for Inkscape DXF export.
-  fr: '- v0.17.0 adds VCF to CSV conversion and a multi-select bulk job deletion UI. - It adds markitdown-based conversion support. - Fixes include WMA input handling, timezone display in history, and Docker support for Inkscape DXF export.'
+  en: v0.17.0 adds VCF to CSV conversion and a multi-select bulk job deletion UI. - It adds markitdown-based conversion support. - Fixes include WMA input handling, timezone display in history, and Docker support for Inkscape DXF export.
+  fr: v0.17.0 adds VCF to CSV conversion and a multi-select bulk job deletion UI. - It adds markitdown-based conversion support. - Fixes include WMA input handling, timezone display in history, and Docker support for Inkscape DXF export.
 securityClassification: standard

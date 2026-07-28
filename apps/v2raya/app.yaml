@@ -33,6 +33,6 @@ backup:
   - /etc/v2raya
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.
-  fr: '- v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.'
+  en: v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.
+  fr: v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.
 securityClassification: critical

@@ -55,6 +55,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - The GitHub release points to the matching MariaDB community server release notes. - Detailed changes are delegated to the corresponding MariaDB release-notes page.
-  fr: '- La release GitHub renvoie aux MariaDB community server release notes correspondantes. - Les changements detailles sont delegues a la page MariaDB release-notes correspondante.'
+  en: The GitHub release points to the matching MariaDB community server release notes. - Detailed changes are delegated to the corresponding MariaDB release-notes page.
+  fr: La release GitHub renvoie aux MariaDB community server release notes correspondantes. - Les changements detailles sont delegues a la page MariaDB release-notes correspondante.
 securityClassification: standard

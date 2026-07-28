@@ -5,7 +5,7 @@ name:
   fr: TaskingAI
 description:
   en: The developer-friendly cloud platform for building and running LLM agents for AI-native applications.
-  fr: Application TaskingAI auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application TaskingAI auto-hébergée prête à installer sur Menhir OS.
 version: 0.3.0
 architectures:
 - amd64
@@ -205,6 +205,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.3.0 adds Markdown rendering and image uploads in Playground. - An OpenAI-compatible chat completions API was introduced for LLM tasks and agent invocations. - Inference and Plugin services were open sourced, with fixes for Gemini function error logs, wildcard model inference, Docker Compose server versioning, and UI navigation/search.
-  fr: '- v0.3.0 ajoute le rendu Markdown et l''envoi d''images dans Playground. - Une API de chat completions compatible OpenAI a été introduite pour les tâches LLM et les invocations d''agents. - Les services Inference et Plugin ont été ouverts, avec des correctifs pour les logs d''erreurs de fonctions Gemini, l''inférence de modèles avec joker, la version du serveur Docker Compose et la navigation/recherche dans l''interface.'
+  en: v0.3.0 adds Markdown rendering and image uploads in Playground. - An OpenAI-compatible chat completions API was introduced for LLM tasks and agent invocations. - Inference and Plugin services were open sourced, with fixes for Gemini function error logs, wildcard model inference, Docker Compose server versioning, and UI navigation/search.
+  fr: v0.3.0 ajoute le rendu Markdown et l'envoi d'images dans Playground. - Une API de chat completions compatible OpenAI a été introduite pour les tâches LLM et les invocations d'agents. - Les services Inference et Plugin ont été ouverts, avec des correctifs pour les logs d'erreurs de fonctions Gemini, l'inférence de modèles avec joker, la version du serveur Docker Compose et la navigation/recherche dans l'interface.
 securityClassification: standard

@@ -39,6 +39,6 @@ backup:
   - /data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.4.1 includes security fixes and should be updated. - UTF-8 support was added for content disposition in file downloads. - Dependencies and changelog generation were updated.
-  fr: '- v2.4.1 inclut des correctifs de sécurité et doit être mis à jour. - La prise en charge UTF-8 a été ajoutée pour le content disposition des téléchargements de fichiers. - Les dépendances et la génération du changelog ont été mises à jour.'
+  en: v2.4.1 includes security fixes and should be updated. - UTF-8 support was added for content disposition in file downloads. - Dependencies and changelog generation were updated.
+  fr: v2.4.1 inclut des correctifs de sécurité et doit être mis à jour. - La prise en charge UTF-8 a été ajoutée pour le content disposition des téléchargements de fichiers. - Les dépendances et la génération du changelog ont été mises à jour.
 securityClassification: standard

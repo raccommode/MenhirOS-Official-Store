@@ -34,6 +34,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.9.4 updates the project name from LLaMA-Factory to LlamaFactory. - Older Python runtimes are deprecated; the supported Python runtime range was raised. - Installation moved from pip to uv, and new training support includes OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8, and TRL 0.24.
-  fr: '- v0.9.4 met à jour le nom du projet de LLaMA-Factory vers LlamaFactory. - Les anciens runtimes Python sont dépréciés ; la plage de versions Python prises en charge a été relevée. - L''installation est passée de pip à uv, et les nouvelles prises en charge d''entraînement incluent OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8 et TRL 0.24.'
+  en: v0.9.4 updates the project name from LLaMA-Factory to LlamaFactory. - Older Python runtimes are deprecated; the supported Python runtime range was raised. - Installation moved from pip to uv, and new training support includes OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8, and TRL 0.24.
+  fr: v0.9.4 met à jour le nom du projet de LLaMA-Factory vers LlamaFactory. - Les anciens runtimes Python sont dépréciés ; la plage de versions Python prises en charge a été relevée. - L'installation est passée de pip à uv, et les nouvelles prises en charge d'entraînement incluent OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8 et TRL 0.24.
 securityClassification: standard

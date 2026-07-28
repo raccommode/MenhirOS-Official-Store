@@ -5,7 +5,7 @@ name:
   fr: Anaconda3
 description:
   en: Your machine learning Env work with Jupyter Lab
-  fr: Application Anaconda3 auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Anaconda3 auto-hébergée prête à installer sur Menhir OS.
 version: 2024.10-1
 architectures:
 - amd64
@@ -44,6 +44,6 @@ backup:
   - /opt/notebooks
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - anaconda3-2024.10-1 publishes updated Debian images for Anaconda Distribution 2024.10-1.
-  fr: '- anaconda3-2024.10-1 publie des images Debian mises a jour pour Anaconda Distribution 2024.10-1.'
+  en: anaconda3-2024.10-1 publishes updated Debian images for Anaconda Distribution 2024.10-1.
+  fr: anaconda3-2024.10-1 publie des images Debian mises a jour pour Anaconda Distribution 2024.10-1.
 securityClassification: standard

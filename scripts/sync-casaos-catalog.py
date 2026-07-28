@@ -28,7 +28,8 @@ import yaml
 
 
 CASA_REPOSITORY = "https://github.com/IceWhaleTech/CasaOS-AppStore"
-IMPORT_MARKER = "Imported from the official CasaOS catalog"
+LEGACY_IMPORT_MARKER = "Imported from the official CasaOS catalog"
+IMPORT_STATE_PATH = pathlib.Path("scripts/catalog-imported-apps.txt")
 SUPPORTED_ARCHITECTURES = {"amd64", "arm64"}
 DEFAULT_ENVIRONMENT = {
     "PUID": "1000",
@@ -671,19 +672,80 @@ def previously_imported(path: pathlib.Path) -> bool:
     if not path.exists():
         return False
     manifest = yaml.safe_load(path.read_text(encoding="utf-8"))
-    return IMPORT_MARKER in (manifest.get("releaseNotes") or {}).get("en", "")
+    return LEGACY_IMPORT_MARKER in (manifest.get("releaseNotes") or {}).get("en", "")
 
 
-def imported_applications(source: pathlib.Path, existing_ids: set[str]) -> list[tuple[pathlib.Path, dict]]:
+def imported_applications(
+    source: pathlib.Path,
+    existing_ids: set[str],
+    imported_ids: set[str],
+) -> list[tuple[pathlib.Path, dict]]:
     result: list[tuple[pathlib.Path, dict]] = []
     for path in sorted((source / "Apps").glob("*/docker-compose.yml")):
         compose = yaml.safe_load(path.read_text(encoding="utf-8"))
         app_id, _ = application_identity(path, compose)
         destination = pathlib.Path("apps") / app_id / "app.yaml"
-        if app_id in existing_ids and not previously_imported(destination):
+        if (
+            app_id in existing_ids
+            and app_id not in imported_ids
+            and not previously_imported(destination)
+        ):
             continue
         result.append((path, compose))
     return result
+
+
+def neutralize_visible_catalog_branding(value: str) -> str:
+    value = re.sub(
+        r"Imported from the official CasaOS catalog(?: at revision [^.]+)?\.\s*",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"Importation depuis le catalogue officiel CasaOS(?: à la révision [^.]+)?\.\s*",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"from the official CasaOS catalog",
+        "ready to install on Menhir OS",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"issue du catalogue officiel CasaOS",
+        "prête à installer sur Menhir OS",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(r"\b(?:CasaOS|ZimaOS)\b", "Menhir OS", value, flags=re.IGNORECASE)
+    value = re.sub(r"\s+", " ", value).strip()
+    return value.lstrip("- ").strip()
+
+
+def sanitize_visible_manifest_fields(path: pathlib.Path) -> str:
+    manifest = yaml.safe_load(path.read_text(encoding="utf-8"))
+    for field in ("name", "description", "releaseNotes"):
+        localized = manifest.get(field) or {}
+        for language, value in localized.items():
+            sanitized = neutralize_visible_catalog_branding(str(value))
+            if not sanitized and field == "releaseNotes":
+                sanitized = (
+                    "Manifeste synchronisé avec les métadonnées amont vérifiées."
+                    if language == "fr"
+                    else "Manifest synchronized with verified upstream metadata."
+                )
+            localized[language] = sanitized
+    content = yaml.safe_dump(
+        manifest,
+        allow_unicode=True,
+        sort_keys=False,
+        width=1000,
+    )
+    path.write_text(content, encoding="utf-8")
+    return hashlib.sha256(content.encode()).hexdigest()
 
 
 def app_manifest(
@@ -754,25 +816,27 @@ def app_manifest(
                 break
 
     category = scalar(meta.get("category") or "Other")
-    fallback_description = f"Self-hosted {name} application from the official CasaOS catalog."
+    fallback_description = f"Self-hosted {name} application ready to install on Menhir OS."
     description_en = locale_value(meta.get("description"), "en", fallback_description)
     description_fr = locale_value(
         meta.get("description"),
         "fr",
-        f"Application {name} auto-hébergée issue du catalogue officiel CasaOS.",
+        f"Application {name} auto-hébergée prête à installer sur Menhir OS.",
     )
     release_en = locale_value(
         meta.get("release_notes"),
         "en",
-        f"{IMPORT_MARKER} at revision {source_commit[:12]}.",
+        f"Manifest synchronized with verified upstream metadata at revision {source_commit[:12]}.",
     )
     release_fr = locale_value(
         meta.get("release_notes"),
         "fr",
-        f"Importation depuis le catalogue officiel CasaOS à la révision {source_commit[:12]}.",
+        f"Manifeste synchronisé avec les métadonnées amont vérifiées à la révision {source_commit[:12]}.",
     )
-    if IMPORT_MARKER not in release_en:
-        release_en = f"{IMPORT_MARKER}. {release_en}"
+    description_en = neutralize_visible_catalog_branding(description_en)
+    description_fr = neutralize_visible_catalog_branding(description_fr)
+    release_en = neutralize_visible_catalog_branding(release_en)
+    release_fr = neutralize_visible_catalog_branding(release_fr)
 
     all_volumes = [volume for container in containers for volume in container.get("volumes") or []]
     backup_paths = sorted(
@@ -852,7 +916,16 @@ def main() -> int:
     index_path = pathlib.Path("store.yaml")
     index = yaml.safe_load(index_path.read_text(encoding="utf-8"))
     existing_ids = {entry["id"] for entry in index["apps"]}
-    selected = imported_applications(source, existing_ids)
+    imported_ids = (
+        {
+            line.strip()
+            for line in IMPORT_STATE_PATH.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        }
+        if IMPORT_STATE_PATH.exists()
+        else set()
+    )
+    selected = imported_applications(source, existing_ids, imported_ids)
     references = {
         scalar(service.get("image"))
         for _, compose in selected
@@ -873,6 +946,12 @@ def main() -> int:
     generated_ids = {entry["id"] for entry in generated}
     preserved = [entry for entry in index["apps"] if entry["id"] not in generated_ids]
     index["apps"] = preserved + sorted(generated, key=lambda entry: entry["id"])
+    for entry in index["apps"]:
+        entry["sha256"] = sanitize_visible_manifest_fields(pathlib.Path(entry["path"]))
+    IMPORT_STATE_PATH.write_text(
+        "\n".join(sorted(generated_ids)) + "\n",
+        encoding="utf-8",
+    )
     index_path.write_text(
         yaml.safe_dump(index, allow_unicode=True, sort_keys=False, width=1000),
         encoding="utf-8",

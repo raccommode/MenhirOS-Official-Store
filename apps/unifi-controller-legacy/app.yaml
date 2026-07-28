@@ -66,6 +66,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. UniFi Controller 8.0.7 is the application version used by this container; see UniFi release notes for detailed changes.
+  en: UniFi Controller 8.0.7 is the application version used by this container; see UniFi release notes for detailed changes.
   fr: UniFi Controller 8.0.7 est la version de l'application utilisee par ce conteneur; consultez les release notes UniFi pour les changements detailles.
 securityClassification: standard

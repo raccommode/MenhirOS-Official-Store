@@ -40,6 +40,6 @@ backup:
   paths: []
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog at revision e717df5e312d.
-  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+  en: Manifest synchronized with verified upstream metadata at revision e717df5e312d.
+  fr: Manifeste synchronisé avec les métadonnées amont vérifiées à la révision e717df5e312d.
 securityClassification: critical

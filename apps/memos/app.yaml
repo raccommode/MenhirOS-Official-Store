@@ -41,6 +41,6 @@ backup:
   - /var/opt/memos
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.28.0 improves SSO account handling by linking external provider identities to local Memos users. - The release redesigns account and SSO management and adds memo created/updated time display controls. - Fixes include authorization hardening, legacy username auth flows, markdown mixed-list handling, list query overhead, and task checkbox state preservation.
-  fr: '- v0.28.0 improves SSO account handling by linking external provider identities to local Memos users. - The release redesigns account and SSO management and adds memo created/updated time display controls. - Fixes include authorization hardening, legacy username auth flows, markdown mixed-list handling, list query overhead, and task checkbox state preservation.'
+  en: v0.28.0 improves SSO account handling by linking external provider identities to local Memos users. - The release redesigns account and SSO management and adds memo created/updated time display controls. - Fixes include authorization hardening, legacy username auth flows, markdown mixed-list handling, list query overhead, and task checkbox state preservation.
+  fr: v0.28.0 improves SSO account handling by linking external provider identities to local Memos users. - The release redesigns account and SSO management and adds memo created/updated time display controls. - Fixes include authorization hardening, legacy username auth flows, markdown mixed-list handling, list query overhead, and task checkbox state preservation.
 securityClassification: standard

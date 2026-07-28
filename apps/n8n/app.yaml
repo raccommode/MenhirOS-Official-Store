@@ -40,6 +40,6 @@ backup:
   - /home/node/.n8n
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.
-  fr: '- n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.'
+  en: n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.
+  fr: n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.
 securityClassification: standard

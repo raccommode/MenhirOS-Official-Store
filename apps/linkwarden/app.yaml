@@ -94,6 +94,6 @@ backup:
   - /var/lib/postgresql/data
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Linkwarden 2.14.1 adds support for serving preserved HTML archives from a separate public hostname to isolate untrusted content from the main app. - It improves the tag selection experience. - The release also includes stability fixes and bug fixes.
-  fr: '- Linkwarden 2.14.1 ajoute la prise en charge de preserved HTML archives depuis un public hostname separe afin d''isoler le contenu non fiable de l''application principale. - L''experience tag selection a ete amelioree. - Cette version inclut aussi des correctifs de stabilite et des corrections de bugs.'
+  en: Linkwarden 2.14.1 adds support for serving preserved HTML archives from a separate public hostname to isolate untrusted content from the main app. - It improves the tag selection experience. - The release also includes stability fixes and bug fixes.
+  fr: Linkwarden 2.14.1 ajoute la prise en charge de preserved HTML archives depuis un public hostname separe afin d'isoler le contenu non fiable de l'application principale. - L'experience tag selection a ete amelioree. - Cette version inclut aussi des correctifs de stabilite et des corrections de bugs.
 securityClassification: standard

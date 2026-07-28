@@ -5,7 +5,7 @@ name:
   fr: Lucky
 description:
   en: A powerful tool for port forwarding, reverse proxy, dynamic DNS, wake-on-LAN, IPv4 NAT traversal, webdav services, task scheduling, and automatic certificate management.
-  fr: Application Lucky auto-hébergée issue du catalogue officiel CasaOS.
+  fr: Application Lucky auto-hébergée prête à installer sur Menhir OS.
 version: 2.27.2
 architectures:
 - amd64
@@ -35,6 +35,6 @@ backup:
   - /goodluck
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.
-  fr: '- v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.'
+  en: v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.
+  fr: v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.
 securityClassification: critical

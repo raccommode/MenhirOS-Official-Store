@@ -57,6 +57,6 @@ backup:
   - /config
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - Emby Server 4.9.1 improves library scanning, live TV guide refresh, and database performance. - The release updates to .NET 8 and sqlite 3.49.2, and adds maintenance mode and network request protocol options. - The GPU-enabled entry uses the same upstream server tag and 4.9.1 release metadata as the standard Emby entry.
-  fr: '- Emby Server 4.9.1 améliore l''analyse de bibliothèque, le rafraîchissement du guide TV en direct et les performances de base de données. - Cette version met à jour vers .NET 8 et sqlite 3.49.2, et ajoute un mode maintenance ainsi que des options de protocole pour les requêtes réseau. - L''entrée compatible GPU utilise le même tag serveur amont et les mêmes métadonnées de version 4.9.1 que l''entrée Emby standard.'
+  en: Emby Server 4.9.1 improves library scanning, live TV guide refresh, and database performance. - The release updates to .NET 8 and sqlite 3.49.2, and adds maintenance mode and network request protocol options. - The GPU-enabled entry uses the same upstream server tag and 4.9.1 release metadata as the standard Emby entry.
+  fr: Emby Server 4.9.1 améliore l'analyse de bibliothèque, le rafraîchissement du guide TV en direct et les performances de base de données. - Cette version met à jour vers .NET 8 et sqlite 3.49.2, et ajoute un mode maintenance ainsi que des options de protocole pour les requêtes réseau. - L'entrée compatible GPU utilise le même tag serveur amont et les mêmes métadonnées de version 4.9.1 que l'entrée Emby standard.
 securityClassification: critical

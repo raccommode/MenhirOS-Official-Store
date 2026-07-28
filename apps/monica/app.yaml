@@ -72,6 +72,6 @@ backup:
   - /var/www/html/storage
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v4.1.2 fixes contact listing updates that changed the updated at date for all contacts.
-  fr: '- v4.1.2 corrige les contact listing updates qui modifiaient updated at date pour tous les contacts.'
+  en: v4.1.2 fixes contact listing updates that changed the updated at date for all contacts.
+  fr: v4.1.2 corrige les contact listing updates qui modifiaient updated at date pour tous les contacts.
 securityClassification: standard

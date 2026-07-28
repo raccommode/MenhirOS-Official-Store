@@ -53,6 +53,6 @@ backup:
   - /opt/adguardhome/work
 migrations: []
 releaseNotes:
-  en: Imported from the official CasaOS catalog. - v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.
-  fr: '- v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.'
+  en: v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.
+  fr: v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.
 securityClassification: standard
