@@ -20,7 +20,7 @@ jobs:
       - uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4
       - run: pip install check-jsonschema==0.33.3 PyYAML==6.0.2
       - run: check-jsonschema --schemafile schemas/store.schema.json store.yaml
-      - run: find apps -name app.yaml -print0 | xargs -0 -n1 check-jsonschema --schemafile schemas/app.schema.json
+      - run: find apps -name app.yaml -print0 | xargs -0 check-jsonschema --schemafile schemas/app.schema.json
       - name: Verify manifest hashes
         run: ./scripts/verify-hashes.sh
       - name: Verify OCI images and architectures
