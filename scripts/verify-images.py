@@ -3,19 +3,31 @@ import json
 import pathlib
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import yaml
 
 
 def platforms_for(image: str) -> set[str]:
-    result = subprocess.run(
-        ["docker", "buildx", "imagetools", "inspect", image, "--format", "{{json .Manifest}}"],
-        check=True,
-        capture_output=True,
-        text=True,
-        timeout=120,
-    )
+    error: subprocess.CalledProcessError | subprocess.TimeoutExpired | None = None
+    for attempt in range(3):
+        try:
+            result = subprocess.run(
+                ["docker", "buildx", "imagetools", "inspect", image, "--format", "{{json .Manifest}}"],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=120,
+            )
+            break
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as reason:
+            error = reason
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    else:
+        assert error is not None
+        raise error
     manifest = json.loads(result.stdout)
     return {
         item.get("platform", {}).get("architecture")
@@ -36,7 +48,7 @@ def main() -> int:
             sources.setdefault(image, []).append(path)
 
     checked: dict[str, set[str]] = {}
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=4) as pool:
         pending = {pool.submit(platforms_for, image): image for image in requirements}
         for future in as_completed(pending):
             image = pending[future]
