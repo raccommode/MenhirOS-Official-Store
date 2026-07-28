@@ -1,5 +1,6 @@
 name: Validate official store
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
