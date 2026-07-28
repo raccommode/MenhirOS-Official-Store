@@ -3,6 +3,7 @@ import json
 import pathlib
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import yaml
 
@@ -24,17 +25,32 @@ def platforms_for(image: str) -> set[str]:
 
 
 def main() -> int:
-    checked: dict[str, set[str]] = {}
+    requirements: dict[str, set[str]] = {}
+    sources: dict[str, list[pathlib.Path]] = {}
     for path in sorted(pathlib.Path("apps").glob("*/app.yaml")):
         app = yaml.safe_load(path.read_text())
         required = set(app["architectures"])
         for container in app["containers"]:
             image = container["image"]
+            requirements.setdefault(image, set()).update(required)
+            sources.setdefault(image, []).append(path)
+
+    checked: dict[str, set[str]] = {}
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        pending = {pool.submit(platforms_for, image): image for image in requirements}
+        for future in as_completed(pending):
+            image = pending[future]
             try:
-                available = checked.setdefault(image, platforms_for(image))
+                checked[image] = future.result()
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired, json.JSONDecodeError) as error:
-                print(f"{path}: cannot inspect {image}: {error}", file=sys.stderr)
+                paths = ", ".join(str(path) for path in sources[image])
+                print(f"{paths}: cannot inspect {image}: {error}", file=sys.stderr)
                 return 1
+
+    for image in sorted(requirements):
+        required = requirements[image]
+        available = checked[image]
+        for path in sources[image]:
             missing = required - available
             if missing:
                 print(f"{path}: {image} is missing declared Linux architectures: " + ", ".join(sorted(missing)), file=sys.stderr)
