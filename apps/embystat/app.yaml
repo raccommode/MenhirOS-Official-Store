@@ -1,0 +1,46 @@
+schemaVersion: '1'
+id: embystat
+name:
+  en: Embystat
+  fr: Embystat
+description:
+  en: EmbyStat is a personal web server that can calculate all kinds of statistics from your (local) Emby or Jellyfin server. Just install this on your server and let him calculate all kinds of fun stuff. This project is still in Alpha phase, but feel free to pull in on your computer and test it out yourself. When the time is right I will host a full informational website/release for common platforms and Wiki pages.
+  fr: EmbyStat est un serveur Web personnel qui peut calculer toutes sortes de statistiques à partir de votre serveur Emby ou Jellyfin (local). Installez simplement cela sur votre serveur et laissez-le calculer toutes sortes de choses amusantes. Ce projet est toujours en phase alpha, mais n'hésitez pas à le télécharger sur votre ordinateur et à le tester vous-même. Lorsque le moment sera venu, j'hébergerai un site Web complet / une version pour les plates-formes courantes et des pages Wiki.
+version: 0.2.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: embystat
+  image: linuxserver/embystat:0.2.0@sha256:adc479353fc0b810c21935a8fe3c2d20d9f7027edc9574477d702ec2ad414754
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Europe/London
+  ports:
+  - container: 6555
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - The configured EmbyStat 0.2.0 image does not map to a non-prerelease GitHub Release entry in mregni/EmbyStat. - Keep release notes bound to this image tag until upstream publishes a matching stable changelog.
+  fr: '- L''image EmbyStat 0.2.0 configuree ne correspond a aucune release GitHub non preversion dans mregni/EmbyStat. - Les releaseNotes restent liees a ce tag d''image jusqu''a ce qu''un changelog stable correspondant soit publie en amont.'
+securityClassification: standard

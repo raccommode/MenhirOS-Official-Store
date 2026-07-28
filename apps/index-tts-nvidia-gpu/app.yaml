@@ -1,0 +1,38 @@
+schemaVersion: '1'
+id: index-tts-nvidia-gpu
+name:
+  en: Index-TTS(Nvidia GPU)
+  fr: Index-TTS(Nvidia GPU)
+description:
+  en: IndexTTS2 is an advanced zero-shot text-to-speech model that innovatively achieves complete decoupling of emotional expression and speaker identity. The model supports precise speech duration control and multimodal emotion control, capable of maintaining the target timbre while accurately reproducing the specified emotional intonation. The model employs a three-stage training paradigm and introduces GPT latent representations, ensuring excellent speech clarity and stability even under high emotional expression.…
+  fr: IndexTTS2 est un modèle avancé de synthèse vocale zéro-shot qui réalise de manière innovante un découplage complet entre l'expression émotionnelle et l'identité du locuteur. Le modèle prend en charge un contrôle précis de la durée de la parole et un contrôle émotionnel multimodal, capable de maintenir le timbre cible tout en reproduisant avec précision l'intonation émotionnelle spécifiée. Le modèle emploie un paradigme d'entraînement en trois étapes et introduit des représentations latentes GPT, garantissant une…
+version: 2.0.0
+architectures:
+- amd64
+containers:
+- name: index-tts-nvidia
+  image: icewhaletech/index-tts:2.0@sha256:1730d1121cbd7c3e66b209fca037ffeb217c38f4a4ddcb51c04edf799d886b37
+  environment:
+    NVIDIA_VISIBLE_DEVICES: all
+  ports:
+  - container: 7860
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 8G
+  memoryRecommended: 16G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - IndexTTS 2.0 tracks the upstream IndexTTS2 release. - IndexTTS2 adds controllable and uncontrollable precise speech duration generation for autoregressive TTS. - It adds expressive emotion control through multiple input modalities while keeping zero-shot timbre reproduction.
+  fr: '- IndexTTS 2.0 suit la release upstream IndexTTS2. - IndexTTS2 ajoute une generation precise de duree vocale, controlable et non controlable, pour le TTS autoregressif. - Il ajoute un controle emotionnel expressif via plusieurs modalites d''entree tout en conservant la reproduction zero-shot du timbre.'
+securityClassification: standard

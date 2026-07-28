@@ -1,0 +1,102 @@
+schemaVersion: '1'
+id: archivebox
+name:
+  en: ArchiveBox
+  fr: ArchiveBox
+description:
+  en: 'ArchiveBox is a powerful, self-hosted internet archiving solution that allows you to create your own personal archive of web pages, PDFs, videos, and more. It functions as a personal internet archive, saving content in multiple formats for long-term preservation. The system consists of multiple components: - ArchiveBox : The main application providing the web interface and archiving capabilities - Sonic : A fast search backend for full-text search across archived content - ArchiveBox Scheduler : A background…'
+  fr: 'ArchiveBox est une puissante solution d''archivage Internet auto-hébergée qui vous permet de créer votre propre archive personnelle de pages Web, de PDF, de vidéos et plus encore. Elle fonctionne comme une archive Internet personnelle, sauvegardant le contenu dans plusieurs formats pour une préservation à long terme. Le système se compose de plusieurs composants : - ArchiveBox : L''application principale fournissant l''interface Web et les capacités d''archivage - Sonic : Un backend de recherche rapide pour la…'
+version: 0.7.4
+architectures:
+- amd64
+containers:
+- name: archivebox_sonic
+  image: archivebox/sonic:1.4.9@sha256:452064bfdab535fb8a6019937f1d753e0dfb2c94d2a87ebd166e2d556de78692
+  environment:
+    SEARCH_BACKEND_PASSWORD: SomeSecretPassword
+  ports:
+  - container: 1491
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: sonic
+    target: /var/lib/sonic/store
+    type: app
+- name: archivebox
+  image: archivebox/archivebox:0.7.4@sha256:1a5a37331091d9df865ead2b9c231aa5a892fc26fe0422ce6140d9e2d9532327
+  environment:
+    ADMIN_USERNAME: casaos
+    ADMIN_PASSWORD: casaos
+    ALLOWED_HOSTS: '*'
+    CSRF_TRUSTED_ORIGINS: '*'
+    PUBLIC_INDEX: 'True'
+    PUBLIC_SNAPSHOTS: 'True'
+    PUBLIC_ADD_VIEW: 'False'
+    SEARCH_BACKEND_ENGINE: sonic
+    SEARCH_BACKEND_HOST_NAME: archivebox_sonic
+    SEARCH_BACKEND_PASSWORD: SomeSecretPassword
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - wget
+    - --no-verbose
+    - --tries=1
+    - --spider
+    - http://localhost:8000
+    interval: 1m
+    timeout: 3s
+    retries: 3
+- name: archivebox_scheduler
+  image: archivebox/archivebox:0.7.4@sha256:1a5a37331091d9df865ead2b9c231aa5a892fc26fe0422ce6140d9e2d9532327
+  command:
+  - schedule
+  - --foreground
+  - --update
+  - --every=day
+  environment:
+    TIMEOUT: '120'
+    SEARCH_BACKEND_ENGINE: sonic
+    SEARCH_BACKEND_HOST_NAME: archivebox_sonic
+    SEARCH_BACKEND_PASSWORD: SomeSecretPassword
+  volumes:
+  - name: data
+    target: /data
+    type: app
+- name: archivebox_novnc
+  image: theasp/novnc:latest@sha256:6e4f7346150b07983c4bc0d445a6fb227302aed8d00fbfd9cfdf81b07f68851d
+  environment:
+    DISPLAY_WIDTH: '1920'
+    DISPLAY_HEIGHT: '1080'
+    RUN_XTERM: 'no'
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: false
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+  - /var/lib/sonic/store
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.7.4 refreshes Docker container dependencies and 0.7.x package metadata/lockfiles. - Chromium, Node.js, gosu, yt-dlp, single-file, curl, wget, git, ripgrep, ffmpeg, and Python dependencies were updated. - Back up archives before upgrading and run archivebox version after the update.
+  fr: '- v0.7.4 refreshes Docker container dependencies and 0.7.x package metadata/lockfiles. - Chromium, Node.js, gosu, yt-dlp, single-file, curl, wget, git, ripgrep, ffmpeg, and Python dependencies were updated. - Back up archives before upgrading and run archivebox version after the update.'
+securityClassification: standard

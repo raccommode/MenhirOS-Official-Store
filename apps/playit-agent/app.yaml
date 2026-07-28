@@ -1,0 +1,33 @@
+schemaVersion: '1'
+id: playit-agent
+name:
+  en: Playit Agent
+  fr: Playit Agent
+description:
+  en: Self-hosted Playit Agent application from the official CasaOS catalog.
+  fr: Application Playit Agent auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.0.10
+architectures:
+- amd64
+- arm64
+containers:
+- name: playit-agent
+  image: ghcr.io/mafen/playit-docker:latest@sha256:41e7201cd7a08796440343db2b67b5eb4f0effa79418f2da03d412f5b875c0a0
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

@@ -1,0 +1,57 @@
+schemaVersion: '1'
+id: emulatorjs
+name:
+  en: emulatorjs
+  fr: emulatorjs
+description:
+  en: EmulatorJS is a Docker-based emulator application that can simulate various operating systems and device environments within containers for development, testing, and learning purposes.
+  fr: EmulatorJS est une application d'émulation basée sur Docker qui peut simuler divers systèmes d'exploitation et environnements de périphériques dans des conteneurs à des fins de développement, de test et d'apprentissage.
+version: 1.9.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: emulatorjs
+  image: linuxserver/emulatorjs:1.9.2@sha256:b7003f7d4f383dd32d210ba08f24c840276fdf92c211bd18a798d47647311290
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    SUBFOLDER: /
+    TZ: Etc/UTC
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 4001
+    protocol: tcp
+    proxy: false
+  - container: 80
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Metadata release 1.9.2 adds logos and videos for 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn, and Wonderswan. - This entry remains tied to the configured LinuxServer image tag.
+  fr: '- Metadata release 1.9.2 ajoute des logos et des vidéos pour 3DO, Arcade, MSX, NDS, NGP, PSX, Saturn et Wonderswan. - Cette entrée reste liée au tag d''image LinuxServer configuré.'
+securityClassification: critical

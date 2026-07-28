@@ -1,0 +1,57 @@
+schemaVersion: '1'
+id: deepseek-ocr-nvidia-gpu
+name:
+  en: DeepSeek OCR(Nvidia GPU)
+  fr: DeepSeek OCR(Nvidia GPU)
+description:
+  en: 'DeepSeek OCR is a powerful open-source OCR (Optical Character Recognition) tool based on the advanced DeepSeek-AI model. It enables accurate text extraction from images and document scans via a user-friendly web interface and API. Supports various image formats and offers configurations for image size, cropping, and upload limits. Additionally, DeepSeek OCR features four core recognition modes: Plain OCR for raw text extraction, Describe for intelligent image content descriptions, Find for keyword localization…'
+  fr: 'DeepSeek OCR est un outil OCR (Reconnaissance Optique de Caractères) open source puissant basé sur le modèle avancé DeepSeek-AI. Il permet l''extraction précise de texte à partir d''images et de scans de documents via une interface web conviviale et une API. Prend en charge divers formats d''images et offre des configurations pour la taille d''image, le recadrage et les limites de téléversement. De plus, DeepSeek OCR propose quatre modes de reconnaissance principaux : Plain OCR pour l''extraction de texte brut,…'
+version: 2.2.0
+architectures:
+- amd64
+containers:
+- name: deepseek-ocr-backend
+  image: icewhaletech/deepseek-ocr-backend:v2.2.0@sha256:37f3d2d92ddb05e2936ed0757bd5b27628ff2327f8f77b2ce95e32a52a2f339d
+  environment:
+    API_HOST: 0.0.0.0
+    API_PORT: '8000'
+    FRONTEND_PORT: '3000'
+    MODEL_NAME: deepseek-ai/DeepSeek-OCR
+    HF_HOME: /models
+    MAX_UPLOAD_SIZE_MB: '100'
+    BASE_SIZE: '1024'
+    IMAGE_SIZE: '640'
+    CROP_MODE: 'true'
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: models
+    target: /models
+    type: app
+- name: deepseek-ocr-frontend
+  image: icewhaletech/deepseek-ocr-frontend:v2.2.0@sha256:ec3450367b2bc77146c669c61f38d3e29832d6b4012501720371a530f3c83b5d
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 8704M
+  memoryRecommended: 17G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /models
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

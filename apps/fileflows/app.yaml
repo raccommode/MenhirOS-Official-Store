@@ -1,0 +1,62 @@
+schemaVersion: '1'
+id: fileflows
+name:
+  en: FileFlows
+  fr: FileFlows
+description:
+  en: Save storage space with efficient file processing. FileFlows lets you monitor and process any file type with custom flows. Videos, audio, images, archives, comics, eBooks—you name it!
+  fr: Économisez de l'espace de stockage grâce à un traitement de fichiers efficace. FileFlows vous permet de surveiller et de traiter n'importe quel type de fichier avec des flux personnalisés. Vidéos, audios, images, archives, bandes dessinées, eBooks — tout ce que vous voulez !
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: fileflows
+  image: revenz/fileflows:stable@sha256:377d3b7c05ba705ac0fe2b338c1f5eef9426d0493a0a91101de97071cbbc0b9b
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 5000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /app/Data
+    type: app
+  - name: logs
+    target: /app/Logs
+    type: app
+  - name: common
+    target: /app/common
+    type: app
+  - name: temp
+    target: /temp
+    type: app
+  - name: media
+    target: /Media
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices:
+  - /dev/dri
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/Data
+  - /app/Logs
+  - /app/common
+  - /temp
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: critical

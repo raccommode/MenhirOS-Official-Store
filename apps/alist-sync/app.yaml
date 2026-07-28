@@ -1,0 +1,44 @@
+schemaVersion: '1'
+id: alist-sync
+name:
+  en: Alist-Sync
+  fr: Alist-Sync
+description:
+  en: Alist-Sync is a storage synchronization tool based on the Web interface. It can achieve data synchronization and mutual backup among multiple network disks, and also has practical functions such as multi-task management, scheduled synchronization and difference handling.
+  fr: Application Alist-Sync auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.1.5
+architectures:
+- amd64
+- arm64
+containers:
+- name: alist-sync
+  image: xjxjin/alist-sync:1.1.5@sha256:5b090b2b47f77db4f63b2502a597a64fd25634d53f5646ff75e7c7fd60762292
+  environment:
+    TZ: Asia/Shanghai
+  ports:
+  - container: 52441
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /app/data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.1.5 fixes an error when the regular expression is empty.
+  fr: '- v1.1.5 corrige une erreur lorsque l''expression régulière est vide.'
+securityClassification: standard

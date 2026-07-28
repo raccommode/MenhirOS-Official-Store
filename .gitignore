@@ -1,4 +1,5 @@
 .DS_Store
 store-signing.key
 reports/
-
+.cache/
+__pycache__/

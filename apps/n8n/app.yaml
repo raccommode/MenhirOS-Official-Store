@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: n8n
+name:
+  en: n8n
+  fr: n8n
+description:
+  en: n8n is a powerful open-source workflow automation and conversational AI platform that blends the flexibility of coding with the simplicity of no-code development, empowering users to create efficient and secure automation workflows. It seamlessly connects any app with an API, leveraging native AI capabilities (like LangChain-based AI agent workflows) to process custom data, ideal for personal task management, team collaboration, or enterprise-grade automation. Its vibrant community offers over 400 integrations…
+  fr: n8n est une plateforme open-source puissante pour l'automatisation des flux de travail et l'intelligence artificielle conversationnelle, combinant la flexibilité du codage avec la simplicité du développement sans code, permettant aux utilisateurs de créer des flux de travail d'automatisation efficaces et sécurisés. Elle se connecte de manière transparente à n'importe quelle application dotée d'une API, exploitant des capacités d'IA natives (comme les flux de travail d'agents IA basés sur LangChain) pour traiter…
+version: 2.22.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: n8n
+  image: n8nio/n8n:2.22.3@sha256:75d18a9ecc588c32ece70d87bfd3319004601cf1d0d4fea5f4ba3640acb87f7b
+  environment:
+    TZ: Etc/UTC
+    N8N_SECURE_COOKIE: 'false'
+  ports:
+  - container: 5678
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /home/node/.n8n
+    type: app
+resources:
+  memoryMinimum: 320M
+  memoryRecommended: 640M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /home/node/.n8n
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.
+  fr: '- n8n 2.22.3 surfaces SSO claims and role mapping diagnostics. - The n8nio/n8n:2.22.3 Docker image tag was published on 2026-05-25. - This advances the app from the 1.123.x image line to the current 2.22.x release line.'
+securityClassification: standard

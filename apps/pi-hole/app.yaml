@@ -1,0 +1,56 @@
+schemaVersion: '1'
+id: pi-hole
+name:
+  en: Pi-hole
+  fr: Pi-hole
+description:
+  en: Pi-hole is a network-wide ad-blocking platform for Linux hardware, using DNS sinkhole technology to protect devices from unwanted content without requiring client-side software. Designed for home or enterprise networks, it offers efficient ad blocking and network optimization. Core features include network-wide ad blocking and content blocking in non-browser environments. It uses DNS sinkhole to block ads, covering mobile apps and smart TVs. Caching DNS queries speeds up everyday browsing. A command-line…
+  fr: Pi-hole est une plateforme de blocage de publicités à l'échelle du réseau pour le matériel Linux, utilisant la technologie DNS sinkhole pour protéger les appareils contre le contenu indésirable sans nécessiter de logiciel côté client. Conçue pour les réseaux domestiques ou d'entreprise, elle offre un blocage de publicités efficace et une optimisation réseau. Les fonctionnalités principales incluent le blocage de publicités à l'échelle du réseau et le blocage de contenu dans les environnements non-navigateur. Elle…
+version: 2026.5.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: pihole
+  image: pihole/pihole:2026.05.0@sha256:70a9c11171ded2eee735d88c127996da209284a329d50f5ae59c06b861d401b3
+  environment:
+    TZ: Etc/UTC
+    FTLCONF_webserver_api_password: casaos
+    FTLCONF_dns_listeningMode: all
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 53
+    protocol: tcp
+    proxy: false
+  - container: 53
+    protocol: udp
+    proxy: false
+  - container: 443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: pihole
+    target: /etc/pihole
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities:
+  - NET_ADMIN
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /etc/pihole
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.
+  fr: '- Docker image 2026.05.0 refreshes the Pi-hole container build and updates container capability documentation. - This Docker-specific release is light; review the upstream upgrade impact section before updating production deployments.'
+securityClassification: critical

@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: navidrome
+name:
+  en: Navidrome
+  fr: Navidrome
+description:
+  en: Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your music collection from any browser or mobile device. It's like your personal Spotify!
+  fr: Application Navidrome auto-hébergée issue du catalogue officiel CasaOS.
+version: 0.61.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: navidrome
+  image: deluan/navidrome:0.61.2@sha256:9fa40b3d8dec43ceb2213d1fa551da3dcfef6ac6d19c2e534efb92527c2bafd2
+  environment:
+    ND_SCANSCHEDULE: 1h
+    ND_LOGLEVEL: info
+    ND_SESSIONTIMEOUT: 24h
+    ND_BASEURL: ''
+    TZ: Etc/UTC
+  ports:
+  - container: 4533
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /data
+    type: app
+  - name: music
+    target: /music
+    type: share
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.
+  fr: '- v0.61.2 fixes transcoding channel clamping and lets WAV files play directly in browsers without unnecessary transcoding. - Scanner and artwork fixes include ORIGYEAR support for VorbisComment/MP4, configurable max cover-art upload size, and shared disc-art handling. - Plugin and server fixes add file path to TrackInfo, improve ShareURL handling, surface SQLite backup errors, and improve configuration validation.'
+securityClassification: standard

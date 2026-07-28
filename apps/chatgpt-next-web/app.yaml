@@ -1,0 +1,44 @@
+schemaVersion: '1'
+id: chatgpt-next-web
+name:
+  en: ChatGPT Next Web
+  fr: ChatGPT Next Web
+description:
+  en: An intelligent chat application based on ChatGPT, supports fast deployment, Markdown, beautiful UI, fluid response, privacy and security, and allows customization of preset roles for quick creation, sharing, and debugging of personalized conversations.
+  fr: Application ChatGPT Next Web auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.16.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: chatgpt-next-web
+  image: yidadaa/chatgpt-next-web:v2.16.1@sha256:eaaa469ddeeb5fa58fb35f8767e9e096a2f1c8468c54b6703323624bf3071c5a
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    CODE: ''
+    PROXY_URL: ''
+    BASE_URL: https://api.openai.com
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.16.1 adds Alibaba vision and omni model support, GPT-4.1/GPT-4.5-preview, OpenAI o3/o4-mini, Gemini 2.5, Grok 3, Claude 4, Moonshot model updates, and 302.AI provider support. - Fixes include Mistral icon detection, first-message enforcement, Gemini/Claude multimodal image upload regexes, o1/o3 markdown encouragement, unit test failures, and duplicate links. - The frontend build was migrated to Vite and documentation/translations were updated.
+  fr: '- v2.16.1 ajoute la prise en charge des modèles Alibaba vision et omni, GPT-4.1/GPT-4.5-preview, OpenAI o3/o4-mini, Gemini 2.5, Grok 3, Claude 4, des mises à jour de modèles Moonshot et du fournisseur 302.AI. - Les correctifs couvrent la détection d''icône Mistral, l''obligation du premier message, les regex d''envoi d''image multimodale Gemini/Claude, l''encouragement markdown o1/o3, les échecs de tests unitaires et les liens dupliqués. - Le build frontend a été migré vers Vite, et la documentation/les traductions…'
+securityClassification: standard

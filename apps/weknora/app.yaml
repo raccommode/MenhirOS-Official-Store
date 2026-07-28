@@ -1,0 +1,205 @@
+schemaVersion: '1'
+id: weknora
+name:
+  en: WeKnora
+  fr: WeKnora
+description:
+  en: WeKnora is a deep document understanding and semantic retrieval framework based on Large Language Models (LLM), specifically designed for document scenarios with complex structures and heterogeneous content. It adopts a modular architecture, integrating key technologies such as multimodal preprocessing, semantic vector indexing, intelligent retrieval, and large model inference. Based on the Retrieval-Augmented Generation (RAG) paradigm, it achieves context-aware, high-quality Q&A capabilities. WeKnora can deeply…
+  fr: WeKnora est un cadre de compréhension approfondie de documents et de récupération sémantique basé sur les Grands Modèles de Langage (LLM), spécifiquement conçu pour les scénarios de documents avec des structures complexes et un contenu hétérogène. Il adopte une architecture modulaire, intégrant des technologies clés telles que le prétraitement multimodal, l'indexation vectorielle sémantique, la récupération intelligente et l'inférence de grands modèles. Basé sur le paradigme de Génération Augmentée par…
+version: 0.2.14
+architectures:
+- amd64
+- arm64
+containers:
+- name: weknora-redis
+  image: redis:7.0-alpine@sha256:c9d92d840fd011c908f040592857c724ae6d877f2aba5c40ad963276507386b2
+  command:
+  - redis-server
+  - --requirepass redis123!@#
+  - --appendonly
+  - 'true'
+- name: weknora-postgres
+  image: paradedb/paradedb:v0.18.9-pg17@sha256:7ba49d1b8bdc1460f50073c7d33b3306ddec0e9610b49e17a4d32e9a2c95c570
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres123!@#
+    POSTGRES_DB: WeKnora
+  volumes:
+  - name: data
+    target: /var/lib/postgresql/data
+    type: app
+  healthcheck:
+    test:
+    - CMD-SHELL
+    - pg_isready -U postgres
+    interval: 10s
+    timeout: 10s
+    retries: 3
+- name: weknora-docreader
+  image: wechatopenai/weknora-docreader:v0.2.14@sha256:ca88aa630906279e6c18aade5706944cb201ba480137d5f95626f4db2fe1c4fe
+  environment:
+    MAX_FILE_SIZE_MB: '50'
+    MINIO_ENDPOINT: minio:9000
+    MINIO_ACCESS_KEY_ID: minioadmin
+    MINIO_SECRET_ACCESS_KEY: minioadmin
+    MINIO_BUCKET_NAME: weknora
+  healthcheck:
+    test:
+    - CMD
+    - grpc_health_probe
+    - -addr=:50051
+    interval: 30s
+    timeout: 10s
+    retries: 3
+- name: app
+  image: wechatopenai/weknora-app:v0.2.14@sha256:5846159d58fa455667b058416611a7ac5f802f012df68e42a29667106d2b6cc9
+  environment:
+    OTEL_EXPORTER_OTLP_ENDPOINT: jaeger:4317
+    OTEL_SERVICE_NAME: WeKnora
+    OTEL_TRACES_EXPORTER: otlp
+    OTEL_METRICS_EXPORTER: none
+    OTEL_LOGS_EXPORTER: none
+    OTEL_PROPAGATORS: tracecontext,baggage
+    QDRANT_HOST: qdrant
+    QDRANT_PORT: '6334'
+    QDRANT_COLLECTION: weknora_embeddings
+    QDRANT_API_KEY: ''
+    QDRANT_USE_TLS: 'false'
+    MINIO_ENDPOINT: minio:9000
+    MINIO_ACCESS_KEY_ID: minioadmin
+    MINIO_SECRET_ACCESS_KEY: minioadmin
+    MINIO_BUCKET_NAME: weknora
+    GIN_MODE: release
+    DISABLE_REGISTRATION: 'false'
+    DB_DRIVER: postgres
+    DB_HOST: weknora-postgres
+    DB_PORT: '5432'
+    DB_USER: postgres
+    DB_PASSWORD: postgres123!@#
+    DB_NAME: WeKnora
+    TZ: Etc/UTC
+    RETRIEVE_DRIVER: postgres
+    DOCREADER_ADDR: weknora-docreader:50051
+    STORAGE_TYPE: minio
+    LOCAL_STORAGE_BASE_DIR: /data/files
+    AUTO_RECOVER_DIRTY: 'true'
+    OLLAMA_BASE_URL: http://host.docker.internal:11434
+    STREAM_MANAGER_TYPE: redis
+    REDIS_ADDR: weknora-redis:6379
+    REDIS_PASSWORD: redis123!@#
+    REDIS_DB: '0'
+    REDIS_PREFIX: '"stream:"'
+    TENANT_AES_KEY: weknorarag-api-key-secret-secret
+    CONCURRENCY_POOL_SIZE: '5'
+    JWT_SECRET: weknora-jwt-secret
+    MAX_FILE_SIZE_MB: '50'
+  volumes:
+  - name: files
+    target: /data/files
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:8080/health
+    interval: 30s
+    timeout: 10s
+    retries: 3
+- name: weknora
+  image: wechatopenai/weknora-ui:v0.2.14@sha256:4bee4ac139ef23af48c9072ac3d0a81086e2f0da8802bf1e805e86c814e6b67e
+  environment:
+    MAX_FILE_SIZE_MB: '50'
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+- name: minio
+  image: minio/minio:RELEASE.2025-09-07T16-13-09Z@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e
+  command:
+  - server
+  - /data
+  - --console-address
+  - :9001
+  environment:
+    MINIO_ROOT_USER: minioadmin
+    MINIO_ROOT_PASSWORD: minioadmin
+  ports:
+  - container: 9000
+    protocol: tcp
+    proxy: false
+  - container: 9001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: minio-data
+    target: /data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:9000/minio/health/live
+    interval: 30s
+    timeout: 20s
+    retries: 3
+- name: jaeger
+  image: jaegertracing/all-in-one:1.76.0@sha256:ab6f1a1f0fb49ea08bcd19f6b84f6081d0d44b364b6de148e1798eb5816bacac
+  environment:
+    COLLECTOR_OTLP_ENABLED: 'true'
+    COLLECTOR_ZIPKIN_HOST_PORT: :9411
+  ports:
+  - container: 6831
+    protocol: udp
+    proxy: false
+  - container: 6832
+    protocol: udp
+    proxy: false
+  - container: 5778
+    protocol: tcp
+    proxy: false
+  - container: 16686
+    protocol: tcp
+    proxy: false
+  - container: 4317
+    protocol: tcp
+    proxy: false
+  - container: 4318
+    protocol: tcp
+    proxy: false
+  - container: 14250
+    protocol: tcp
+    proxy: false
+  - container: 14268
+    protocol: tcp
+    proxy: false
+  - container: 9411
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: jaeger
+    target: /var/lib/jaeger
+    type: app
+resources:
+  memoryMinimum: 2560M
+  memoryRecommended: 5G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+  - /data/files
+  - /var/lib/jaeger
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.2.14 prioritizes environment variables over Git tags for version detection. - Completion URL host extraction now handles both v1 and non-v1 endpoints. - Parser chunk index logging was fixed, Ollama retest icon alignment was improved, and pg search migration files were added.
+  fr: '- v0.2.14 donne la priorite aux environment variables plutot qu''aux Git tags pour version detection. - Completion URL host extraction gere maintenant les endpoints v1 et non-v1. - Parser chunk index logging a ete corrige, Ollama retest icon alignment a ete ameliore et pg search migration files ont ete ajoutes.'
+securityClassification: standard

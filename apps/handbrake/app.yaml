@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: handbrake
+name:
+  en: handbrake
+  fr: handbrake
+description:
+  en: Handbrake is a Docker-based application for video transcoding and compression, offering powerful and flexible multimedia processing across multiple platforms.
+  fr: Handbrake est une application basée sur Docker pour la transcodification et la compression vidéo, offrant une puissante et flexible gestion multimédia sur plusieurs plateformes.
+version: 26.3.3
+architectures:
+- amd64
+containers:
+- name: handbrake
+  image: jlesage/handbrake:v26.03.3@sha256:2b1eb1e34cf2edba2590c3ab768206a11cf8916fbe8a8a3391fe74d9eabcdce0
+  ports:
+  - container: 5800
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: watch
+    target: /watch
+    type: app
+  - name: media
+    target: /output
+    type: share
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /watch
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.
+  fr: '- v26.03.3 updates HandBrake to version 1.11.1. - It keeps the jlesage HandBrake container release line current. - The jlesage/handbrake:v26.03.3 Docker image tag was published on 2026-03-23.'
+securityClassification: critical

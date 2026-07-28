@@ -1,0 +1,50 @@
+schemaVersion: '1'
+id: real-debrid-torrent-client
+name:
+  en: Real-Debrid Torrent Client
+  fr: Real-Debrid Torrent Client
+description:
+  en: Self-hosted Real-Debrid Torrent Client application from the official CasaOS catalog.
+  fr: Application Real-Debrid Torrent Client auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.0.136
+architectures:
+- amd64
+- arm64
+containers:
+- name: rdtclient
+  image: rogerfar/rdtclient:2.0.136@sha256:a05f0427946a4c3c64dc9d556c017f9a181acec320ecf218b6334a1066c11d1f
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    UMASK: '002'
+  ports:
+  - container: 6500
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: downloads
+    target: /data/downloads
+    type: share
+  - name: db
+    target: /data/db
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data/db
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

@@ -11,6 +11,9 @@ The catalog currently includes:
 - Nextcloud 34.0.1 with PostgreSQL and Redis
 - 100 reviewed LinuxServer.io applications across media, productivity,
   development, monitoring, backup, networking, and remote desktop categories
+- the complete 166-application official CasaOS/ZimaOS catalog, with existing
+  reviewed Menhir manifests preserved when the catalogs overlap
+- Bitcoin Core, Phoenixd, and Alby Hub for Bitcoin and Lightning users
 
 The store is pre-alpha. Do not treat a passing manifest check as a security
 audit: releases additionally require image scanning, SBOM generation,
@@ -37,3 +40,11 @@ official metadata API, resolves every multi-platform OCI digest, writes the
 manifests, and updates their SHA-256 references in `store.yaml`. The signed
 index must then be regenerated through the protected `Sign official index`
 workflow.
+
+## Refreshing the CasaOS catalog
+
+Clone `https://github.com/IceWhaleTech/CasaOS-AppStore`, then run
+`python scripts/sync-casaos-catalog.py /path/to/CasaOS-AppStore` from the
+repository root. The converter imports every official application, preserves
+already reviewed Menhir manifests, resolves supported platforms, pins every
+container image by digest, and updates the SHA-256 references in `store.yaml`.

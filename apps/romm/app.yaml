@@ -1,0 +1,90 @@
+schemaVersion: '1'
+id: romm
+name:
+  en: RomM
+  fr: RomM
+description:
+  en: RomM is a self-hosted game collection management app designed for emulator enthusiasts, offering a convenient way to scan, enrich, browse, and play games. Its responsive Web interface allows users to manage collections via any modern browser, supporting over 400 platforms, ideal for retro gaming fans building personal game libraries. The app's core features include robust library management and seamless gameplay. It fetches metadata from IGDB, Screenscraper, and MobyGames, and custom artwork from SteamGridDB,…
+  fr: RomM est une application de gestion de collections de jeux auto-hébergée conçue pour les passionnés d'émulateurs, offrant un moyen pratique de scanner, enrichir, parcourir et jouer à des jeux. Son interface Web réactive permet aux utilisateurs de gérer leurs collections via n'importe quel navigateur moderne, prenant en charge plus de 400 plateformes, idéale pour les amateurs de jeux rétro souhaitant constituer leur propre bibliothèque. Les principales fonctionnalités de l'application incluent une gestion robuste…
+version: 4.8.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: romm-db
+  image: mariadb:11.8.2@sha256:2bcbaec92bd9d4f6591bc8103d3a8e6d0512ee2235506e47a2e129d190444405
+  environment:
+    MARIADB_ROOT_PASSWORD: casaos
+    MARIADB_DATABASE: romm
+    MARIADB_USER: romm-user
+    MARIADB_PASSWORD: casaos
+  volumes:
+  - name: mysql
+    target: /var/lib/mysql
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - healthcheck.sh
+    - --connect
+    - --innodb_initialized
+    interval: 10s
+    timeout: 5s
+    retries: 5
+- name: romm
+  image: rommapp/romm:4.8.1@sha256:2b7a1714b287f69b081ad2a63bb8c2fa673666a17b2f21322b580b0cd51cb266
+  environment:
+    DB_HOST: romm-db
+    DB_NAME: romm
+    DB_USER: romm-user
+    DB_PASSWD: casaos
+    ROMM_AUTH_SECRET_KEY: '""'
+    IGDB_CLIENT_ID: '""'
+    IGDB_CLIENT_SECRET: '""'
+    SCREENSCRAPER_USER: '""'
+    SCREENSCRAPER_PASSWORD: '""'
+    STEAMGRIDDB_API_KEY: '""'
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: resources
+    target: /romm/resources
+    type: app
+  - name: redis-data
+    target: /redis-data
+    type: app
+  - name: library
+    target: /romm/library
+    type: app
+  - name: assets
+    target: /romm/assets
+    type: app
+  - name: config
+    target: /romm/config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /redis-data
+  - /romm/assets
+  - /romm/config
+  - /romm/library
+  - /romm/resources
+  - /var/lib/mysql
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.
+  fr: '- 4.8.1 makes per-platform homepage stats opt-in so the homepage no longer fetches them by default. - Adds outbound HTTP proxy support for backend requests and includes 4.8 hotfixes. - Fixes cleanup missing roms task status errors, registration invite redirects losing tokens, and related mobile link/BIOS hash issues.'
+securityClassification: standard

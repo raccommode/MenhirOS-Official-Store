@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: threadfin
+name:
+  en: Threadfin
+  fr: Threadfin
+description:
+  en: Threadfin is a M3U proxy server for Plex, Emby, Jellyfin and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats.
+  fr: Application Threadfin auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.2.37
+architectures:
+- amd64
+- arm64
+containers:
+- name: threadfin
+  image: fyb3roptik/threadfin:1.2.37@sha256:96122ab220e14b881cbd40d7f8c7b022e1f9c6ecfe05aca2ab801e0321dc0d61
+  environment:
+    THREADFIN_BRANCH: main
+    THREADFIN_DEBUG: '0'
+  ports:
+  - container: 34400
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /home/threadfin/conf/data
+    type: app
+  - name: backup
+    target: /home/threadfin/conf/backup
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /home/threadfin/conf/backup
+  - /home/threadfin/conf/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

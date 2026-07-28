@@ -1,0 +1,62 @@
+schemaVersion: '1'
+id: emby-nvidia-gpu
+name:
+  en: Emby(Nvidia GPU)
+  fr: Emby(Nvidia GPU)
+description:
+  en: Bringing all of your home videos, music, and photos together into one place has never been easier. Your personal Emby Server automatically converts and streams your media on-the-fly to play on any device.
+  fr: Rassembler toutes vos vidéos, musique et photos à un seul endroit n'a jamais été aussi facile. Votre serveur Emby personnel convertit et diffuse vos médias en temps réel pour les lire sur n'importe quel appareil.
+version: 4.9.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: emby
+  image: linuxserver/emby:4.9.1@sha256:873fe21193c902b1919a75584ad6ee99e2286cd7194fd0c8c70d13113574b78b
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    CPU_FALLBACK: 'true'
+    NVIDIA_VISIBLE_DEVICES: all
+  ports:
+  - container: 8096
+    protocol: tcp
+    proxy: true
+  - container: 8920
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: tv-shows
+    target: /data/tvshows
+    type: share
+  - name: movies
+    target: /data/movies
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices:
+  - /dev/dri
+  - /dev/vchiq
+  - /dev/video10
+  - /dev/video11
+  - /dev/video12
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Emby Server 4.9.1 improves library scanning, live TV guide refresh, and database performance. - The release updates to .NET 8 and sqlite 3.49.2, and adds maintenance mode and network request protocol options. - The GPU-enabled entry uses the same upstream server tag and 4.9.1 release metadata as the standard Emby entry.
+  fr: '- Emby Server 4.9.1 améliore l''analyse de bibliothèque, le rafraîchissement du guide TV en direct et les performances de base de données. - Cette version met à jour vers .NET 8 et sqlite 3.49.2, et ajoute un mode maintenance ainsi que des options de protocole pour les requêtes réseau. - L''entrée compatible GPU utilise le même tag serveur amont et les mêmes métadonnées de version 4.9.1 que l''entrée Emby standard.'
+securityClassification: critical

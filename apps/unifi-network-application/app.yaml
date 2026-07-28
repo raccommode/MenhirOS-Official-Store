@@ -1,0 +1,75 @@
+schemaVersion: '1'
+id: unifi-network-application
+name:
+  en: Unifi Network Application
+  fr: Unifi Network Application
+description:
+  en: Only mandatory ports are enabled by default, to extend functionality consider exposing 1900:1900/udp, 8843:8843, 8880:8880, 6789:6789, 5514:5514/udp. Other ports specifications here. Because the network application runs inside Docker by default it uses an IP address not accessible by other devices. So, for it to adopt other devices, it is required to use port 8080 and change the inform IP address. To do so, go in settings and search for the Inform Host option, there select override and set the address to that of…
+  fr: Application Unifi Network Application auto-hébergée issue du catalogue officiel CasaOS.
+version: 10.4.57-ls133
+architectures:
+- amd64
+- arm64
+containers:
+- name: unifi-db
+  image: docker.io/mongo:3.6@sha256:146c1fd999a660e697aac40bc6da842b005c7868232eb0b7d8996c8f3545b05d
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 27017
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: unifi-db
+    target: /data/db
+    type: app
+- name: unifi-network-application
+  image: lscr.io/linuxserver/unifi-network-application:latest@sha256:30c19017c4f849ee4285cf7bcd0d3f292b0b6055735912c009d2a16c15319a51
+  environment:
+    MONGO_DBNAME: unifi-db
+    MONGO_HOST: unifi-db
+    MONGO_PASS: pass
+    MONGO_PORT: '27017'
+    MONGO_USER: unifi
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 8443
+    protocol: tcp
+    proxy: true
+  - container: 3478
+    protocol: udp
+    proxy: false
+  - container: 10001
+    protocol: udp
+    proxy: false
+  - container: 8080
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: unifi-network-application
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /data/db
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

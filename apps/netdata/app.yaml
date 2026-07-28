@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: netdata
+name:
+  en: Netdata
+  fr: Netdata
+description:
+  en: Netdata is a real-time performance and health monitoring solution that helps you visualize and understand the behavior of your systems.
+  fr: Application Netdata auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.10.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: app
+  image: netdata/netdata:v2.10.3@sha256:bcc822ec685dd7ee488e9f99b957f479b66301be04f13f346df692ad7de94151
+  ports:
+  - container: 19999
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /etc/netdata
+    type: app
+  - name: lib
+    target: /var/lib/netdata
+    type: app
+  - name: cache
+    target: /var/cache/netdata
+    type: cache
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities:
+  - SYS_ADMIN
+  - SYS_PTRACE
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /etc/netdata
+  - /var/lib/netdata
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.
+  fr: '- v2.10.3 fixes an eBPF per-PID shared-memory pool leak that could fill the pool and peg a CPU core. - SNMP uptime collection now uses snmpEngineTime first to avoid TimeTicks wraparound, while keeping the existing systemUptime metric name. - Dynamic configuration name validation and go.d/powerstore hardware decoding were fixed.'
+securityClassification: critical

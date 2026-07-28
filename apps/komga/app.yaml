@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: komga
+name:
+  en: Komga
+  fr: Komga
+description:
+  en: Komga is a self-hosted app designed for managing comics, manga, magazines, and e-books (supporting CBZ, CBR, PDF, and EPUB formats), offering a secure and convenient solution for personal media libraries. Its responsive Web interface enables users to access and manage content effortlessly via any browser, without complex local installations, ideal for comic and e-book enthusiasts. The app's core features include versatile content organization and diverse reading options. Users can arrange their library with…
+  fr: Komga est une application auto-hébergée conçue pour gérer des bandes dessinées, des mangas, des magazines et des livres électroniques (prise en charge des formats CBZ, CBR, PDF et EPUB), offrant une solution sécurisée et pratique pour les bibliothèques multimédias personnelles. Son interface Web réactive permet aux utilisateurs d'accéder et de gérer facilement le contenu via n'importe quel navigateur, sans installation locale complexe, idéale pour les amateurs de bandes dessinées et d'e-books. Les fonctionnalités…
+version: 1.24.4
+architectures:
+- amd64
+- arm64
+containers:
+- name: komga
+  image: gotson/komga:1.24.4@sha256:dae630271561b642d47c9723803ec77900d1f0a803fbe6a42da69db5b21ebaeb
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+  ports:
+  - container: 25600
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: data
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.
+  fr: '- v1.24.4 fixes API age-restriction serialization, EPUB TOC parsing, Kobo raw-body proxying, KOReader Accept headers, and OPDS2 navigation/auth-logo behavior. - Docker base images were updated to Ubuntu 26.04 for amd64 and arm64. - The gotson/komga:1.24.4 Docker image tag was published on 2026-04-24.'
+securityClassification: standard

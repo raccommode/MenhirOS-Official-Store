@@ -1,0 +1,54 @@
+schemaVersion: '1'
+id: turbodiffusion-nvidia-gpu
+name:
+  en: TurboDiffusion(Nvidia GPU)
+  fr: TurboDiffusion(Nvidia GPU)
+description:
+  en: 'TurboDiffusion is an accelerated text-to-video generation framework based on the Latent Consistency Model (LCM). It leverages various TurboWan2 models to rapidly generate high-quality videos from text descriptions. The framework supports both image and video generation and provides optimized checkpoints for different GPU configurations. Key Features: - Ultra-fast video and image generation - Intuitive Gradio WebUI - Optimized for different GPU configurations - Quantized and unquantized checkpoints - Flexible…'
+  fr: 'TurboDiffusion est un framework accéléré de génération texte-à-vidéo basé sur le Latent Consistency Model (LCM). Il utilise divers modèles TurboWan2 pour générer rapidement des vidéos de haute qualité à partir de descriptions textuelles. Le framework prend en charge la génération d’images et de vidéos et fournit des checkpoints optimisés pour différentes configurations GPU. Fonctionnalités principales : - Génération ultra-rapide de vidéos et d’images - Gradio WebUI intuitive - Optimisé pour différentes…'
+version: 2026.03.12
+architectures:
+- amd64
+containers:
+- name: turbodiffusion
+  image: icewhaletech/turbodiffusion:20260312@sha256:7536ee67bafdc61c34fc91b1b8804636deaf575dd956d5025712fbacb152545a
+  command:
+  - python
+  - turbodiffusion/app_gradio.py
+  environment:
+    MODEL_PATHS: /workspace/TurboDiffusion/checkpoints_host,/workspace/TurboDiffusion/checkpoints
+    NVIDIA_VISIBLE_DEVICES: all
+    NVIDIA_DRIVER_CAPABILITIES: compute,utility,video
+    CUDA_HOME: /usr/local/cuda
+    PYTHONPATH: /workspace/TurboDiffusion/turbodiffusion
+  ports:
+  - container: 7860
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: models
+    target: /workspace/TurboDiffusion/checkpoints_host
+    type: app
+  - name: outputs
+    target: /workspace/TurboDiffusion/outputs
+    type: app
+resources:
+  memoryMinimum: 40G
+  memoryRecommended: 80G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /workspace/TurboDiffusion/checkpoints_host
+  - /workspace/TurboDiffusion/outputs
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

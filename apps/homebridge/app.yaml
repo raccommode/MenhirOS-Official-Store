@@ -1,0 +1,38 @@
+schemaVersion: '1'
+id: homebridge
+name:
+  en: Homebridge
+  fr: Homebridge
+description:
+  en: Homebridge is a lightweight NodeJS server you can run on your home network that emulates the iOS HomeKit API. It supports Plugins, which are community-contributed modules that provide a basic bridge from HomeKit to various 3rd-party APIs provided by manufacturers of "smart home" devices.
+  fr: Application Homebridge auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.1.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: homebridge
+  image: homebridge/homebridge:latest@sha256:c5f3c164d528b797e8855bf5511b594f56a6bda7d2d198c69a4cfab6ffa08e31
+  volumes:
+  - name: config
+    target: /homebridge
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /homebridge
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Latest upstream release v1.9.0 adds updateDisplayName(). - It fixes handleUpdatePlatformAccessories() and allows Characteristic.SerialNumber to be set through config.json. - The release includes minor dependency updates and uses hap-nodejs v0.12.3.
+  fr: '- La derniere release upstream v1.9.0 ajoute updateDisplayName(). - Elle corrige handleUpdatePlatformAccessories() et permet de definir Characteristic.SerialNumber via config.json. - Cette release inclut de petites mises a jour de dependances et utilise hap-nodejs v0.12.3.'
+securityClassification: critical

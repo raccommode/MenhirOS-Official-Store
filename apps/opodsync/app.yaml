@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: opodsync
+name:
+  en: oPodSync
+  fr: oPodSync
+description:
+  en: 'oPodSync is a podcast synchronization service that allows users to sync their podcast subscriptions and listening progress across multiple devices. It provides a server-side solution for managing podcast data and ensures that users can seamlessly switch between their devices. Key Features: - Sync podcast subscriptions - Track listening progress across devices - Web-based management interface - Support for multiple podcast clients - Centralized data storage - Easy setup and configuration Learn More: - oPodSync…'
+  fr: 'oPodSync est un service de synchronisation de podcasts qui permet aux utilisateurs de synchroniser leurs abonnements aux podcasts et leur progression d''écoute sur plusieurs appareils. Il fournit une solution côté serveur pour gérer les données des podcasts et garantit que les utilisateurs peuvent passer sans problème d''un appareil à l''autre. Fonctionnalités Clés: - Synchroniser les abonnements aux podcasts - Suivre la progression d''écoute sur plusieurs appareils - Interface de gestion basée sur le web - Support…'
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: opodsync
+  image: ganeshlab/opodsync:latest@sha256:f4eca588a5893e7700fcd8e4c019a62dd98e79298d5ca6b842d7900e71112c8c
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /var/www/server/data
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/www/server/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

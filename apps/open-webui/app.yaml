@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: open-webui
+name:
+  en: Open WebUI
+  fr: Open WebUI
+description:
+  en: Open WebUI is a feature-rich, user-friendly self-hosted AI platform designed for fully offline operation, supporting multiple large language model runners and API integration. Its intuitive Web interface provides powerful AI deployment capabilities, ideal for developers, researchers, and AI enthusiasts building localized intelligent applications. The tool's core features include local model execution and Retrieval Augmented Generation (RAG). It supports Ollama and OpenAI-compatible APIs (e.g., LMStudio,…
+  fr: Open WebUI est une plateforme IA auto-hébergée riche en fonctionnalités et conviviale, conçue pour un fonctionnement entièrement hors ligne, prenant en charge plusieurs exécuteurs de modèles de langage de grande taille et l'intégration d'API. Son interface Web intuitive fournit de puissantes capacités de déploiement IA, idéale pour les développeurs, chercheurs et passionnés d'IA construisant des applications intelligentes localisées. Les fonctionnalités principales de l'outil incluent l'exécution locale de…
+version: 0.9.6
+architectures:
+- amd64
+containers:
+- name: open-webui-ollama
+  image: ghcr.io/open-webui/open-webui:ollama@sha256:2391dd9495ec87257a200e70e66a4a77adc2d3a7fe15c07293078fb0c6a009c1
+  environment:
+    CPU_FALLBACK: 'true'
+    NVIDIA_VISIBLE_DEVICES: all
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: open-webui
+    target: /app/backend/data
+    type: app
+  - name: ollama
+    target: /root/.ollama
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/backend/data
+  - /root/.ollama
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

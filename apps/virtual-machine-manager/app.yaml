@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: virtual-machine-manager
+name:
+  en: Virtual Machine Manager
+  fr: Virtual Machine Manager
+description:
+  en: A GTK Broadway web UI for libvirt and virt-manager, to run virtual machines using QEMU/KVM.
+  fr: Une interface web GTK Broadway pour libvirt et virt-manager, pour exécuter des machines virtuelles utilisant QEMU/KVM.
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: virt-manager
+  image: mber5/virt-manager:latest@sha256:111674d877635e0f85baabfb202bba560e7ec5ccdf0d2f1ebcb48fc9c32bfd48
+  environment:
+    DARK_MODE: 'false'
+    HOSTS: '[''qemu:///system'']'
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: downloads
+    target: /DATA/Downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices:
+  - /dev/kvm
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: critical

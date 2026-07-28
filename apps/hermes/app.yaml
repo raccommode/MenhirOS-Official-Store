@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: hermes
+name:
+  en: Hermes
+  fr: Hermes
+description:
+  en: 'Hermes Agent is a self-improving AI agent from Nous Research, designed to be a long-running collaborator rather than a one-off chatbot. Its built-in learning loop combines persistent memory, cross-session recall, and reusable skills so it can keep context and improve recurring workflows over time. With a unified gateway, rich toolsets, and a browser-based dashboard, Hermes fits research, automation, cross-platform communication, and ongoing operational work. Main Features: - Built-in learning loop with persistent…'
+  fr: Hermes Agent est un agent IA auto-améliorant de Nous Research, conçu comme un collaborateur durable plutôt qu'un simple chatbot ponctuel. Sa boucle d'apprentissage intégrée combine mémoire persistante, recherche intersessions et compétences réutilisables afin de conserver le contexte et d'améliorer les flux de travail récurrents au fil du temps. Avec une passerelle unifiée, de riches jeux d'outils et un tableau de bord accessible depuis le navigateur, Hermes convient bien à la recherche, à l'automatisation, à la…
+version: 0.16.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: hermes
+  image: nousresearch/hermes-agent:v2026.6.5@sha256:9ad3b04ec916ea2c2da22358fd43b024c788d74073210695af88bfc2e63869b4
+  command:
+  - gateway
+  - run
+  environment:
+    HERMES_DASHBOARD: '1'
+    HERMES_DASHBOARD_INSECURE: '1'
+  ports:
+  - container: 8642
+    protocol: tcp
+    proxy: true
+  - container: 9119
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: appdata
+    target: /opt/data
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/data
+migrations: []
+releaseNotes:
+  en: 'Imported from the official CasaOS catalog. Functional Updates - The web dashboard is now a much more complete admin panel: you can configure messaging channels, MCP catalog entries, credentials, webhooks, memory, and gateway settings directly from the browser. - First-run setup is simpler with Quick Setup via Nous Portal and a clearer split between Quick Setup and Full Setup, so new users can get to their first message faster. - The model picker now supports fuzzy search across the web dashboard, TUI, and CLI, groups multi-endpoint providers more cleanly,…'
+  fr: 'Mises a Jour Fonctionnelles - Le tableau de bord web est maintenant un panneau d''administration bien plus complet : vous pouvez configurer directement depuis le navigateur les canaux de messagerie, les entrees du catalogue MCP, les identifiants, les webhooks, la memoire et les parametres de la passerelle. - La configuration initiale est plus simple grace a Quick Setup via Nous Portal et a une separation plus claire entre Quick Setup et Full Setup, ce qui permet aux nouveaux utilisateurs d''atteindre plus vite leur…'
+securityClassification: standard

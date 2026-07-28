@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: openlist
+name:
+  en: OpenList
+  fr: OpenList
+description:
+  en: 'OpenList is a community-driven, self-hosted file listing and cloud drive mounting service that supports multiple storage backends in one place. It brings local storage plus services like OneDrive, Google Drive, S3, WebDAV, SMB, and many other providers into one browser-based file hub. With previews, uploads, sharing, WebDAV, offline download, and package download built in, it works well for home NAS setups, personal cloud libraries, and lightweight team file portals. Main Features: - Connect local disks, cloud…'
+  fr: OpenList est un service auto-hébergé et communautaire de listing de fichiers et de montage de lecteurs cloud, avec prise en charge de plusieurs backends de stockage au même endroit. Il regroupe le stockage local et des services comme OneDrive, Google Drive, S3, WebDAV, SMB et bien d'autres fournisseurs dans un hub de fichiers accessible depuis le navigateur. Avec les aperçus, l'envoi, le partage, WebDAV, le téléchargement hors ligne et le téléchargement groupé intégrés, il convient bien aux NAS domestiques, aux…
+version: 4.2.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: openlist
+  image: openlistteam/openlist:v4.2.2@sha256:e518d69feb6a2ee7a0db7c4c9a5111e0ab155ec81b7654e39ca917f5678ce0f5
+  environment:
+    UMASK: '022'
+    OPENLIST_ADMIN_PASSWORD: casaos
+  ports:
+  - container: 5244
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /opt/openlist/data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/openlist/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.
+  fr: '- v4.2.2 includes breaking cache changes by extracting the hybrid cache package. - Includes upstream fixes and maintenance from the 4.2.2 release. - Review the upstream release notes before upgrading existing custom cache integrations.'
+securityClassification: standard

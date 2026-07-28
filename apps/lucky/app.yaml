@@ -1,0 +1,40 @@
+schemaVersion: '1'
+id: lucky
+name:
+  en: Lucky
+  fr: Lucky
+description:
+  en: A powerful tool for port forwarding, reverse proxy, dynamic DNS, wake-on-LAN, IPv4 NAT traversal, webdav services, task scheduling, and automatic certificate management.
+  fr: Application Lucky auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.27.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: lucky
+  image: gdy666/lucky:2.27.2@sha256:96a530d208af31c45951520c0723767c29efb8cd461073dda0ccfb8bcca53e44
+  environment:
+    TZ: Etc/UTC
+  volumes:
+  - name: lucky
+    target: /goodluck
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /goodluck
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.
+  fr: '- v2.27.2 refactors and optimizes the file service and WebDav frontend display. - CorazaWAF built-in rules were updated to v4.22.0, with rule tips and custom inbound/outbound threshold settings. - The gdy666/lucky:2.27.2 Docker image tag was published on 2026-02-02.'
+securityClassification: critical

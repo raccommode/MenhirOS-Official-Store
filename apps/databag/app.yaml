@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: databag
+name:
+  en: Databag
+  fr: Databag
+description:
+  en: Databag is a federated chat app for self-hosting that focuses on user privacy and security; the service includes clients for iOS, Android, and browser.
+  fr: Application Databag auto-hébergée issue du catalogue officiel CasaOS.
+version: 0.1.18
+architectures:
+- amd64
+- arm64
+containers:
+- name: databag
+  image: balzack/databag:0.1.18@sha256:37c4ab38f64842afa44ed8aea0e47271112795180708f0cb7be8ee7c7defebac
+  ports:
+  - container: 7000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /var/lib/databag
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/lib/databag
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

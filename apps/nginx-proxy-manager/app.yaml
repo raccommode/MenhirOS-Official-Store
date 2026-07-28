@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: nginx-proxy-manager
+name:
+  en: Nginx Proxy Manager
+  fr: Nginx Proxy Manager
+description:
+  en: Nginx Proxy Manager is a simple, powerful tool to help you host multiple websites on a single server.
+  fr: Nginx Proxy Manager est un outil simple et puissant pour vous aider à héberger plusieurs sites Web sur un seul serveur.
+version: 2.13.5
+architectures:
+- amd64
+- arm64
+containers:
+- name: nginxproxymanager
+  image: jc21/nginx-proxy-manager:2.13.5@sha256:cd9eba29ca132cb006729f2cb2660126453f84818c2f7d75963ad7b61ef696bd
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  - container: 443
+    protocol: tcp
+    proxy: false
+  - container: 81
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: data
+    target: /data
+    type: app
+  - name: letsencrypt
+    target: /etc/letsencrypt
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+  - /etc/letsencrypt
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.13.5 adds Vietnamese and Italian locales, with Dutch added and Polish, Russian, Slovak, and Chinese translations updated. - Fixes include web crashes when viewing Custom Certificates and translation text spacing issues. - Upgrade notifications, mobile UI/UX improvements, certbot-azure-dns updates, and refreshed OpenResty, Certbot, and s6-overlay components are included.
+  fr: '- v2.13.5 ajoute Vietnamese et Italian locales, ajoute Dutch et met a jour Polish, Russian, Slovak et Chinese translations. - Les web crashes lors de l''affichage de Custom Certificates et les translation text spacing issues ont ete corriges. - Inclut upgrade notifications, des ameliorations mobile UI/UX, des mises a jour certbot-azure-dns et des composants OpenResty, Certbot et s6-overlay rafraichis.'
+securityClassification: standard

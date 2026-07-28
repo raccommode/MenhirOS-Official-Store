@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: openhands
+name:
+  en: OpenHands
+  fr: OpenHands
+description:
+  en: 'OpenHands is an open-source AI-powered coding assistant that provides developers with intelligent code completion, generation, and debugging capabilities. It runs in a sandboxed environment to ensure security and isolation while allowing access to various development tools and resources. Key Features: - AI-powered code completion and generation - Interactive debugging and error resolution - Support for multiple programming languages - Secure sandboxed execution environment - Customizable runtime configurations -…'
+  fr: 'OpenHands est un assistant de codage open source alimenté par l''IA qui fournit aux développeurs des capacités intelligentes de complétion, de génération et de débogage de code. Il s''exécute dans un environnement de bac à sable pour assurer la sécurité et l''isolement tout en permettant l''accès à divers outils et ressources de développement. Fonctionnalités clés : - Complétion et génération de code alimentées par l''IA - Débogage interactif et résolution d''erreurs - Prise en charge de plusieurs langages de…'
+version: 0.59.0
+architectures:
+- amd64
+containers:
+- name: openhands
+  image: ghcr.io/all-hands-ai/openhands:0.59@sha256:00968de77a7b36546413e1f3b5c6b4e2c387d19ade54de7926e10f5b3d265fa6
+  environment:
+    SANDBOX_RUNTIME_CONTAINER_IMAGE: ghcr.io/all-hands-ai/runtime:main-nikolaik
+    WORKSPACE_MOUNT_PATH: /DATA/AppData/openhands/workspace
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: openhands
+    target: /.openhands
+    type: app
+  - name: workspace
+    target: /opt/workspace_base
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /.openhands
+  - /opt/workspace_base
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 0.59.0 adds support for the Lemonade Provider. - Repository search, mounted-volume file ownership, prompt box resizing, and multiple UI issues were fixed.
+  fr: '- 0.59.0 ajoute la prise en charge du Lemonade Provider. - La recherche de dépôts, la propriété des fichiers des volumes montés, le redimensionnement de la zone de prompt et plusieurs problèmes d''interface ont été corrigés.'
+securityClassification: standard

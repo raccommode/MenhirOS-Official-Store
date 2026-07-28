@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: actual-budget
+name:
+  en: Actual Budget
+  fr: Actual Budget
+description:
+  en: Actual Budget is a fast, privacy-focused finance management app using local-first envelope budgeting, ensuring full control over data. Its intuitive interface supports offline use, with multi-device sync and optional end-to-end encryption, delivering a secure, efficient financial management experience, ideal for users seeking clear financial oversight. The app's core features include envelope budgeting based on real income, rapid transaction handling, and intuitive financial reporting. It helps users track…
+  fr: Actual Budget est une application de gestion financière rapide et axée sur la confidentialité utilisant la budgétisation par enveloppes locale-first, garantissant un contrôle total sur les données. Son interface intuitive prend en charge l'utilisation hors ligne, avec synchronisation multi-appareils et chiffrement de bout en bout optionnel, offrant une expérience de gestion financière sécurisée et efficace, idéale pour les utilisateurs recherchant une supervision financière claire. Les fonctionnalités principales…
+version: 26.5.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: actualbudget
+  image: actualbudget/actual-server:26.5.2@sha256:1aeeb3985db55556e716dec25e08f6ce09308c2571b65cddbc6746ee6d5e0d45
+  ports:
+  - container: 5006
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.
+  fr: '- v26.5.2 is functionally identical to v26.5.1 and was published to resolve Windows Store release packaging. - It fixes authentication rate limiting, desktop self-signed certificates, and UUID generation in insecure HTTP contexts.'
+securityClassification: sensitive

@@ -1,0 +1,44 @@
+schemaVersion: '1'
+id: swing-music
+name:
+  en: Swing Music
+  fr: Swing Music
+description:
+  en: Swing Music is a fast, beautiful, self-hosted music player designed for your local audio files, offering a sleek experience akin to Spotify but powered by your own music library. Simply run the app and access your music collection effortlessly through a web browser. Swing Music curates Daily Mixes based on your listening habits, ensures a clean and consistent library with metadata normalization, and supports album versioning (e.g., Deluxe, Remaster) alongside related artist and album recommendations. Browse your…
+  fr: Swing Music est un lecteur musical rapide, magnifique et auto-hébergé conçu pour vos fichiers audio locaux, offrant une expérience fluide similaire à Spotify mais alimentée par votre propre bibliothèque musicale. Lancez simplement l'application et accédez à votre collection musicale sans effort via un navigateur web. Swing Music crée des mixes quotidiens basés sur vos habitudes d'écoute, garantit une bibliothèque propre et cohérente grâce à la normalisation des métadonnées, et prend en charge la gestion des…
+version: 2.1.4
+architectures:
+- amd64
+containers:
+- name: swingmusic
+  image: ghcr.io/swingmx/swingmusic:v2.1.4@sha256:89009c016848946c35418eb8459fee9eba044fb3a4cd6808160a510ecb8b22f6
+  ports:
+  - container: 1970
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: music
+    target: /music
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.
+  fr: '- v2.1.4 patches a path traversal vulnerability in the directory browser endpoint. - Bug fixes cover Last.fm scrobbles being saved to user id 1, unsetting the admin role, a Windows startup crash, default artist split ignore rules, and album soundtrack classification. - The ghcr.io/swingmx/swingmusic:v2.1.4 Docker image tag exists, and the upstream release was published on 2026-01-18.'
+securityClassification: standard

@@ -1,0 +1,71 @@
+schemaVersion: '1'
+id: unifi-controller-legacy
+name:
+  en: Unifi-controller [legacy]
+  fr: Unifi-controller [legacy]
+description:
+  en: For Unifi to adopt other devices, e.g. an Access Point, it is required to change the inform IP address. Because Unifi runs inside Docker by default it uses an IP address not accessible by other devices. To change this go to Settings System Settings Controller Configuration and set the Controller Hostname/IP to a hostname or IP address accessible by your devices. Additionally the checkbox "Override inform host with controller hostname/IP" has to be checked, so that devices can connect to the controller during…
+  fr: Pour que Unifi adopte d'autres appareils, par exemple un point d'accès, il est nécessaire de modifier l'adresse IP inform. Comme Unifi s'exécute par défaut dans Docker, il utilise une adresse IP non accessible par d'autres appareils. Pour modifier cela, allez dans Paramètres Paramètres système Configuration du contrôleur et définissez le nom d'hôte / IP du contrôleur sur un nom d'hôte ou une adresse IP accessible par vos appareils. De plus, la case "Remplacer l'hôte inform avec le nom d'hôte / IP du contrôleur"…
+version: 8.0.7
+architectures:
+- amd64
+- arm64
+containers:
+- name: unifi-controller
+  image: linuxserver/unifi-controller:8.0.7@sha256:d65513b089eb1cd20e822777c270e2068c05b86dd1a3f842975286b1181b525f
+  environment:
+    MEM_LIMIT: '1024'
+    MEM_STARTUP: '1024'
+    PGID: '1000'
+    PUID: '1000'
+  ports:
+  - container: 3478
+    protocol: udp
+    proxy: false
+  - container: 10001
+    protocol: udp
+    proxy: false
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  - container: 8443
+    protocol: tcp
+    proxy: false
+  - container: 1900
+    protocol: udp
+    proxy: false
+  - container: 8843
+    protocol: tcp
+    proxy: false
+  - container: 8880
+    protocol: tcp
+    proxy: false
+  - container: 6789
+    protocol: tcp
+    proxy: false
+  - container: 5514
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. UniFi Controller 8.0.7 is the application version used by this container; see UniFi release notes for detailed changes.
+  fr: UniFi Controller 8.0.7 est la version de l'application utilisee par ce conteneur; consultez les release notes UniFi pour les changements detailles.
+securityClassification: standard

@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: tailscale
+name:
+  en: Tailscale
+  fr: Tailscale
+description:
+  en: A modern self-hosted networking app built on WireGuard®, providing secure, encrypted connections between devices regardless of their location. Its zero-configuration networking eliminates the need for complex firewall rules, port forwarding, or network administration, making it ideal for businesses and individuals creating efficient, secure network environments. The app's core features include seamless device connectivity and robust security. It uses WireGuard® for end-to-end encryption, ensuring traffic cannot…
+  fr: Une application de réseau auto-hébergée moderne construite sur WireGuard®, fournissant des connexions sécurisées et chiffrées entre appareils indépendamment de leur emplacement. Son réseau à configuration zéro élimine le besoin de règles de pare-feu complexes, de redirection de ports ou d'administration réseau, la rendant idéale pour les entreprises et les particuliers créant des environnements réseau efficaces et sécurisés. Les fonctionnalités principales de l'application incluent une connectivité d'appareils…
+version: 1.98.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: tailscale
+  image: tailscale/tailscale:v1.98.3@sha256:854b77123b9536adae2e97f5a5fdb1790ed03438b911ab7f07780155e0af6ce2
+  environment:
+    TS_STATE_DIR: /var/lib/tailscale
+  volumes:
+  - name: appdata
+    target: /var/lib/tailscale
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities:
+  - NET_ADMIN
+  - NET_RAW
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/lib/tailscale
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.
+  fr: '- Tailscale v1.98.3 resolves a Linux netfilter rule inconsistency after failed netfilter mode changes. - The v1.98.3 container image refresh contains library updates. - Recent 1.98.x fixes also include MagicDNS recovery after network changes and a Go 1.26.3 update.'
+securityClassification: critical

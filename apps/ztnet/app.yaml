@@ -1,0 +1,58 @@
+schemaVersion: '1'
+id: ztnet
+name:
+  en: ZTnet
+  fr: ZTnet
+description:
+  en: ZTNET is a powerful ZeroTier network management tool that simplifies network configuration and management through an intuitive Web interface, ideal for teams and individual users. Its modern design and rich features provide an efficient solution for building secure, scalable virtual networks. The tool centers on an intuitive Web interface and organization with multi-user support. Developed in TypeScript, it acts as an intermediary between users and the ZeroTier Controller API, enabling collaborative network…
+  fr: ZTNET est un puissant outil de gestion de réseau ZeroTier qui simplifie la configuration et la gestion de réseau grâce à une interface Web intuitive, idéal pour les équipes et les utilisateurs individuels. Son design moderne et ses fonctionnalités riches fournissent une solution efficace pour construire des réseaux virtuels sécurisés et évolutifs. L'outil se centre sur une interface Web intuitive et une organisation avec support multi-utilisateur. Développé en TypeScript, il agit comme un intermédiaire entre les…
+version: 0.7.18
+architectures:
+- amd64
+- arm64
+containers:
+- name: ztnet-postgres
+  image: postgres:15.2-alpine@sha256:d9c304353c031b21e9a7e33dc4781e272a9fa802a2ab9703fe4199d72ba1422c
+  environment:
+    POSTGRES_USER: ztnet
+    POSTGRES_PASSWORD: ztnetbl5hbv98wl89x9v
+    POSTGRES_DB: ztnet
+  volumes:
+  - name: postgres-data
+    target: /var/lib/postgresql/data
+    type: app
+- name: ztnet
+  image: sinamics/ztnet:0.7.18@sha256:43774ff91872bbf89bc52ec2f8df5ac5ad28dbc5f0e113a753c61cb443cf2be2
+  environment:
+    ZT_ADDR: http://172.17.0.1:9993
+    POSTGRES_HOST: ztnet-postgres
+    POSTGRES_PORT: '5432'
+    POSTGRES_USER: ztnet
+    POSTGRES_PASSWORD: ztnetbl5hbv98wl89x9v
+    POSTGRES_DB: ztnet
+    NEXTAUTH_URL: http://0.0.0.0:3050
+    NEXTAUTH_SECRET: mn6vor005ncgnu9iuqxn8bg
+    NEXTAUTH_URL_INTERNAL: http://ztnet:3000
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.7.18 updates dependency packages, including defu 6.1.6. - The installer dependencies were also updated. - The sinamics/ztnet:0.7.18 Docker image tag was published on 2026-04-04.
+  fr: '- v0.7.18 updates dependency packages, including defu 6.1.6. - The installer dependencies were also updated. - The sinamics/ztnet:0.7.18 Docker image tag was published on 2026-04-04.'
+securityClassification: standard

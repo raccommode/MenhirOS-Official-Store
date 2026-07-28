@@ -1,0 +1,46 @@
+schemaVersion: '1'
+id: label-studio
+name:
+  en: Label Studio
+  fr: Label Studio
+description:
+  en: Label Studio is an open source data labeling tool. It lets you label data types like audio, text, images, videos, and time series with a simple and straightforward UI and export to various model formats. It can be used to prepare raw data or improve existing training data to get more accurate ML models.
+  fr: Application Label Studio auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.23.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: label-studio
+  image: heartexlabs/label-studio:1.23.0@sha256:aa461572e8f9d86a1bf9520c1db620204e86160fd2f80dd7e9d40ac84a8828ea
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /label-studio/data
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /label-studio/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.23.0 adds Vector and VectorLabels tags for point-based image annotations such as polylines, polygons, and skeletons. - Data Manager and template-builder updates add interactive task-source viewing, filter copy/paste, JSON filter copy, row context menus, Ctrl+F search, panel resizing, and shift range selection. - The heartexlabs/label-studio:1.23.0 Docker image tag was published on 2026-03-13.
+  fr: '- v1.23.0 adds Vector and VectorLabels tags for point-based image annotations such as polylines, polygons, and skeletons. - Data Manager and template-builder updates add interactive task-source viewing, filter copy/paste, JSON filter copy, row context menus, Ctrl+F search, panel resizing, and shift range selection. - The heartexlabs/label-studio:1.23.0 Docker image tag was published on 2026-03-13.'
+securityClassification: standard

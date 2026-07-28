@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: sickchill
+name:
+  en: Sickchill
+  fr: Sickchill
+description:
+  en: 'SickChill is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic: automatic torrent/nzb searching, downloading, and processing at the qualities you want.'
+  fr: 'SickChill est un gestionnaire de bibliothèque vidéo automatique pour les émissions de télévision. Il surveille les nouvelles épisodes de vos émissions préférées, et lorsque elles sont publiées, il fait sa magie: recherche automatique de torrents / nzbs, téléchargement et traitement dans les qualités que vous souhaitez.'
+version: 2023.6.27
+architectures:
+- amd64
+- arm64
+containers:
+- name: sickchill
+  image: linuxserver/sickchill:2023.6.27@sha256:fb4f709823e3971b5c965dbdebb45fc77d409bc04be7c1e30e4af5cfb1a573d2
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Europe/London
+  ports:
+  - container: 8081
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /downloads
+    type: share
+  - name: tv-shows
+    target: /tv
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 2023.6.27 has an empty GitHub release body, so changes were checked against the upstream tag compare. - The compare includes dependency updates for Poetry/Yarn, urllib3, workbox-webpack-plugin, Snyk, and types-setuptools. - Fixes and updates include site-message dismissal, minimum leech time, TL category cleanup, generic.py, torrentleech.py, and bencode logging handling.
+  fr: '- Le corps du GitHub Release 2023.6.27 est vide, les changements ont donc été vérifiés avec le compare du tag amont. - Le compare inclut des mises à jour de dépendances pour Poetry/Yarn, urllib3, workbox-webpack-plugin, Snyk et types-setuptools. - Les correctifs et mises à jour couvrent la fermeture des messages de site, le temps minimal de leech, le nettoyage de catégories TL, generic.py, torrentleech.py et la journalisation bencode.'
+securityClassification: standard

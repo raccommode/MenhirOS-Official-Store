@@ -1,0 +1,50 @@
+schemaVersion: '1'
+id: mongodb
+name:
+  en: MongoDB
+  fr: MongoDB
+description:
+  en: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemata. MongoDB is developed by MongoDB Inc., and is published under a combination of the Server Side Public License and the Apache License.
+  fr: MongoDB est un programme de base de données orienté documents, gratuit et open source, multiplateforme. MongoDB est classé comme un programme de base de données NoSQL et utilise des documents de type JSON avec des schémas. MongoDB est développé par MongoDB Inc. et est publié sous une combinaison de la Licence Publique du Côté Serveur et de la Licence Apache.
+version: 8.2.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: mongo
+  image: mongo:8.2.2@sha256:bf5995bcccb65725aa81fd92e68449323c94b96bf1c1fa9f7acbc2a8ad518114
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 27017
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: configdb
+    target: /data/configdb
+    type: app
+  - name: db
+    target: /data/db
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data/configdb
+  - /data/db
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - MongoDB 8.2.2 is the database image version used by this app entry. - MongoDB publishes database release notes outside GitHub Releases, so this Docker tag is kept as image metadata.
+  fr: '- MongoDB 8.2.2 est la version de l''image de base de donnees utilisee par cette entree d''application. - MongoDB publie les release notes de la base de donnees hors de GitHub Releases; ce tag Docker est donc conserve comme metadonnee d''image.'
+securityClassification: standard

@@ -1,0 +1,41 @@
+schemaVersion: '1'
+id: chatbot-ui
+name:
+  en: Chatbot UI
+  fr: Chatbot UI
+description:
+  en: Chatbot UI is an open source chat UI for AI models.
+  fr: Chatbot UI est une interface de chat open source pour les modèles d'IA.
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: chatbot-ui
+  image: ghcr.io/mckaywrigley/chatbot-ui:main@sha256:81cc705b47a52583e3f1718dc824fe3576d85b7ff298985c10bd15c03d0adcd5
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

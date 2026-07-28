@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: grafana
+name:
+  en: Grafana
+  fr: Grafana
+description:
+  en: 'Grafana open source is open source visualization and analytics software.Visualizations: Fast and flexible client side graphs with a multitude of options. Panel plugins offer many different ways to visualize metrics and logs. Dynamic Dashboards: Create dynamic & reusable dashboards with template variables that appear as dropdowns at the top of the dashboard. Explore Metrics: Explore your data through ad-hoc queries and dynamic drilldown. Split view and compare different time ranges, queries and data sources side…'
+  fr: 'Grafana Open Source est un logiciel de visualisation et d''analyse open source. Visualisations: Graphiques rapides et flexibles côté client avec une variété d''options. Les plugins de panneau offrent de nombreuses façons différentes de visualiser des métriques et des journaux. Tableaux de bord dynamiques: Créez des tableaux de bord dynamiques et réutilisables avec des variables de modèle qui s''affichent comme des listes déroulantes en haut du tableau de bord. Explorer des métriques: Explorez vos données avec des…'
+version: 13.0.1-security-01
+architectures:
+- amd64
+- arm64
+containers:
+- name: grafana
+  image: grafana/grafana:13.0.1-security-01@sha256:2d1f9ae67c1778d33e291d4c3c759cd8b650e67491f02533499eb950e075eeb5
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /var/lib/grafana
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/lib/grafana
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v13.0.1-security-01 ships Grafana 13.0.1 with security fixes. - Security fixes cover CVE-2026-28374, CVE-2026-28376, CVE-2026-28383, CVE-2026-28380, CVE-2026-33376, CVE-2026-28379, CVE-2026-33377, CVE-2026-33378, CVE-2026-33381, and CVE-2026-33380. - The grafana/grafana:13.0.1-security-01 Docker image tag was published on 2026-05-12.
+  fr: '- v13.0.1-security-01 ships Grafana 13.0.1 with security fixes. - Security fixes cover CVE-2026-28374, CVE-2026-28376, CVE-2026-28383, CVE-2026-28380, CVE-2026-33376, CVE-2026-28379, CVE-2026-33377, CVE-2026-33378, CVE-2026-33381, and CVE-2026-33380. - The grafana/grafana:13.0.1-security-01 Docker image tag was published on 2026-05-12.'
+securityClassification: standard

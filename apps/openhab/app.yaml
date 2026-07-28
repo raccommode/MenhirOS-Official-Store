@@ -1,0 +1,50 @@
+schemaVersion: '1'
+id: openhab
+name:
+  en: OpenHAB
+  fr: OpenHAB
+description:
+  en: The open Home Automation Bus (openHAB, pronounced ˈəʊpənˈhæb) is an open source, technology agnostic home automation platform which runs as the center of your smart home! Its ability to integrate a multitude of other devices and systems. openHAB includes other home automation systems, (smart) devices and other technologies into a single solution. To provide a uniform user interface and a common approach to automation rules across the entire system, regardless of the number of manufacturers and sub-systems…
+  fr: Le bus d'automatisation domestique open (openHAB, prononcé ˈəʊpənˈhæb) est une plate-forme d'automatisation domestique open source et technologie agnostique qui fonctionne comme le centre de votre maison intelligente. Sa capacité à intégrer une multitude d'autres appareils et systèmes. openHAB inclut d'autres systèmes d'automatisation domestique, (intelligents) appareils et autres technologies dans une seule solution. Pour fournir une interface utilisateur uniforme et une approche commune aux règles…
+version: 5.1.4
+architectures:
+- amd64
+- arm64
+containers:
+- name: openhab
+  image: openhab/openhab:5.1.4@sha256:d583a280a8a8cdbff5bcebe5bd7d04a7839769350a7e54f600b4aaa26162392f
+  environment:
+    CRYPTO_POLICY: unlimited
+    PGID: '1000'
+    PUID: '1000'
+  volumes:
+  - name: addons
+    target: /openhab/addons
+    type: app
+  - name: conf
+    target: /openhab/conf
+    type: app
+  - name: userdata
+    target: /openhab/userdata
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /openhab/addons
+  - /openhab/conf
+  - /openhab/userdata
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - openHAB 5.1.4 is a patch release with add-on bug fixes across ahawastecollection, airparif, dirigera, ecoflow, electroluxappliance, enocean, evohome, heos, matter, roborock, solaredge, unifi, vesync, and others. - JavaScript scripting upgrades to openhab-js 5.17.1 and fixes line-number reporting in injected stack traces. - Main UI fixes cover widget editor screen values, item back navigation, page duplication, chart period adjustments, variable handling, map dark-mode updates, gauge sizing, wrappers, and…
+  fr: '- openHAB 5.1.4 is a patch release with add-on bug fixes across ahawastecollection, airparif, dirigera, ecoflow, electroluxappliance, enocean, evohome, heos, matter, roborock, solaredge, unifi, vesync, and others. - JavaScript scripting upgrades to openhab-js 5.17.1 and fixes line-number reporting in injected stack traces. - Main UI fixes cover widget editor screen values, item back navigation, page duplication, chart period adjustments, variable handling, map dark-mode updates, gauge sizing, wrappers, and…'
+securityClassification: critical

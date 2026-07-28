@@ -1,0 +1,59 @@
+schemaVersion: '1'
+id: monica
+name:
+  en: Monica
+  fr: Monica
+description:
+  en: Monica is a self-hosted personal relationship management tool that helps users document and organize interactions with family and friends via an intuitive Web interface, creating a personalized contact database. It is ideal for users balancing work and life, ensuring key personal connections are never missed. The tool's core features include comprehensive contact management and smart reminders. It supports creating detailed contact profiles, logging personal details, relationships (e.g., family, friends), and how…
+  fr: Monica est un outil de gestion des relations personnelles auto-hébergé qui aide les utilisateurs à documenter et organiser les interactions avec la famille et les amis via une interface Web intuitive, créant une base de données de contacts personnalisée. Il est idéal pour les utilisateurs qui équilibrent travail et vie privée, garantissant que les connexions personnelles importantes ne soient jamais manquées. Les fonctionnalités principales de l'outil incluent une gestion complète des contacts et des rappels…
+version: 4.1.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: monica-db
+  image: mariadb:11.8.2@sha256:2bcbaec92bd9d4f6591bc8103d3a8e6d0512ee2235506e47a2e129d190444405
+  environment:
+    MARIADB_RANDOM_ROOT_PASSWORD: 'true'
+    MARIADB_DATABASE: monica
+    MARIADB_USER: monicauser
+    MARIADB_PASSWORD: monicasecret
+  volumes:
+  - name: mysql
+    target: /var/lib/mysql
+    type: app
+- name: monica
+  image: monica:4.1.2@sha256:84c6703c05bf92562a91b9a282245a0d66ae5e032d63e8e61b3b3ce556a7d02d
+  environment:
+    APP_KEY: ChangeMeBy32KeyLengthOrGenerated
+    DB_HOST: monica-db
+    DB_USERNAME: monicauser
+    DB_PASSWORD: monicasecret
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: storage
+    target: /var/www/html/storage
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/lib/mysql
+  - /var/www/html/storage
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v4.1.2 fixes contact listing updates that changed the updated at date for all contacts.
+  fr: '- v4.1.2 corrige les contact listing updates qui modifiaient updated at date pour tous les contacts.'
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: flaresolverr
+name:
+  en: FlareSolverr
+  fr: FlareSolverr
+description:
+  en: Self-hosted FlareSolverr application from the official CasaOS catalog.
+  fr: Application FlareSolverr auto-hébergée issue du catalogue officiel CasaOS.
+version: 3.4.6
+architectures:
+- amd64
+- arm64
+containers:
+- name: flaresolverr
+  image: ghcr.io/flaresolverr/flaresolverr:v3.4.6@sha256:7962759d99d7e125e108e0f5e7f3cdbcd36161776d058d1d9b7153b92ef1af9e
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    UMASK: '002'
+    LOG_LEVEL: info
+    LOG_HTML: 'false'
+    CAPTCHA_SOLVER: none
+  ports:
+  - container: 8191
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v3.4.6 adds an option to disable image, CSS, and font loading through CDP. - The README was updated.
+  fr: '- v3.4.6 adds an option to disable image, CSS, and font loading through CDP. - The README was updated.'
+securityClassification: standard

@@ -1,0 +1,91 @@
+schemaVersion: '1'
+id: teable
+name:
+  en: Teable
+  fr: Teable
+description:
+  en: 'Teable is a new generation open-source database platform. It provides an intuitive spreadsheet-like experience, while being powered by a high-performance Postgres database underneath, combining ease of use with powerful data processing capabilities. Key Features: - High Performance : Built on the Postgres core, it effortlessly handles millions of records with extremely fast response times. - Modern Interface : Offers multiple views including grid, kanban, gallery, and forms, with a clean and user-friendly design.…'
+  fr: 'Teable est une plateforme de base de données open source de nouvelle génération. Elle offre une expérience intuitive de type tableur, tout en étant propulsée en arrière-plan par une base de données Postgres haute performance, combinant simplicité d’utilisation et puissantes capacités de traitement des données. Fonctionnalités principales : - Haute performance : Basée sur le cœur Postgres, elle gère facilement des millions de lignes avec des temps de réponse extrêmement rapides. - Interface moderne : Propose…'
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: teable-db
+  image: postgres:15@sha256:74e110c41804365e3915fcc09d5e7a1eff50161aaa94d5da0e58e0cd75ae509c
+  environment:
+    TZ: Etc/UTC
+    POSTGRES_DB: teable-db
+    POSTGRES_USER: example
+    POSTGRES_PASSWORD: example
+  volumes:
+  - name: data
+    target: /var/lib/postgresql/data
+    type: app
+  healthcheck:
+    test:
+    - CMD-SHELL
+    - sh -c 'pg_isready -U example -d teable-db'
+    interval: 10s
+    timeout: 3s
+    retries: 3
+- name: teable-cache
+  image: redis:7.2.4@sha256:5a93f6b2e391b78e8bd3f9e7e1e1e06aeb5295043b4703fb88392835cec924a0
+  command:
+  - redis-server
+  - --requirepass password
+  ports:
+  - container: 6379
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: teable-cache-data
+    target: /data
+    type: cache
+  healthcheck:
+    test:
+    - CMD
+    - redis-cli
+    - --raw
+    - incr
+    - ping
+    interval: 10s
+    timeout: 3s
+    retries: 3
+- name: teable
+  image: teableio/teable:latest@sha256:3f9018f6387bab77d687846e65779f898502541291e86b8f9caf25d9a79b2d39
+  environment:
+    TZ: Etc/UTC
+    NEXT_ENV_IMAGES_ALL_REMOTE: 'true'
+    PUBLIC_ORIGIN: http://127.0.0.1:3000
+    PRISMA_DATABASE_URL: postgresql://example:example@teable-db:5432/teable-db
+    BACKEND_CACHE_PROVIDER: redis
+    BACKEND_CACHE_REDIS_URI: redis://default:password@teable-cache:6379/0
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: assets
+    target: /app/.assets
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/.assets
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Latest upstream release release.2026-05-12T16-05-24Z.1665 adds real-time voice input for AI text boxes. - Chat now supports reasoning effort, tagged references in the queue, and easier editing of queued messages. - Fixes and improvements include AI response regeneration with the selected model/reasoning effort, collaborator notification fixes, Markdown collaborative editing improvements, and AI input stability improvements.
+  fr: '- La derniere release upstream release.2026-05-12T16-05-24Z.1665 ajoute la saisie vocale en temps reel pour les AI text boxes. - Chat prend maintenant en charge reasoning effort, les references sous forme de tags dans la queue et une edition plus simple des messages en queue. - Les correctifs et ameliorations incluent la regeneration des reponses AI avec le model/reasoning effort selectionne, des correctifs de notifications collaborateur, des ameliorations de l''edition collaborative Markdown et une meilleure…'
+securityClassification: standard

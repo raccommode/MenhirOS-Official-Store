@@ -1,0 +1,36 @@
+schemaVersion: '1'
+id: excalidraw
+name:
+  en: Excalidraw
+  fr: Excalidraw
+description:
+  en: Excalidraw is a virtual hand-drawn style whiteboard platform supporting infinite canvas and end-to-end encrypted collaboration. An intuitive interface offers a hand-drawn experience, ideal for brainstorming, design sketches, or educational scenarios, meeting diverse creative needs. Core features include an infinite canvas whiteboard and end-to-end encrypted collaboration. Hand-drawn style with shape library support allows creating rich graphics, enhanced by image insertion capabilities. Dark mode improves user…
+  fr: Excalidraw est une plateforme tableau blanc virtuel de style dessiné à la main supportant canevas infini et collaboration chiffrée de bout en bout. Une interface intuitive offre une expérience dessinée à la main, idéale pour brainstorming, croquis de design ou scénarios éducatifs, répondant à divers besoins créatifs. Les fonctionnalités principales incluent tableau blanc canevas infini et collaboration chiffrée de bout en bout. Style dessiné à la main avec support bibliothèque de formes permet créer graphiques…
+version: 0.18.1
+architectures:
+- amd64
+containers:
+- name: excalidraw
+  image: excalidraw/excalidraw:latest@sha256:f7ee194addd607bf831d2af0f0a34463dd4225e426cf35199ef0b12a803398e9
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

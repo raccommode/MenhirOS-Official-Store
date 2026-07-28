@@ -1,0 +1,60 @@
+schemaVersion: '1'
+id: lyrionmusicserver
+name:
+  en: LyrionMusicServer
+  fr: LyrionMusicServer
+description:
+  en: Lyrion Music Server is a self-hosted music management app designed to control a variety of audio playback devices, supporting streaming of local music collections, internet radio, and multiple streaming services (with or without subscriptions). Its intuitive Web interface enables users to access and control music effortlessly via any browser, ideal for music enthusiasts creating personalized audio experiences. The app's core features include versatile music streaming and extensive customization. Users can…
+  fr: Lyrion Music Server est une application de gestion musicale auto-hébergée conçue pour contrôler une variété d'appareils de lecture audio, prenant en charge le streaming de collections musicales locales, la radio internet et plusieurs services de streaming (avec ou sans abonnements). Son interface Web intuitive permet aux utilisateurs d'accéder et de contrôler la musique sans effort via n'importe quel navigateur, idéal pour les passionnés de musique créant des expériences audio personnalisées. Les fonctionnalités…
+version: 9.1.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: lyrionmusicserver
+  image: lmscommunity/lyrionmusicserver:9.1.1@sha256:f7bb1d01d54c7eae0f382414491a5b98290014f0e9877b2cbb7484e0538ce1a4
+  environment:
+    HTTP_PORT: '9000'
+  ports:
+  - container: 9000
+    protocol: tcp
+    proxy: true
+  - container: 9090
+    protocol: tcp
+    proxy: false
+  - container: 3483
+    protocol: tcp
+    proxy: false
+  - container: 3483
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: music
+    target: /music
+    type: share
+  - name: playlists
+    target: /playlist
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /playlist
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing CasaOS app configuration.
+  fr: '- The lmscommunity/lyrionmusicserver:9.1.1 stable Docker image tag was published on 2026-05-24. - This keeps the app on the stable 9.1.x image line and avoids the newer development image tags. - The update refreshes the Lyrion Music Server container image while preserving the existing CasaOS app configuration.'
+securityClassification: standard

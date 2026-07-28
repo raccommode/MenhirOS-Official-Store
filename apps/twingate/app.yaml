@@ -1,0 +1,40 @@
+schemaVersion: '1'
+id: twingate
+name:
+  en: Twingate
+  fr: Twingate
+description:
+  en: It's a connector for Twingate".
+  fr: Application Twingate auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.0.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: twingate-connector
+  image: twingate/connector:1@sha256:833e7a968f1b3a5ad79b88b04f82aad1bfc8621f61b6b35f01be2411d35beba9
+  command:
+  - /connectord
+  environment:
+    TWINGATE_NETWORK: ''
+    TWINGATE_ACCESS_TOKEN: ''
+    TWINGATE_REFRESH_TOKEN: ''
+    TWINGATE_LABEL_HOSTNAME: twingate
+resources:
+  memoryMinimum: 500M
+  memoryRecommended: 1000M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

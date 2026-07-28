@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: jenkins-ci-cd
+name:
+  en: Jenkins CI/CD
+  fr: Jenkins CI/CD
+description:
+  en: A server for creating pipelines for Jenkins continuous integration and delivery.
+  fr: Un serveur pour créer des pipelines pour l'intégration et la livraison continues de Jenkins.
+version: 2.569.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: jenkins
+  image: jenkins/jenkins:lts-jdk17@sha256:cce1eeb79902722f3cf7a8831c41e95c39f4a42b9a2981959630cc66539b3c2d
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

@@ -1,0 +1,51 @@
+schemaVersion: '1'
+id: mariadb
+name:
+  en: MariaDB
+  fr: MariaDB
+description:
+  en: MariaDB Server is one of the most popular open source relational databases. It’s made by the original developers of MySQL and guaranteed to stay open source. It is part of most cloud offerings and the default in most Linux distributions. It is built upon the values of performance, stability, and openness, and MariaDB Foundation ensures contributions will be accepted on technical merit. Recent new functionality includes advanced clustering with Galera Cluster 4, compatibility features with Oracle Database and…
+  fr: MariaDB Server est l'une des bases de données relationnelles open source les plus populaires. Il est développé par les développeurs originaux de MySQL et est garanti d'être open source. Il fait partie de la plupart des offres cloud et est la solution par défaut dans la plupart des distributions Linux. Il repose sur les valeurs de performance, de stabilité et d'ouverture, et la Fondation MariaDB garantit que les contributions seront acceptées sur des critères techniques. Les fonctionnalités récentes incluent le…
+version: 11.4.8
+architectures:
+- amd64
+- arm64
+containers:
+- name: mariadb
+  image: linuxserver/mariadb:11.4.8@sha256:91de7f701bc7fc3a424b81beafca7a7c6c4c5b7c8be6afd2ae148698695c0b0c
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+    TZ: Etc/UTC
+    MYSQL_ROOT_PASSWORD: casaos
+    MYSQL_DATABASE: casaos
+    MYSQL_USER: casaos
+    MYSQL_PASSWORD: casaos
+    REMOTE_SQL: ''
+  ports:
+  - container: 3306
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - The GitHub release points to the matching MariaDB community server release notes. - Detailed changes are delegated to the corresponding MariaDB release-notes page.
+  fr: '- La release GitHub renvoie aux MariaDB community server release notes correspondantes. - Les changements detailles sont delegues a la page MariaDB release-notes correspondante.'
+securityClassification: standard

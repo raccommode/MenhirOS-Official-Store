@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: wireguard-easy
+name:
+  en: WireGuard Easy
+  fr: WireGuard Easy
+description:
+  en: You have found the easiest way to install & manage WireGuard on any Linux host!
+  fr: Vous avez trouvé le moyen le plus simple d'installer et de gérer WireGuard sur n'importe quel hôte Linux !
+version: 13.0.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: wg-easy
+  image: ghcr.io/wg-easy/wg-easy:13@sha256:4c2c591498aa910ce86a90fa00c4714ffd78dd7556b1f488f226471b97346bc6
+  environment:
+    PASSWORD: casaos
+    WG_HOST: casaos.local
+    WG_PORT: '51820'
+    WG_DEFAULT_DNS: 1.1.1.1
+  ports:
+  - container: 51820
+    protocol: udp
+    proxy: false
+  - container: 51821
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: wireguard
+    target: /etc/wireguard
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities:
+  - NET_ADMIN
+  - SYS_MODULE
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /etc/wireguard
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v13.0.0 introduces the new h3 framework. - It adds UI CHART TYPE and includes bug fixes.
+  fr: '- v13.0.0 introduit le nouveau framework h3. - Cette version ajoute UI CHART TYPE et inclut des correctifs.'
+securityClassification: critical

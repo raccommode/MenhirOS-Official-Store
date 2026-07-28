@@ -1,0 +1,55 @@
+schemaVersion: '1'
+id: petio
+name:
+  en: Petio
+  fr: Petio
+description:
+  en: Petio is a third party companion app available to Plex server owners to allow their users to request, review and discover content. The app is built to appear instantly familiar and intuitive to even the most tech-agnostic users. Petio will help you manage requests from your users, connect to other third party apps such as Sonarr and Radarr, notify users when content is available and track request progress. Petio also allows users to discover media both on and off your server, quickly and easily find related…
+  fr: Petio est une application compagnon tierce disponible pour les propriétaires de serveurs Plex afin de permettre à leurs utilisateurs de demander, de revoir et de découvrir du contenu. L'application est conçue pour être instantanément familière et intuitive, même pour les utilisateurs les moins technophiles. Petio vous aidera à gérer les demandes de vos utilisateurs, à vous connecter à d'autres applications tierces telles que Sonarr et Radarr, à notifier les utilisateurs lorsque du contenu est disponible et à…
+version: 0.5.5
+architectures:
+- amd64
+containers:
+- name: mongo
+  image: mongo:4.4.22@sha256:dcef38a5b82ca7e1293055ededc22d38fb27fffb526523c70a4cbd864182c310
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+    TZ: Etc/UTC
+- name: petio
+  image: ghcr.io/petio-team/petio@sha256:1c5a9276a844f4284601cbe332905864950545ebdeaad74bacb9097ea4f4b333
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 7777
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /app/api/config
+    type: app
+  - name: logs
+    target: /app/logs
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/api/config
+  - /app/logs
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

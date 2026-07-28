@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: audiobookshelf
+name:
+  en: Audiobookshelf
+  fr: Audiobookshelf
+description:
+  en: Audiobookshelf is a self-hosted media server designed for managing and streaming audiobooks, podcasts, and e-books, offering a secure and flexible solution for personal media libraries. Its lightweight architecture and intuitive Web interface (available as a Progressive Web App, PWA) enable seamless access from any browser, while beta Android and iOS apps support offline listening, catering to privacy-focused media enthusiasts. The app supports on-the-fly streaming of all audio formats and provides robust…
+  fr: Audiobookshelf est un serveur multimédia auto-hébergé conçu pour la gestion et le streaming de livres audio, de podcasts et de livres électroniques, offrant une solution sécurisée et flexible pour les bibliothèques multimédias personnelles. Son architecture légère et son interface Web intuitive (disponible en tant qu'application Web progressive, PWA) permettent un accès fluide depuis n'importe quel navigateur, tandis que les applications Android et iOS en version bêta prennent en charge l'écoute hors ligne,…
+version: 2.35.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: audiobookshelf
+  image: ghcr.io/advplyr/audiobookshelf:2.35.0@sha256:89276ff2e0b3d2f07dd334b641f27a34ab7f02e1047c60b7b8a30126cb0813a5
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: audiobooks
+    target: /audiobooks
+    type: share
+  - name: podcasts
+    target: /podcasts
+    type: share
+  - name: config
+    target: /config
+    type: app
+  - name: metadata
+    target: /metadata
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+  - /metadata
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.35.0 adds an access-token refresh grace period to reduce repeated logins. - It fixes Android listening sessions showing as Abs iOS and fixes m4b RSS feed Content-Type handling. - Book and podcast descriptions from audio files are sanitized, socket-event validation was tightened, and translations were updated.
+  fr: '- v2.35.0 adds an access-token refresh grace period to reduce repeated logins. - It fixes Android listening sessions showing as Abs iOS and fixes m4b RSS feed Content-Type handling. - Book and podcast descriptions from audio files are sanitized, socket-event validation was tightened, and translations were updated.'
+securityClassification: standard

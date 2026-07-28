@@ -1,0 +1,44 @@
+schemaVersion: '1'
+id: peanut
+name:
+  en: PeaNUT
+  fr: PeaNUT
+description:
+  en: 'PeaNUT is a web-based UPS monitoring system specifically designed for monitoring Uninterruptible Power Supplies (UPS). It provides a user-friendly interface for monitoring UPS status, battery life, and power outage notifications to ensure your systems are always protected. Key Features: - Real-time UPS status monitoring and control - Battery life and charge level monitoring - Automatic power outage notifications via email/webhook - Historical data logging and reporting - Support for various UPS manufacturers and…'
+  fr: 'PeaNUT est un système de surveillance UPS basé sur le web, spécifiquement conçu pour surveiller les Alimentations Sans Interruption (ASI/UPS). Il fournit une interface conviviale pour surveiller le statut UPS, la durée de vie de la batterie et les notifications de coupure de courant pour garantir que vos systèmes sont toujours protégés. Fonctionnalités Clés: - Surveillance et contrôle du statut UPS en temps réel - Surveillance de la durée de vie de la batterie et du niveau de charge - Notifications automatiques…'
+version: 6.0.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: peanut
+  image: brandawg93/peanut:6.0.0@sha256:6629dce915da8b313f08b2e73dd2e54b60e7c0f642c21a8ebc37fe0a820bf41e
+  environment:
+    WEB_PORT: '8080'
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.
+  fr: '- v6.0.0 enables authentication by default and redirects first boot to setup when no credentials are configured. - WEB USERNAME and WEB PASSWORD are now bootstrap-only, and credentials persist in /config/auth.yaml. - The brandawg93/peanut:6.0.0 Docker image tag was published on 2026-05-02.'
+securityClassification: standard

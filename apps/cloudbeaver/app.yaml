@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: cloudbeaver
+name:
+  en: CloudBeaver
+  fr: CloudBeaver
+description:
+  en: CloudBeaver is a web-based database GUI tool which provides rich web interface. You can use it to manage PostgreSQL, MySQL, MariaDB, SQL Server, Oracle, DB2, Firebird, H2, Trino.
+  fr: Application CloudBeaver auto-hébergée issue du catalogue officiel CasaOS.
+version: 26.0.5
+architectures:
+- amd64
+- arm64
+containers:
+- name: cloudbeaver
+  image: dbeaver/cloudbeaver:26.0.5@sha256:33083a988e83c714b98bffc58d45c6c6c15c86816bb446c5f053f1eed66d5247
+  ports:
+  - container: 8978
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: workspace
+    target: /opt/cloudbeaver/workspace
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/cloudbeaver/workspace
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - The 26.0.5 Docker image tag was published on Docker Hub, but dbeaver/cloudbeaver has no matching GitHub Release object. - Keep this entry tied to the CloudBeaver 26.0 image line until upstream publishes per-tag release notes. - Validate the Web UI after updating because only image tag metadata is available for this specific tag.
+  fr: '- The 26.0.5 Docker image tag was published on Docker Hub, but dbeaver/cloudbeaver has no matching GitHub Release object. - Keep this entry tied to the CloudBeaver 26.0 image line until upstream publishes per-tag release notes. - Validate the Web UI after updating because only image tag metadata is available for this specific tag.'
+securityClassification: standard

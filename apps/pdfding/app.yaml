@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: pdfding
+name:
+  en: PdfDing
+  fr: PdfDing
+description:
+  en: PdfDing is a selfhosted PDF manager, viewer and editor offering a seamless user experience on multiple devices. It's designed to be minimal, fast, and easy to set up using Docker. With features like seamless browser-based PDF viewing that remembers your current position, multi-level tagging, starring and archiving functionalities, PDF editing with comments, highlighting and drawings, clean intuitive UI with dark mode, SSO support via OIDC, PDF sharing with external audience, markdown notes, and progress bars…
+  fr: PdfDing est un gestionnaire, visualiseur et éditeur PDF auto-hébergé offrant une expérience utilisateur transparente sur plusieurs appareils. Il est conçu pour être minimal, rapide et facile à configurer avec Docker. Avec des fonctionnalités comme la visualisation PDF basée sur navigateur qui se souvient de votre position actuelle, le marquage multi-niveaux, les fonctionnalités de favoris et d'archivage, l'édition PDF avec commentaires, surlignage et dessins, une interface utilisateur propre et intuitive avec…
+version: 1.7.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: pdfding
+  image: mrmn/pdfding:v1.7.2@sha256:1c7f65f0cf72eea7714c5f892474d803fbcaefdf91b94b509b717542b7db37c7
+  environment:
+    HOST_NAME: '*'
+    SECRET_KEY: your_secret_key_here
+    CSRF_COOKIE_SECURE: 'FALSE'
+    SESSION_COOKIE_SECURE: 'FALSE'
+    DEBUG: 'FALSE'
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: db
+    target: /home/nonroot/pdfding/db
+    type: app
+  - name: media
+    target: /home/nonroot/pdfding/media
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /home/nonroot/pdfding/db
+  - /home/nonroot/pdfding/media
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.
+  fr: '- v1.7.2 updates dependencies for a security update. - The mrmn/pdfding:v1.7.2 Docker image tag was published on 2026-04-12.'
+securityClassification: standard

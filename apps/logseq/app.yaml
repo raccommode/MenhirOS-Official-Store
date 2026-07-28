@@ -1,0 +1,50 @@
+schemaVersion: '1'
+id: logseq
+name:
+  en: Logseq
+  fr: Logseq
+description:
+  en: A privacy-first, open-source platform for knowledge management and collaboration.
+  fr: Application Logseq auto-hébergée issue du catalogue officiel CasaOS.
+version: 0.10.10
+architectures:
+- amd64
+containers:
+- name: logseq
+  image: correctroad/logseq:v0.10.10@sha256:7b09ab360c6d253e38fcff54c7f64c45f46b2a6297fb8b640d57a06160de09c4
+  environment:
+    PGID: '0'
+    PUID: '0'
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 12315
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: notes
+    target: /notes
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Logseq tag v0.10.10 exists in the upstream GitHub repository, but no GitHub Release object was published for this tag. - The date is taken from the tag commit timestamp; pin a release with a published changelog before adding version-specific release notes.
+  fr: '- Le tag Logseq v0.10.10 existe dans le dépôt GitHub amont, mais aucun objet GitHub Release n''a été publié pour ce tag. - La date provient de l''horodatage du commit du tag ; avant d''ajouter des notes propres à cette version, il faut épingler une version avec changelog publié.'
+securityClassification: critical

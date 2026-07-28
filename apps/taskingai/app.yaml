@@ -1,0 +1,174 @@
+schemaVersion: '1'
+id: taskingai
+name:
+  en: TaskingAI
+  fr: TaskingAI
+description:
+  en: The developer-friendly cloud platform for building and running LLM agents for AI-native applications.
+  fr: Application TaskingAI auto-hébergée issue du catalogue officiel CasaOS.
+version: 0.3.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: db
+  image: ankane/pgvector:v0.5.1@sha256:d3a9d8ac27bb7e05e333ef25b634d2625adaa85336ab729954b9e94859bf6fa7
+  environment:
+    POSTGRES_DB: taskingai
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: TaskingAI321
+  volumes:
+  - name: postgres
+    target: /var/lib/postgresql/data
+    type: app
+  healthcheck:
+    test:
+    - CMD-SHELL
+    - pg_isready -U postgres
+    interval: 5s
+    timeout: 5s
+    retries: 10
+- name: cache
+  image: redis:7-alpine@sha256:e7723ff73d963f5cc6d9c4643ea3d989527a402a319239054e9472a7fb9219a2
+  command:
+  - redis-server
+  - --requirepass
+  - TaskingAI321
+  volumes:
+  - name: redis
+    target: /data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - redis-cli
+    - auth
+    - TaskingAI321
+    - ping
+    interval: 5s
+    timeout: 5s
+    retries: 10
+- name: backend-inference
+  image: taskingai/taskingai-inference:v0.2.14@sha256:91d7abc1269fb200e53973812cceabb8be93516df57f60952e377af285089c9b
+  environment:
+    AES_ENCRYPTION_KEY: b90e4648ad699c3bdf62c0860e09eb9efc098ee75f215bf750847ae19d41e4b0
+    ICON_URL_PREFIX: http://nginx:3080
+    PROJECT_ID: taskingai
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:8000/v1/health_check
+    interval: 15s
+    timeout: 10s
+    retries: 5
+- name: backend-plugin
+  image: taskingai/taskingai-plugin:v0.2.10@sha256:39a13c02ce93b1e1c0bc454049ecee02e9dcab61dc0cf002587e071f2e525481
+  environment:
+    AES_ENCRYPTION_KEY: b90e4648ad699c3bdf62c0860e09eb9efc098ee75f215bf750847ae19d41e4b0
+    ICON_URL_PREFIX: http://nginx:3080
+    OBJECT_STORAGE_TYPE: local
+    HOST_URL: http://nginx:3080
+    PATH_TO_VOLUME: /var/lib/data
+    PROJECT_ID: taskingai
+  volumes:
+  - name: object-storage
+    target: /var/lib/data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:8000/v1/health_check
+    interval: 15s
+    timeout: 10s
+    retries: 5
+- name: backend-web
+  image: taskingai/taskingai-server:v0.3.0@sha256:5032f3015bbc03e4d0fc263a8f04a75fbf2cda48de01943436b2e8d398ddd2a8
+  environment:
+    POSTGRES_URL: postgres://postgres:TaskingAI321@db:5432/taskingai
+    REDIS_URL: redis://:TaskingAI321@cache:6379/0
+    TASKINGAI_INFERENCE_URL: http://backend-inference:8000
+    TASKINGAI_PLUGIN_URL: http://backend-plugin:8000
+    AES_ENCRYPTION_KEY: b90e4648ad699c3bdf62c0860e09eb9efc098ee75f215bf750847ae19d41e4b0
+    JWT_SECRET_KEY: dbefe42f34473990a3fa903a6a3283acdc3a910beb1ae271a6463ffa5a926bfb
+    PURPOSE: WEB
+    DEFAULT_ADMIN_USERNAME: admin
+    DEFAULT_ADMIN_PASSWORD: TaskingAI321
+    OBJECT_STORAGE_TYPE: local
+    HOST_URL: http://nginx:3080
+    PATH_TO_VOLUME: /var/lib/data
+    PROJECT_ID: taskingai
+  volumes:
+  - name: object-storage
+    target: /var/lib/data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:8000/v1/health_check
+    interval: 15s
+    timeout: 10s
+    retries: 5
+- name: backend-api
+  image: taskingai/taskingai-server:v0.3.0@sha256:5032f3015bbc03e4d0fc263a8f04a75fbf2cda48de01943436b2e8d398ddd2a8
+  environment:
+    POSTGRES_URL: postgres://postgres:TaskingAI321@db:5432/taskingai
+    REDIS_URL: redis://:TaskingAI321@cache:6379/0
+    TASKINGAI_INFERENCE_URL: http://backend-inference:8000
+    TASKINGAI_PLUGIN_URL: http://backend-plugin:8000
+    AES_ENCRYPTION_KEY: b90e4648ad699c3bdf62c0860e09eb9efc098ee75f215bf750847ae19d41e4b0
+    OBJECT_STORAGE_TYPE: local
+    HOST_URL: http://nginx:3080
+    PATH_TO_VOLUME: /var/lib/data
+    PROJECT_ID: taskingai
+  volumes:
+  - name: object-storage
+    target: /var/lib/data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:8000/v1/health_check
+    interval: 15s
+    timeout: 10s
+    retries: 5
+- name: frontend
+  image: taskingai/taskingai-console:v0.3.0@sha256:8d0f85f3984437baaa7b8a82ab0081511b221d25dbeeedae560097b7edfbeb6d
+- name: nginx
+  image: nginx:1.24@sha256:f6daac2445b0ce70e64d77442ccf62839f3f1b4c24bf6746a857eff014e798c8
+  ports:
+  - container: 80
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: nginx-cache
+    target: /var/cache/nginx
+    type: cache
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+  - /var/lib/data
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.3.0 adds Markdown rendering and image uploads in Playground. - An OpenAI-compatible chat completions API was introduced for LLM tasks and agent invocations. - Inference and Plugin services were open sourced, with fixes for Gemini function error logs, wildcard model inference, Docker Compose server versioning, and UI navigation/search.
+  fr: '- v0.3.0 ajoute le rendu Markdown et l''envoi d''images dans Playground. - Une API de chat completions compatible OpenAI a été introduite pour les tâches LLM et les invocations d''agents. - Les services Inference et Plugin ont été ouverts, avec des correctifs pour les logs d''erreurs de fonctions Gemini, l''inférence de modèles avec joker, la version du serveur Docker Compose et la navigation/recherche dans l''interface.'
+securityClassification: standard

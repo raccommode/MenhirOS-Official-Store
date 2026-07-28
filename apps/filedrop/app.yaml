@@ -1,0 +1,46 @@
+schemaVersion: '1'
+id: filedrop
+name:
+  en: FileDrop
+  fr: FileDrop
+description:
+  en: FileDrop is a self-hosted file sharing service that allows you to easily share files with family, friends, or colleagues. It's been designed to be easy to use and light on resources.
+  fr: FileDrop est un service de partage de fichiers qui vous permet de partager facilement des fichiers avec votre famille, vos amis ou vos collègues. Il a été conçu pour être facile à utiliser et peu gourmand en ressources.
+version: 1.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: filedrop
+  image: noecl/filedrop:1.0.1@sha256:eda806b607d00ec081d6e750b80a538bc4f86c960a3574ef311a78552fc926e9
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /var/file_drop_files
+    type: app
+resources:
+  memoryMinimum: 2G
+  memoryRecommended: 4G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /var/file_drop_files
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

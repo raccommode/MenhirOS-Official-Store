@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: uptime-kuma
+name:
+  en: Uptime Kuma
+  fr: Uptime Kuma
+description:
+  en: Uptime Kuma is a free, easy-to-use self-hosted monitoring tool designed for real-time tracking of network services and infrastructure, offering a modern interface and robust functionality. It provides an intuitive Web dashboard for managing services, ideal for individual developers, home lab users, and small teams. The tool's core features include comprehensive monitoring and diverse notification channels. It monitors HTTP/HTTPS, TCP ports, DNS records, databases, Ping, and Steam game servers, with interactive…
+  fr: Uptime Kuma est un outil de surveillance auto-hébergé gratuit et facile à utiliser, conçu pour le suivi en temps réel des services réseau et de l'infrastructure, offrant une interface moderne et des fonctionnalités robustes。Il fournit un tableau de bord Web intuitif pour gérer les services, idéal pour les développeurs individuels, les utilisateurs de laboratoires domestiques et les petites équipes。 Les fonctionnalités principales de l'outil incluent une surveillance complète et des canaux de notification…
+version: 2.4.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: uptimekuma
+  image: louislam/uptime-kuma:2.4.0@sha256:91e963bfda569ba115206e843febb446f473ab525add4e08b2b9e3beffa16985
+  ports:
+  - container: 3001
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /app/data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.
+  fr: '- 2.4.0 adds incidents to RSS plus EgoSMS and VKTeams notification providers. - Improves token handling for gamedig, bearer tokens, and WebSocket upgrade monitors. - Includes NTLM HTTP monitor, npm handling, translation, and authenticated admin security fixes.'
+securityClassification: standard

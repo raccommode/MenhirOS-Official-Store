@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: gateway-go
+name:
+  en: gateway-go
+  fr: gateway-go
+description:
+  en: A fast reverse proxy to help you expose a local server behind a NAT or firewall to your client, remote access all your casaos/zimaos apps. Use OpenIoTHub to scan the following QR code add a gateway,then add host,add casaos/zimaos host's web page port,finally, enjoy remote control
+  fr: Application gateway-go auto-hébergée issue du catalogue officiel CasaOS.
+version: 2.0.12
+architectures:
+- amd64
+- arm64
+containers:
+- name: gateway-go
+  image: openiothub/gateway-go:v2.0.12@sha256:6c1bac113165d9ef2b505c8dfbef87c7a89b00ecfb757e86bd562447d0e3280b
+  ports:
+  - container: 34323
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /root
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /root
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2.0.12 adds Docker service handling. - System status reporting now includes status information. - README documentation was refreshed.
+  fr: '- v2.0.12 adds Docker service handling. - System status reporting now includes status information. - README documentation was refreshed.'
+securityClassification: critical

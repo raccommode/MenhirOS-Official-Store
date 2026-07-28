@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: photoprism
+name:
+  en: PhotoPrism
+  fr: PhotoPrism
+description:
+  en: Your AI-Powered Photos App for the Decentralized Web PhotoPrism brings the magic of AI to your home TV, phone, and multiple devices, revolutionizing the way you manage and share your photos. Unlike traditional photo albums that require manual organization, PhotoPrism automatically tags and finds your pictures, making it easier than ever to relive your memories. Whether you're showing family photos on your TV or sharing vacation snapshots on your phone, PhotoPrism makes the experience seamless and enjoyable.…
+  fr: PhotoPrism® est une application alimentée par l'IA pour parcourir, organiser et partager votre collection de photos. Il utilise les dernières technologies pour étiqueter et trouver des photos automatiquement sans vous déranger. Vous pouvez l'exécuter à la maison, sur un serveur privé ou dans le cloud.
+version: '260523'
+architectures:
+- amd64
+- arm64
+containers:
+- name: photoprism
+  image: photoprism/photoprism:260523@sha256:ee3d15cf76f80c2fb4a28c336a63173b0c671ed7a3dd9ec0ed6231b7defa8876
+  environment:
+    PHOTOPRISM_ADMIN_PASSWORD: casaos
+    PHOTOPRISM_UPLOAD_NSFW: 'true'
+    TZ: Etc/UTC
+  ports:
+  - container: 2342
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: storage
+    target: /photoprism/storage
+    type: app
+  - name: gallery
+    target: /photoprism/originals
+    type: share
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /photoprism/storage
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.
+  fr: '- PhotoPrism build 260523 redesigns the Info Sidebar with editable metadata, albums, labels, and face tagging. - Modernizes media handling with FFmpeg 8 Vulkan transcoding, native HEIC/AVIF reading, and layered TIFF/PSD support. - Adds drag-and-drop uploads, zstd/pre-compressed frontend assets, MCP read-only support, and parameterized search queries.'
+securityClassification: standard

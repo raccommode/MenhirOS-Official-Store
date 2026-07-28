@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: gopeed
+name:
+  en: Gopeed
+  fr: Gopeed
+description:
+  en: Gopeed is a modern high-speed download tool supporting HTTP, BitTorrent, and Magnet protocols, offering a beautiful interface and powerful functionality. Its lightweight design and multi-platform support make it ideal for efficient file downloading across various devices. The tool's core features include high-speed downloading and an elegant interface. It leverages Golang coroutines for concurrent downloading, supporting HTTP, HTTPS, BitTorrent, and Magnet protocols for fast, stable performance. The interface…
+  fr: Gopeed est un outil de téléchargement moderne haute vitesse prenant en charge les protocoles HTTP, BitTorrent et Magnet, offrant une interface élégante et des fonctionnalités puissantes. Sa conception légère et son support multiplateforme le rendent idéal pour le téléchargement efficace de fichiers sur divers appareils. Les fonctionnalités principales de l'outil incluent le téléchargement haute vitesse et une interface élégante. Il exploite les coroutines Golang pour le téléchargement concurrent, prenant en…
+version: 1.9.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: gopeed
+  image: liwei2633/gopeed:v1.9.3@sha256:3ad6274077eb81282f0782efb9824783bb2f969c3a4ce966f0d959cc53c23eae
+  ports:
+  - container: 9999
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /app/storage
+    type: app
+  - name: downloads
+    target: /app/Downloads
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/storage
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.
+  fr: '- v1.9.3 publishes refreshed desktop builds for Windows, macOS, and Linux. - Linux packaging includes Flathub, Snap, DEB, RPM, AppImage, and Pacman variants. - Android, iOS, and browser extension downloads are listed for the same release.'
+securityClassification: standard

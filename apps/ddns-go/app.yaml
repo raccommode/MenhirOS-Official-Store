@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: ddns-go
+name:
+  en: ddns-go
+  fr: ddns-go
+description:
+  en: A simple and easy-to-use DDNS tool. Automatically updates domain name resolution to your public IP (supports Alibaba Cloud, Tencent Cloud, Dnspod, Cloudflare, Callback, Huawei Cloud, Baidu Cloud, Porkbun, GoDaddy, and Google Domain). Deploy DDNS-go on Zima, and you can bind the public IP of your Zima device to your domain name. This way, you can access your Zima device via the domain name while you are away.
+  fr: Application ddns-go auto-hébergée issue du catalogue officiel CasaOS.
+version: 6.17.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: ddns-go
+  image: jeessy/ddns-go:v6.17.1@sha256:7fdf2ac701261dd4bace2e4dbee1db77ae4f9c98453690108adac9794fe68547
+  ports:
+  - container: 9876
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /root
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /root
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v6.17.1 optimizes the HiPMDnsMgr adapter with English logs and pagination support. - Improves the HiDNS DNSMgr provider with a two-stage query strategy for better performance. - Updates Go crypto and network dependencies from the upstream release stream.
+  fr: '- v6.17.1 optimizes the HiPMDnsMgr adapter with English logs and pagination support. - Improves the HiDNS DNSMgr provider with a two-stage query strategy for better performance. - Updates Go crypto and network dependencies from the upstream release stream.'
+securityClassification: standard

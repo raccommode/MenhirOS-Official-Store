@@ -1,0 +1,38 @@
+schemaVersion: '1'
+id: v2raya
+name:
+  en: V2rayA
+  fr: V2rayA
+description:
+  en: v2rayA is a V2Ray client supporting global transparent proxy, compatible with SS, SSR, Trojan (trojan-go), Tuic, and Juicity protocols. Designed for simplicity, it meets most user needs, ideal for scenarios requiring efficient proxy services. Core features include global transparent proxy and multi-outbound load balancing with traffic splitting. It provides proxy services for nearly all applications without requiring application-specific proxy support. Support for creating and connecting multiple outbound nodes…
+  fr: v2rayA est un client V2Ray supportant proxy transparent global, compatible avec les protocoles SS, SSR, Trojan (trojan-go), Tuic et Juicity. Conçu pour la simplicité, il répond à la plupart des besoins des utilisateurs, idéal pour les scénarios nécessitant des services proxy efficaces. Les fonctionnalités principales incluent proxy transparent global et équilibrage de charge multi-sortie avec répartition du trafic. Il fournit des services proxy pour presque toutes les applications sans nécessiter de support proxy…
+version: 2.2.7-5
+architectures:
+- amd64
+- arm64
+containers:
+- name: v2raya
+  image: mzz2017/v2raya:v2.2.7.5@sha256:06abe4f4f16876a6695dec1f92d4c02a3ac724253a62b94702502c331993d59e
+  volumes:
+  - name: appdata
+    target: /etc/v2raya
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /etc/v2raya
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.
+  fr: '- v2rayA v2.2.7.5 fixes Trojan gRPC parameter handling. - Corrects LRU cache list operations. - Adds XHTTP support powered by Xray.'
+securityClassification: critical

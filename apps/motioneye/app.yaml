@@ -1,0 +1,44 @@
+schemaVersion: '1'
+id: motioneye
+name:
+  en: Motioneye
+  fr: Motioneye
+description:
+  en: motionEye is a web-based frontend for motion. Check out the wiki for more details. Changelog is available on the releases page. https://github.com/motioneye-project/motioneye
+  fr: Application Motioneye auto-hébergée issue du catalogue officiel CasaOS.
+version: 0.44.0
+architectures:
+- amd64
+containers:
+- name: motioneye
+  image: ccrisan/motioneye:master-amd64@sha256:1704cddc44e0bc7e1c4aff9f1f6546127584e8351c04a0faa1d46c7fb791180b
+  ports:
+  - container: 8765
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: config
+    target: /etc/motioneye
+    type: app
+  - name: motioneye
+    target: /var/lib/motioneye
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /etc/motioneye
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

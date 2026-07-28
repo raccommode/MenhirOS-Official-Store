@@ -1,0 +1,71 @@
+schemaVersion: '1'
+id: blinko
+name:
+  en: Blinko
+  fr: Blinko
+description:
+  en: Blinko 是一个开源的个人知识管理与信息记录平台，专注于为用户提供轻量、高效且可扩展的笔记与知识组织体验。它通过模块化设计与现代化技术栈，使用户能够快速记录灵感、整理知识，并构建属于自己的信息体系。 该项目强调简洁与可定制性，支持多种内容形式（如文本、标签、链接等）的灵活组合，同时通过清晰的结构化设计，帮助用户在海量信息中实现高效检索与关联。Blinko 还提供良好的扩展能力，便于开发者根据自身需求进行二次开发与功能增强。 在实际使用中，Blinko 兼顾易用性与功能性，无论是日常笔记、知识沉淀，还是项目资料管理，都能够提供流畅的使用体验，是一个适合个人长期积累与成长的知识工具。 主要功能： - 轻量化笔记系统，快速记录与编辑内容 - 标签与结构化组织，提升信息检索效率 - 支持多类型内容管理（文本、链接等） - 可扩展架构，便于自定义功能与插件开发 - 简洁界面设计，专注内容而非复杂操作 了解更多： - Blinko GitHub
+  fr: Blinko est une plateforme open-source de gestion des connaissances personnelles et d'enregistrement d'informations, axée sur la fourniture aux utilisateurs d'une expérience légère, efficace et évolutive de prise de notes et d'organisation des connaissances. Grâce à une conception modulaire et une pile technologique moderne, elle permet aux utilisateurs d capturer rapidement des idées, d'organiser leurs connaissances et de construire leur propre système d'information. Le projet met l'accent sur la simplicité et la…
+version: 1.8.7
+architectures:
+- amd64
+- arm64
+containers:
+- name: blinko-postgres
+  image: postgres:14@sha256:caf49e3b10d377aa2cfee478591d623808527beb27125d38797b418013f72d81
+  environment:
+    POSTGRES_DB: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: JWD9bxUR7Um9PaGg7FQZ
+    TZ: Etc/UTC
+  volumes:
+  - name: postgres-data
+    target: /var/lib/postgresql/data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - pg_isready
+    - -U
+    - postgres
+    - -d
+    - postgres
+    interval: 5s
+    timeout: 10s
+    retries: 5
+- name: blinko
+  image: blinkospace/blinko:1.8.7@sha256:f7c1167f8c86db586599d849539a732929d89adb10977046e7b427813b2a84b4
+  environment:
+    NODE_ENV: production
+    NEXTAUTH_URL: http://localhost:1111
+    NEXT_PUBLIC_BASE_URL: http://localhost:1111
+    NEXTAUTH_SECRET: 22PhaGVvvBTEC5E5G+U+5O1xqdmuzZKzjLeDMvdvB7I=
+    DATABASE_URL: postgresql://postgres:JWD9bxUR7Um9PaGg7FQZ@blinko-postgres:5432/postgres
+  ports:
+  - container: 1111
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: blinko-data
+    target: /app/.blinko
+    type: app
+resources:
+  memoryMinimum: 768M
+  memoryRecommended: 1536M
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/.blinko
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Blinko 1.8.7 adds MiniMax as a first-class LLM provider. - It fixes upload filename sanitization, tag filter reset behavior, and Turkish translations. - The release also streamlines search state and URL updates, adds file upload tests, removes CircleCI config, and refreshes localization content.
+  fr: '- Blinko 1.8.7 ajoute MiniMax comme LLM provider de premier niveau. - Le nettoyage des noms de fichiers uploades, le comportement de reinitialisation tag filter et les traductions turques ont ete corriges. - Cette version simplifie aussi l''etat de recherche et les mises a jour d''URL, ajoute des tests d''upload de fichiers, supprime la configuration CircleCI et rafraichit le contenu de localisation.'
+securityClassification: standard

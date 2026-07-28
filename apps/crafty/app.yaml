@@ -1,0 +1,66 @@
+schemaVersion: '1'
+id: crafty
+name:
+  en: Crafty
+  fr: Crafty
+description:
+  en: Crafty is an open source Minecraft control panel built using Tornado and AdminLTE, featuring server scheduling, a interactive console and the ability to run almost any type of Minecraft server
+  fr: Application Crafty auto-hébergée issue du catalogue officiel CasaOS.
+version: 4.10.4
+architectures:
+- amd64
+- arm64
+containers:
+- name: crafty
+  image: registry.gitlab.com/crafty-controller/crafty-4:4.10.4@sha256:d2f61fcabb4756a63bc8538fb4f5e35ffddca3f1916a733c95a31c705c697742
+  environment:
+    TZ: Etc/UTC
+  ports:
+  - container: 8443
+    protocol: tcp
+    proxy: true
+  - container: 8123
+    protocol: tcp
+    proxy: false
+  - container: 19132
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: backups
+    target: /crafty/backups
+    type: app
+  - name: logs
+    target: /crafty/logs
+    type: app
+  - name: servers
+    target: /crafty/servers
+    type: app
+  - name: config
+    target: /crafty/app/config
+    type: app
+  - name: import
+    target: /crafty/import
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /crafty/app/config
+  - /crafty/backups
+  - /crafty/import
+  - /crafty/logs
+  - /crafty/servers
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.
+  fr: '- v4.10.4 fixes servers with registered webhooks failing to start. - This update follows the Crafty v4.10.4 GitLab release.'
+securityClassification: standard

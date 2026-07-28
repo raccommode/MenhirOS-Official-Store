@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: anaconda3
+name:
+  en: Anaconda3
+  fr: Anaconda3
+description:
+  en: Your machine learning Env work with Jupyter Lab
+  fr: Application Anaconda3 auto-hébergée issue du catalogue officiel CasaOS.
+version: 2024.10-1
+architectures:
+- amd64
+containers:
+- name: anaconda3
+  image: continuumio/anaconda3:2024.10-1@sha256:b2c5350cc4e2338a1705c15dcca4fff520b1728f49752d390d92aaec02cf8c3a
+  command:
+  - /bin/bash
+  - -c
+  - conda install -c conda-forge jupyterlab -y --quiet && jupyter lab --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
+  environment:
+    LANG: C.UTF-8
+    LC_ALL: C.UTF-8
+    PATH: /opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  ports:
+  - container: 8888
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: notebooks
+    target: /opt/notebooks
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/notebooks
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - anaconda3-2024.10-1 publishes updated Debian images for Anaconda Distribution 2024.10-1.
+  fr: '- anaconda3-2024.10-1 publie des images Debian mises a jour pour Anaconda Distribution 2024.10-1.'
+securityClassification: standard

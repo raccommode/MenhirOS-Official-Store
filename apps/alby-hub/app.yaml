@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: alby-hub
+name:
+  en: Alby Hub ✨
+  fr: Alby Hub ✨
+description:
+  en: Alby Hub is an open-source, self-custodial Bitcoin Lightning wallet, with the easiest-to-use Lightning Network node for everyone. Whether you're an individual, creator, or developer, Alby Hub is your centre for seamless Bitcoin payments. Effortlessly connect to a variety of apps like the Alby Browser Extension or Alby Go mobile app, create sub-wallets for family and friends, and take full control of your funds—all within an intuitive interface and developer-ready APIs. USEFUL LINKS - Source Repository - Support -…
+  fr: Application Alby Hub ✨ auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.22.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: albyhub
+  image: ghcr.io/getalby/hub:v1.22.2@sha256:acf158edbb9348a8f84e02ffc97919692bc40280e7d28d501b1fc3d23d7ac266
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    UMASK: '002'
+    WORK_DIR: /data/albyhub
+    LOG_EVENTS: 'true'
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.22.2 adds a new AI & Agents page, integrated on-chain wallet mode, and custom transaction labels. - Redesigns settings pages and improves budget selection when creating app connections. - Adds support for connecting Alby Hub to Core Lightning and includes additional fixes.
+  fr: '- v1.22.2 adds a new AI & Agents page, integrated on-chain wallet mode, and custom transaction labels. - Redesigns settings pages and improves budget selection when creating app connections. - Adds support for connecting Alby Hub to Core Lightning and includes additional fixes.'
+securityClassification: sensitive

@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: alist
+name:
+  en: Alist
+  fr: Alist
+description:
+  en: Alist transforms how you manage and access your files at home, whether on your TV, phone, or any other device. Unlike traditional cloud storage, Alist offers a unified experience across multiple platforms, making it a breeze to keep your media and documents at your fingertips. With features like easy installation, support for multiple storage providers (local, Aliyundrive, Onedrive, Google Drive), WebDAV support, dark mode, protected routes with password authentication, file previews for videos, audio, office…
+  fr: Alist transforme la manière dont vous gérez et accédez à vos fichiers à la maison, que ce soit sur votre télévision, votre téléphone ou tout autre appareil. Contrairement au stockage cloud traditionnel, Alist offre une expérience unifiée sur plusieurs plateformes, rendant l'accès à vos médias et documents extrêmement simple. Avec des fonctionnalités telles qu'une installation facile, la prise en charge de plusieurs fournisseurs de stockage (local, Aliyundrive, Onedrive, Google Drive), le support WebDAV, le mode…
+version: 3.40.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: alist
+  image: xhofe/alist:v3.40.0@sha256:a448c4fcdd59fe299c719f4a75588b7bd2729afddc46b80ec399bcd33917d071
+  ports:
+  - container: 5244
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /opt/alist/data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/alist/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v3.40.0 adds cryptographic random string generation for security and OAuth state generation/verification for SSO. - Fixes include Baidu Netdisk timestamps, local file owner preservation, closing closed channels, PikPak captcha sign errors, and OIDC compatibility mode.
+  fr: '- v3.40.0 ajoute la generation de chaines aleatoires cryptographiques pour la securite et la generation/verification OAuth state pour le SSO. - Les correctifs couvrent les horodatages Baidu Netdisk, la conservation du owner des fichiers locaux, la fermeture de channels deja fermes, les erreurs PikPak captcha sign et OIDC compatibility mode.'
+securityClassification: standard

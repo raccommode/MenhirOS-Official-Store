@@ -1,0 +1,47 @@
+schemaVersion: '1'
+id: beaverhabittracker
+name:
+  en: BeaverHabitTracker
+  fr: BeaverHabitTracker
+description:
+  en: Beaver Habit Tracker is a self-hosted habit tracking tool designed for users who want to effortlessly monitor daily behaviors without the stress of goal-setting. Its intuitive Web interface offers a pressure-free tracking experience, ideal for those focused on behavior observation and personal growth. The tool's core features include goal-free habit tracking and a minimalist interface. It allows users to log multiple habits easily, without focusing on streaks or targets, and provides simple visualizations to…
+  fr: Beaver Habit Tracker est un outil de suivi d'habitudes auto-hébergé conçu pour les utilisateurs qui souhaitent surveiller sans effort les comportements quotidiens sans le stress de la fixation d'objectifs. Son interface Web intuitive offre une expérience de suivi sans pression, idéale pour ceux qui se concentrent sur l'observation du comportement et la croissance personnelle. Les caractéristiques principales de l'outil incluent le suivi d'habitudes sans objectifs et une interface minimaliste. Il permet aux…
+version: 0.9.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: beaverhabittracker
+  image: daya0576/beaverhabits:0.9.1@sha256:6cd7e464207369785c88cfd59f99c6cc44ec57f3a8d90c3439908da42271d69f
+  environment:
+    HABITS_STORAGE: USER_DISK
+    TRUSTED_LOCAL_EMAIL: your@email.com
+    INDEX_HABIT_DATE_COLUMNS: '5'
+    ENABLE_IOS_STANDALONE: 'true'
+  ports:
+  - container: 8080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /app/.user
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/.user
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.
+  fr: '- v0.9.1 adds a completion-status page for default and custom status configuration. - It adds the TIME ZONE environment variable to override the browser-detected timezone. - It strips HTML from custom CSS to prevent stored XSS and auto-refreshes the habit list when the local date changes.'
+securityClassification: standard

@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: esphome
+name:
+  en: ESPHome
+  fr: ESPHome
+description:
+  en: ESPHome is a system to control your microcontrollers by simple yet powerful configuration files and control them remotely through Home Automation systems.
+  fr: Application ESPHome auto-hébergée issue du catalogue officiel CasaOS.
+version: 2026.5.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: esphome
+  image: ghcr.io/esphome/esphome:2026.5.1@sha256:7886a4b0f04bd7d5e092e0b0cae277a47e39088d4d9028935df3304655300acd
+  environment:
+    ESPHOME_DASHBOARD_USE_PING: 'false'
+    TZ: Etc/UTC
+  ports:
+  - container: 6052
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.
+  fr: '- 2026.5.1 includes fixes from the ESPHome 2026.5 release cycle. - Updates zeroconf dependency versions used by ESPHome. - Includes upstream maintenance and bug fixes for the ESPHome dashboard/runtime.'
+securityClassification: critical

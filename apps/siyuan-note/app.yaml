@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: siyuan-note
+name:
+  en: SiYuan Note
+  fr: SiYuan Note
+description:
+  en: Experience Seamless Knowledge Management with SiYuan. SiYuan redefines knowledge management by seamlessly integrating with your home TV, mobile devices, and other platforms. Unlike traditional knowledge systems, SiYuan offers a cohesive and flexible environment that adapts to your lifestyle, allowing you to access and organize information effortlessly across all your devices. Whether you are a creator or a regular consumer, SiYuan's innovative approach ensures your knowledge is always at your fingertips. Powerful…
+  fr: Application SiYuan Note auto-hébergée issue du catalogue officiel CasaOS.
+version: 3.6.5
+architectures:
+- amd64
+- arm64
+containers:
+- name: siyuan-note
+  image: b3log/siyuan:v3.6.5@sha256:1a316554bfbf0c951ddabc7d3cb0292620152b44c087b6979d5d9b6bae065b1b
+  command:
+  - --accessAuthCode=casaos
+  - --workspace=/siyuan/workspace/
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+  ports:
+  - container: 6806
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: workspace
+    target: /siyuan/workspace
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /siyuan/workspace
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v3.6.5 improves details across data history replacement operations, mobile inline text appearance, mobile editor toolbar behavior, task-list indexing, tag switching, hyperlink paste decoding, table undo cursor placement, code-block line number rendering, data indexing, and input-method compatibility. - The release also improves the clipping extension for oversized images. - The b3log/siyuan:v3.6.5 Docker image tag was published on 2026-04-21.
+  fr: '- v3.6.5 improves details across data history replacement operations, mobile inline text appearance, mobile editor toolbar behavior, task-list indexing, tag switching, hyperlink paste decoding, table undo cursor placement, code-block line number rendering, data indexing, and input-method compatibility. - The release also improves the clipping extension for oversized images. - The b3log/siyuan:v3.6.5 Docker image tag was published on 2026-04-21.'
+securityClassification: standard

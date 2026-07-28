@@ -1,0 +1,252 @@
+schemaVersion: '1'
+id: ragflow
+name:
+  en: RagFlow
+  fr: RagFlow
+description:
+  en: 'RagFlow is an open-source RAG (Retrieval-Augmented Generation) engine based on deep document understanding. It enables users to build their own private ChatGPT by leveraging the power of large language models and deep document parsing capabilities. RagFlow supports various document formats including PDF, Word, Markdown, and more, allowing users to create intelligent question-answering systems based on their own documents. Key Features: - Deep document understanding with advanced parsing capabilities - Support for…'
+  fr: RagFlow est un moteur RAG (Retrieval-Augmented Generation) open source basé sur la compréhension approfondie de documents. Il permet aux utilisateurs de construire leur propre ChatGPT privé en exploitant la puissance des grands modèles de langage et des capacités d'analyse approfondie de documents. RagFlow prend en charge divers formats de documents, notamment PDF, Word, Markdown, etc., permettant aux utilisateurs de créer des systèmes de questions-réponses intelligents basés sur leurs propres documents.…
+version: 0.21.1
+architectures:
+- amd64
+containers:
+- name: ragflow-mysql
+  image: icewhaletech/ragflow-mysql:8.0.39@sha256:18f906d9d814740b58848003b5727c3b0ff81c137f7c6b960a53ad5f12b374ba
+  command:
+  - --max_connections=1000
+  - --character-set-server=utf8mb4
+  - --collation-server=utf8mb4_unicode_ci
+  - --default-authentication-plugin=mysql_native_password
+  - --tls_version=TLSv1.2,TLSv1.3
+  - --binlog_expire_logs_seconds=604800
+  environment:
+    MYSQL_PASSWORD: infini_rag_flow
+    MYSQL_ROOT_PASSWORD: mysql
+    TZ: Etc/UTC
+  ports:
+  - container: 3306
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: mysql
+    target: /var/lib/mysql
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - mysqladmin
+    - ping
+    - -uroot
+    - -pinfini_rag_flow
+    interval: 10s
+    timeout: 10s
+    retries: 10
+- name: ragflow
+  image: icewhaletech/ragflow:v0.21.1@sha256:c41d9ec1b8f14e8e049ff4472aec58276fa1cb483584078557ee957b81b9bb74
+  environment:
+    ES_HOST: ragflow-es01
+    INFINITY_HOST: ragflow-infinity
+    MINIO_HOST: ragflow-minio
+    MYSQL_HOST: ragflow-mysql
+    OS_HOST: ragflow-opensearch01
+    REDIS_HOST: ragflow-redis
+    TZ: Etc/UTC
+  ports:
+  - container: 9380
+    protocol: tcp
+    proxy: true
+  - container: 80
+    protocol: tcp
+    proxy: false
+  - container: 443
+    protocol: tcp
+    proxy: false
+  - container: 5678
+    protocol: tcp
+    proxy: false
+  - container: 5679
+    protocol: tcp
+    proxy: false
+  - container: 9382
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: ragflow-logs
+    target: /ragflow/logs
+    type: app
+  - name: history-data-agent
+    target: /ragflow/history_data_agent
+    type: app
+- name: ragflow-es01
+  image: elasticsearch:8.11.3@sha256:58a3a280935d830215802322e9a0373faaacdfd646477aa7e718939c2f29292a
+  environment:
+    ELASTIC_PASSWORD: infini_rag_flow
+    TZ: Etc/UTC
+  ports:
+  - container: 9200
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: es01
+    target: /usr/share/elasticsearch/data
+    type: app
+  healthcheck:
+    test:
+    - CMD-SHELL
+    - curl http://localhost:9200
+    interval: 10s
+    timeout: 10s
+    retries: 120
+- name: ragflow-infinity
+  image: icewhaletech/ragflow-infinity:v0.6.1@sha256:4ee72ae8b41cffcb138b049628eaf0cadb6792f04c40e64f9db57994035b8cc1
+  environment:
+    TZ: Etc/UTC
+  ports:
+  - container: 23817
+    protocol: tcp
+    proxy: false
+  - container: 23820
+    protocol: tcp
+    proxy: false
+  - container: 5432
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: infinity
+    target: /var/infinity
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - http://localhost:23820/admin/node/current
+    interval: 10s
+    timeout: 10s
+    retries: 120
+- name: ragflow-minio
+  image: quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z@sha256:064117214caceaa8d8a90ef7caa58f2b2aeb316b5156afe9ee8da5b4d83e12c8
+  command:
+  - server
+  - --console-address
+  - :9001
+  - /data
+  environment:
+    MINIO_ROOT_PASSWORD: infini_rag_flow
+    MINIO_ROOT_USER: rag_flow
+    TZ: Etc/UTC
+  ports:
+  - container: 9000
+    protocol: tcp
+    proxy: false
+  - container: 9001
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: minio
+    target: /data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - -f
+    - http://localhost:9000/minio/health/live
+    interval: 30s
+    timeout: 20s
+    retries: 3
+- name: ragflow-opensearch01
+  image: opensearchproject/opensearch:2.19.1@sha256:72fe2fc84be8295906b8efca020b46c58ed45c8da60cd9b8b49e1991e38e89a4
+  environment:
+    OPENSEARCH_INITIAL_ADMIN_PASSWORD: infini_rag_flow_OS_01
+    OPENSEARCH_PASSWORD: infini_rag_flow_OS_01
+    TZ: Etc/UTC
+  ports:
+  - container: 9201
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: opensearch01
+    target: /usr/share/opensearch/data
+    type: app
+  healthcheck:
+    test:
+    - CMD-SHELL
+    - curl http://localhost:9201
+    interval: 10s
+    timeout: 10s
+    retries: 120
+- name: ragflow-redis
+  image: valkey/valkey:8@sha256:495e4fecdc98ee48a20b207726caa5ab6451e0fac3642a9be10d9e70b3068df6
+  command:
+  - redis-server
+  - --requirepass
+  - infini_rag_flow
+  - --maxmemory
+  - 128mb
+  - --maxmemory-policy
+  - allkeys-lru
+  ports:
+  - container: 6379
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: redis
+    target: /data
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - redis-cli
+    - -a
+    - infini_rag_flow
+    - ping
+    interval: 5s
+    timeout: 3s
+    retries: 3
+- name: ragflow-sandbox-executor-manager
+  image: infiniflow/sandbox-executor-manager:latest@sha256:3515d06f2364e886dd4ac38d0daa28409fa63c7443763d2b9a7311362aa16702
+  environment:
+    SANDBOX_BASE_NODEJS_IMAGE: infiniflow/sandbox-base-nodejs:latest
+    SANDBOX_BASE_PYTHON_IMAGE: infiniflow/sandbox-base-python:latest
+    SANDBOX_ENABLE_SECCOMP: 'false'
+    SANDBOX_EXECUTOR_MANAGER_POOL_SIZE: '3'
+    SANDBOX_MAX_MEMORY: 256m
+    SANDBOX_TIMEOUT: 10s
+    TZ: Etc/UTC
+  ports:
+  - container: 9385
+    protocol: tcp
+    proxy: false
+  healthcheck:
+    test:
+    - CMD
+    - curl
+    - http://localhost:9385/healthz
+    interval: 10s
+    timeout: 5s
+    retries: 5
+resources:
+  memoryMinimum: 16896M
+  memoryRecommended: 33G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+  - /ragflow/history_data_agent
+  - /ragflow/logs
+  - /usr/share/elasticsearch/data
+  - /usr/share/opensearch/data
+  - /var/infinity
+  - /var/lib/mysql
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.21.1 experimentally adds PDF document parsing with MinerU. - Dataset and personal center UI/UX were improved. - The Infinity document engine was upgraded to v0.6.1, and video parsing was fixed.
+  fr: '- v0.21.1 ajoute expérimentalement l''analyse de documents PDF avec MinerU. - L''UI/UX des jeux de données et du centre personnel a été améliorée. - Le moteur documentaire Infinity a été mis à niveau vers v0.6.1, et l''analyse vidéo a été corrigée.'
+securityClassification: critical

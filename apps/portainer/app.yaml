@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: portainer
+name:
+  en: Portainer
+  fr: Portainer
+description:
+  en: Portainer Community Edition (CE) is a lightweight container management tool offering an intuitive Web interface to simplify building, managing, and monitoring containerized applications. With over 500,000 active users, it is widely appreciated for its ease of use and robust functionality, ideal for individual developers, home lab users, and small teams. The tool's core features include multi-platform support, resource management, and real-time monitoring. It supports managing various container platforms, covering…
+  fr: Portainer Community Edition (CE) est un outil de gestion de conteneurs léger offrant une interface Web intuitive pour simplifier la construction, la gestion et la surveillance d'applications conteneurisées. Avec plus de 500 000 utilisateurs actifs, il est largement apprécié pour sa facilité d'utilisation et ses fonctionnalités robustes, idéal pour les développeurs individuels, les utilisateurs de laboratoires domestiques et les petites équipes. Les fonctionnalités principales de l'outil incluent le support…
+version: 2.31.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: portainer
+  image: portainer/portainer-ce:2.31.3@sha256:30e682f04bf1b60d5aa90208ed317e8c61fccd440ceb658323ea64d41d94fcfa
+  ports:
+  - container: 8000
+    protocol: tcp
+    proxy: true
+  - container: 9000
+    protocol: tcp
+    proxy: false
+  - container: 9443
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: appdata
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - 2.31.3 adds the --trusted-origins CLI option and TRUSTED ORIGINS environment variable. - The option is used to configure allowed domains when Portainer is behind a reverse proxy and avoids Origin invalid errors. - The release documents known limitations for Podman support.
+  fr: '- 2.31.3 ajoute --trusted-origins CLI option et TRUSTED ORIGINS environment variable. - Cette option configure les domains autorises lorsque Portainer est derriere un reverse proxy et evite les Origin invalid errors. - Cette version documente les limitations connues de Podman support.'
+securityClassification: standard

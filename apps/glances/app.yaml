@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: glances
+name:
+  en: Glances
+  fr: Glances
+description:
+  en: Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.
+  fr: Application Glances auto-hébergée issue du catalogue officiel CasaOS.
+version: 4.5.4
+architectures:
+- amd64
+- arm64
+containers:
+- name: glances
+  image: nicolargo/glances:4.5.4@sha256:a11e836511ff83cd123b460c21bb4cf2795ac149ac7a18f9b01587bfcb5a5033
+  environment:
+    GLANCES_OPT: -w
+  ports:
+  - container: 61208
+    protocol: tcp
+    proxy: true
+  - container: 61209
+    protocol: tcp
+    proxy: false
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.
+  fr: '- v4.5.4 fixes temperature thresholds, negative memory values, Docker container counts through Home Assistant, and LXD container filtering. - It adds Rockchip MPP monitoring, clamps LXC memory values, and improves single-core Rockchip NPU parsing and device naming. - Security fixes cover SSRF in the IP plugin, unauthenticated REST API information disclosure, and Cassandra CQL injection.'
+securityClassification: standard

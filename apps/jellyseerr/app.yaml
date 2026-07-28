@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: jellyseerr
+name:
+  en: Jellyseerr
+  fr: Jellyseerr
+description:
+  en: Jellyseerr is a self-hosted media request and management tool designed to streamline media library request and discovery processes, offering an intuitive Web interface, ideal for home media server users and small teams. It seamlessly integrates with existing media services, enabling efficient management of movies, shows, and mixed content libraries. The tool's core features include a customizable request system and broad media server integration. It allows users to request movies or individual show seasons…
+  fr: Jellyseerr est un outil de demande et de gestion de médias auto-hébergé conçu pour rationaliser les processus de demande et de découverte de bibliothèque multimédia, offrant une interface Web intuitive, idéale pour les utilisateurs de serveurs multimédias domestiques et les petites équipes. Il s'intègre parfaitement aux services multimédias existants, permettant une gestion efficace des films, des émissions et des bibliothèques de contenu mixte. Les fonctionnalités principales de l'outil incluent un système de…
+version: 2.7.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: jellyseerr
+  image: fallenbagel/jellyseerr:2.7.3@sha256:4538137bc5af902dece165f2bf73776d9cf4eafb6dd714670724af8f3eb77764
+  environment:
+    LOG_LEVEL: debug
+    TZ: Etc/UTC
+  ports:
+  - container: 5055
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /app/config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Jellyseerr v2.7.3 fixes API docs and makes the UserSettings username field nullable. - It updates the Plex Watchlist URL, handles invalid blacklist keywords gracefully, and refreshes media state before MEDIA AVAILABLE notifications. - It also fixes 4K media delete handling and initializes image proxies after proxy setup.
+  fr: '- Jellyseerr v2.7.3 corrige API docs et rend le champ UserSettings username nullable. - L''URL Plex Watchlist est mise a jour, les blacklist keywords invalides sont gerees proprement et media state est rafraichi avant MEDIA AVAILABLE notifications. - La gestion 4K media delete est aussi corrigee et image proxies est initialise apres proxy setup.'
+securityClassification: standard

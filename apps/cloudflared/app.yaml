@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: cloudflared
+name:
+  en: Cloudflared
+  fr: Cloudflared
+description:
+  en: Cloudflare Tunnel offers an easy way to expose web servers securely to the internet, without opening up firewall ports and configuring ACLs. Cloudflare Tunnel also ensures requests route through Cloudflare before reaching the web server, so you can be sure attack traffic is stopped with Cloudflare’s WAF and Unmetered DDoS mitigation, and authenticated with Access if you’ve enabled those features for your account. The software provides a seamless way to securely expose web servers to the internet without…
+  fr: Cloudflare Tunnel offre un moyen facile d'exposer des serveurs web de manière sécurisée sur Internet, sans ouvrir de ports de pare-feu ni configurer d'ACL. Cloudflare Tunnel garantit également que les requêtes sont acheminées via Cloudflare avant d'atteindre le serveur web, vous pouvez donc être sûr que le trafic d'attaque est arrêté par le WAF de Cloudflare et la mitigation DDoS illimitée, et authentifié avec Access si vous avez activé ces fonctionnalités pour votre compte. Le logiciel fournit un moyen…
+version: 2026.5.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: cloudflared
+  image: wisdomsky/cloudflared-web:2026.5.0@sha256:8bdc2e261bdf4b7824c67af8a4acc04fdaa3f1848e82a3ca56ccfd30040855ff
+  ports:
+  - container: 14333
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.
+  fr: '- The 2026.5.0 wrapper image updates the bundled cloudflared release line and was published on Docker Hub on 2026-05-16. - Upstream cloudflared 2026.5.0 publishes checksummed packages for supported platforms, including Linux amd64, arm, and arm64 builds. - Host networking and the token configuration volume stay unchanged.'
+securityClassification: critical

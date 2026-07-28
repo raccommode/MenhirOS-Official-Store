@@ -1,0 +1,62 @@
+schemaVersion: '1'
+id: etherpad
+name:
+  en: Etherpad
+  fr: Etherpad
+description:
+  en: Etherpad is a real-time collaborative document editor where multiple people can edit the same pad simultaneously, with every change synchronized instantly and colour-coded per author. Self-hosted, open source, and fully under your control, it is perfect for meeting notes, brainstorming, shared writing, and lightweight knowledge capture. It ships with a built-in admin panel, a plugin ecosystem of 250+ add-ons, native DOCX/PDF/Markdown import & export, and multi-architecture container support (amd64 + arm64). Main…
+  fr: Etherpad est un éditeur de documents collaboratif en temps réel où plusieurs personnes peuvent modifier le même pad simultanément, avec chaque changement synchronisé instantanément et codé par couleur selon l'auteur. Auto-hébergé, open source et entièrement sous votre contrôle, il est idéal pour les comptes rendus de réunion, le brainstorming, l'écriture partagée et la capture légère de connaissances. Il comprend un panneau d'administration intégré, un écosystème de plus de 250 extensions, l'import et l'export…
+version: 3.1.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: etherpad
+  image: etherpad/etherpad:3.1.0@sha256:7bae8bdb87559debbbb17a45eb72f8ae776af4088b1dba5620face5085f14b99
+  environment:
+    TITLE: Etherpad
+    ADMIN_PASSWORD: admin
+    AUTHENTICATION_METHOD: apikey
+    DB_TYPE: dirty
+    DB_FILENAME: /opt/etherpad-lite/var/dirty.db
+    TRUST_PROXY: 'true'
+    SHOW_SETTINGS_IN_ADMIN_PAGE: 'true'
+    REQUIRE_AUTHENTICATION: 'false'
+    REQUIRE_AUTHORIZATION: 'false'
+  ports:
+  - container: 9001
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: var
+    target: /opt/etherpad-lite/var
+    type: app
+  healthcheck:
+    test:
+    - CMD
+    - wget
+    - -q
+    - -O-
+    - http://localhost:9001/health
+    interval: 30s
+    timeout: 10s
+    retries: 3
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/etherpad-lite/var
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Etherpad v3.1.0 adds Tier 4 autonomous self-updates with maintenance windows, preflight checks, and email notifications for failures and rollbacks. - It also introduces real SMTP delivery for updater mail and includes API, export, and HTTP security hardening plus localisation updates.
+  fr: '- Etherpad v3.1.0 ajoute des auto-mises à jour autonomes de niveau 4 avec fenêtres de maintenance, vérifications préalables et notifications par e-mail en cas d''échec ou de rollback. - Il introduit aussi l''envoi SMTP réel pour les e-mails de l''outil de mise à jour et inclut un renforcement de la sécurité des API, des exports et de HTTP ainsi que des mises à jour de localisation.'
+securityClassification: standard

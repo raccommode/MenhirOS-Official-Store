@@ -1,0 +1,46 @@
+schemaVersion: '1'
+id: bitcoin-core
+name:
+  en: Bitcoin Core
+  fr: Bitcoin Core
+description:
+  en: A complete Bitcoin full node using the official Bitcoin Core image. It independently downloads and validates the blockchain and participates in the peer-to-peer Bitcoin network.
+  fr: Un nœud Bitcoin complet basé sur l’image officielle Bitcoin Core. Il télécharge et valide la blockchain de façon indépendante et participe au réseau pair-à-pair Bitcoin.
+version: '31.0'
+architectures:
+- amd64
+- arm64
+containers:
+- name: bitcoin-core
+  image: bitcoin/bitcoin:31.0@sha256:a1d05be6939b5c85132a761d2b795f5b8a2612ce53782263da4939778e461792
+  command:
+  - -printtoconsole
+  - -server=1
+  - -txindex=1
+  ports:
+  - container: 8333
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: bitcoin
+    target: /home/bitcoin/.bitcoin
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /home/bitcoin/.bitcoin
+migrations: []
+releaseNotes:
+  en: Menhir integration for Bitcoin Core 31.0 with persistent blockchain and wallet data.
+  fr: Intégration Menhir de Bitcoin Core 31.0 avec conservation de la blockchain et des données de portefeuille.
+securityClassification: critical

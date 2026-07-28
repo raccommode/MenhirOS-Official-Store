@@ -1,0 +1,37 @@
+schemaVersion: '1'
+id: holoplay
+name:
+  en: HoloPlay
+  fr: HoloPlay
+description:
+  en: HoloPlay is a web based self-hosted using Invidious API for listening Youtube audio source.
+  fr: HoloPlay est une alternative qui utilise l'API Invidious pour écouter des sources audio de Youtube.
+version: 1.12.3
+architectures:
+- amd64
+- arm64
+containers:
+- name: holoplay
+  image: spout8301/holoplay:1.12.3@sha256:76531b11df9f093f5c1ec86d59db7a19a9dee09cad03467eda207987d14e7d64
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: critical

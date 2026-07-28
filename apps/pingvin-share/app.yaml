@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: pingvin-share
+name:
+  en: Pingvin-Share
+  fr: Pingvin-Share
+description:
+  en: 'Pingvin-Share is a self-hosted file sharing application compatible with Nextcloud apps, offering a modern and intuitive web interface. It enables users to securely store, organize, and share files without relying on external cloud services. The application supports multiple authentication methods and provides features such as share links, user accounts, and a responsive interface. Key features: - Modern, responsive web interface - User accounts with a permission system - Secure share links for files -…'
+  fr: Pingvin-Share est une application de partage de fichiers auto-hébergée compatible avec les applications Nextcloud, offrant une interface web moderne et intuitive. Elle permet aux utilisateurs de stocker, d’organiser et de partager des fichiers en toute sécurité sans dépendre de services cloud externes. L’application prend en charge plusieurs méthodes d’authentification et propose des fonctionnalités telles que des liens de partage, des comptes utilisateurs et une interface responsive. Fonctionnalités principales…
+version: 1.13.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: pingvin-share
+  image: stonith404/pingvin-share@sha256:6bf2bcd3043ee68cb61264f0857511ccf7f212fdb984382b7f2d491635184ad6
+  environment:
+    TRUST_PROXY: 'false'
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: data
+    target: /opt/app/backend/data
+    type: app
+  - name: images
+    target: /opt/app/frontend/public/img
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/app/backend/data
+  - /opt/app/frontend/public/img
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Latest upstream release v1.13.0 adds support for using Redis cache instead of memory cache. - The backend can now define the path to the config file.
+  fr: '- La derniere release upstream v1.13.0 ajoute la prise en charge du cache Redis a la place du cache memoire. - Le backend peut maintenant definir le chemin du config file.'
+securityClassification: standard

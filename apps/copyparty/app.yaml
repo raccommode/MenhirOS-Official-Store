@@ -1,0 +1,45 @@
+schemaVersion: '1'
+id: copyparty
+name:
+  en: CopyParty
+  fr: CopyParty
+description:
+  en: CopyParty is a fast, privacy-focused file sharing server using a local-first, single-file architecture, ensuring full control over data without cloud dependencies. Its intuitive interface supports offline use, with cross-platform compatibility and multi-protocol access, delivering a secure, efficient file management experience, ideal for users seeking direct data ownership and a lightweight solution. The app's core features include accelerated resumable uploads (via the up2k protocol), ensuring reliable large…
+  fr: CopyParty est un serveur de partage de fichiers rapide et axé sur la confidentialité, utilisant une architecture « local-first » à fichier unique, garantissant un contrôle total sur les données sans dépendances cloud. Son interface intuitive prend en charge l'utilisation hors ligne, avec une compatibilité multiplateforme et un accès multi-protocole, offrant une expérience de gestion de fichiers sécurisée et efficace, idéale pour les utilisateurs recherchant une propriété directe des données et une solution…
+version: 1.20.13
+architectures:
+- amd64
+containers:
+- name: copyparty
+  image: icewhaletech/copyparty:1.20.13@sha256:7d3d80a1f3b496e6d6ed4e6c906bf2484caee382da9baafcbd6de301187c236f
+  ports:
+  - container: 3923
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: w
+    target: /w
+    type: app
+  - name: confg
+    target: /cfg
+    type: app
+resources:
+  memoryMinimum: 512M
+  memoryRecommended: 1G
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /cfg
+  - /w
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.20.13 adds .hidden support for cosmetic directory-listing filtering. - Thumbnail pregeneration and dotfile visibility in shares were added. - Fixes include thumbnails on older OSes without JXL support, new-version alert permissions, mkdir blocking, nohtml/noscript behavior on the web root, and share dotfile handling.
+  fr: '- v1.20.13 ajoute la prise en charge de .hidden pour le filtrage cosmétique des listes de répertoires. - La prégénération des miniatures et la visibilité des fichiers dotfile dans les partages ont été ajoutées. - Les correctifs couvrent les miniatures sur les anciens systèmes sans prise en charge JXL, les permissions d''alerte de nouvelle version, le blocage de mkdir, le comportement nohtml/noscript à la racine Web et la gestion des dotfiles dans les partages.'
+securityClassification: standard

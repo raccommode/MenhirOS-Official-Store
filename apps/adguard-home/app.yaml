@@ -1,0 +1,58 @@
+schemaVersion: '1'
+id: adguard-home
+name:
+  en: AdGuard Home
+  fr: AdGuard Home
+description:
+  en: Difference from Traditional Ad Blockers. Unlike traditional ad-blocking plugins that work only on individual devices, AdGuard Home offers a network-wide solution. By setting it up, you can block ads and trackers across all your home devices without needing to install any additional software on each device. This means comprehensive protection with minimal effort. How AdGuard Home Works and How to Use It. AdGuard Home functions as a DNS server that reroutes tracking domains to a "black hole," effectively preventing…
+  fr: AdGuard Home est un logiciel réseau pour bloquer les publicités et le suivi. Une fois configuré, il couvrira tous vos appareils domestiques et vous n'aurez pas besoin de logiciel client pour cela. En savoir plus sur notre référentiel officiel Github.
+version: 0.107.76
+architectures:
+- amd64
+- arm64
+containers:
+- name: adguard-home
+  image: adguard/adguardhome:v0.107.76@sha256:7157eb1dc3b26c7af1d6898759a7b3f7d0fa09891fbd2d3caa6abc1057a9179b
+  ports:
+  - container: 53
+    protocol: tcp
+    proxy: true
+  - container: 53
+    protocol: udp
+    proxy: false
+  - container: 3000
+    protocol: tcp
+    proxy: false
+  - container: 853
+    protocol: tcp
+    proxy: false
+  - container: 784
+    protocol: udp
+    proxy: false
+  volumes:
+  - name: work
+    target: /opt/adguardhome/work
+    type: app
+  - name: conf
+    target: /opt/adguardhome/conf
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /opt/adguardhome/conf
+  - /opt/adguardhome/work
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.
+  fr: '- v0.107.76 fixes DNS caching when DNSSEC is disabled. - YAML duration values now support days with the d unit; downgrades below v0.107.76 should convert those values back to hours.'
+securityClassification: standard

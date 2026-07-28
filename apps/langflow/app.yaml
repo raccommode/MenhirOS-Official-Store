@@ -1,0 +1,55 @@
+schemaVersion: '1'
+id: langflow
+name:
+  en: Langflow
+  fr: Langflow
+description:
+  en: 'Langflow is a powerful, open-source UI designed specifically for building and debugging multi-agent and Retrieval-Augmented Generation (RAG) applications. It provides a visual, drag-and-drop interface that simplifies the process of creating complex AI workflows. The system consists of two main components: - Langflow : The main application providing a visual interface for building AI workflows - PostgreSQL : A robust database system for storing application data and configurations Key Features: - Visual,…'
+  fr: 'Langflow est une interface utilisateur open-source puissante, conçue spécifiquement pour créer et déboguer des applications multi-agents et de génération augmentée par récupération (RAG). Elle fournit une interface visuelle glisser-déposer qui simplifie le processus de création de flux de travail d''IA complexes. Le système se compose de deux composants principaux : - Langflow : L''application principale fournissant une interface visuelle pour créer des flux de travail d''IA - PostgreSQL : Un système de base de…'
+version: 1.9.3
+architectures:
+- amd64
+containers:
+- name: langflow-postgres
+  image: postgres:16@sha256:33f923b05f64ca54ac4401c01126a6b92afe839a0aa0a52bc5aeb5cc958e5f20
+  environment:
+    POSTGRES_USER: langflow
+    POSTGRES_PASSWORD: langflow
+    POSTGRES_DB: langflow
+  volumes:
+  - name: postgres
+    target: /var/lib/postgresql/data
+    type: app
+- name: langflow
+  image: langflowai/langflow:1.9.3@sha256:59b00513151c224090e2d062ba94b2b5ba7f9f46922d2704bdf1090b59424d81
+  environment:
+    LANGFLOW_DATABASE_URL: postgresql://langflow:langflow@langflow-postgres:5432/langflow
+    LANGFLOW_CONFIG_DIR: /app/langflow
+  ports:
+  - container: 7860
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: backend
+    target: /app/langflow
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/langflow
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.9.3 is a critical security release with SSRF protection, DNS rebinding prevention, and CVE-related dependency fixes. - The release adds Python 3.14 support and fixes provider/model UI behavior including model toggle stability and Agent dropdown refresh. - The langflowai/langflow:1.9.3 Docker image tag was published on 2026-05-15.
+  fr: '- v1.9.3 is a critical security release with SSRF protection, DNS rebinding prevention, and CVE-related dependency fixes. - The release adds Python 3.14 support and fixes provider/model UI behavior including model toggle stability and Agent dropdown refresh. - The langflowai/langflow:1.9.3 Docker image tag was published on 2026-05-15.'
+securityClassification: standard

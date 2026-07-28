@@ -1,0 +1,95 @@
+schemaVersion: '1'
+id: jdownloader2
+name:
+  en: JDownloader2
+  fr: JDownloader2
+description:
+  en: JDownloader is a free, open-source download management tool with a huge community that makes downloading as easy and fast as it should be. Users can start, stop or pause downloads, set bandwith limitations, auto-extract archives and much more. It's an easy-to-extend framework that can save hours of your valuable time every day!
+  fr: Application JDownloader2 auto-hébergée issue du catalogue officiel CasaOS.
+version: 26.3.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: jdownloader2
+  image: jlesage/jdownloader-2:latest@sha256:47ee6c64917ca5326516ebe868714709c6bdd2e08ca0e33f6e80a943ef2019d2
+  environment:
+    USER_ID: '1000'
+    GROUP_ID: '1000'
+    TZ: Etc/UTC
+    MYJDOWNLOADER_EMAIL: ${secret:MYJDOWNLOADER_EMAIL}
+    MYJDOWNLOADER_PASSWORD: ${secret:MYJDOWNLOADER_PASSWORD}
+    MYJDOWNLOADER_DEVICE_NAME: ${secret:MYJDOWNLOADER_DEVICE_NAME}
+    JDOWNLOADER_HEADLESS: ${secret:JDOWNLOADER_HEADLESS}
+  ports:
+  - container: 5800
+    protocol: tcp
+    proxy: true
+  - container: 5900
+    protocol: tcp
+    proxy: false
+  - container: 3129
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: downloads
+    target: /output
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets:
+- name: MYJDOWNLOADER_EMAIL
+  label:
+    en: Myjdownloader Email
+    fr: Myjdownloader Email
+  description:
+    en: Optional value used by jdownloader2.
+    fr: Valeur facultative utilisée par jdownloader2.
+  required: false
+  generate: false
+- name: MYJDOWNLOADER_PASSWORD
+  label:
+    en: Myjdownloader Password
+    fr: Myjdownloader Password
+  description:
+    en: Optional value used by jdownloader2.
+    fr: Valeur facultative utilisée par jdownloader2.
+  required: false
+  generate: false
+- name: MYJDOWNLOADER_DEVICE_NAME
+  label:
+    en: Myjdownloader Device Name
+    fr: Myjdownloader Device Name
+  description:
+    en: Optional value used by jdownloader2.
+    fr: Valeur facultative utilisée par jdownloader2.
+  required: false
+  generate: false
+- name: JDOWNLOADER_HEADLESS
+  label:
+    en: Jdownloader Headless
+    fr: Jdownloader Headless
+  description:
+    en: Optional value used by jdownloader2.
+    fr: Valeur facultative utilisée par jdownloader2.
+  required: false
+  generate: false
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

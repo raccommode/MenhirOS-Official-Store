@@ -1,0 +1,39 @@
+schemaVersion: '1'
+id: llama-factory-nvidia-gpu
+name:
+  en: LLaMA Factory(Nvidia GPU)
+  fr: LLaMA Factory(Nvidia GPU)
+description:
+  en: 'LLaMA Factory is a comprehensive framework for fine-tuning Large Language Models (LLMs) with support for over 100 models. It provides a user-friendly web interface and powerful training methods including LoRA, QLoRA, and full-parameter training. Key Features: - Support for 100+ LLMs including LLaMA, Mistral, Qwen, and more - Multiple fine-tuning methods (LoRA, QLoRA, Full, Freeze) - Intuitive Web UI for easy model management - Built-in API server for model inference - Multi-GPU training support - Quantization and…'
+  fr: 'LLaMA Factory est un framework complet pour l''ajustement fin des grands modèles de langage (LLMs) avec prise en charge de plus de 100 modèles. Il fournit une interface web conviviale et des méthodes d''entraînement puissantes, notamment LoRA, QLoRA et l''entraînement complet des paramètres. Fonctionnalités Principales: - Support de 100+ LLMs incluant LLaMA, Mistral, Qwen et plus - Multiples méthodes de fine-tuning (LoRA, QLoRA, Full, Freeze) - Interface Web intuitive pour une gestion facile des modèles - Serveur…'
+version: 0.9.4
+architectures:
+- amd64
+containers:
+- name: llama-factory-nvidia
+  image: hiyouga/llamafactory:0.9.4@sha256:ccf6329c69038a571059675651e7da2a3b85fdc7ded8b2ded93413dbe734cf7f
+  command:
+  - llamafactory-cli
+  - webui
+  ports:
+  - container: 7860
+    protocol: tcp
+    proxy: true
+resources:
+  memoryMinimum: 6G
+  memoryRecommended: 12G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths: []
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v0.9.4 updates the project name from LLaMA-Factory to LlamaFactory. - Older Python runtimes are deprecated; the supported Python runtime range was raised. - Installation moved from pip to uv, and new training support includes OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8, and TRL 0.24.
+  fr: '- v0.9.4 met à jour le nom du projet de LLaMA-Factory vers LlamaFactory. - Les anciens runtimes Python sont dépréciés ; la plage de versions Python prises en charge a été relevée. - L''installation est passée de pip à uv, et les nouvelles prises en charge d''entraînement incluent OFT, Semantic Initialization, Megatron-LM, KTransformers, MPO, FP8 et TRL 0.24.'
+securityClassification: standard

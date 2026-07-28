@@ -1,0 +1,46 @@
+schemaVersion: '1'
+id: duckdns
+name:
+  en: duckdns
+  fr: duckdns
+description:
+  en: duckdns is a DDNS (Dynamic DNS) application that dynamically binds IP addresses to domain names, supporting both IPv4 and IPv6.
+  fr: duckdns est une application DDNS (DNS dynamique) qui lie dynamiquement des adresses IP à des noms de domaine, prenant en charge IPv4 et IPv6.
+version: 0.0.1
+architectures:
+- amd64
+- arm64
+containers:
+- name: duckdns
+  image: lscr.io/linuxserver/duckdns:latest@sha256:46817d693c9ce137118504bc1642bb6384cff250705bfa0ffbc89fbe1530835b
+  environment:
+    PUID: '1000'
+    PGID: '1000'
+    TZ: Etc/UTC
+    SUBDOMAINS: subdomain1,subdomain2
+    TOKEN: token
+    UPDATE_IP: ipv6
+    LOG_FILE: 'false'
+  volumes:
+  - name: duckdns
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: critical

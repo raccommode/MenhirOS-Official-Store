@@ -1,0 +1,52 @@
+schemaVersion: '1'
+id: openclaw
+name:
+  en: OpenClaw
+  fr: OpenClaw
+description:
+  en: OpenClaw is an open-source personal AI assistant designed to extend the capabilities of large language models (LLMs) into intelligent agents that actively execute tasks, interact across multiple platforms, and operate continuously. It supports 24/7 operation on the user's own device or server and provides intelligent automation services through common communication tools. OpenClaw connects AI to existing chat channels (such as WhatsApp, Telegram, Discord, etc.) via a locally running "gateway + agent"…
+  fr: OpenClaw est un assistant personnel d'IA open-source conçu pour étendre les capacités des grands modèles linguistiques (LLM) en agents intelligents qui exécutent activement des tâches, interagissent sur plusieurs plateformes et fonctionnent en continu. Il prend en charge un fonctionnement 24h/24 et 7j/7 sur l'appareil ou le serveur de l'utilisateur et fournit des services d'automatisation intelligents via des outils de communication courants. OpenClaw connecte l'IA aux canaux de discussion existants (tels que…
+version: 2026.5.7
+architectures:
+- amd64
+containers:
+- name: openclaw
+  image: icewhaletech/openclaw:2026.5.7@sha256:2795433a46e06ef63dd5a3da64dce663450705c32ccfb9c11e5ded1bad4cdb99
+  command:
+  - /bin/bash
+  - -c
+  - /app/start.sh && node dist/index.js gateway --bind lan --allow-unconfigured --port '18789'
+  environment:
+    HOME: /home/node
+    TERM: xterm-256color
+    OPENCLAW_GATEWAY_TOKEN: casaos
+  ports:
+  - container: 18789
+    protocol: tcp
+    proxy: true
+  - container: 18790
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: appdata
+    target: /home/node/.openclaw
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: true
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /home/node/.openclaw
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - OpenClaw 2026.5.7 improves release and plugin publishing recovery around transient ClawHub CLI dependency installation failures. - Adds an explicit openai/chat-latest direct API-key model override and exposes computed cron status in JSON output. - Hardens native command ownership, memory admin checks, inline skill tool authorization, credential resolution, and plugin lifecycle shell handling.
+  fr: '- OpenClaw 2026.5.7 ameliore release et plugin publishing recovery en cas de transient ClawHub CLI dependency installation failures. - Un openai/chat-latest direct API-key model override explicite a ete ajoute et computed cron status est expose dans JSON output. - Native command ownership, memory admin checks, inline skill tool authorization, credential resolution et plugin lifecycle shell handling ont ete renforces.'
+securityClassification: critical

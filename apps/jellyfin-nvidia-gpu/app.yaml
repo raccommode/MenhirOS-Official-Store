@@ -1,0 +1,66 @@
+schemaVersion: '1'
+id: jellyfin-nvidia-gpu
+name:
+  en: Jellyfin(Nvidia GPU)
+  fr: Jellyfin(Nvidia GPU)
+description:
+  en: Imagine having all your movies, TV shows, and music at your fingertips, ready on any device. Jellyfin transforms your media collection into a personalized entertainment hub, surpassing traditional photo albums. Your media is accessible anywhere and beautifully organized. Jellyfin is free and open-source, offering high-quality streaming, detailed metadata, and personalized recommendations. Multiple users can have their own media libraries. Deploying Jellyfin on private cloud devices like Zima provides virtually…
+  fr: Jellyfin vous permet de collecter, de gérer et de diffuser vos médias. Exécutez le serveur Jellyfin sur votre système et accédez au système de divertissement logiciel libre de pointe, avec des sonneries et des décorations incluses.
+version: 10.10.6
+architectures:
+- amd64
+- arm64
+containers:
+- name: jellyfin
+  image: linuxserver/jellyfin:10.10.6@sha256:3ade631e7085ce6d8ce4b477191152ab51316f0293f23be7531508324cae7b37
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+    CPU_FALLBACK: 'true'
+    NVIDIA_VISIBLE_DEVICES: all
+  ports:
+  - container: 8096
+    protocol: tcp
+    proxy: true
+  - container: 8920
+    protocol: tcp
+    proxy: false
+  - container: 7359
+    protocol: tcp
+    proxy: false
+  - container: 1900
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: media
+    target: /Media
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices:
+  - /dev/dri
+  - /dev/vchiq
+  - /dev/vcsm
+  - /dev/video10
+  - /dev/video11
+  - /dev/video12
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v10.10.6 includes bug fixes for Jellyfin Server. - The release fixes Apple silicon crashes by bumping the .NET framework version to 8.0.13. - Fixes include subnet checks, image encoding concurrency, SchedulesDirect image prefetching, Live TV guide backdrops, and websocket state locking.
+  fr: '- v10.10.6 inclut des corrections de bugs pour Jellyfin Server. - Cette version corrige les plantages sur Apple silicon en mettant à jour le framework .NET vers 8.0.13. - Les correctifs couvrent les vérifications de sous-réseau, la concurrence d''encodage d''image, le préchargement d''images SchedulesDirect, les arrière-plans du guide Live TV et le verrouillage d''état websocket.'
+securityClassification: critical

@@ -1,0 +1,47 @@
+schemaVersion: '1'
+id: plex
+name:
+  en: Plex
+  fr: Plex
+description:
+  en: Transform your home into a cinematic oasis with your very own media server. Unlike streaming platforms that compress and limit the quality of your content, a Plex server in your home allows you to maintain the pristine, high-bitrate glory of Blu-ray and beyond. Imagine pairing this high-fidelity, uninterrupted media access with cutting-edge home theater tech like VR headsets, 75-inch UHD TVs, or 100-inch laser projectors. The result? A breathtaking visual and auditory experience that streams seamlessly across TVs…
+  fr: Application Plex auto-hébergée issue du catalogue officiel CasaOS.
+version: 1.43.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: plex
+  image: lscr.io/linuxserver/plex:1.43.2@sha256:2785a6ad64d3a91529e31df678cf0f9fe8ddfe2718415222f270b8d1a6d765f0
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    VERSION: docker
+  volumes:
+  - name: config
+    target: /config
+    type: app
+  - name: media
+    target: /Media
+    type: share
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: true
+  capabilities: []
+  devices:
+  - /dev/dri
+  - /dev/dvb
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - Updates the LinuxServer Plex image to the 1.43.2 release line. - Includes upstream LinuxServer image refreshes and CI-tested container updates. - Pulls in Plex Media Server fixes from the 1.43.2 release stream.
+  fr: '- Updates the LinuxServer Plex image to the 1.43.2 release line. - Includes upstream LinuxServer image refreshes and CI-tested container updates. - Pulls in Plex Media Server fixes from the 1.43.2 release stream.'
+securityClassification: critical

@@ -1,0 +1,147 @@
+schemaVersion: '1'
+id: librechat
+name:
+  en: LibreChat
+  fr: LibreChat
+description:
+  en: 'LibreChat is a full-featured, open-source AI chat interface that allows users to interact with multiple AI models through a unified platform. It supports various AI providers and offers advanced features like conversation management, plugin support, and customizable interfaces. Key Features: - Support for multiple AI models and providers - Conversation history and management - Plugin system for extended functionality - Customizable themes and interfaces - User authentication and management - API integrations for…'
+  fr: 'LibreChat est une interface de chat IA complète et open-source qui permet aux utilisateurs d''interagir avec plusieurs modèles d''IA à travers une plateforme unifiée. Elle prend en charge divers fournisseurs d''IA et offre des fonctionnalités avancées comme la gestion des conversations, le support des plugins et les interfaces personnalisables. Fonctionnalités Clés : - Support pour plusieurs modèles et fournisseurs d''IA - Historique et gestion des conversations - Système de plugins pour une fonctionnalité étendue -…'
+version: 0.8.7-rc1
+architectures:
+- amd64
+containers:
+- name: librechat-mongodb
+  image: mongo:6.0@sha256:8b6d8f5bbedb25cb73517b65cf99f13aeb75ad5b157a56c479287a840bbad3ac
+  command:
+  - mongod
+  - --noauth
+  volumes:
+  - name: data-node
+    target: /data/db
+    type: app
+- name: librechat-vectordb
+  image: ankane/pgvector:v0.5.1@sha256:d3a9d8ac27bb7e05e333ef25b634d2625adaa85336ab729954b9e94859bf6fa7
+  environment:
+    POSTGRES_DB: mydatabase
+    POSTGRES_USER: myuser
+    POSTGRES_PASSWORD: mypassword
+  volumes:
+  - name: data
+    target: /var/lib/postgresql/data
+    type: app
+- name: librechat-rag-api
+  image: ghcr.io/danny-avila/librechat-rag-api-dev-lite:v0.6.0@sha256:21561e1856e01e4b0de3cc628c7a3de21419398622a0d81cdf0fd262f360ba24
+  environment:
+    DB_HOST: librechat-vectordb
+    RAG_PORT: '8000'
+- name: librechat-api
+  image: ghcr.io/danny-avila/librechat-dev:latest@sha256:598c70f97a4987e5e5f2841fc3708c9c287544bd7b72176446e35dd9f02075e7
+  environment:
+    ASSISTANTS_API_KEY: user_provided
+    OPENAI_API_KEY: user_provided
+    GOOGLE_KEY: user_provided
+    ANTHROPIC_API_KEY: user_provided
+    HOST: 0.0.0.0
+    PORT: '3080'
+    DOMAIN_CLIENT: http://0.0.0.0:3080
+    DOMAIN_SERVER: http://0.0.0.0:3080
+    NO_INDEX: 'true'
+    TRUST_PROXY: '1'
+    CONSOLE_JSON: 'false'
+    DEBUG_LOGGING: 'true'
+    DEBUG_CONSOLE: 'false'
+    MONGO_URI: mongodb://librechat-mongodb:27017/LibreChat
+    MEILI_HOST: http://librechat-meilisearch:7700
+    RAG_PORT: '8000'
+    RAG_API_URL: http://librechat-rag-api:8000
+    SEARCH: 'true'
+    MEILI_NO_ANALYTICS: 'true'
+    OPENAI_MODERATION: 'false'
+    BAN_VIOLATIONS: 'true'
+    BAN_DURATION: 1000 * 60 * 60 * 2
+    BAN_INTERVAL: '20'
+    LOGIN_VIOLATION_SCORE: '1'
+    REGISTRATION_VIOLATION_SCORE: '1'
+    CONCURRENT_VIOLATION_SCORE: '1'
+    MESSAGE_VIOLATION_SCORE: '1'
+    NON_BROWSER_VIOLATION_SCORE: '20'
+    TTS_VIOLATION_SCORE: '0'
+    STT_VIOLATION_SCORE: '0'
+    FORK_VIOLATION_SCORE: '0'
+    IMPORT_VIOLATION_SCORE: '0'
+    FILE_UPLOAD_VIOLATION_SCORE: '0'
+    LOGIN_MAX: '7'
+    LOGIN_WINDOW: '5'
+    REGISTER_MAX: '5'
+    REGISTER_WINDOW: '60'
+    LIMIT_CONCURRENT_MESSAGES: 'true'
+    CONCURRENT_MESSAGE_MAX: '2'
+    LIMIT_MESSAGE_IP: 'true'
+    MESSAGE_IP_MAX: '40'
+    MESSAGE_IP_WINDOW: '1'
+    LIMIT_MESSAGE_USER: 'false'
+    MESSAGE_USER_MAX: '40'
+    MESSAGE_USER_WINDOW: '1'
+    ILLEGAL_MODEL_REQ_SCORE: '5'
+    ALLOW_EMAIL_LOGIN: 'true'
+    ALLOW_REGISTRATION: 'true'
+    ALLOW_SOCIAL_LOGIN: 'false'
+    ALLOW_SOCIAL_REGISTRATION: 'false'
+    ALLOW_PASSWORD_RESET: 'false'
+    ALLOW_UNVERIFIED_EMAIL_LOGIN: 'true'
+    SESSION_EXPIRY: 1000 * 60 * 15
+    REFRESH_TOKEN_EXPIRY: (1000 * 60 * 60 * 24) * 7
+    JWT_SECRET: 16f8c0ef4a5d391b26034086c628469d3f9f497f08163ab9b40137092f2909ef
+    JWT_REFRESH_SECRET: eaa5191f2914e30b9387fd84e254e4ba6fc51b4654968a9b0803b456a54b8418
+    CREDS_KEY: f34be427ebb29de8d88c107a71546019685ed8b241d8f2ed00c3df97ad2566f0
+    CREDS_IV: e2341419ec3dd3d19b13a1a87fafcbfb
+    DEBUG_PLUGINS: 'true'
+    DEBUG_OPENAI: 'false'
+  ports:
+  - container: 3080
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: images
+    target: /app/client/public/images
+    type: app
+  - name: uploads
+    target: /app/uploads
+    type: app
+  - name: logs
+    target: /app/api/logs
+    type: app
+- name: librechat-meilisearch
+  image: getmeili/meilisearch:v1.12.3@sha256:4acfcbbb9e089aa1aac838cfda3fba7f07aaaef044c23da8acbe0ab741400dac
+  environment:
+    MEILI_HOST: http://librechat-meilisearch:7700
+    MEILI_NO_ANALYTICS: 'true'
+    MEILI_MASTER_KEY: DrhYf7zENyR6AlUCKmnz0eYASOQdl6zxH7s7MKFSfFCt
+  volumes:
+  - name: meili-data-v1-12
+    target: /meili_data
+    type: app
+resources:
+  memoryMinimum: 3572M
+  memoryRecommended: 7144M
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /app/api/logs
+  - /app/client/public/images
+  - /app/uploads
+  - /data/db
+  - /meili_data
+  - /var/lib/postgresql/data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

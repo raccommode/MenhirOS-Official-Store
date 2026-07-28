@@ -1,0 +1,42 @@
+schemaVersion: '1'
+id: phoenixd
+name:
+  en: Phoenixd
+  fr: Phoenixd
+description:
+  en: Self-custodial Phoenix Lightning node by ACINQ. It provides a lightweight HTTP API for receiving and sending Bitcoin over Lightning without operating a separate Bitcoin Core node.
+  fr: Nœud Lightning Phoenix auto-dépositaire développé par ACINQ. Il fournit une API HTTP légère pour recevoir et envoyer des bitcoins sur Lightning sans exploiter un nœud Bitcoin Core séparé.
+version: 0.9.0
+architectures:
+- amd64
+- arm64
+containers:
+- name: phoenixd
+  image: acinq/phoenixd:latest@sha256:bf990d88670a2c99df4fcf63c0ce6d3e899cedb00ceb8097978589e17b7b7ee9
+  ports:
+  - container: 9740
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: phoenix
+    target: /phoenix/.phoenix
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /phoenix/.phoenix
+migrations: []
+releaseNotes:
+  en: Menhir integration for the official ACINQ Phoenixd 0.9.0 image. The seed and API password are generated inside the protected application data directory.
+  fr: Intégration Menhir de l’image officielle ACINQ Phoenixd 0.9.0. La graine et le mot de passe de l’API sont générés dans le dossier de données protégé de l’application.
+securityClassification: critical

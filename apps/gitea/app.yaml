@@ -1,0 +1,48 @@
+schemaVersion: '1'
+id: gitea
+name:
+  en: Gitea
+  fr: Gitea
+description:
+  en: Gitea is a painless self-hosted all-in-one software development service, it includes Git hosting, code review, team collaboration, package registry and CI/CD. It is similar to GitHub, Bitbucket and GitLab. - Code Hosting Gitea supports creating and managing repositories, browsing commit history and code files, reviewing and merging code submissions, managing collaborators, handling branches, and more. It also supports many common Git features such as tags, Cherry-pick, hooks, integrated collaboration tools, and…
+  fr: Gitea est une solution d'hébergement de code légère gérée par la communauté écrite en Go.
+version: 1.26.2
+architectures:
+- amd64
+- arm64
+containers:
+- name: gitea
+  image: gitea/gitea:1.26.2@sha256:7d13848af12645600a5f9d93ee2560daa9c6fa6b5b859b7bff3a5e1c0b661031
+  environment:
+    USER_GID: '1000'
+    USER_UID: '1000'
+  ports:
+  - container: 3000
+    protocol: tcp
+    proxy: true
+  - container: 22
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: data
+    target: /data
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /data
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - v1.26.2 includes security fixes for permissions, artifact signatures, token scope checks, OAuth/PKCE handling, downloads, wiki writes, and LFS token access. - It also fixes package permission checks, smart HTTP request scopes, basic auth, maintainer edit permissions, URL sanitization, and attachment Content-Security-Policy. - Dependency security updates are included, such as mermaid v11.15.0 and go-git updates.
+  fr: '- v1.26.2 includes security fixes for permissions, artifact signatures, token scope checks, OAuth/PKCE handling, downloads, wiki writes, and LFS token access. - It also fixes package permission checks, smart HTTP request scopes, basic auth, maintainer edit permissions, URL sanitization, and attachment Content-Security-Policy. - Dependency security updates are included, such as mermaid v11.15.0 and go-git updates.'
+securityClassification: standard

@@ -1,0 +1,49 @@
+schemaVersion: '1'
+id: snapdrop
+name:
+  en: snapdrop
+  fr: snapdrop
+description:
+  en: Snapdrop is a Progressive Web App (PWA) that allows you to transfer files between devices in the same network without having to install anything.
+  fr: Snapdrop est une application Web progressive (PWA) qui vous permet de transférer des fichiers entre des appareils sur le même réseau sans avoir à installer quoi que ce soit.
+version: 0.0.0-version-eac78009
+architectures:
+- amd64
+- arm64
+containers:
+- name: snapdrop
+  image: linuxserver/snapdrop:version-eac78009@sha256:54ef8d7543de2c699883af0c514db9064bbec05ff5f22d63342f90b953d7b138
+  environment:
+    PGID: '1000'
+    PUID: '1000'
+    TZ: Etc/UTC
+  ports:
+  - container: 443
+    protocol: tcp
+    proxy: true
+  - container: 80
+    protocol: tcp
+    proxy: false
+  volumes:
+  - name: config
+    target: /config
+    type: app
+resources:
+  memoryMinimum: 256M
+  memoryRecommended: 512M
+  cpuRecommended: 1
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /config
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog at revision e717df5e312d.
+  fr: Importation depuis le catalogue officiel CasaOS à la révision e717df5e312d.
+securityClassification: standard

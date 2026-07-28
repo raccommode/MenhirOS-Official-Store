@@ -1,0 +1,50 @@
+schemaVersion: '1'
+id: flowise
+name:
+  en: Flowise
+  fr: Flowise
+description:
+  en: Flowise is a generative AI development platform for building AI agents and LLM workflows. An intuitive interface with a visual editor simplifies complex workflow design, ideal for developers creating diverse AI applications, from chatbots to data processing pipelines. Core features include visual orchestration and data integration. Support for various models, custom code, and branching, looping, and routing logic enables complex workflow creation. Connection to over 100 data sources, vector databases, and memory…
+  fr: Flowise est une plateforme de développement IA générative pour construire des agents IA et des flux de travail LLM. Une interface intuitive avec un éditeur visuel simplifie la conception de flux de travail complexes, idéale pour les développeurs créant diverses applications IA, des chatbots aux pipelines de traitement de données. Les fonctionnalités principales incluent l'orchestration visuelle et l'intégration de données. Le support de divers modèles, code personnalisé et logique de branchement, bouclage et…
+version: 3.1.2
+architectures:
+- amd64
+containers:
+- name: flowise
+  image: flowiseai/flowise:3.1.2@sha256:3f96eb1fe88ba038a028b024f98d9f9cf7c62bdbe170ea190d90698936165f94
+  environment:
+    PORT: '3025'
+    DATABASE_PATH: /root/.flowise
+    APIKEY_PATH: /root/.flowise
+    SECRETKEY_PATH: /root/.flowise
+    LOG_PATH: /root/.flowise/logs
+    BLOB_STORAGE_PATH: /root/.flowise/storage
+    FLOWISE_USERNAME: casaos
+    FLOWISE_PASSWORD: casaos
+  ports:
+  - container: 3025
+    protocol: tcp
+    proxy: true
+  volumes:
+  - name: appdata
+    target: /root/.flowise
+    type: app
+resources:
+  memoryMinimum: 1G
+  memoryRecommended: 2G
+  cpuRecommended: 2
+secrets: []
+permissions:
+  privileged: false
+  hostNetwork: false
+  capabilities: []
+  devices: []
+backup:
+  mode: crash-consistent
+  paths:
+  - /root/.flowise
+migrations: []
+releaseNotes:
+  en: Imported from the official CasaOS catalog. - flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.
+  fr: '- flowise@3.1.2 ships security hardening across TTS CORS, MCP server config, tool and variable endpoints, credentials, chatflow access, and user update APIs. - It fixes MySQL-backed session cleanup and limits Markdown rendering in RichInput. - The flowiseai/flowise:3.1.2 Docker image tag was published on 2026-04-14.'
+securityClassification: standard
